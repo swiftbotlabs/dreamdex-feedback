@@ -1,0 +1,14 @@
+# node scripts/perp_gas_sample.mjs ETH-PERP BTC-PERP SOL-PERP, run 2026-10-19T15:20:13Z
+head 27714421n txs 80 single-order txs 69
+single-order STT cost: min 0.00023 p50 0.00027 p90 0.00104 max 0.00270 over 0.003: 0
+0x80054449 to 0xd6cb1d n 69 orders/tx 1 STT min 0.00023 max 0.00270 senders 2
+0x24ea3d1f to 0xd6cb1d n 4 orders/tx 4,6 STT min 0.00091 max 0.00147 senders 1
+0x68ae3595 to 0xfa4b76 n 7 orders/tx 2,6,8,10 STT min 0.00322 max 0.01354 senders 1
+sender 0x954a389f5dee0748f08ab30b7406e0ba442a7d68 txs 67 type legacy gas price gwei 0.6 gasUsed min 378347 max 1761971 paid STT min 0.00023 max 0.00106 same gas at 6 gwei: min 0.00227 max 0.01057
+sender 0x6c2986a550dc4212b49a1710d8466553e3761ce4 txs 4 type eip1559 gas price gwei 0.6 gasUsed min 1523704 max 2447971 paid STT min 0.00091 max 0.00147 same gas at 6 gwei: min 0.00914 max 0.01469
+sender 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca txs 2 type eip1559 gas price gwei 1.8 gasUsed min 1490129 max 1502354 paid STT min 0.00268 max 0.00270 same gas at 6 gwei: min 0.00894 max 0.00901
+sender 0x24b00d46cfd92b78a2a0a635c02984fa689b58da txs 7 type legacy gas price gwei 0.6 gasUsed min 5371498 max 22561710 paid STT min 0.00322 max 0.01354 same gas at 6 gwei: min 0.03223 max 0.13537
+latest block 27714588 baseFeePerGas 6000000000 eth_gasPrice 6000000000
+sample 0xf08351cd2563a2ef45fa8c2b94fd7f543ce6767741248c9c74bf037534a1bd25 1761971 0.6 0.00106 0x80054449 0x954a389f5dee0748f08ab30b7406e0ba442a7d68
+sample 0x7f2c3676ef9e34b887c89aa0e72dc9b6459c5ebd11783600f857ec1bfd400da3 1490129 1.8 0.00268 0x80054449 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca
+sample 0x9129d33064a710a3fc9ef205a2813244b122ebc2c693d54514d0db577fabbb98 1502354 1.8 0.00270 0x80054449 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca

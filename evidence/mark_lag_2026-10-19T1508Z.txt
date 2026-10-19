@@ -1,0 +1,22 @@
+chain head 27706930 indexer block 27706922 now 2026-10-19T15:08:41.000Z
+ZRO       chain 1.8727166386 indexer 1.8195752138 indexerAge    788s  diff 292.05 bps
+SUI       chain 0.9975435031 indexer 0.9884048235 indexerAge   3238s  diff 92.45 bps
+AVAX      chain 9.6673286945 indexer 9.6000726647 indexerAge   3239s  diff 70.05 bps
+XLM       chain 0.1765203706 indexer 0.1753939653 indexerAge   3238s  diff 64.22 bps
+TAO       chain 269.59531114 indexer 267.89945686 indexerAge   3239s  diff 63.3 bps
+XRP       chain 1.3034863929 indexer 1.2960679353 indexerAge   3238s  diff 57.23 bps
+LINK      chain 12.003139241 indexer 11.936468981 indexerAge   3237s  diff 55.85 bps
+DOGE      chain 0.0793821887 indexer 0.0789434568 indexerAge   3239s  diff 55.57 bps
+HYPE      chain 78.734021266 indexer 78.361014648 indexerAge   3239s  diff 47.6 bps
+ETH       chain 2405.6909265 indexer 2394.9717725 indexerAge   2963s  diff 44.75 bps
+BTC       chain 82139.790644 indexer 81781.713460 indexerAge   3418s  diff 43.78 bps
+ADA       chain 0.2179393361 indexer 0.2171835001 indexerAge   3169s  diff 34.8 bps
+ZEC       chain 1130.4158830 indexer 1134.2708185 indexerAge    793s  diff -33.98 bps
+PUMP      chain 0.0044719582 indexer 0.0044579446 indexerAge    800s  diff 31.43 bps
+SOL       chain 104.60175429 indexer 104.31874138 indexerAge    867s  diff 27.12 bps
+WLD       chain 0.5055425817 indexer 0.5049342605 indexerAge   3239s  diff 12.04 bps
+VVV       chain 23.363771829 indexer 23.391626590 indexerAge    788s  diff -11.9 bps
+BNB       chain 726.33260858 indexer 725.79449595 indexerAge   3238s  diff 7.41 bps
+1000PEPE  chain 0.0041238015 indexer 0.0041222178 indexerAge    788s  diff 3.84 bps
+NEAR      chain 4.9065711688 indexer 4.9084167286 indexerAge   3239s  diff -3.75 bps
+LIT       chain 3.0439585655 indexer 3.0432940251 indexerAge    792s  diff 2.18 bps

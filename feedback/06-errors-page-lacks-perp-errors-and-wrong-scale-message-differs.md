@@ -45,6 +45,19 @@ a 608k-USDso trader). Anyone grepping logs for the documented string will not fi
 - Revert data for all three accounts:
   `0x08c379a0…` = `Error("ERC20: insufficient allowance")`.
 
+Real transaction (added 2026-10-19 15:20 UTC): the same wrong-scale order sent on chain by the fresh EOA
+`0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (owner self-send, no allowance to the pool), BTC-PERP
+`placeOrder(true, 0, 73640.1e18, 1e15, now+7d, 0, 0, 0x0, 0)`, i.e. 0.001 BTC written with 18 decimals
+= 10,000,000 BTC at 8 decimals:
+
+| tx | block / time (UTC) | status | gas used | revert |
+|---|---|---|---|---|
+| `0x80b708fddec290ab840ea090e291ade43a3417a64e3c2cbcf1b364e653093078` | 27689075 / 14:38:55 | `0x0` (reverted) | 387,386 of 3,000,000 | `Error("ERC20: insufficient allowance")` |
+
+(Replay at the parent block 27689074 returns `0x08c379a0…` = `ERC20: insufficient allowance`; gas used is
+far below the limit, so this is a revert, not out-of-gas.) A developer grepping their logs for the
+documented `transfer amount exceeds balance` will not find it.
+
 For completeness, the other documented order errors reproduce as documented on BTC-PERP
 (same script, from `0x4206…dfd1`): off-tick price -> `InvalidPrice(price, tickSize)` `0xaf608abb`;
 below `minQuantity` -> `QuantityBelowMinimum` `0xeaa68ceb`; not a lot multiple -> `InvalidQuantity`
@@ -67,5 +80,5 @@ an allowance exists)".
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (error ABI read from source)
 - Somnia Hideki testnet, chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`, BTC-PERP pool `0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0`
-- Date: 2026-10-19, 09:30–10:00 UTC
+- Date: 2026-10-19, 09:30–10:00 UTC (eth_call); real transaction 14:38 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (eth_call `from`)

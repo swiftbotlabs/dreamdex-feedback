@@ -1,0 +1,9 @@
+# scripts/fee_floor_test.mjs output, 2026-10-19 (sender 0x2A11e7388D1D2F9690f2636846d44b478f61bF08, public RPC https://api.hideki2.infra.testnet.somnia.network)
+## run 1, 15:12 UTC
+eth_gasPrice 6000000000 block baseFeePerGas 6000000000 block 27709242
+{"label":"legacy 0.6 gwei","error":"Missing or invalid parameters.\nDouble check you have provided the correct parameters."}
+{"label":"eip1559 maxFee 12 gwei tip 0","hash":"0x4f488257fd9147945d981419da0025e8c8aa5b72fa1320b1a840eae900395c36","status":"success","gasUsed":"21000","effectiveGasPrice":"6000000000","costWei":"126000000000000","block":"27709251"}
+## run 2, 15:13 UTC (RPC error detail printed)
+eth_gasPrice 6000000000 block baseFeePerGas 6000000000 block 27709361
+{"label":"legacy 0.6 gwei","error":"Missing or invalid parameters.\nDouble check you have provided the correct parameters.","details":"gas price below base fee"}
+{"label":"eip1559 maxFee 0.6 gwei","error":"Missing or invalid parameters.\nDouble check you have provided the correct parameters.","details":"gas price below base fee"}

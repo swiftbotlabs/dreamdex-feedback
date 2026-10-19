@@ -42,6 +42,26 @@ docs say how often it is refreshed and that sizing/pricing must use `getPerpStat
 A 10 ms-block chain whose indexed mark is 15–40 minutes old is a trap for anyone who reads
 "realtime … streamed with zero polling" on the SDK overview and sizes from the row.
 
+### Re-check 2026-10-19 15:08 UTC: worse
+`node scripts/mark_lag.mjs` at 15:08:41 UTC, chain head 27706930, indexer block 27706922 (8 blocks behind),
+output in `evidence/mark_lag_2026-10-19T1508Z.txt`:
+
+| market | chain `tryGetMarkPrice` | indexer `markPrice` | row age | diff |
+|---|---|---|---|---|
+| ZRO | 1.8727166386 | 1.8195752138 | 788 s | +292.1 bps |
+| SUI | 0.9975435031 | 0.9884048235 | 3238 s | +92.5 bps |
+| AVAX | 9.6673286945 | 9.6000726647 | 3239 s | +70.1 bps |
+| ETH | 2405.6909265 | 2394.9717725 | 2963 s | +44.8 bps |
+| BTC | 82139.790644 | 81781.713460 | 3418 s | +43.8 bps |
+| (all 21 markets) | | | 788–3418 s | 2–292 bps |
+
+So the row mark was 13–57 minutes old and up to 2.9 % off (the title's "15–40 minutes, up to 1.4 %"
+is from the 09:34 UTC run). During that hour our own ETH-PERP order (tx
+`0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac`, 15:03:39 UTC) and its cancel showed up in
+the indexer's `Order` and `MarginEvent` tables when we queried ~30 s later. Order and margin rows are fresh,
+so the stale value is the `Market.markPrice` refresh itself. We priced that order from `tryGetMarkPrice`
+(2409.19). Pricing it from the row (2394.97 at the time) would have put it ~0.6 % lower.
+
 ## Evidence
 - Full 21-row table from `scripts/mark_lag.mjs` (output kept in `evidence/mark_lag.txt`).
 - Indexer `chain_metadata` in the same response shows the indexer at the head, so this is the mark

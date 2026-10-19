@@ -1,0 +1,16 @@
+# scripts/indexer_timing.sh, re-run 2026-10-19 15:04:22 UTC (indexer at block ~27,704,2xx)
+== active account 0x420691db9d2b5a79210fda48c177471386b6dfd1
+SDK shape: account + kinds D/C/W, ts desc    10.79s ERROR
+SDK shape: account + kinds D/C/W, ts desc    11.20s ERROR
+SDK shape: account + kinds D/C/W, ts desc    11.12s ERROR
+account only, ts desc                        1.54s ok
+account + kinds Locked, ts desc              1.51s ok
+account + kinds D/C/W, order id desc         5.85s ok
+account + kinds D/C/W, no order              3.89s ok
+distinct_on kind                             11.70s ERROR
+aggregate count for account                  1.81s ERROR
+== our bot account 0x2a11e7388d1d2f9690f2636846d44b478f61bf08 (2 MarginEvents at that time: Deposit, Locked)
+SDK shape: account + kinds D/C/W, ts desc    2.44s ok
+SDK shape: account + kinds D/C/W, ts desc    1.79s ok
+SDK shape: account + kinds D/C/W, ts desc    1.09s ok
+account only, ts desc                        1.67s ok

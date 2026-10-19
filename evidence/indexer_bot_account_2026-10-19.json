@@ -1,0 +1,66 @@
+# indexer https://hideki-dev.smk.somnia.host/v1/graphql, queried 2026-10-19T15:18:06Z
+# query: { chain_metadata { latest_processed_block } Order(where:{owner:{_eq:\"0x2a11e7388d1d2f9690f2636846d44b478f61bf08\"}}, order_by:{placedAtBlock: asc}) { id orderId status isBid price fullQuantity quantityRemaining placedAtBlock placedTxHash lastUpdatedAtBlock } MarginEvent(where:{account:{_eq:\"0x2a11e7388d1d2f9690f2636846d44b478f61bf08\"}}, order_by:{timestamp: asc}) { id kind pool amount granter timestamp txHash } }
+{
+    "data": {
+        "chain_metadata": [
+            {
+                "latest_processed_block": 27712574
+            }
+        ],
+        "Order": [
+            {
+                "id": "0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d_184467440737099313154",
+                "orderId": "184467440737099313154",
+                "status": "Filled",
+                "isBid": false,
+                "price": "183200000000000000",
+                "fullQuantity": "18000000000000000000",
+                "quantityRemaining": "0",
+                "placedAtBlock": "27695849",
+                "placedTxHash": "0x0563f193cca70f1c1d39ead2bafd83cff7f63e1c87316e0114939096340ba198",
+                "lastUpdatedAtBlock": "27695849"
+            },
+            {
+                "id": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf_10367070169424774406286",
+                "orderId": "10367070169424774406286",
+                "status": "Cancelled",
+                "isBid": true,
+                "price": "2168270000000000000000",
+                "fullQuantity": "4000000000000000",
+                "quantityRemaining": "4000000000000000",
+                "placedAtBlock": "27703910",
+                "placedTxHash": "0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac",
+                "lastUpdatedAtBlock": "27705997"
+            }
+        ],
+        "MarginEvent": [
+            {
+                "id": "0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82_10",
+                "kind": "Deposit",
+                "pool": null,
+                "amount": "3394800000000000000",
+                "granter": null,
+                "timestamp": "1792421765",
+                "txHash": "0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82"
+            },
+            {
+                "id": "0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac_4",
+                "kind": "Locked",
+                "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+                "amount": "433654000000000000",
+                "granter": null,
+                "timestamp": "1792422219",
+                "txHash": "0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac"
+            },
+            {
+                "id": "0x87f105cccaa5560b975c04b586321838b9de2d22c1790221a608201542ae403d_39",
+                "kind": "Unlocked",
+                "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+                "amount": "433654000000000000",
+                "granter": null,
+                "timestamp": "1792422428",
+                "txHash": "0x87f105cccaa5560b975c04b586321838b9de2d22c1790221a608201542ae403d"
+            }
+        ]
+    }
+}

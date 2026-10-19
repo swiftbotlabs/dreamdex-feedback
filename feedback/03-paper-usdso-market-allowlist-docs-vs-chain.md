@@ -49,6 +49,13 @@ Everything else in the same table matched the chain exactly (tick size, min size
 max leverage / initial margin for all 21 markets, and the base-decimals table on the developer page),
 so this column is the one stale cell group.
 
+### Re-check 2026-10-19 15:09 UTC: unchanged
+- Chain, block 27707067 (`scripts/survey.mjs`, output `evidence/survey_2026-10-19T1508Z.json`): 21 pools,
+  `isVoucherMarketAllowed` = `true` for all 21, `getVoucherLeverageCap()` = 20.
+- Docs, fetched at the same time from `https://app.testnet.dreamdex.io/docs/trading/perps-testnet`: the
+  Paper USDso column still says **No** for 1000PEPE-PERP, LIT-PERP, PUMP-PERP, VVV-PERP, ZEC-PERP and ZRO-PERP;
+  `/docs/trading/perps-testnet/margin-and-liquidations` still says "The six newest markets are not on that list."
+
 ## Evidence
 - `survey.json` produced by `scripts/survey.mjs` (per-pool `voucherAllowed: true`, raw
   `getOrderBookParameters` / `getPerpPoolParameters` values).

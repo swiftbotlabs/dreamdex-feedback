@@ -1,0 +1,1082 @@
+{
+ "rpc": "https://api.hideki2.infra.testnet.somnia.network",
+ "chainId": 50383,
+ "block": "27707067",
+ "at": "2026-10-19T15:08:55.819Z",
+ "systemConfig": {
+  "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+  "collateralToken": "0xed7993A74dAe1e6656B704A424DcD8711aAf4F72",
+  "perpPoolFactory": "0xE631fAEE547baeE07353E290f0562ea67d856560",
+  "liquidationEngine": "0xA66d3C24Ad4a389d863846905D8173e1017e9F4D",
+  "insuranceFund": "0x50826894D47C6D4f3BeA38BFDC7Dc5c5be171b80",
+  "feeRecipient": "0xd58596620Ee6951B2958a931949e4ff7ce6222be",
+  "maxLeverageLimit": 20,
+  "fullyWired": true
+ },
+ "maxLeverageLimit": 20,
+ "voucherLeverageCap": 20,
+ "voucher": {
+  "config": {
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "collateralToken": "0xed7993A74dAe1e6656B704A424DcD8711aAf4F72",
+   "grantAmount": "1000000000000000000000",
+   "expiryDuration": "1209600",
+   "campaignStart": "1790553600",
+   "campaignEnd": "1798477478"
+  },
+  "budgetRemaining": "586508000000000000000000000"
+ },
+ "poolCount": "21",
+ "pools": [
+  {
+   "pool": "0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0",
+   "baseToken": "0xa77fA353dAC50DE5c15676AC910C221A4d2Bd6b5",
+   "restricted": false,
+   "symbol": "BTC",
+   "baseDecimals": 8,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x52E2ccebAeC9332672C247e9A90AA3d61FB615ef",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000000",
+     "minQuantity": "13000",
+     "lotSize": "1000"
+    },
+    "ppp": {
+     "initialMarginBps": "500",
+     "maintenanceMarginBps": "250",
+     "closeOutMarginBps": "125",
+     "maxOpenInterest": "24681545000",
+     "maxPositionSize": "10000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "82150784327857175500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.1",
+    "minQuantity": "0.00013",
+    "lotSize": "0.00001",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "500",
+    "maintenanceMarginBps": "250",
+    "maxLeverage": "20",
+    "maxOpenInterest": "246.81545",
+    "maxPositionSize": "100",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "82150.7843278571755"
+    }
+   }
+  },
+  {
+   "pool": "0xD6Cb1DD58580B84D76068aC21594219ce03aeddf",
+   "baseToken": "0x1516CcebcA301d0651bc27dCDF9b1c2f18C3b4cd",
+   "restricted": false,
+   "symbol": "ETH",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x44BFA5b28684e8D2156d15b85902da18F02b3a34",
+   "raw": {
+    "obp": {
+     "tickSize": "10000000000000000",
+     "minQuantity": "4000000000000000",
+     "lotSize": "100000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "500",
+     "maintenanceMarginBps": "250",
+     "closeOutMarginBps": "125",
+     "maxOpenInterest": "3995612500000000000000",
+     "maxPositionSize": "399561200000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "2406273107904846500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.01",
+    "minQuantity": "0.004",
+    "lotSize": "0.0001",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "500",
+    "maintenanceMarginBps": "250",
+    "maxLeverage": "20",
+    "maxOpenInterest": "3995.6125",
+    "maxPositionSize": "399.5612",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "2406.2731079048465"
+    }
+   }
+  },
+  {
+   "pool": "0xB483ec1fb34996638677c20ab087b16F1896FA53",
+   "baseToken": "0x83B066da8e10839f3683C0b46943357B2cBf629E",
+   "restricted": false,
+   "symbol": "SOL",
+   "baseDecimals": 9,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x85a0879D19777C343eB317a890D5058Ab92b8F5D",
+   "raw": {
+    "obp": {
+     "tickSize": "10000000000000000",
+     "minQuantity": "100000000",
+     "lotSize": "10000000"
+    },
+    "ppp": {
+     "initialMarginBps": "500",
+     "maintenanceMarginBps": "250",
+     "closeOutMarginBps": "125",
+     "maxOpenInterest": "47654440000000",
+     "maxPositionSize": "4765440000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "104598762793548000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.01",
+    "minQuantity": "0.1",
+    "lotSize": "0.01",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "500",
+    "maintenanceMarginBps": "250",
+    "maxLeverage": "20",
+    "maxOpenInterest": "47654.44",
+    "maxPositionSize": "4765.44",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "104.598762793548"
+    }
+   }
+  },
+  {
+   "pool": "0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A",
+   "baseToken": "0x32d7D9B4e07fE76382Dbd9f3C7BeE3b513505B87",
+   "restricted": false,
+   "symbol": "HYPE",
+   "baseDecimals": 6,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x44c24Cd26Cf41037C6eBF337948A6c9bBc0ee055",
+   "raw": {
+    "obp": {
+     "tickSize": "10000000000000000",
+     "minQuantity": "120000",
+     "lotSize": "10000"
+    },
+    "ppp": {
+     "initialMarginBps": "500",
+     "maintenanceMarginBps": "250",
+     "closeOutMarginBps": "125",
+     "maxOpenInterest": "23812720000",
+     "maxPositionSize": "2381270000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "78768501008927500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.01",
+    "minQuantity": "0.12",
+    "lotSize": "0.01",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "500",
+    "maintenanceMarginBps": "250",
+    "maxLeverage": "20",
+    "maxOpenInterest": "23812.72",
+    "maxPositionSize": "2381.27",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "78.7685010089275"
+    }
+   }
+  },
+  {
+   "pool": "0x7058579F3248559963f79AdB937c6De9f953E060",
+   "baseToken": "0xE4DDba6C087Ba15298eCe0939F6D69A5d5542FAd",
+   "restricted": false,
+   "symbol": "XRP",
+   "baseDecimals": 6,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x655E89a7E52490A421aD4C04Fb6a7Dd295Cf1a5F",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "6900000",
+     "lotSize": "100000"
+    },
+    "ppp": {
+     "initialMarginBps": "500",
+     "maintenanceMarginBps": "250",
+     "closeOutMarginBps": "125",
+     "maxOpenInterest": "344632000000",
+     "maxPositionSize": "68926400000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "1303737966451000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "6.9",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "500",
+    "maintenanceMarginBps": "250",
+    "maxLeverage": "20",
+    "maxOpenInterest": "344632",
+    "maxPositionSize": "68926.4",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "1.303737966451"
+    }
+   }
+  },
+  {
+   "pool": "0xC410012e39765Cd5f772e84BAcB19554AEC040Df",
+   "baseToken": "0x683e4fb09e078B6E4eF914cC64f68103Ae2CFF54",
+   "restricted": false,
+   "symbol": "DOGE",
+   "baseDecimals": 8,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xB09Cf2F2F91045f1fF1E4e824F9cf0Fa29698757",
+   "raw": {
+    "obp": {
+     "tickSize": "10000000000000",
+     "minQuantity": "12000000000",
+     "lotSize": "1000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "561359000000000",
+     "maxPositionSize": "112270000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "79394683447500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.00001",
+    "minQuantity": "120",
+    "lotSize": "10",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "5613590",
+    "maxPositionSize": "1122700",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.0793946834475"
+    }
+   }
+  },
+  {
+   "pool": "0x3D2A99fE1e2BdEaA25024515A2D2202DAF9531aD",
+   "baseToken": "0x667954B7eB08f608f5454b91bFD98c2C78A3Aca8",
+   "restricted": false,
+   "symbol": "BNB",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x487fd1E8BCEdf4334A2e83Aa86b426fD70e4e921",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "14000000000000000",
+     "lotSize": "1000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "693975000000000000000",
+     "maxPositionSize": "140000000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "726352606557284000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "0.014",
+    "lotSize": "0.001",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "693.975",
+    "maxPositionSize": "140",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "726.352606557284"
+    }
+   }
+  },
+  {
+   "pool": "0x34fa62909f77699a7a6278D992F72Ff31c7a619D",
+   "baseToken": "0xB987a674df44E929e5E7a0c1157da9Ad669447e0",
+   "restricted": false,
+   "symbol": "ADA",
+   "baseDecimals": 6,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x3a76C35C1CC0A0DBDe646CE51a30805b077d211b",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "46000000",
+     "lotSize": "1000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "2254678000000",
+     "maxPositionSize": "450934000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "217964310202000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "46",
+    "lotSize": "1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "2254678",
+    "maxPositionSize": "450934",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.217964310202"
+    }
+   }
+  },
+  {
+   "pool": "0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4",
+   "baseToken": "0x3b2b65C0224343522B17E960282952470F643830",
+   "restricted": false,
+   "symbol": "SUI",
+   "baseDecimals": 9,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xFDCFb2f985049Cad3aC27472b6Ae80C7a53EDe89",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "13000000000",
+     "lotSize": "1000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "635009000000000",
+     "maxPositionSize": "127000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "998093246685000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "13",
+    "lotSize": "1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "635009",
+    "maxPositionSize": "127000",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.998093246685"
+    }
+   }
+  },
+  {
+   "pool": "0xf71b619450baFe953F47b9b556416A3A67b443b5",
+   "baseToken": "0xB2221107e55a53409cef0E83ED1b29c8879D0f72",
+   "restricted": false,
+   "symbol": "LINK",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x1C3Fabc41871Ec838960F80329DCd920FeC241c9",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "900000000000000000",
+     "lotSize": "100000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "42643600000000000000000",
+     "maxPositionSize": "8528600000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "12009151408126000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "0.9",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "42643.6",
+    "maxPositionSize": "8528.6",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "12.009151408126"
+    }
+   }
+  },
+  {
+   "pool": "0xde9762B6b441133D1314C68864ae4e63A6eE45C7",
+   "baseToken": "0x771ADa7EEb4ba277cD3e5f184baf71E59C78cc65",
+   "restricted": false,
+   "symbol": "AVAX",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xC33dB2DaB35c46295cb435730F14f91A3cfD0367",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "1400000000000000000",
+     "lotSize": "100000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "66672200000000000000000",
+     "maxPositionSize": "13334400000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "9668465359607000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "1.4",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "66672.2",
+    "maxPositionSize": "13334.4",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "9.668465359607"
+    }
+   }
+  },
+  {
+   "pool": "0x74b05B9B8c8F180b53b7891018F3B254B3E658C9",
+   "baseToken": "0xbCdED4e7B8C4EB0A01f632e2C283ca3C8A9a141a",
+   "restricted": false,
+   "symbol": "XLM",
+   "baseDecimals": 7,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xa1b615bE784784420f7Dd7ef4A2a5a392bdb7242",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "540000000",
+     "lotSize": "10000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "26777800000000",
+     "maxPositionSize": "5355560000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "176602849887500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "54",
+    "lotSize": "1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "2677780",
+    "maxPositionSize": "535556",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.1766028498875"
+    }
+   }
+  },
+  {
+   "pool": "0x1cD15ae8bFf0FE0a7F49233BE8b90734775bA454",
+   "baseToken": "0xC772E0E3331bae405824038996CEcce9a2206cf3",
+   "restricted": false,
+   "symbol": "NEAR",
+   "baseDecimals": 24,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xf3a51c26eaD3F84C2221336484bB42B8cFCa076E",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "5100000000000000000000000",
+     "lotSize": "100000000000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "1000",
+     "maintenanceMarginBps": "500",
+     "closeOutMarginBps": "250",
+     "maxOpenInterest": "250410000000000000000000000000",
+     "maxPositionSize": "50000000000000000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "4911755928551500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "5.1",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "1000",
+    "maintenanceMarginBps": "500",
+    "maxLeverage": "10",
+    "maxOpenInterest": "250410",
+    "maxPositionSize": "50000",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "4.9117559285515"
+    }
+   }
+  },
+  {
+   "pool": "0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394",
+   "baseToken": "0x3B5caa24D95C67337e79E7B77F7d65d06f823732",
+   "restricted": false,
+   "symbol": "WLD",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x092Ba74067Cdd5400f38F8B4e91b1a4CF8f7716D",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "26000000000000000000",
+     "lotSize": "1000000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "1264000000000000000000000",
+     "maxPositionSize": "126400000000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "505293440123000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "26",
+    "lotSize": "1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "1264000",
+    "maxPositionSize": "126400",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.505293440123"
+    }
+   }
+  },
+  {
+   "pool": "0xD9b6A347A3Ae9FD6BA21179D3343F2c8A922F697",
+   "baseToken": "0x2533113591243cD476930aEA327Eace664639b85",
+   "restricted": false,
+   "symbol": "TAO",
+   "baseDecimals": 9,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x450b968DC94E3a854c47e37f38e2F6af6E1650B7",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "44000000",
+     "lotSize": "1000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "2185491000000",
+     "maxPositionSize": "218549000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "269787060690116500000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "0.044",
+    "lotSize": "0.001",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "2185.491",
+    "maxPositionSize": "218.549",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "269.7870606901165"
+    }
+   }
+  },
+  {
+   "pool": "0x2a73129F26917124bd2A47a9B355C395C537F050",
+   "baseToken": "0xef2F5E45582C879637cD537345c0e3147FCdBc24",
+   "restricted": false,
+   "symbol": "ZEC",
+   "baseDecimals": 8,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xbFe6F500627A0344270c72A61C4f9f9f31dB9A05",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "900000",
+     "lotSize": "100000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "42000000000",
+     "maxPositionSize": "42000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "1131536309085667000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "0.009",
+    "lotSize": "0.001",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "420",
+    "maxPositionSize": "420",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "1131.536309085667"
+    }
+   }
+  },
+  {
+   "pool": "0x76c981a52530cdF9497559140aAfCd8CD16836E7",
+   "baseToken": "0x6c4a5181878ABE585Fd1Ff4D1070FD95AeA004Eb",
+   "restricted": false,
+   "symbol": "PUMP",
+   "baseDecimals": 6,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0xe09c7550C2eF41A6dDAbe368cBdE83c8bA5259b6",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000",
+     "minQuantity": "1800000000",
+     "lotSize": "100000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "87993700000000",
+     "maxPositionSize": "8799300000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "4476953195000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.000001",
+    "minQuantity": "1800",
+    "lotSize": "100",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "87993700",
+    "maxPositionSize": "8799300",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.004476953195"
+    }
+   }
+  },
+  {
+   "pool": "0xfA9B9e50CC1745113d57893991aF200a74c86B6f",
+   "baseToken": "0x9f1f14Bc9B603dCcd13B33004ef08345941Be1c0",
+   "restricted": false,
+   "symbol": "1000PEPE",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x9942CD840DbBC0a51589027FEF271Dd9bE836f08",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000",
+     "minQuantity": "2700000000000000000000",
+     "lotSize": "100000000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "130285600000000000000000000",
+     "maxPositionSize": "13028500000000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "4125060578000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0000001",
+    "minQuantity": "2700",
+    "lotSize": "100",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "130285600",
+    "maxPositionSize": "13028500",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "0.004125060578"
+    }
+   }
+  },
+  {
+   "pool": "0x352636aB146039851Ef06D6367A106d5FB4E6409",
+   "baseToken": "0xe70769Fa334C05277742531A27c774B93322c345",
+   "restricted": false,
+   "symbol": "VVV",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x6bA14290fc5067578020e649AD066df08915e5Cf",
+   "raw": {
+    "obp": {
+     "tickSize": "1000000000000000",
+     "minQuantity": "440000000000000000",
+     "lotSize": "10000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "21786140000000000000000",
+     "maxPositionSize": "2178610000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "23387747349250000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.001",
+    "minQuantity": "0.44",
+    "lotSize": "0.01",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "21786.14",
+    "maxPositionSize": "2178.61",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "23.38774734925"
+    }
+   }
+  },
+  {
+   "pool": "0xDCb0Ad226727b2cE92857F0aF5751389d42B2A3f",
+   "baseToken": "0xDD27064967CaDba80f177BF692f6d2901cbf85F6",
+   "restricted": false,
+   "symbol": "LIT",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x6243c81D782ca091F47923E049a9ddC1070cb57A",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "2800000000000000000",
+     "lotSize": "100000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "138896600000000000000000",
+     "maxPositionSize": "13889600000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "3045856620912000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "2.8",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "138896.6",
+    "maxPositionSize": "13889.6",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "3.045856620912"
+    }
+   }
+  },
+  {
+   "pool": "0x2a1822b02039DDf0e293F3F7243673fc03EAF16c",
+   "baseToken": "0xCAacB7C35A41f4E188a54FB074daF4fA09538BE0",
+   "restricted": false,
+   "symbol": "ZRO",
+   "baseDecimals": 18,
+   "marginBank": "0x478769E1177C0773c43A593DCCc4Ad15F15F1394",
+   "status": 0,
+   "voucherAllowed": true,
+   "stopRegistry": "0x1667A20a7481D704b1f75e8932D42A6BBafBD539",
+   "raw": {
+    "obp": {
+     "tickSize": "100000000000000",
+     "minQuantity": "5100000000000000000",
+     "lotSize": "100000000000000000"
+    },
+    "ppp": {
+     "initialMarginBps": "2000",
+     "maintenanceMarginBps": "1000",
+     "closeOutMarginBps": "500",
+     "maxOpenInterest": "250599500000000000000000",
+     "maxPositionSize": "25059900000000000000000",
+     "takerFeeBpsTimes1k": "0",
+     "makerFeeBpsTimes1k": "0",
+     "insuranceFundShareBps": "0"
+    },
+    "mark": [
+     true,
+     "1872075786699000000"
+    ]
+   },
+   "human": {
+    "tickSize": "0.0001",
+    "minQuantity": "5.1",
+    "lotSize": "0.1",
+    "minQtyIsLotMultiple": true,
+    "initialMarginBps": "2000",
+    "maintenanceMarginBps": "1000",
+    "maxLeverage": "5",
+    "maxOpenInterest": "250599.5",
+    "maxPositionSize": "25059.9",
+    "takerFeeBpsTimes1k": "0",
+    "makerFeeBpsTimes1k": "0",
+    "insuranceFundShareBps": "0",
+    "mark": {
+     "ok": true,
+     "price": "1.872075786699"
+    }
+   }
+  }
+ ]
+}

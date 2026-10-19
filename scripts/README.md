@@ -12,3 +12,6 @@ Plain `viem` scripts (no SDK code is executed; ABIs are copied from the SDK's `r
 - `mark_lag.mjs` — indexer mark vs chain mark for all markets (report 07).
 - `indexer_timing.sh [account]` — MarginEvents query timings (report 04).
 - `rpccap.mjs` — RPC capability probe (state overrides, eth_simulateV1).
+- `encode_order.mjs <cmd> …` — calldata (from live pool params) for the real transactions: `wrongscale` (report 06), `perpbid` / `cancel` (reports 04, 07, 09), `spotsell`, `approve`, `deposit`. No key involved.
+- `fee_floor_test.mjs` — `PRIVATE_KEY=0x… node scripts/fee_floor_test.mjs`: 0.6 gwei vs 6 gwei self-transfers (report 09). Throwaway testnet key only.
+- `perp_gas_sample.mjs <pool...>` — what recent order senders on the perp pools paid (gas used × effective gas price), by sender (report 09).

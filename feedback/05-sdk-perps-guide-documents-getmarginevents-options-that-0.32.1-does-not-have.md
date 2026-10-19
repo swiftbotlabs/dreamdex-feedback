@@ -45,6 +45,15 @@ The documented options exist, or the docs document the options the shipped SDK h
 `sinceBlock`/`toBlock` are ignored by `getMarginEvents`; `CreditReclaimed` is rejected before the
 request; the market list sentence is from the two-market era.
 
+### Concrete case on a real account (added 2026-10-19 15:20 UTC)
+Our account `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` deposited 3.3948 USDso at block **27699377**
+(tx `0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82`) and placed and cancelled an order
+at blocks 27703910 / 27705997. A scoring window `sinceBlock: 27700000n` must leave the deposit out of
+`flows`. `getMarginEvents` builds `where` from `account` and `kinds` only, and that `where` (sent as-is to the
+indexer, `kinds: ["Deposit","Credited","Withdraw"]`) returns the pre-window `Deposit` row. `MarginEvent` rows
+still have no block field to filter on (`field 'blockNumber' not found in type: 'MarginEvent'`). So the
+recipe would subtract a deposit made before the window from the trading gain.
+
 ## Evidence
 - Source lines quoted above (0.32.1 tarball, sha from npm; same in
   `0.32.2-canary.38575926931.ge4550933d36d`).

@@ -69,7 +69,22 @@ The campaign itself is open: `getConfig()` at block 27493835 (timestamp 17924011
 `campaignStart 1790553600`, `campaignEnd 1798477478`, `grantAmount 1000e18`, `expiryDuration 1209600`,
 and `budgetRemaining()` = `587776000e18`.
 
+### Real transaction (added 2026-10-19 15:20 UTC)
+The same `claim()` sent as a real transaction from the fresh address once it had gas (5 STT from the
+app's Link a bot flow), still flat, never claimed, never main-funded:
+
+| tx | block / time (UTC) | status | gas used | revert |
+|---|---|---|---|---|
+| `0x6c46afbd0041edecffe082696dd59b190d1073d8e9fa75e8862b16fa2c5b427b` | 27687620 / 14:36:29 | `0x0` (reverted) | 22,781 of 1,000,000 | `0x3e31dcc2` `SelfClaimDisabled()` |
+
+The receipt (`eth_getTransactionReceipt` on the RPC above) shows `status 0x0`, `gasUsed 0x58fd`. Gas used is far below
+the limit, so this is a revert, not out-of-gas. Replaying the call at the parent block (`eth_call … "0x1a67ac3"`)
+returns `"data":"0x3e31dcc2"`. After the tx, `isClaimed(0x2A11…bF08)` is still `false` and
+`voucherExpiryOf` is `0`. (Hideki has no public explorer for reverted transactions. The app's markets explorer
+shows only indexed market events, so use the receipt.)
+
 ## Evidence
+- Real reverted transaction above (2026-10-19 14:36 UTC); `evidence/onchain_txs_2026-10-19.txt` lists it with gas and fee.
 - eth_call request/response above (block ~27,493,835, 2026-10-19 ~09:15 UTC); reproducible with
   `node scripts/claim_from.mjs <address...>` in this repo.
 - Credits that did land were operator pushes, not claims (indexer `MarginEvent`, kind `Credited`,
@@ -90,5 +105,5 @@ The SDK side of this (eligibility says `eligible: true`, error not decodable) is
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (source read from the npm tarball; not executed)
 - Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
-- Date: 2026-10-19, 09:00–10:00 UTC
+- Date: 2026-10-19, 09:00–10:00 UTC (eth_call); real transaction 14:36 UTC
 - Wallet used as `from`: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`

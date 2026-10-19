@@ -59,6 +59,27 @@ Timings measured 2026-10-19 09:20–09:30 UTC (each line one request):
 The SDK wraps the failure as an indexer error; nothing in the response says "timeout", so a caller
 cannot tell a transient outage from this deterministic failure.
 
+### Re-check 2026-10-19 15:04 UTC: still failing, and shown against an account with real events of our own
+`scripts/indexer_timing.sh` re-run (`evidence/indexer_timing_2026-10-19T1504Z.txt`):
+
+| query shape | `0x4206…dfd1` (active) | `0x2A11…bF08` (ours, 2 rows) |
+|---|---|---|
+| SDK shape: account + kinds D/C/W + `order_by timestamp desc` | 10.79 s ERROR, 11.20 s ERROR, 11.12 s ERROR | 2.44 s ok, 1.79 s ok, 1.09 s ok |
+| account only, ts desc | 1.54 s ok | 1.67 s ok |
+| same filter, `order_by {id: desc}` / no `order_by` | 5.85 s ok / 3.89 s ok | — |
+| `distinct_on kind` / `MarginEvent_aggregate` count | 11.70 s ERROR / 1.81 s ERROR | — |
+
+To check that the failing shape returns correct rows when it does finish, our own account made real
+MarginBank movements (Hideki, see `evidence/onchain_txs_2026-10-19.txt`): `deposit(3.3948 USDso)` in tx
+`0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82` (block 27699377), then a resting
+ETH-PERP PostOnly bid (orderId `10367070169424774406286`, tx
+`0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac`), cancelled in tx
+`0x87f105cccaa5560b975c04b586321838b9de2d22c1790221a608201542ae403d`. The indexer showed the `Deposit`,
+`Locked` and `Unlocked` rows when we queried ~30 s after each transaction (`evidence/indexer_bot_account_2026-10-19.json`), and the SDK
+shape with `kinds: ["Deposit","Credited","Withdraw"]` returns the one `Deposit` row for this account. So
+the failure depends on how much history the account has, not on the query being malformed. The accounts
+that fail are the ones a portfolio-return calculation is most useful for.
+
 ## Evidence
 - Request/response above; `scripts/indexer_timing.sh` in this repo re-runs the table.
 - SDK query text: `src/perp/history.ts` lines 1032–1037 (0.32.1).
