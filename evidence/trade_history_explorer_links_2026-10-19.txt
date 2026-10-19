@@ -1,0 +1,51 @@
+# Report 11 evidence: trade/order history transaction links point to the Shannon explorer, which cannot find Hideki transactions
+# Collected 2026-10-19 19:34-19:45 UTC by Swift Bot Labs. Browser: Chrome 155 on Linux; curl 8.18.0.
+
+## 1. Links the app renders (DOM a.href), app.testnet.dreamdex.io/portfolio, logged in, 19:37:50 UTC
+## (account: Somnia Account wallet 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817, network Tokyo / Hideki 50383)
+Trade history tab, section 'DreamDEX' (5 rows, table scrolls: ETH-PERP open, SOL-PERP open + close, HYPE-PERP open + close):
+  https://shannon-explorer.somnia.network/tx/0x02b4a27523943686b0dcd97efaa8e8f4e04e2430ee3aa9359e00a0749c1c5cd6
+  https://shannon-explorer.somnia.network/tx/0x8ce2e12ce1cafde0a81cf5603b60d56038a7b381fc71a61f08339b13597b1d96
+  https://shannon-explorer.somnia.network/tx/0xddc05f8790e2f662f80613837a02d2b2503314fbaf41910b62f1b76b6987d708
+  https://shannon-explorer.somnia.network/tx/0x179b478e927748bef31555277433d3cab8e5a1778671e77d1a90cf776b0dc35e
+  https://shannon-explorer.somnia.network/tx/0xdafc8e6a5cd68e0f20ec1dabc9016bce0d6e54fd9b105ec5f92026385575acd2
+Order history tab: the same five https://shannon-explorer.somnia.network/tx/<hash> links.
+TRADER card, wallet link: https://shannon-explorer.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817
+
+## 2. Where each hash actually is (2026-10-19T19:42:56Z)
+##   shannon_page = HTTP status of the linked page (a Blockscout single-page app: always 200, data loads client-side)
+##   shannon_api  = https://shannon-explorer.somnia.network/api/v2/transactions/<hash> (the call that page makes)
+##   shannon_rpc  = eth_getTransactionByHash on https://api.infra.testnet.somnia.network (Shannon, 50312)
+##   hideki_rpc   = eth_getTransactionReceipt on https://api.hideki2.infra.testnet.somnia.network (Hideki, 50383): status, block
+##   markets_exp  = https://smk-dev-markets-explorer-hideki-euw4-uzavbo36ra-ez.a.run.app/tx/<hash>
+hash                                                                 shannon_page shannon_api shannon_rpc hideki_rpc         markets_exp
+0x02b4a27523943686b0dcd97efaa8e8f4e04e2430ee3aa9359e00a0749c1c5cd6   200          404         null        0x1,block=27857099 200
+0x8ce2e12ce1cafde0a81cf5603b60d56038a7b381fc71a61f08339b13597b1d96   200          404         null        0x1,block=27856974 200
+0xddc05f8790e2f662f80613837a02d2b2503314fbaf41910b62f1b76b6987d708   200          404         null        0x1,block=27856768 200
+0x179b478e927748bef31555277433d3cab8e5a1778671e77d1a90cf776b0dc35e   200          404         null        0x1,block=27856643 200
+0xdafc8e6a5cd68e0f20ec1dabc9016bce0d6e54fd9b105ec5f92026385575acd2   200          404         null        0x1,block=27856063 200
+
+$ curl -s https://shannon-explorer.somnia.network/api/v2/transactions/0xdafc8e6a5cd68e0f20ec1dabc9016bce0d6e54fd9b105ec5f92026385575acd2
+  {"message":"Not found"}   [HTTP 404]
+
+## 3. What the user sees (Chrome, fresh context, page text after load)
+### https://shannon-explorer.somnia.network/tx/0xdafc8e6a…acd2 (requested 19:36:07 UTC, read after 45 s; screenshot shannon-explorer-hideki-tx-not-found.png)
+  Sorry, we are unable to locate this transaction hash
+  If you have just submitted this transaction please wait for at least 30 seconds before refreshing this page.
+  It could still be in the TX Pool of a different node, waiting to be broadcasted.
+### https://smk-dev-markets-explorer-hideki-euw4-uzavbo36ra-ez.a.run.app/tx/0xdafc8e6a…acd2 (requested 19:35:38 UTC, read after 12 s; screenshot markets-explorer-hideki-tx.png)
+  TRANSACTION | TRADE | 0xdafc8e6a5cd68e0f20ec1dabc9016bce0d6e54fd9b105ec5f92026385575acd2 | TRANSACTION | PROTOCOL EVENTS |  | 1 |  | ORDERS PLACED |  | 1 |  | TIME |  | 19/10/2026, 19:17:25 UTC |  | BLOCK |  | 27856063 |  | ON THE BLOCK EXPLORER |  | 0xdafc…acd2 |  | MARKETS TOUCHED |  | perp · 0xd6cb…eddf · #d6cb1dd58580b84d76068ac21594219ce03aeddf |  | WHAT THIS TRANSACTION DID | TYPE	SIDE	PRICE	QTY	ACCOUNT	MAKER	TIME (UTC) | MON, OCT 19, 2026 | TRADE	—	2396.46	0.0208	0x0e7e…3817	0x4753…8bff	19:17:25 | ORDERS PLACED IN THIS TRANSACTION | SIDE	LIMIT	SIZE	FILLED	OWNER	STATUS | buy	2401.43	0.0208	0.0208	0x0e7e…3817	Filled · crossed on arrival |  | // Somnia Markets markets explorer |  | SYSTEM | Indexer · 3 blocks · 0 s | · | chain 50383 · hideki testnet
+
+## 4. The app's explorer helpers, as served on 2026-10-19 (minified JS, read only)
+### /_next/static/immutable/chunks/3c67z3kymd4qc.js
+  let s={[n.somnia.id]:n.somnia,[i.somniaTestnet.id]:i.somniaTestnet};function u(){let e=s[a.SOMNIA_CHAIN_ID]; … return e}
+  function m(e,r){if(!e)return null;let t=void 0===r?u():r.chain,n=t.blockExplorers?.default?.url;return n?new URL(`tx/${e}`,`${n}/`).toString():null}
+  let c=[r.arbitrum,t.mainnet,n.somnia,i.somniaTestnet];
+  … "getExplorerTxUrl",0,m,"getExplorerTxUrlForChain",0,function(e,r){if(!r)return null;let t=c.find(r=>r.id===e),n=t?.blockExplorers?.default?.url;…}
+  => with no region argument the tx URL uses getSomniaChain() = Somnia Testnet (Shannon, 50312), whose blockExplorers.default
+     is https://shannon-explorer.somnia.network (defined in /_next/static/immutable/chunks/0xc8kegy706t-.js);
+     getExplorerTxUrlForChain() only knows Arbitrum, Ethereum, Somnia mainnet and Shannon, so it returns null for 50383.
+### /_next/static/immutable/chunks/0_g-j43pbuh27.js (the Tokyo / Hideki region config)
+  H="https://smk-dev-markets-explorer-hideki-euw4-uzavbo36ra-ez.a.run.app",M={chain:{...n.hidekiTestnet,blockExplorers:{default:{name:"Somnia Markets",url:H}}}, …
+  … explorerUrl:H, … id:"tokyo",indexerUrl:"https://hideki-dev.smk.somnia.host/v1/graphql", …
+  => the region the trades belong to already carries the right explorer; the history links don't use it.
