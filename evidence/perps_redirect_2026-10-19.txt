@@ -1,0 +1,181 @@
+# Report 10 evidence: every perps route on app.testnet.dreamdex.io redirects to the STT:USDso spot market
+# Collected 2026-10-19 19:27-19:41 UTC by Swift Bot Labs. Browser: Chrome 155 on Linux (DevTools protocol log of the tab);
+# HTTP: curl 8.18.0 from India (served by Vercel edge bom1), plus three check-host.net nodes (section 2). An earlier
+# check-host run at 19:37 UTC (Austria, Indonesia, UK: all 307) is at https://check-host.net/check-report/521183b3k578
+
+## 1. Plain HTTP (curl -sI, no cookies), 2026-10-19T19:39:52Z
+$ curl -sI https://app.testnet.dreamdex.io/perps
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:52 GMT
+  location: /trade/perps/tokyo/BTC-PERP
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:53 GMT
+  location: /trade
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:53 GMT
+  location: /trade
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/SOL-PERP
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:53 GMT
+  location: /trade
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:54 GMT
+  location: /trade/spot/tokyo/STT:USDso
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade/perps
+  HTTP/2 307 
+  date: Mon, 19 Oct 2026 19:39:54 GMT
+  location: /trade/spot/perps
+  server: Vercel
+$ curl -sI https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  HTTP/2 200 
+  date: Mon, 19 Oct 2026 19:39:54 GMT
+  server: Vercel
+  x-matched-path: /trade/spot/tokyo/STT:USDso
+
+## 2. Same URL from three other regions (check-host.net check-http, 2026-10-19T19:39:55Z)
+  node fr2.node.check-host.net = France, Paris
+  node ir7.node.check-host.net = Iran, Tehran
+  node jp1.node.check-host.net = Japan, Tokyo
+  report: https://check-host.net/check-report/52119159kd17
+   fr2.node.check-host.net -> 307 Temporary Redirect
+   ir7.node.check-host.net -> 307 Temporary Redirect
+   jp1.node.check-host.net -> 307 Temporary Redirect
+
+## 3. Chrome (DevTools Network + Page events). 'Fetch' rows are the Next.js router's RSC requests after a client-side click.
+##    'Skip' = closing the first-visit 'Welcome to dreamdex' dialog so the screenshot shows the market.
+### 3a. Direct URL, logged out (fresh browser context, no cookies) -> screenshot perps-redirect-direct-url-logged-out.png
+  REQUEST 2026-10-19T19:31:51Z https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  +  0.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  +  0.3s REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP -> location: /trade
+  +  0.3s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade
+  +  1.0s REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  +  1.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  1.2s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  1.2s FRAME-NAVIGATED https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  1.8s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  4.4s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  4.6s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  4.6s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  4.7s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL title 0.1866 | STT-USDso | dreamDEX
+
+### 3b. Direct URL, logged in (Privy e-mail account, Somnia Account wallet 0x0e7E...3817)
+  REQUEST 2026-10-19T19:31:51Z https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+  +  0.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+  + 10.8s REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP -> location: /trade
+  + 10.8s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade
+  + 11.1s REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  + 11.1s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 11.1s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 11.1s FRAME-NAVIGATED https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 11.6s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 11.9s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 11.9s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 12.0s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 12.0s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL title 0.1866 | STT-USDso | dreamDEX
+
+### 3c. Perps Arena page /competition, logged in: click the hero button 'Start trading' (href /trade/perps/tokyo/BTC-PERP)
+  REQUEST 2026-10-19T19:38:52Z https://app.testnet.dreamdex.io/competition
+  CLICK-CANDIDATES [{"tag": "A", "href": "/trade/perps/tokyo/BTC-PERP", "abs": "https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP"}]
+  CLICKED at 19:39:22Z
+  +  0.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/competition
+  + 19.9s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/competition
+  + 19.9s FRAME-NAVIGATED https://app.testnet.dreamdex.io/competition
+  + 20.8s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/competition
+  + 21.1s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=MFMTWxxxayZEd0S_
+  + 21.2s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=MFMTWxxxayZEd0S_
+  + 21.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=JfLSut34CWxE6BtA
+  + 21.3s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=JfLSut34CWxE6BtA
+  + 21.8s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=MFMTWxxxayZEd0S_
+  + 21.9s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=MFMTWxxxayZEd0S_ -> location: /trade
+  + 21.9s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade
+  + 22.3s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  + 22.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 22.3s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 22.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=MFMTWxxxayZEd0S_
+  + 22.4s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=MFMTWxxxayZEd0S_
+  + 30.0s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=OgtlUXdnYyIXYO6J
+  + 30.0s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 30.7s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=OgtlUXdnYyIXYO6J -> location: /trade
+  + 30.7s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade
+  + 30.9s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  + 30.9s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 31.0s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 31.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=OgtlUXdnYyIXYO6J
+  + 31.4s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=OgtlUXdnYyIXYO6J
+  FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL title 0.1871 | STT-USDso | dreamDEX
+
+### 3d. Competition hub /competition-hub, logged in: click 'Start Trading Now' (href /trade/perps/tokyo/BTC-PERP) -> screenshot perps-redirect-start-trading-now.png
+  REQUEST 2026-10-19T19:31:17Z https://app.testnet.dreamdex.io/competition-hub
+  CLICK-CANDIDATES [{"tag": "A", "href": "/trade/perps/tokyo/BTC-PERP", "abs": "https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP"}]
+  CLICKED at 19:31:27Z
+  +  0.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/competition-hub
+  +  0.1s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/competition-hub
+  +  0.1s FRAME-NAVIGATED https://app.testnet.dreamdex.io/competition-hub
+  +  0.7s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/competition-hub
+  +  0.8s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=L0ZNlV1UB272CSL2
+  +  1.0s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=L0ZNlV1UB272CSL2
+  +  1.0s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=UPhjHrGMZyd1y1DT
+  +  1.1s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=UPhjHrGMZyd1y1DT
+  +  1.4s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=L0ZNlV1UB272CSL2
+  +  2.0s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=L0ZNlV1UB272CSL2 -> location: /trade
+  +  2.0s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade
+  +  2.3s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  +  2.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  2.4s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  2.4s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=L0ZNlV1UB272CSL2
+  +  2.5s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=L0ZNlV1UB272CSL2
+  +  3.1s Fetch REQUEST GET https://app.testnet.dreamdex.io/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?_rsc=L0ZNlV1UB272CSL2
+  +  3.2s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?_rsc=L0ZNlV1UB272CSL2
+  +  3.2s Fetch REQUEST GET https://app.testnet.dreamdex.io/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?_rsc=DZoBL3G6fRvkKsjq
+  +  3.3s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?_rsc=DZoBL3G6fRvkKsjq
+  + 10.2s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=PD4i6fse5GPsKcqY
+  + 10.2s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 10.3s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=PD4i6fse5GPsKcqY -> location: /trade
+  + 10.3s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade
+  + 10.4s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  + 10.4s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 10.5s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 10.9s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=PD4i6fse5GPsKcqY
+  + 11.0s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=PD4i6fse5GPsKcqY
+  FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL title 0.1868 | STT-USDso | dreamDEX
+  JS "0.1868 | STT-USDso | dreamDEX"
+
+### 3e. Spot page, logged in: open the market selector (STT - USDso), click the 'BTC 20x' perp row
+  REQUEST 2026-10-19T19:40:24Z https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  0.0s DOC-REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  8.7s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  8.7s FRAME-NAVIGATED https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  9.0s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  9.4s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  9.4s Fetch REQUEST HEAD https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  9.5s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  +  9.5s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  FINAL title 0.1869 | STT-USDso | dreamDEX
+  JS clicked row <TR> text='BTC20x82,106.9+1.39%12.97MUSDso213.46+0.2023%'
+     location before click: https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+     location 5 s after click: https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso   (title '0.1870 | STT-USDso | dreamDEX', selector closed: True)
+  -- network during JS --
+  + 22.9s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=R7fy3fK_UhzmpWfs
+  + 23.0s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=R7fy3fK_UhzmpWfs -> location: /trade
+  + 23.0s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade
+  + 23.7s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade -> location: /trade/spot/tokyo/STT:USDso
+  + 23.7s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 23.8s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  + 24.2s Fetch REQUEST GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=R7fy3fK_UhzmpWfs
+  + 24.3s Fetch RESPONSE 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso?_rsc=R7fy3fK_UhzmpWfs
+  + 24.6s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
