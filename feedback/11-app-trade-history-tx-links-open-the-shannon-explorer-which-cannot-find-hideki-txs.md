@@ -1,8 +1,11 @@
 # App: transaction links in Trade history and Order history open shannon-explorer.somnia.network, which cannot find Tokyo / Hideki (chain 50383) transactions; the app's own Hideki explorer, already configured for that region, does show them
-Severity: minor
+Severity: normal
 Area: app
 
-Why minor: every transaction link in the account's history is broken, but trading and funds are not affected, and
+> **Summary.** On the Tokyo / Hideki network, every Transaction hash link in Trade history and Order history opens the
+> Shannon explorer, which 404s Hideki transactions, although the app already configures a Hideki explorer for that region.
+
+Why normal: every transaction link in the account's history is broken, but trading and funds are not affected, and
 the transaction can still be checked another way (RPC or the markets explorer, if you know it exists).
 
 On the Tokyo network (Somnia Hideki testnet, chain id 50383), **Portfolio → Trade history** and **Order history**
@@ -83,3 +86,9 @@ link for Hideki rows rather than pointing at Shannon.
   wallet `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817`
 - Explorers: Shannon Blockscout (backend v10.2.6, frontend 8e18fb6); Somnia Markets explorer v0.32.0 for Hideki
 - RPCs: Hideki `https://api.hideki2.infra.testnet.somnia.network`, Shannon `https://api.infra.testnet.somnia.network`; curl 8.18.0
+
+## Corrections
+- **Corrected 2026-10-20.** Severity minor → normal: "minor" is not on the bounty's scale (critical | major | normal), and
+  normal is its lowest value. Updated the "Why" line to match and added the summary. Re-checked 2026-10-20 02:37 UTC: the
+  Shannon explorer still returns 404 for `0xdafc8e6a…acd2`, whose Hideki receipt has status 1
+  (`evidence/recheck_2026-10-20T0235Z.txt`).

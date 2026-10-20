@@ -1,6 +1,9 @@
-# Docs: "transactions to perp pools … cost between 0.0003 and 0.003 STT each" holds only at 0.6–1.8 gwei; a new sender cannot go below the 6 gwei base fee, so the same transactions cost ~10× more (a minimal resting order: 0.0141 STT)
-Severity: minor
-Area: docs | SDK
+# Docs: "transactions to perp pools … cost between 0.0003 and 0.003 STT each" is the sustained-use-discount price (0.6–1.8 gwei); a new bot pays the full 6 gwei, ~10× more (a minimal resting order: 0.0141 STT)
+Severity: normal
+Area: docs
+
+> **Summary.** The perps developer page's gas-cost figure is what heavy senders pay after Somnia's 70–90 % sustained-use
+> discount. A new bot key pays the undiscounted 6 gwei, so it under-budgets gas by ~10× if it trusts the page.
 
 The developer page "Perps on Testnet for Developers" (`/docs/developers/perps-testnet`, **Get test funds**)
 says:
@@ -9,8 +12,11 @@ says:
 > testnet cost between 0.0003 and 0.003 STT each.
 
 That range matches what the existing high-volume senders on the perp pools pay. They are priced at **0.6
-gwei** (legacy) or **1.8 gwei** (EIP-1559), in blocks whose header says `baseFeePerGas` = 6 gwei. A developer
-following the page cannot get that price. The public RPC rejects anything below 6 gwei with
+gwei** or **1.8 gwei**, in blocks whose header says `baseFeePerGas` = 6 gwei. That is Somnia's documented
+[sustained-use discount](https://docs.somnia.network/concepts/tokenomics/gas-fees): "effective gas price = base gas price ×
+(1 − discount)", with tiers of 70 % (1.8 gwei) and 90 % (0.6 gwei), "0% for most accounts". On testnet the tiers start at
+926,311,728 gas (70 %) and 4,631,558,641 gas (90 %) used over a rolling ~80-minute window. A new bot key is in the 0 %
+tier, so it cannot get the price the page quotes. The public RPC rejects anything below 6 gwei with
 `gas price below base fee`, `eth_gasPrice` returns 6 gwei, and the SDK's own `DEFAULT_FEES` doc says it pays
 "the observed Somnia base fee of 6 gwei" (`maxFeePerGas` 60 gwei, tip 0, `src/config.ts`). So every
 transaction costs ~10× the documented figure. Our first, minimal resting order on ETH-PERP used
@@ -45,7 +51,7 @@ that uses `eth_gasPrice`) actually pays, or the page states the gas price it ass
   |---|---|---|---|
   | `0x39ca9dd7b0f749ad37703072ddbce9ef4e798ed37080d91c47bd5486a8390aac` | ETH-PERP PostOnly bid, min size (orderId `10367070169424774406286`) | 2,352,847 | **0.014117 STT** |
   | `0x87f105cccaa5560b975c04b586321838b9de2d22c1790221a608201542ae403d` | cancel of that order | 156,664 | 0.000940 STT |
-  | `0x80b708fddec290ab840ea090e291ade43a3417a64e3c2cbcf1b364e653093078` | BTC-PERP placeOrder that reverts (report 06) | 387,386 | 0.002324 STT |
+  | `0x80b708fddec290ab840ea090e291ade43a3417a64e3c2cbcf1b364e653093078` | BTC-PERP placeOrder that reverts (wrong-scale test) | 387,386 | 0.002324 STT |
   | `0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82` | MarginBank `deposit` | 521,297 | 0.003128 STT |
 
 - Step 4 (2026-10-19 15:20 UTC, `evidence/perp_gas_sample_2026-10-19.txt`), 80 order transactions on the
@@ -67,8 +73,10 @@ that uses `eth_gasPrice`) actually pays, or the page states the gas price it ass
   while the app's key `0x2277…49c6` pays 6 gwei: its Link a bot operator-grant transaction used 14,880,792 gas
   = 0.089 STT.
 
-We don't know why these senders pay less (it could be a per-sender or volume-based discount). Whatever
-the reason, it is not available to a new developer's key, and the page doesn't say so.
+These senders pay less because of the sustained-use discount above. A new developer's key does not have it, and
+reaching the first tier takes 926,311,728 gas inside ~80 minutes: about 394 minimal resting orders (2,352,847 gas each),
+or 5.56 STT at 6 gwei. The app's default "Send it 5 STT for gas" (833,333,333 gas at 6 gwei) is not enough to reach that
+tier. The page doesn't mention the discount at all.
 
 ## Evidence
 - `evidence/fee_floor_test_2026-10-19.txt` (RPC rejections and the 6 gwei control tx).
@@ -79,9 +87,9 @@ the reason, it is not available to a new developer's key, and the page doesn't s
   ("Somnia's gas schedule is far dearer than mainnet's").
 
 ## Suggested fix
-Quote the cost at the price a new sender pays. At 6 gwei the transactions above are ~0.001 STT for a cancel,
-~0.01–0.015 STT for placing a resting order, and more for batches. Or state the gas price behind the
-0.0003–0.003 figure and how a sender qualifies for it. Size the "Send it 5 STT for gas" default and the
+Quote the cost at the undiscounted price a new sender pays, and link Somnia's sustained-use discount for heavy senders. At 6 gwei the transactions above are ~0.001 STT for a cancel,
+~0.01–0.015 STT for placing a resting order, and more for batches. Or state that the
+0.0003–0.003 figure assumes the 70–90 % discount tiers and how a sender reaches them. Size the "Send it 5 STT for gas" default and the
 "low, top up soon" warning on the same basis.
 
 ## Environment
@@ -91,3 +99,9 @@ Quote the cost at the price a new sender pays. At 6 gwei the transactions above 
 - `@somnia-chain/markets-sdk` 0.32.1 (fee defaults read from source; not executed); viem 2.57.7 for our transactions
 - Date: 2026-10-19, 14:36–15:20 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (throwaway testnet bot key)
+
+## Corrections
+- **Corrected 2026-10-20.** Severity minor → normal: "minor" is not on the bounty's scale (critical | major | normal).
+  Replaced "We don't know why these senders pay less" with the cause, Somnia's documented sustained-use discount, and
+  reframed the title: the page quotes the discounted price, and a new bot pays ~10× that until it qualifies. Area is now
+  `docs` only (the SDK's 6 gwei default is correct). Added the summary. The measurements are unchanged.
