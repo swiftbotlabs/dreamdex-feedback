@@ -1,6 +1,9 @@
-# SDK docs: the Perps guide documents `getMarginEvents` options (`sinceBlock`/`toBlock`, kind `CreditReclaimed`) that 0.32.1 does not accept, so the documented trading-gain recipe silently over-counts
+# SDK docs: the Perps guide's trading-gain recipe throws on kind `CreditReclaimed`, and without it `getMarginEvents` 0.32.1 silently ignores the recipe's `sinceBlock`/`toBlock`
 Severity: normal
-Area: docs | SDK
+Area: docs
+
+> **Summary.** The scoring recipe in the SDK's Perps guide passes options `getMarginEvents` 0.32.1 does not have. As written
+> it throws (`CreditReclaimed`); with that kind removed, `sinceBlock`/`toBlock` are ignored and pre-window deposits count.
 
 The Somnia Markets SDK docs page `/markets/somnia-markets/typescript/perps` ("Account equity for
 scoring is one read", also in `llms-full.txt`) gives a competition-scoring recipe that reads flows
@@ -26,8 +29,6 @@ and a table that lists `CreditReclaimed (voucher sweep)` as an `out` flow. In th
   (history.ts:83, runtime copy at :675). `"CreditReclaimed"` throws
   `InvalidInputError("Margin event kinds must contain only Deposit, Withdraw, Locked, Unlocked, Credited; got CreditReclaimed")`
   (history.ts:697–700), so the recipe as written does not run at all in TypeScript or JavaScript.
-- The same page opens with "Perps are live on testnet: `BTC/USDSO:USDSO` and `ETH/USDSO:USDSO`";
-  21 perp markets are live (`PerpPoolFactory.perpPoolCount()` = 21).
 
 ## Steps to reproduce
 1. `npm pack @somnia-chain/markets-sdk@0.32.1` and open `package/src/perp/history.ts`.
@@ -42,8 +43,9 @@ and a table that lists `CreditReclaimed (voucher sweep)` as an `out` flow. In th
 The documented options exist, or the docs document the options the shipped SDK has.
 
 ## Actual
-`sinceBlock`/`toBlock` are ignored by `getMarginEvents`; `CreditReclaimed` is rejected before the
-request; the market list sentence is from the two-market era.
+`CreditReclaimed` is rejected before the request, so the recipe as written throws (in TypeScript the `"CreditReclaimed"`
+literal is also a type error). With that kind removed, `sinceBlock`/`toBlock` are ignored by `getMarginEvents` and the
+account's whole history comes back with no error.
 
 ### Concrete case on a real account (added 2026-10-19 15:20 UTC)
 Our account `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` deposited 3.3948 USDso at block **27699377**
@@ -51,8 +53,8 @@ Our account `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` deposited 3.3948 USDso 
 at blocks 27703910 / 27705997. A scoring window `sinceBlock: 27700000n` must leave the deposit out of
 `flows`. `getMarginEvents` builds `where` from `account` and `kinds` only, and that `where` (sent as-is to the
 indexer, `kinds: ["Deposit","Credited","Withdraw"]`) returns the pre-window `Deposit` row. `MarginEvent` rows
-still have no block field to filter on (`field 'blockNumber' not found in type: 'MarginEvent'`). So the
-recipe would subtract a deposit made before the window from the trading gain.
+still have no block field to filter on (`field 'blockNumber' not found in type: 'MarginEvent'`; that indexer gap is
+report 12). So the recipe would subtract a deposit made before the window from the trading gain.
 
 ## Evidence
 - Source lines quoted above (0.32.1 tarball, sha from npm; same in
@@ -60,10 +62,11 @@ recipe would subtract a deposit made before the window from the trading gain.
 - `PerpPoolFactory.perpPoolCount()` = 21 at block 27491272 (`scripts/survey.mjs`).
 
 ## Suggested fix
-Either ship `sinceBlock`/`toBlock` on `getMarginEvents` (the indexer row has no `blockNumber`
-field — `field 'blockNumber' not found in type: 'MarginEvent'` — so this needs an indexer column too)
-and add `CreditReclaimed` to `MarginEventKind`, or rewrite the recipe to filter by `timestamp` and
-the kinds that exist. Update the "live on testnet" sentence to the live market count.
+Either ship `sinceBlock`/`toBlock` on `getMarginEvents` (this needs the indexer column in report 12)
+and add `CreditReclaimed` to `MarginEventKind`, or rewrite the recipe with the options and kinds 0.32.1 has.
+
+Footnote, same page: it opens with "Perps are live on testnet: `BTC/USDSO:USDSO` and `ETH/USDSO:USDSO`", while 21 perp
+markets are live (`PerpPoolFactory.perpPoolCount()` = 21 at block 27491272, `scripts/survey.mjs`).
 
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 and 0.32.2-canary (source read; not executed)
@@ -71,3 +74,9 @@ the kinds that exist. Update the "live on testnet" sentence to the live market c
   `https://somnia-platform-explorer.vercel.app/markets/llms-full.txt`, read 2026-10-19 ~09:45 UTC
 - Somnia Hideki testnet, chain id 50383
 - Wallet: n/a
+
+## Corrections
+- **Corrected 2026-10-20.** The old title said the recipe "silently over-counts", but the body shows the recipe as written
+  throws on `CreditReclaimed`. The title and Actual now say both, in order. Area is now `docs` only (the fix is the docs
+  page, or the SDK ships what the docs describe). The missing indexer block field is now its own report (12), and the
+  "BTC and ETH only" sentence is a footnote. Added the summary.

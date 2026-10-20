@@ -1,11 +1,14 @@
-// Simulate perp order placements with eth_call (no gas needed) from an active Perps Arena account,
-// and decode the revert selector against the SDK's contractErrorsAbi.ts (read as text).
-// Reproduces: report 06 (wrong-scale revert message and the documented order errors).
+// Simulate perp order placements with eth_call (no gas needed) and decode each result: (success, orderId) for
+// an accepted order, or the revert selector against the SDK's contractErrorsAbi.ts (read as text).
+// Reproduces: report 03 (a voucher-only account's resting bid is accepted on markets the docs mark "No"), e.g.
+//       node scripts/sim_orders.mjs package/src/contractErrorsAbi.ts 0x567476bd43ff20e6aa44e18abfbdb58280563f45 0x2a73129F26917124bd2A47a9B355C395C537F050  (ZEC-PERP)
+//       and report 06's list of documented order errors. (The "wrong scale" case is kept for reference only; that half of
+//       report 06 was removed on 2026-10-20.)
 // Run:  node scripts/sim_orders.mjs <path/to/contractErrorsAbi.ts> [from] [pool]
 //       (defaults: from 0x420691db9d2b5a79210fda48c177471386b6dfd1, pool BTC-PERP 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0)
 // Read-only: eth_call only; nothing is signed or sent.
 import { readFileSync } from "node:fs";
-import { createPublicClient, http, defineChain, encodeFunctionData, parseAbi, keccak256, toHex, parseUnits } from "viem";
+import { createPublicClient, http, defineChain, encodeFunctionData, decodeFunctionResult, parseAbi, keccak256, toHex, parseUnits } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });
 const client = createPublicClient({ chain, transport: http(RPC, { timeout: 30_000 }) });
@@ -55,6 +58,6 @@ const cases = [
 for (const [label, isBid, price, qty, type, expiry] of cases) {
   const data = encodeFunctionData({ abi, functionName: "placeOrder", args: [isBid, 0n, price, qty, expiry ?? farFuture, type, 0, ZERO, 0n] });
   const r = await client.request({ method: "eth_call", params: [{ from: FROM, to: POOL, data }, "latest"] })
-    .then(x => `OK ${x.slice(0, 20)}…`, e => { const d = (e.data ?? e.cause?.data ?? "") + ""; const sel = d.slice(0, 10); return `REVERT ${sel} ${errMap[sel] ?? (d.startsWith("0x08c379a0") ? "Error(string)" : "UNKNOWN")}${d.length > 10 ? " data=" + d.slice(0, 74) : ""}`; });
+    .then(x => { try { const [ok, id] = decodeFunctionResult({ abi, functionName: "placeOrder", data: x }); return `OK success=${ok} orderId=${id}`; } catch { return `OK ${x.slice(0, 20)}…`; } }, e => { const d = (e.data ?? e.cause?.data ?? "") + ""; const sel = d.slice(0, 10); return `REVERT ${sel} ${errMap[sel] ?? (d.startsWith("0x08c379a0") ? "Error(string)" : "UNKNOWN")}${d.length > 10 ? " data=" + d.slice(0, 74) : ""}`; });
   console.log(`- ${label}: ${r}`);
 }

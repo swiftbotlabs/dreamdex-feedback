@@ -1,0 +1,60 @@
+# Report 03: does the chain accept paper-USDso (voucher-only) orders on markets the docs mark "Paper USDso: No"?
+# Run 2026-10-20T03:32:59Z. Read-only eth_call; nothing signed or sent. Account 0x567476bd43ff20e6aa44e18abfbdb58280563f45: voucher granted by the Arena,
+# never main-funded, no deposit, flat (state line below). Commands:
+#   node scripts/claim_from.mjs 0x567476bd43ff20e6aa44e18abfbdb58280563f45
+#   node scripts/sim_orders.mjs package/src/contractErrorsAbi.ts 0x567476bd43ff20e6aa44e18abfbdb58280563f45 <pool>   (SDK 0.32.1 error ABI from npm pack)
+
+## account state
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 code: EOA claimed: true activePools: 0 mainFunded: 0 floor: 2000000000000000000000 exp: 1793634161 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+
+## ZEC-PERP (docs: No)
+pool 0x2a73129F26917124bd2A47a9B355C395C537F050 from 0x567476bd43ff20e6aa44e18abfbdb58280563f45 mark 1141903540158996000000 tick 1000000000000000 lot 100000 min 900000 maxPos 42000000000
+best bid 1141402000000000000000 best ask 1141724000000000000000
+- valid resting bid 10% below mark, min qty: OK success=true orderId=184467440737097079147
+- price off tick (+1 wei): REVERT 0xaf608abb InvalidPrice(uint256,uint256) data=0xaf608abb000000000000000000000000000000000000000000000037b662087173068001
+- quantity below minQuantity (min - lot): REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb00000000000000000000000000000000000000000000000000000000000c3500
+- quantity not a lot multiple (min + 1): REVERT 0x4f174b29 InvalidQuantity(uint256,uint256) data=0x4f174b2900000000000000000000000000000000000000000000000000000000000dbba1
+- quantity zero: REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb0000000000000000000000000000000000000000000000000000000000000000
+- expiry 0 (docs: OrderAlreadyExpired): REVERT 0x3154078e OrderAlreadyExpired()
+- IOC bid far below mark (no fill): REVERT 0xd48c4403 ImmediateOrCancelNoFill()
+- FOK bid far below mark: REVERT 0xc04ad919 FillOrKillNotFillable()
+- PostOnly bid crossing the ask: REVERT 0x7cf05fcb PostOnlyWouldCross()
+- over maxPositionSize (cap + lot): REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- wrong scale: 0.001 BTC written with 18 decimals: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- huge price (mark x 1000) min qty: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+
+## PUMP-PERP (docs: No)
+pool 0x76c981a52530cdF9497559140aAfCd8CD16836E7 from 0x567476bd43ff20e6aa44e18abfbdb58280563f45 mark 4413799394000000 tick 1000000000000 lot 100000000 min 1800000000 maxPos 8799300000000
+best bid 4411000000000000 best ask 4417000000000000
+- valid resting bid 10% below mark, min qty: OK success=true orderId=350488137400482644190
+- price off tick (+1 wei): REVERT 0xaf608abb InvalidPrice(uint256,uint256) data=0xaf608abb000000000000000000000000000000000000000000000000000e1c83510c4001
+- quantity below minQuantity (min - lot): REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb000000000000000000000000000000000000000000000000000000006553f100
+- quantity not a lot multiple (min + 1): REVERT 0x4f174b29 InvalidQuantity(uint256,uint256) data=0x4f174b29000000000000000000000000000000000000000000000000000000006b49d201
+- quantity zero: REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb0000000000000000000000000000000000000000000000000000000000000000
+- expiry 0 (docs: OrderAlreadyExpired): REVERT 0x3154078e OrderAlreadyExpired()
+- IOC bid far below mark (no fill): REVERT 0xd48c4403 ImmediateOrCancelNoFill()
+- FOK bid far below mark: REVERT 0xc04ad919 FillOrKillNotFillable()
+- PostOnly bid crossing the ask: REVERT 0x7cf05fcb PostOnlyWouldCross()
+- over maxPositionSize (cap + lot): REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- wrong scale: 0.001 BTC written with 18 decimals: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- huge price (mark x 1000) min qty: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+
+## ETH-PERP (docs: Yes)
+pool 0xD6Cb1DD58580B84D76068aC21594219ce03aeddf from 0x567476bd43ff20e6aa44e18abfbdb58280563f45 mark 2404960696889925000000 tick 10000000000000000 lot 100000000000000 min 4000000000000000 maxPos 399561200000000000000
+best bid 2405280000000000000000 best ask 2405620000000000000000
+- valid resting bid 10% below mark, min qty: OK success=true orderId=10348623425351065180976
+- price off tick (+1 wei): REVERT 0xaf608abb InvalidPrice(uint256,uint256) data=0xaf608abb00000000000000000000000000000000000000000000007555eaa6330dfe0001
+- quantity below minQuantity (min - lot): REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb000000000000000000000000000000000000000000000000000ddb07829fc000
+- quantity not a lot multiple (min + 1): REVERT 0x4f174b29 InvalidQuantity(uint256,uint256) data=0x4f174b29000000000000000000000000000000000000000000000000000e35fa931a0001
+- quantity zero: REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb0000000000000000000000000000000000000000000000000000000000000000
+- expiry 0 (docs: OrderAlreadyExpired): REVERT 0x3154078e OrderAlreadyExpired()
+- IOC bid far below mark (no fill): REVERT 0xd48c4403 ImmediateOrCancelNoFill()
+- FOK bid far below mark: REVERT 0xc04ad919 FillOrKillNotFillable()
+- PostOnly bid crossing the ask: REVERT 0x7cf05fcb PostOnlyWouldCross()
+- over maxPositionSize (cap + lot): REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- wrong scale: 0.001 BTC written with 18 decimals: REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb00000000000000000000000000000000000000000000000000038d7ea4c68000
+- huge price (mark x 1000) min qty: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+
+## indexer MarginEvent rows for the account (all kinds), 2026-10-20T03:33:43Z
+{"data":{"MarginEvent":[{"kind":"Credited","amount":"1000000000000000000000","granter":"0x2acd9efda721450906bfe1bef3ede269636e42c4","timestamp":"1792367489","txHash":"0xa388c2d1abdde473e77eb6d0943723914d037400fd2b97a12bdc5128813a649f"}, {"kind":"Credited","amount":"1000000000000000000000","granter":"0x2acd9efda721450906bfe1bef3ede269636e42c4","timestamp":"1792424561","txHash":"0xfa8342c450c43545d71a772f898e4f8f99bfd590876090467bad09b631c1bee5"}]}}
+=> two Credited grants of 1,000 USDso from the VoucherDistributor, no Deposit: the margin is paper USDso only.

@@ -1,6 +1,9 @@
-# Paper USDso: the documented self-claim (`claimPerpVoucher`) reverts for every caller with `SelfClaimDisabled()`
+# Docs: the developer page's only paper-USDso route, `claimPerpVoucher`, reverts for every caller with `SelfClaimDisabled()`
 Severity: major
-Area: docs | contracts
+Area: docs
+
+> **Summary.** "Get test funds" on the perps developer page tells developers to self-claim the 1,000 paper USDso with
+> `claimPerpVoucher`. On Hideki that `claim()` reverts for every caller (`SelfClaimDisabled()`, `0x3e31dcc2`): the route fails 100 % of the time.
 
 The developer page "Perps on Testnet for Developers" says, under **Get test funds**:
 
@@ -22,7 +25,12 @@ error whose selector is `0x3e31dcc2` = `SelfClaimDisabled()`. The 1,000 USDso cr
 (indexer `MarginEvent` kind `Credited`) are all pushed by an operator batch transaction from
 `0x792182e6b2bd50deb22dc5436f7c518b34f9bd12` (function selector `0x0677d0a3`), never by `claim()`.
 So the only developer-facing route to paper USDso described on the developer page does not work,
-and nothing on the page says that the credit is operator-granted (via the Perps Arena) only.
+and nothing on that page says that the credit is operator-granted (via the Perps Arena) only.
+
+To be fair to the docs: the trading page `/docs/trading/perps-testnet` already says, as step 2, "Get paper USDso. Join
+Perps Arena, the paper-trading competition, to receive 1,000 paper USDso". The gate is clearly deliberate (it has its
+own named error). What is wrong is that the developer page, the one a bot developer reads, offers only the self-claim and
+its code sample, and calls it open to "any address".
 
 ## Steps to reproduce
 1. Pick any address. The one below is a fresh EOA with zero balance, no positions, no orders,
@@ -40,9 +48,10 @@ curl -s -H 'content-type: application/json' https://api.hideki2.infra.testnet.so
 4. Compute `keccak256("SelfClaimDisabled()")[:4]`.
 
 ## Expected
-Per the docs: a fresh address claims 1,000 USDso once; an ineligible address reverts with one of the
-reasons the SDK names (`CampaignInactive`, `ClaimantNotFlat`, `ClaimantIsMainFunded`, `AlreadyClaimed`,
-`BudgetExhausted`).
+Either the developer page says that paper USDso comes from the Perps Arena (and drops or caveats the
+`claimPerpVoucher` sample), or self-claim works as the page describes: a fresh address claims 1,000 USDso once, and an
+ineligible address reverts with one of the reasons the SDK names (`CampaignInactive`, `ClaimantNotFlat`,
+`ClaimantIsMainFunded`, `AlreadyClaimed`, `BudgetExhausted`).
 
 ## Actual
 Every caller gets the same revert, before any of the documented checks (an `AlreadyClaimed` account
@@ -105,5 +114,11 @@ The SDK side of this (eligibility says `eligible: true`, error not decodable) is
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (source read from the npm tarball; not executed)
 - Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
-- Date: 2026-10-19, 09:00–10:00 UTC (eth_call); real transaction 14:36 UTC
+- Date: 2026-10-19, 09:00–10:00 UTC (eth_call); real transaction 14:36 UTC; re-checked 2026-10-20 02:35 UTC (same
+  revert for a fresh address, an active trader and an `isClaimed` account, `evidence/recheck_2026-10-20T0235Z.txt`)
 - Wallet used as `from`: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+
+## Corrections
+- **Corrected 2026-10-20.** Area is now `docs` only (the distributor's gate is deliberate; the defect is the developer
+  page). Retitled to match, rewrote Expected as "the page names the Arena, or self-claim works", and added that the
+  trading page already names the Arena as the source of paper USDso. Added the summary. The evidence is unchanged.

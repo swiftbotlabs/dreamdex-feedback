@@ -1,6 +1,15 @@
 # SDK: `getPerpVoucherEligibility` returns `eligible: true` while `claim()` reverts, and `SelfClaimDisabled()` is missing from `contractErrorsAbi`
-Severity: major
+Severity: normal
 Area: SDK
+
+> **Summary.** Two SDK defects: an eligibility helper that says it mirrors `claim()` skips the deployed distributor's
+> first gate, and the SDK's error ABI cannot decode the revert that gate produces (`0x3e31dcc2`).
+
+**Distinct from report 01:** 01 is the developer page's paper-USDso route (docs; fix in the docs or the distributor's
+config). This report is two defects in the SDK package itself (fix in `src/perp/voucher.ts` and
+`src/contractErrorsAbi.ts`). They stay wrong whatever the self-claim policy is: the helper skips a gate that exists in the
+deployed contract, and the ABI lacks an error the contract emits. The real transaction `0x6c46afbd…427b` in report 01 is
+the revert this SDK cannot decode.
 
 `getPerpVoucherEligibility` (src/perp/voucher.ts) documents itself as mirroring the checks of
 `VoucherDistributor.claim()` "in the order the contract checks them, so the first failure here is the
@@ -70,3 +79,9 @@ The bounty's own developer page builds its "Get test funds" sample on exactly th
 - Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
 - Date: 2026-10-19, 09:00–10:00 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+
+## Corrections
+- **Corrected 2026-10-20.** Severity lowered from major to normal: on its own the impact is small (a developer already
+  blocked by report 01 gets a misleading `eligible: true` and then an undecodable revert). Added the summary and the
+  "Distinct from report 01" paragraph. Nothing else changed; 0.32.1 is still the npm `latest` (re-checked 2026-10-20
+  02:35 UTC, `evidence/recheck_2026-10-20T0235Z.txt`).

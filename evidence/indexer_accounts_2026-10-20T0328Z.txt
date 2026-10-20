@@ -1,0 +1,32 @@
+# Report 04: SDK getMarginEvents query (kinds Deposit/Credited/Withdraw, order_by timestamp desc, limit 50) per account.
+# Read-only GraphQL against https://hideki-dev.smk.somnia.host/v1/graphql. Script: bash scripts/indexer_accounts.sh <account...>
+# Accounts: the 10 most active in 6,000 recent MarginEvent rows sampled over the last 14 days, plus 2 quiet accounts.
+
+## pass 1 (first version of the script; 'probe-err' = the >100k count probe itself failed)
+2026-10-20T03:27:53Z
+0x420691db9d2b5a79210fda48c177471386b6dfd1 rows:probe-err (probe 10.90s) | SDK shape: 13.67s ERROR "message":"database query error"
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff rows:probe-err (probe 10.59s) | SDK shape: 10.48s ERROR "message":"database query error"
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 rows:>100k (probe 2.22s) | SDK shape: 10.90s ERROR "message":"database query error"
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 rows:>100k (probe 2.40s) | SDK shape: 10.65s ERROR "message":"database query error"
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d rows:>100k (probe 1.19s) | SDK shape: 10.57s ERROR "message":"database query error"
+0xfa5f80c0bb94e4a5016f883a7e86070ae7e1fb5a rows:>100k (probe 1.14s) | SDK shape: 3.45s ok rows=1
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac rows:>100k (probe 1.33s) | SDK shape: 1.61s ok rows=1
+0xab8b612548cc3f5f9f7e723823be37058d0110b2 rows:>100k (probe 1.53s) | SDK shape: 3.49s ok rows=1
+0xe8c0d36d69a10bea8d00fe45a2fde45527eda984 rows:>100k (probe 0.99s) | SDK shape: 2.15s ok rows=1
+0x4e42d094f9d066a013a98a61b34690c882d1f896 rows:probe-err (probe 10.47s) | SDK shape: 1.09s ok rows=1
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 rows:<=100k (probe 0.47s) | SDK shape: 0.64s ok rows=1
+0x2a11e7388d1d2f9690f2636846d44b478f61bf08 rows:<=100k (probe 0.52s) | SDK shape: 0.48s ok rows=1
+
+## pass 2 2026-10-20T03:33:56Z
+0x420691db9d2b5a79210fda48c177471386b6dfd1 rows:>100k (probe 0.70s) | SDK shape: 10.40s ERROR "message":"database query error"
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff rows:>100k (probe 2.87s) | SDK shape: 10.82s ERROR "message":"database query error"
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 rows:>100k (probe 3.18s) | SDK shape: 10.64s ERROR "message":"database query error"
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 rows:>100k (probe 1.43s) | SDK shape: 10.56s ERROR "message":"database query error"
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d rows:>100k (probe 0.78s) | SDK shape: 10.50s ERROR "message":"database query error"
+0xfa5f80c0bb94e4a5016f883a7e86070ae7e1fb5a rows:unknown (count probe also failed) (probe 10.66s) | SDK shape: 2.62s ok rows=1
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac rows:>100k (probe 1.07s) | SDK shape: 1.30s ok rows=1
+0xab8b612548cc3f5f9f7e723823be37058d0110b2 rows:unknown (count probe also failed) (probe 10.48s) | SDK shape: 2.12s ok rows=1
+0xe8c0d36d69a10bea8d00fe45a2fde45527eda984 rows:>100k (probe 0.81s) | SDK shape: 2.22s ok rows=1
+0x4e42d094f9d066a013a98a61b34690c882d1f896 rows:>100k (probe 1.06s) | SDK shape: 1.13s ok rows=1
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 rows:<=100k (probe 0.50s) | SDK shape: 0.55s ok rows=1
+0x2a11e7388d1d2f9690f2636846d44b478f61bf08 rows:<=100k (probe 0.50s) | SDK shape: 0.51s ok rows=1
