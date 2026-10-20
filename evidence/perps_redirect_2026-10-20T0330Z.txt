@@ -1,0 +1,22 @@
+# Report 10 re-check, 2026-10-20 (read-only HTTP GETs)
+
+## 1. curl from India, 2026-10-20T03:36:19Z
+GET /trade/perps/tokyo/BTC-PERP -> HTTP/2 307  location: /trade x-vercel-id: bom1::rbp6l-1792467379190-1b223dc954fe 
+GET /trade/perps/tokyo/ETH-PERP -> HTTP/2 307  location: /trade x-vercel-id: bom1::x97rc-1792467380019-51fa6de98d7a 
+GET /trade/perps/tokyo/SOL-PERP -> HTTP/2 307  location: /trade x-vercel-id: bom1::8tr6v-1792467380248-230a5a6d12c5 
+GET /trade -> HTTP/2 307  location: /trade/spot/tokyo/STT:USDso x-vercel-id: bom1::nj8qj-1792467380467-d749197290e4 
+
+## 2. check-host.net, run 2026-10-20 ~03:11 UTC: https://check-host.net/check-report/52235b86k326
+# parsed from the report page (HTTPCheckResultDisplayer data), fetched 03:31 UTC
+nodes 40 codes {'307': 37, 'none:[null,{"message":"Connect timeout"}]': 1, '403': 1, 'none:[[1,0.068058967590332,"Temporary Redirect",307,"216.150.16.1': 1}
+307 countries 25 ['Australia', 'Austria', 'Brazil', 'Bulgaria', 'France', 'Germany', 'Hong Kong', 'Hungary', 'India', 'Iran', 'Japan', 'Kazakhstan', 'Moldova', 'Netherlands', 'Poland', 'Portugal', 'Russia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'UK', 'USA', 'Ukraine']
+non-307 [('us2', 'USA, Dallas', 'none:[null,{"message":"Connect timeout"}]'), ('sg1', 'Singapore, Singapore', '403'), ('de1', 'Germany, Nuremberg', 'none:[[1,0.068058967590332,"Temporary Redirect",307,"216.150.16.1')]
+# (de1 Nuremberg is a 307 too; its result is written as a number, not a string. us2 Dallas timed out. sg1 Singapore got 403.)
+
+## 3. The app's own feature flags, from the HTML of /trade/spot/tokyo/STT:USDso (server-rendered payload), 2026-10-20T03:36:20Z
+dreambot-perps = true
+gate-perps = false
+perp-markets-listed = true
+perps-default-landing = true
+perps-lend-margin = true
+geoBypass = false

@@ -1,10 +1,14 @@
 # App: every perps trading route, including the Perps Arena's "Start trading" and "Start Trading Now" buttons, redirects to the STT-USDso spot market, so the perps trading view cannot be opened
-Severity: normal
+Severity: major
 Area: app
 
-Why normal: nobody can open the perps trading view in the app, logged in or not, from any entry point, while the
-Perps Arena is running. The perps markets themselves still work on chain and through the SDK and bot kit, so there
-is a workaround for developers (not for ordinary Arena traders).
+> **Summary.** Every perps route in the app answers with a server-side `307` that ends on the STT-USDso spot market, from
+> 38 check-host nodes in 25 countries, logged in or out, while the app's own flags say perps are on and the default landing.
+
+Why major: the core perps UI cannot be opened by anyone, from any entry point, while the Perps Arena is running, and the
+Arena's call to action (and its onboarding quests: a resting limit order, a TP/SL trigger order, trading 3 markets) leads
+nowhere. It has lasted more than 8 hours (first seen ~19:10 UTC Oct 19, still present 03:36 UTC Oct 20). Funds are not at
+risk, and developers can still trade through the SDK or the bot kit, so it is not critical.
 
 Every entry point in the app that should open a perps market goes to `/trade/perps/tokyo/<MARKET>-PERP`: the
 top-nav **Trade** link, the logo, the Perps Arena hero button **Start trading** (`/competition`), the competition
@@ -46,7 +50,22 @@ The BTC-PERP perps trading view (perp chart, order form with leverage, positions
 - Not regional: the same `307` from India (Vercel edge `bom1`) and from check-host.net nodes in France, Iran,
   Japan, Austria, Indonesia and the UK (reports linked in the evidence file).
 
+### Added 2026-10-20: still present, worldwide, and not a switch-off by flag
+- **Still present** at 03:11 UTC and 03:36 UTC on Oct 20, more than 8 hours after we first saw it: `/trade/perps/tokyo/BTC-PERP`,
+  `/ETH-PERP` and `/SOL-PERP` → `307 location: /trade`, `/trade` → `307 location: /trade/spot/tokyo/STT:USDso`
+  (`evidence/perps_redirect_2026-10-20T0330Z.txt`).
+- **Worldwide:** check-host.net report https://check-host.net/check-report/52235b86k326 (run 2026-10-20 03:11 UTC) for
+  `/trade/perps/tokyo/BTC-PERP`: **307 from 38 of 40 nodes in 25 countries** (Australia, Austria, Brazil, Bulgaria, France,
+  Germany, Hong Kong, Hungary, India, Iran, Japan, Kazakhstan, Moldova, Netherlands, Poland, Portugal, Russia, Slovenia,
+  Spain, Sweden, Switzerland, Turkey, UK, USA, Ukraine). The other two: Singapore got `403`, one Dallas node timed out.
+- **The app's own feature flags say perps are on**, in the server-rendered payload of the spot page it redirects to:
+  `"gate-perps":false`, `"perp-markets-listed":true`, `"perps-default-landing":true`, `"dreambot-perps":true`. So the
+  redirect contradicts the app's own configuration rather than following a deliberate switch-off. The same payload has
+  `"geoBypass":false`; since 38 nodes in 25 countries get the same `307`, a geo-gate does not explain it either.
+
 ## Evidence
+- `evidence/perps_redirect_2026-10-20T0330Z.txt`: the 2026-10-20 re-check (curl headers, the parsed check-host report,
+  the feature flags).
 - `evidence/perps_redirect_2026-10-19.txt`: curl response headers, the check-host results, and the Chrome DevTools
   network log (document requests, redirect responses with their `location` header, RSC fetches,
   `location.href` after load) for each entry point above.
@@ -62,9 +81,16 @@ on the spot page and stop pointing the Arena buttons and the nav at it, because 
 resting limit order, a TP/SL trigger order, trading 3 markets) need it.
 
 ## Environment
-- App: app.testnet.dreamdex.io as served 2026-10-19 19:27–19:41 UTC (first seen ~19:10–19:20 UTC); network Tokyo /
+- App: app.testnet.dreamdex.io as served 2026-10-19 19:27–19:41 UTC (first seen ~19:10–19:20 UTC) and re-checked
+  2026-10-20 03:11–03:36 UTC; network Tokyo /
   Hideki (chain 50383); responses from `server: Vercel`
 - Browser: Chrome 155 on Linux, 1440×900; logged in = Privy e-mail login, Somnia Account wallet
   `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817`; logged out = fresh browser context with no cookies
 - curl 8.18.0
 - `@somnia-chain/markets-sdk`: not involved
+
+## Corrections
+- **Corrected 2026-10-20.** Severity normal → major: the core perps trading UI has been unreachable for everyone for
+  more than 8 hours and the Arena's call to action is dead. Added the 2026-10-20 evidence (still present at 03:11 and
+  03:36 UTC; check-host: 307 from 38 nodes in 25 countries; the app's own flags say perps are enabled) and the summary.
+  The original observations are unchanged.
