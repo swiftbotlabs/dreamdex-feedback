@@ -1,4 +1,5 @@
-// Calldata for the real transactions in reports 01, 04-07 and 09 (send it with any wallet; no key here).
+// Calldata for the real transactions in reports 04, 05 and 09, plus the wrong-scale test order (removed from report 06 on
+// 2026-10-20) and the order cited in withdrawn report 07. Send it with any wallet; no key here.
 // Print calldata for one action against live Hideki params (no key involved).
 // node scripts/encode_order.mjs wrongscale <pool>            -> placeOrder bid, qty 0.001e18 (wrong scale), price mark*0.9
 // node scripts/encode_order.mjs perpbid <pool> <pct-below>  -> PostOnly bid, minQuantity, price mark*(1-pct/100)
