@@ -1,0 +1,125 @@
+Read-only re-check, 2026-10-20 02:35:15-02:40:48 UTC (read-only: eth_call, GraphQL, HTTP HEAD/GET; no transactions sent).
+Environment: Hideki RPC https://api.hideki2.infra.testnet.somnia.network (chain 50383), indexer https://hideki-dev.smk.somnia.host/v1/graphql, node v22.22.1, viem 2.57.7, curl 8.18.0.
+Fresh address for 01/02: 0xeb61ec3c8765f3fe5471b5b7f7b536070c38e779 (random 20 bytes generated for this run).
+
+Result: 01, 02, 03, 04, 05, 06, 07, 10 and 11 (explorer side) reproduce unchanged; 08 and 09 docs text unchanged (their app / transaction steps were not re-run). npm latest @somnia-chain/markets-sdk is still 0.32.1 (canary 0.32.2-canary.38575926931.ge4550933d36d), so 02/05 SDK-side findings are unchanged.
+
+== 01 / 02: node scripts/claim_from.mjs <fresh> 0x2A11...bF08 0x4206...dfd1 0x5674...3f45
+0xeb61ec3c8765f3fe5471b5b7f7b536070c38e779 code: EOA claimed: false activePools: 0 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x2A11e7388D1D2F9690f2636846d44b478f61bF08 code: EOA claimed: false activePools: 0 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x420691db9d2b5a79210fda48c177471386b6dfd1 code: EOA claimed: false activePools: 21 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 code: EOA claimed: true activePools: 0 mainFunded: 0 floor: 2000000000000000000000 exp: 1793634161 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+
+== 02: node scripts/voucher_check.mjs <fresh>
+sel ClaimantNotFlat() 0x3f3d2141
+sel ClaimantIsMainFunded() 0x1fac9b7d
+sel BudgetExhausted() 0x16394a52
+sel CampaignInactive() 0xe72b39f9
+sel AlreadyClaimed() 0x646cf558
+sel NothingToClaim() 0x969bf728
+bank.getCreditGranter = 0x2ACD9EFdA721450906bfE1bef3edE269636E42C4 (matches docs)
+block 28118613 ts 1792463718 campaign 1790553600 - 1798477478 inWindow true
+grant 1000000000000000000000 budget 439780000000000000000000000 claimed false activePools 0 mainFunded 0 floor 0 expiry 0
+eth_call claim() to 0x2ACD9EFdA721450906bfE1bef3edE269636E42C4 {"err":"execution reverted","data":"0x3e31dcc2"}
+code at docs voucher: 354 chars; at granter: 354
+
+== 03: node scripts/survey.mjs > evidence/survey_2026-10-20T0236Z.json
+block 28119204 at 2026-10-20T02:36:18.162Z | pools 21 | voucherAllowed true: 21 | voucherLeverageCap 20
+Docs (fetched 2026-10-20T02:37:17Z): /docs/trading/perps-testnet/margin-and-liquidations still contains "The six newest markets are not on that list".
+
+== 04: bash scripts/indexer_timing.sh   (account 0x420691db9d2b5a79210fda48c177471386b6dfd1)
+SDK shape: account + kinds D/C/W, ts desc    10.52s ERROR
+SDK shape: account + kinds D/C/W, ts desc    10.71s ERROR
+SDK shape: account + kinds D/C/W, ts desc    10.51s ERROR
+account only, ts desc                        0.54s ok
+account + kinds Locked, ts desc              0.63s ok
+account + kinds D/C/W, order id desc         4.75s ok
+account + kinds D/C/W, no order              2.71s ok
+distinct_on kind                             10.58s ERROR
+aggregate count for account                  0.76s ERROR
+
+== 06 (docs side, fetched 2026-10-20T02:37:17Z): /docs/developers/contracts/errors occurrences: InsufficientCollateral 0, MaxPositionSizeExceeded 0, SelfClaimDisabled 0 (control: ImmediateOrCancelNoFill 2). /docs/developers/perps-testnet still contains 'transfer amount exceeds balance'.
+
+== 07: node scripts/mark_lag.mjs
+chain head 28119152 indexer block 28119147 now 2026-10-20T02:36:12.000Z
+ZRO       chain 1.8596440147 indexer 1.8730505151 indexerAge   2446s  diff -71.57 bps
+WLD       chain 0.5358108746 indexer 0.5330151761 indexerAge   1290s  diff 52.45 bps
+ZEC       chain 1140.1935749 indexer 1145.8057624 indexerAge   2447s  diff -48.98 bps
+AVAX      chain 9.5278463998 indexer 9.4909667514 indexerAge   1290s  diff 38.85 bps
+SUI       chain 0.9924931844 indexer 0.9887003468 indexerAge   1289s  diff 38.36 bps
+PUMP      chain 0.0044028376 indexer 0.0044192190 indexerAge   2450s  diff -37.06 bps
+NEAR      chain 4.8135894027 indexer 4.7973366434 indexerAge   1289s  diff 33.87 bps
+1000PEPE  chain 0.0041591484 indexer 0.0041722641 indexerAge   2444s  diff -31.43 bps
+ADA       chain 0.2172927797 indexer 0.2166241023 indexerAge   1220s  diff 30.86 bps
+LINK      chain 11.969482903 indexer 11.937311548 indexerAge   1287s  diff 26.95 bps
+HYPE      chain 79.071323865 indexer 78.860831394 indexerAge   1289s  diff 26.69 bps
+VVV       chain 24.697542144 indexer 24.639056335 indexerAge   2446s  diff 23.73 bps
+LIT       chain 3.1290811539 indexer 3.1217195461 indexerAge   2442s  diff 23.58 bps
+TAO       chain 266.73369562 indexer 266.13062341 indexerAge   1290s  diff 22.66 bps
+XRP       chain 1.2998129773 indexer 1.2974458621 indexerAge   1290s  diff 18.24 bps
+XLM       chain 0.1767632563 indexer 0.1765073100 indexerAge   1290s  diff 14.5 bps
+SOL       chain 104.62366518 indexer 104.74229313 indexerAge   2519s  diff -11.32 bps
+BTC       chain 81537.649453 indexer 81467.195955 indexerAge   1468s  diff 8.64 bps
+DOGE      chain 0.0792385443 indexer 0.0791864720 indexerAge   1289s  diff 6.57 bps
+BNB       chain 727.97719504 indexer 728.00330837 indexerAge   1290s  diff -0.35 bps
+ETH       chain 2392.6599473 indexer 2392.6733017 indexerAge   1013s  diff -0.05 bps
+
+== 09 (docs side): /docs/developers/perps-testnet still contains '0.0003 and 0.003'. (fee_floor_test.mjs sends transactions and was NOT re-run.)
+
+== 10: curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/{BTC,ETH,SOL}-PERP and /trade
+== /trade/perps/tokyo/BTC-PERP
+HTTP/2 307 
+date: Tue, 20 Oct 2026 02:36:25 GMT
+location: /trade
+server: Vercel
+== /trade/perps/tokyo/ETH-PERP
+HTTP/2 307 
+date: Tue, 20 Oct 2026 02:36:25 GMT
+location: /trade
+server: Vercel
+== /trade/perps/tokyo/SOL-PERP
+HTTP/2 307 
+date: Tue, 20 Oct 2026 02:36:26 GMT
+location: /trade
+server: Vercel
+== /trade
+HTTP/2 307 
+date: Tue, 20 Oct 2026 02:36:26 GMT
+location: /trade/spot/tokyo/STT:USDso
+
+== 11: Shannon explorer API vs Hideki RPC for the ETH-PERP open from the report
+== shannon api 0xdafc8e6a5cd68e0f20ec1dabc9016bce0d6e54fd9b105ec5f92026385575acd2
+{"message":"Not found"}
+HTTP 404
+== hideki receipt
+status 0x1 block 27856063
+(Only the explorer side was re-checked; the app's history links were not re-read in a browser on 2026-10-20.)
+
+== 02 / 05 / 06: SDK 0.32.1 tarball (npm pack @somnia-chain/markets-sdk@0.32.1; read as text, not executed), 2026-10-20 02:40 UTC
+npm dist-tags: latest 0.32.1, canary 0.32.2-canary.38575926931.ge4550933d36d (no newer release)
+$ node scripts/errsel.mjs package/src/contractErrorsAbi.ts 0x3e31dcc2 0x714b36d6
+errors parsed: 546
+0x3e31dcc2 => UNKNOWN
+0x714b36d6 => MaxPositionSizeExceeded()
+$ grep -c sinceBlock package/src/perp/history.ts
+0
+llms-full.txt (https://somnia-platform-explorer.vercel.app/markets/llms-full.txt, fetched 02:37 UTC) still contains sinceBlock (17 lines) and CreditReclaimed (3 lines).
+
+== 06: node scripts/sim_orders.mjs package/src/contractErrorsAbi.ts 0x2A11e7388D1D2F9690f2636846d44b478f61bF08   (02:40 UTC; revert data is truncated by the script)
+pool 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 from 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 mark 81514369767443768500000 tick 100000000000000000 lot 1000 min 13000 maxPos 10000000000
+best bid 81741900000000000000000 best ask 81708100000000000000000
+- valid resting bid 10% below mark, min qty: OK 0x000000000000000000…
+- price off tick (+1 wei): REVERT 0xaf608abb InvalidPrice(uint256,uint256) data=0xaf608abb000000000000000000000000000000000000000000000f8902c258b278e20001
+- quantity below minQuantity (min - lot): REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb0000000000000000000000000000000000000000000000000000000000002ee0
+- quantity not a lot multiple (min + 1): REVERT 0x4f174b29 InvalidQuantity(uint256,uint256) data=0x4f174b2900000000000000000000000000000000000000000000000000000000000032c9
+- quantity zero: REVERT 0xeaa68ceb QuantityBelowMinimum(uint256,uint256) data=0xeaa68ceb0000000000000000000000000000000000000000000000000000000000000000
+- expiry 0 (docs: OrderAlreadyExpired): REVERT 0x3154078e OrderAlreadyExpired()
+- IOC bid far below mark (no fill): REVERT 0xd48c4403 ImmediateOrCancelNoFill()
+- FOK bid far below mark: REVERT 0xc04ad919 FillOrKillNotFillable()
+- PostOnly bid crossing the ask: REVERT 0x7cf05fcb PostOnlyWouldCross()
+- over maxPositionSize (cap + lot): REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- wrong scale: 0.001 BTC written with 18 decimals: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+- huge price (mark x 1000) min qty: REVERT 0x08c379a0 Error(string) data=0x08c379a00000000000000000000000000000000000000000000000000000000000000020
+Full revert of the wrong-scale order (calldata from scripts/encode_order.mjs wrongscale, eth_call from 0x2A11...bF08, 02:40:48 UTC): Error(string) 'ERC20: insufficient allowance'
+
+== 08 (docs side only, 02:37 UTC): on /docs/developers/perps-testnet, /docs/trading/perps-testnet and /docs/trading/common/link-a-bot the word 'faucet' occurs only inside the app's feature-flag JSON ("event-faucet":false), not in page text. The in-app Link a bot flow was not re-run.
