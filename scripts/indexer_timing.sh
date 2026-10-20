@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Reproduces: report 04.
+# Run:  bash scripts/indexer_timing.sh [account]   (default 0x420691db9d2b5a79210fda48c177471386b6dfd1; needs curl and bc)
+# Read-only GraphQL POSTs. Expect: the SDK shape fails with "database query error" after ~10.5 s.
 # Re-runs the MarginEvents query shapes from feedback/04 against the Hideki indexer and prints timing + ok/ERROR.
 U=https://hideki-dev.smk.somnia.host/v1/graphql
 A=${1:-0x420691db9d2b5a79210fda48c177471386b6dfd1}

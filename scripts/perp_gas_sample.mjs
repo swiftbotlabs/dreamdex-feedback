@@ -1,5 +1,8 @@
 // Sample recent OrderPlaced txs on perp pools and print what their senders paid (gas used x effective gas price).
 // node scripts/perp_gas_sample.mjs <pool> [pool...]   (report 09)
+// Reproduces: report 09 (what existing order senders pay).
+// e.g.  node scripts/perp_gas_sample.mjs 0xD6Cb1DD58580B84D76068aC21594219ce03aeddf 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 0xB483ec1fb34996638677c20ab087b16F1896FA53
+//       (ETH-PERP, BTC-PERP, SOL-PERP). Read-only.
 import { createPublicClient, http, defineChain } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

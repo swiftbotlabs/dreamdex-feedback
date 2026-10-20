@@ -1,3 +1,6 @@
+// Reproduces: report 06 (position-cap cases: MaxPositionSizeExceeded and related reverts on BTC-PERP).
+// Run:  node scripts/sim_cap.mjs
+// Read-only: eth_call placeOrder from two accounts (an active trader and a voucher account); nothing is signed or sent.
 import { createPublicClient, http, defineChain, encodeFunctionData, decodeFunctionResult, decodeErrorResult, parseAbi } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

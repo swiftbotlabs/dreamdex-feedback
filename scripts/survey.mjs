@@ -1,6 +1,7 @@
 // Survey every dreamDEX perp pool on Somnia Hideki testnet (chain 50383) with plain viem reads.
 // No SDK code is executed; ABIs are the human-readable signatures copied from the SDK's readsAbi.ts.
-// Usage: node survey.mjs > survey.json
+// Reproduces: report 03 (isVoucherMarketAllowed for all pools) and the market count in 05.
+// Run:  node scripts/survey.mjs > survey.json   (RPC=<url> to override the endpoint)
 import { createPublicClient, http, parseAbi, formatUnits, defineChain } from "viem";
 
 const RPC = process.env.RPC ?? "https://api.hideki2.infra.testnet.somnia.network";

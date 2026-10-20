@@ -1,5 +1,9 @@
 // Simulate perp order placements with eth_call (no gas needed) from an active Perps Arena account,
 // and decode the revert selector against the SDK's contractErrorsAbi.ts (read as text).
+// Reproduces: report 06 (wrong-scale revert message and the documented order errors).
+// Run:  node scripts/sim_orders.mjs <path/to/contractErrorsAbi.ts> [from] [pool]
+//       (defaults: from 0x420691db9d2b5a79210fda48c177471386b6dfd1, pool BTC-PERP 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0)
+// Read-only: eth_call only; nothing is signed or sent.
 import { readFileSync } from "node:fs";
 import { createPublicClient, http, defineChain, encodeFunctionData, parseAbi, keccak256, toHex, parseUnits } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";

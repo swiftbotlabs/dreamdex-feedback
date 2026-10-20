@@ -1,3 +1,6 @@
+// Reproduces: report 02 (and 01).
+// Run:  node scripts/voucher_check.mjs [address]   (default 0x2A11e7388D1D2F9690f2636846d44b478f61bF08; any fresh address works)
+// Read-only: the six reads getPerpVoucherEligibility makes, then eth_call claim(). Expect: every check passes, claim() reverts 0x3e31dcc2.
 import { createPublicClient, http, parseAbi, encodeFunctionData, defineChain, keccak256, toHex } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

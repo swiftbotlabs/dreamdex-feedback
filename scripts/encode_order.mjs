@@ -1,10 +1,11 @@
 // Calldata for the real transactions in reports 01, 04-07 and 09 (send it with any wallet; no key here).
 // Print calldata for one action against live Hideki params (no key involved).
-// node tx/enc.mjs wrongscale <pool>            -> placeOrder bid, qty 0.001e18 (wrong scale), price mark*0.9
-// node tx/enc.mjs perpbid <pool> <pct-below>  -> PostOnly bid, minQuantity, price mark*(1-pct/100)
-// node tx/enc.mjs cancel <orderId>
-// node tx/enc.mjs spotsell <qtyWei> <pct-below-bestbid>   -> IOC sell of native STT on STT:USDso
-// node tx/enc.mjs approve <spender> <amountWei> | deposit <amountWei>
+// node scripts/encode_order.mjs wrongscale <pool>            -> placeOrder bid, qty 0.001e18 (wrong scale), price mark*0.9
+// node scripts/encode_order.mjs perpbid <pool> <pct-below>  -> PostOnly bid, minQuantity, price mark*(1-pct/100)
+// node scripts/encode_order.mjs cancel <orderId>
+// node scripts/encode_order.mjs spotsell <qtyWei> <pct-below-bestbid>   -> IOC sell of native STT on STT:USDso
+// node scripts/encode_order.mjs approve <spender> <amountWei> | deposit <amountWei>
+// Prints calldata only; it never signs or sends.
 import { createPublicClient, http, defineChain, encodeFunctionData, parseAbi, parseUnits } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

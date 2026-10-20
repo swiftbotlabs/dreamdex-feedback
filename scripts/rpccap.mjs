@@ -1,3 +1,7 @@
+// Supporting probe (not tied to one report): what the Hideki RPC supports for the eth_call reproductions
+// (plain eth_call, state overrides, eth_simulateV1).
+// Run:  node scripts/rpccap.mjs
+// Read-only.
 import { createPublicClient, http, parseAbi, encodeFunctionData, defineChain, parseEther } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

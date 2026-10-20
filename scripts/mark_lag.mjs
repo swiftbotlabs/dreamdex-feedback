@@ -1,3 +1,6 @@
+// Reproduces: report 07.
+// Run:  node scripts/mark_lag.mjs
+// Read-only: indexer Market.markPrice vs PerpPool.tryGetMarkPrice() for every perp market, with row age and difference in bps.
 import { createPublicClient, http, defineChain, parseAbi, formatUnits } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

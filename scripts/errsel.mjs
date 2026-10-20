@@ -1,4 +1,8 @@
 // Build a selector -> error-signature map from the SDK's contractErrorsAbi.ts (read as text, never executed).
+// Reproduces: reports 02 and 06 (is a selector in the SDK's error ABI?).
+// Run:  node scripts/errsel.mjs <path/to/contractErrorsAbi.ts> <selector...>
+// e.g.  npm pack @somnia-chain/markets-sdk@0.32.1 && tar xzf somnia-chain-markets-sdk-0.32.1.tgz
+//       node scripts/errsel.mjs package/src/contractErrorsAbi.ts 0x3e31dcc2      -> UNKNOWN
 import { readFileSync } from "node:fs";
 import { keccak256, toHex } from "viem";
 const src = readFileSync(process.argv[2], "utf8");

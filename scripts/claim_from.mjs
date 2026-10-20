@@ -1,3 +1,7 @@
+// Reproduces: report 01 (and the AlreadyClaimed case in 02).
+// Run:  node scripts/claim_from.mjs <address...>
+// e.g.  node scripts/claim_from.mjs 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 0x567476bd43ff20e6aa44e18abfbdb58280563f45
+// Read-only: eth_call claim() from each address plus its voucher/MarginBank state. Expect: REVERT 0x3e31dcc2 for every caller.
 import { createPublicClient, http, defineChain, encodeFunctionData, parseAbi } from "viem";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";
 const chain = defineChain({ id: 50383, name: "Hideki", nativeCurrency: { name: "STT", symbol: "STT", decimals: 18 }, rpcUrls: { default: { http: [RPC] } } });

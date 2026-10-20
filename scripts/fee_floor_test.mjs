@@ -1,6 +1,7 @@
 // Report 09: three 0-value self-transfers from a funded throwaway testnet key on Hideki (chain 50383):
 // legacy at 0.6 gwei, EIP-1559 at 0.6 gwei, EIP-1559 at the reported 6 gwei base fee.
 // PRIVATE_KEY=0x... node scripts/fee_floor_test.mjs   (the key is used in-process only; use a throwaway key)
+// SENDS THREE TRANSACTIONS (0-value self-transfers). Use a throwaway testnet key only.
 import { createPublicClient, createWalletClient, http, defineChain } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 const RPC = "https://api.hideki2.infra.testnet.somnia.network";

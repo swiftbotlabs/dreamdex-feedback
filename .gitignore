@@ -1,0 +1,4 @@
+node_modules/
+# npm pack output used for errsel.mjs / sim_orders.mjs
+*.tgz
+package/
