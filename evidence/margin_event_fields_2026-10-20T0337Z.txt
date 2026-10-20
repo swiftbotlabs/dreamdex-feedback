@@ -1,0 +1,18 @@
+# Report 12, run 2026-10-20T03:37:15Z: bash scripts/margin_event_fields.sh
+
+## entity fields (introspection)
+MarginEvent: account amount granter id kind pool timestamp txHash
+LiquidationEvent: account attributable badDebt blockNumber blockVolume clampedBound collateralAmount counterparty coverageDeclined deficit equity id insuranceCovered keeperReward kind marginStatusAfter marginStatusBefore marketBound panicCode penalty pool positionsProcessed price residualAdded residualMarketTotal residualUnpriceable size stageReached timestamp txHash volumeCap
+Fill: blockNumber fillPrice id kind logIndex maker makerOrder makerOrderId makerOrder_id makerRemainingQuantity makerSide market marketType market_id pool quantity quoteQuantity taker takerIsBid takerOrder takerOrderId takerOrder_id takerRemainingQuantity takerSide timestamp txHash
+Order: amendedFromOrderId amendedToOrderId cancelReason expireTimestampNs filledQuantity fullQuantity id isBid lastUpdatedAtBlock lastUpdatedAtTimestamp market market_id orderId orderIdRaw owner placedAtBlock placedAtTimestamp placedTxHash pool price quantityRemaining rested restingKey side status userData
+
+## select blockNumber on MarginEvent
+{"errors":[{"message":"field 'blockNumber' not found in type: 'MarginEvent'","extensions":{"path":"$.selectionSet.MarginEvent.selectionSet.blockNumber","code":"validation-failed"}}]}
+## filter MarginEvent by blockNumber (what sinceBlock/toBlock would need)
+{"errors":[{"message":"field 'blockNumber' not found in type: 'MarginEvent_bool_exp'","extensions":{"path":"$.selectionSet.MarginEvent.args.where.blockNumber","code":"validation-failed"}}]}
+## a real Deposit row (our account): only timestamp + txHash locate it
+{"data":{"MarginEvent":[{"id":"0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82_10","account":"0x2a11e7388d1d2f9690f2636846d44b478f61bf08","kind":"Deposit","amount":"3394800000000000000","timestamp":"1792421765","txHash":"0x50811a18373415fd960f73c2dbce1d12c247a61fc4f2b1275fbd427cf46fec82"}]}}
+## the block it is in, from the RPC (one extra request per row)
+blockNumber 27699377 status 0x1
+## how many blocks share one timestamp second (block time)
+block 27699377 timestamp 1792421765: blocks 27699368..27699377 (10 blocks) share that timestamp
