@@ -14,7 +14,7 @@ Eleven issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**,
 testnet ("Tokyo" region, chain id 50383): 3 major and 8 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
-[`evidence/`](evidence). On **2026-10-20 (02:35–03:40 UTC)** we re-ran the read-only checks for 01–06, 10, 11 and 12 (for
+[`evidence/`](evidence). On **2026-10-20 (02:35–03:48 UTC)** we re-ran the read-only checks for 01–06, 10, 11 and 12 (for
 11, the explorer side), and every one still reproduces. For 08 and 09 only the docs text was re-checked, and it is
 unchanged ([re-check log](evidence/recheck_2026-10-20T0235Z.txt)). One earlier report, 07, is
 [withdrawn](#withdrawn).
@@ -55,18 +55,18 @@ USDso comes from the Perps Arena; the developer page does not.)
 First reported [2026-10-19 09:41 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) · Re-checked
 2026-10-20 02:35 UTC: same revert for a fresh address, an active trader and an `isClaimed` account
 
-### #04 · Indexer `MarginEvents` query used by the SDK fails for half of the busiest accounts
+### #04 · Indexer `MarginEvents` query used by the SDK fails for about half of the busy accounts
 ![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`API`
 
 **Impact:** `getMarginEvents(account, { kinds })`, the read behind the documented portfolio-return recipe, fails every
-time after about 10.5 s with a generic `database query error` for 5 of the 10 busiest accounts we tested (all with more than
+time after about 10.5 s with a generic `database query error` for 6 of the 13 busy accounts we tested (all with more than
 100k rows), the market makers and bots it is meant for. Quiet accounts are not affected.
 
 **Repro:** `bash scripts/indexer_accounts.sh 0x47537e3a3ea6e9391f3b26ea45618db6828c8bff` → `SDK shape: 10.5s ERROR`<br>
 [Report](feedback/04-indexer-margin-events-query-times-out.md) ·
 [Evidence](evidence/indexer_accounts_2026-10-20T0328Z.txt) · First reported
-[2026-10-19 09:41 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) · Re-checked 2026-10-20 03:28 and
-03:34 UTC: the same 5 accounts fail on both passes
+[2026-10-19 09:41 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) · Re-checked 2026-10-20 03:28–03:48 UTC:
+the same 6 accounts fail on both passes
 
 ## Normal
 
@@ -201,7 +201,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 01 | major | docs | [The developer page's only paper-USDso route, `claimPerpVoucher`, reverts with `SelfClaimDisabled()`](feedback/01-paper-usdso-self-claim-disabled-on-chain.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | 02 | normal | SDK | [`getPerpVoucherEligibility` says eligible while `claim()` reverts; error missing from `contractErrorsAbi`](feedback/02-sdk-voucher-eligibility-ignores-self-claim-disabled.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | 03 | normal | docs | [Docs block six markets for paper USDso; the chain allows all 21](feedback/03-paper-usdso-market-allowlist-docs-vs-chain.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
-| 04 | major | API | [Indexer `MarginEvents` query used by the SDK fails for half of the busiest accounts](feedback/04-indexer-margin-events-query-times-out.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
+| 04 | major | API | [Indexer `MarginEvents` query used by the SDK fails for about half of the busy accounts](feedback/04-indexer-margin-events-query-times-out.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | 05 | normal | docs | [Perps guide's trading-gain recipe throws, and its block window is silently ignored by 0.32.1](feedback/05-sdk-perps-guide-documents-getmarginevents-options-that-0.32.1-does-not-have.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | 06 | normal | docs | [The Errors page lacks the perp errors](feedback/06-errors-page-lacks-perp-errors-and-wrong-scale-message-differs.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | ~~07~~ | withdrawn | | [~~Indexer `Market.markPrice` lags the chain~~ (documented behaviour)](feedback/07-indexer-market-markprice-lags-chain-by-15-40-minutes.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188), withdrawn [2026-10-20](https://github.com/swiftbotlab/dreamdex-feedback/commit/80584fc) |

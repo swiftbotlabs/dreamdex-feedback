@@ -1,6 +1,7 @@
 # Report 04: SDK getMarginEvents query (kinds Deposit/Credited/Withdraw, order_by timestamp desc, limit 50) per account.
 # Read-only GraphQL against https://hideki-dev.smk.somnia.host/v1/graphql. Script: bash scripts/indexer_accounts.sh <account...>
-# Accounts: the 10 most active in 6,000 recent MarginEvent rows sampled over the last 14 days, plus 2 quiet accounts.
+# Accounts: the 11 most active in 6,000 MarginEvent rows sampled from six windows over the last 14 days (1,000 newest rows at
+# now-6h, -1d, -2d, -4d, -7d, -14d), plus two more busy accounts (0x3024..., 0x4471...) and 2 quiet accounts.
 
 ## pass 1 (first version of the script; 'probe-err' = the >100k count probe itself failed)
 2026-10-20T03:27:53Z
@@ -30,3 +31,14 @@
 0x4e42d094f9d066a013a98a61b34690c882d1f896 rows:>100k (probe 1.06s) | SDK shape: 1.13s ok rows=1
 0x567476bd43ff20e6aa44e18abfbdb58280563f45 rows:<=100k (probe 0.50s) | SDK shape: 0.55s ok rows=1
 0x2a11e7388d1d2f9690f2636846d44b478f61bf08 rows:<=100k (probe 0.50s) | SDK shape: 0.51s ok rows=1
+
+## pass 1 for three more accounts (ranks 9-11 in the sample) 
+# run 2026-10-20T03:47:32Z
+0xd0e04f285b63b8655678f1fa39923727f1889140 rows:unknown (count probe also failed) (probe 10.63s) | SDK shape: 10.53s ERROR "message":"database query error"
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 rows:>100k (probe 3.69s) | SDK shape: 0.70s ok rows=1
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 rows:>100k (probe 6.12s) | SDK shape: 0.80s ok rows=1
+
+## pass 2 for the same three 2026-10-20T03:48:16Z
+0xd0e04f285b63b8655678f1fa39923727f1889140 rows:>100k (probe 0.72s) | SDK shape: 10.48s ERROR "message":"database query error"
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 rows:>100k (probe 0.79s) | SDK shape: 0.62s ok rows=1
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 rows:>100k (probe 1.22s) | SDK shape: 0.61s ok rows=1

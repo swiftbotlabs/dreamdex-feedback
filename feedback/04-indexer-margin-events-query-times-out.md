@@ -1,9 +1,9 @@
-# Indexer: the SDK's `MarginEvents` query (account + `kinds` filter, newest first) fails with "database query error" for half of the high-activity accounts
+# Indexer: the SDK's `MarginEvents` query (account + `kinds` filter, newest first) fails with "database query error" for about half of the high-activity accounts
 Severity: major
 Area: API
 
 > **Summary.** `client.getMarginEvents(account, { kinds })`, the read behind the documented portfolio-return recipe, fails
-> every time after ~10.5 s with a generic `database query error` for 5 of the 10 busiest accounts we tested (all >100k rows).
+> every time after ~10.5 s with a generic `database query error` for 6 of the 13 busy accounts we tested (all >100k rows).
 
 **Distinct from report 05:** this is indexer performance (the query is valid and returns correct rows for small
 accounts; fix: an index or a different sort). Report 05 is a docs-vs-SDK mismatch in the recipe's options (fix: the docs
@@ -84,10 +84,11 @@ the failure depends on how much history the account has, not on the query being 
 that fail are the ones a portfolio-return calculation is most useful for.
 
 ### Added 2026-10-20: which accounts fail
-We took the 10 most active accounts in 6,000 `MarginEvent` rows sampled over the last 14 days, plus two quiet accounts,
-and ran the SDK query (`kinds` Deposit/Credited/Withdraw, `order_by timestamp desc`, limit 50) for each, twice
-(03:28 and 03:34 UTC, `bash scripts/indexer_accounts.sh`, output in `evidence/indexer_accounts_2026-10-20T0328Z.txt`).
-"> 100k rows" means `offset: 100000` returned a row.
+We took the 11 most active accounts in 6,000 `MarginEvent` rows sampled from six windows over the last 14 days, two more
+busy accounts, and two quiet accounts, and ran the SDK query (`kinds` Deposit/Credited/Withdraw, `order_by timestamp desc`,
+limit 50) for each, twice (03:28 / 03:34 UTC, and 03:47 / 03:48 UTC for the last three busy rows;
+`bash scripts/indexer_accounts.sh`, output in `evidence/indexer_accounts_2026-10-20T0328Z.txt`). "> 100k rows" means
+`offset: 100000` returned a row.
 
 | account | rows | SDK query, pass 1 | SDK query, pass 2 |
 |---|---|---|---|
@@ -101,10 +102,13 @@ and ran the SDK query (`kinds` Deposit/Credited/Withdraw, `order_by timestamp de
 | `0xab8b612548cc3f5f9f7e723823be37058d0110b2` | > 100k | 3.49 s ok | 2.12 s ok |
 | `0xe8c0d36d69a10bea8d00fe45a2fde45527eda984` | > 100k | 2.15 s ok | 2.22 s ok |
 | `0x4e42d094f9d066a013a98a61b34690c882d1f896` | > 100k | 1.09 s ok | 1.13 s ok |
+| `0xd0e04f285b63b8655678f1fa39923727f1889140` | > 100k | 10.53 s ERROR | 10.48 s ERROR |
+| `0x6c2986a550dc4212b49a1710d8466553e3761ce4` | > 100k | 0.70 s ok | 0.62 s ok |
+| `0x3299e48c454a8084ad37011353c6e14f2622d3c5` | > 100k | 0.80 s ok | 0.61 s ok |
 | `0x567476bd43ff20e6aa44e18abfbdb58280563f45` (quiet) | 2 | 0.64 s ok | 0.55 s ok |
 | `0x2a11e7388d1d2f9690f2636846d44b478f61bf08` (ours) | 3 | 0.48 s ok | 0.51 s ok |
 
-So 5 of the 10 busy accounts fail on both passes, the other 5 and both quiet accounts succeed on both. Workarounds exist
+So 6 of the 13 busy accounts fail on both passes, the other 7 and both quiet accounts succeed on both. Workarounds exist
 (`order_by: {id: desc}`, or filtering `kind` on the client), but the SDK offers neither.
 
 Related, same family: `MarginEvent(distinct_on: kind)` and `MarginEvent_aggregate(where: {account: …}) { aggregate { count } }`
@@ -127,10 +131,10 @@ a distinguishable error (`statement timeout`) instead of the generic `database q
 - Indexer `https://hideki-dev.smk.somnia.host/v1/graphql`, `chain_metadata.latest_processed_block` ≈ 27,50x,xxx (at chain head)
 - Somnia Hideki testnet, chain id 50383
 - Date: 2026-10-19, 09:20–09:30 UTC
-- Wallet: n/a (read-only); accounts queried: `0x420691db9d2b5a79210fda48c177471386b6dfd1` and the 11 in the account table
+- Wallet: n/a (read-only); accounts queried: the 15 in the account table
 
 ## Corrections
-- **Corrected 2026-10-20.** Added the 12-account table (5 of 10 busy accounts fail, measured twice) and stated the scope
+- **Corrected 2026-10-20.** Added the 15-account table (6 of 13 busy accounts fail, measured twice) and stated the scope
   honestly: quiet accounts are not affected. Changed the title from "for an active account" to match. Area is now `API`
   only (the SDK only sends the query). Moved the `distinct_on` / `_aggregate` results into one "Related" note, since the SDK
   does not use them. Added the summary and the "Distinct from report 05" paragraph.
