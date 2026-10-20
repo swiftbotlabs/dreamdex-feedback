@@ -1,5 +1,14 @@
-# Indexer `Market.markPrice` (what `listPerpMarkets()` returns) lags the on-chain mark by 15–40 minutes, up to 1.4 %, while the indexer is otherwise at the chain head
-Severity: normal
+> **WITHDRAWN 2026-10-20 — documented behaviour. Please do not count this file.**
+> `@somnia-chain/markets-sdk` 0.32.1 documents this cadence in the `PerpMarket.markPrice` field doc
+> ([`src/markets.ts`, line 191](https://unpkg.com/@somnia-chain/markets-sdk@0.32.1/src/markets.ts)): "It advances only when
+> funding settles — hourly on every live pool — not per trade. For a live mark, read the chain
+> (`getPerpState().markPrice`, which also reports `markPriceOk`)." Every row age we measured (788–3,418 s) is under one
+> hour, so the indexer behaves as documented. Our sentence "Nothing on the developer page or in the `PerpMarket` field
+> docs says the row's mark is a slow snapshot" was wrong. The original report is kept below for the record (first filed
+> in commit `66e8188`); only the `[WITHDRAWN]` title prefix and the Severity line were changed.
+
+# [WITHDRAWN] Indexer `Market.markPrice` (what `listPerpMarkets()` returns) lags the on-chain mark by 15–40 minutes, up to 1.4 %, while the indexer is otherwise at the chain head
+Severity: withdrawn 2026-10-20 (filed as normal)
 Area: API | docs
 
 `client.listPerpMarkets()` is the documented entry point ("Connect" sample on the developer page) and

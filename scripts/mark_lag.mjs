@@ -1,4 +1,5 @@
-// Reproduces: report 07.
+// Reproduces: report 07, which was WITHDRAWN on 2026-10-20 (SDK 0.32.1 documents that PerpMarket.markPrice advances
+// only when funding settles, hourly). Kept for the record.
 // Run:  node scripts/mark_lag.mjs
 // Read-only: indexer Market.markPrice vs PerpPool.tryGetMarkPrice() for every perp market, with row age and difference in bps.
 import { createPublicClient, http, defineChain, parseAbi, formatUnits } from "viem";
