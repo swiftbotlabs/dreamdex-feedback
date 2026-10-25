@@ -1,3 +1,5 @@
+> **Archived 2026-10-25 (not part of the submission).** Changed since we filed it: the history links now open explorer.testnet.somnia.network, whose 50312 view says "This transaction is on Tokyo testnet. Open on Tokyo testnet", so the links no longer dead-end. Details: `evidence/trade_history_explorer_links_2026-10-25T2248Z.txt`.
+
 # App: transaction links in Trade history and Order history open shannon-explorer.somnia.network, which cannot find Tokyo / Hideki (chain 50383) transactions; the app's own Hideki explorer, already configured for that region, does show them
 Severity: normal
 Area: app

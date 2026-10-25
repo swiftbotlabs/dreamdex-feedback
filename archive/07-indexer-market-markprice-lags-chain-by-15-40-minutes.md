@@ -1,3 +1,5 @@
+> **Archived 2026-10-25 (not part of the submission).** Withdrawn on 2026-10-20: SDK 0.32.1 documents that `Market.markPrice` advances only when funding settles (hourly), and every lag we measured was under an hour.
+
 > **WITHDRAWN 2026-10-20 — documented behaviour. Please do not count this file.**
 > `@somnia-chain/markets-sdk` 0.32.1 documents this cadence in the `PerpMarket.markPrice` field doc
 > ([`src/markets.ts`, line 191](https://unpkg.com/@somnia-chain/markets-sdk@0.32.1/src/markets.ts)): "It advances only when
