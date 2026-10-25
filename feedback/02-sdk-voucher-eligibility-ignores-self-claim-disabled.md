@@ -5,6 +5,8 @@ Area: SDK
 > **Summary.** Two SDK defects: an eligibility helper that says it mirrors `claim()` skips the deployed distributor's
 > first gate, and the SDK's error ABI cannot decode the revert that gate produces (`0x3e31dcc2`).
 
+> **Re-verified 2026-10-25, 22:39 UTC, Somnia Tokyo testnet (chain 50383).** npm `latest` is still 0.32.1 and the canary is still 0.32.2-canary.38575926931 (2026-10-14). In both, no file under `src/` mentions `SelfClaimDisabled` or a self-claim flag, and `getPerpVoucherEligibility` still checks the window, flatness, main funding, `isClaimed` and budget only (`src/perp/voucher.ts` 224–231). `node scripts/voucher_check.mjs 0x…dEaD`: every read it makes passes (in window, flat, not main-funded, not claimed, budget 331,426,000 USDso), then `claim()` reverts `0x3e31dcc2`. Evidence: `evidence/recheck_2026-10-25T2239Z.txt`.
+
 **Distinct from report 01:** 01 is the developer page's paper-USDso route (docs; fix in the docs or the distributor's
 config). This report is two defects in the SDK package itself (fix in `src/perp/voucher.ts` and
 `src/contractErrorsAbi.ts`). They stay wrong whatever the self-claim policy is: the helper skips a gate that exists in the
@@ -76,9 +78,10 @@ The bounty's own developer page builds its "Get test funds" sample on exactly th
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 and 0.32.2-canary.38575926931.ge4550933d36d (source read from
   the npm tarballs; nothing executed)
-- Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK), RPC `https://api.hideki2.infra.testnet.somnia.network`
 - Date: 2026-10-19, 09:00–10:00 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Severity lowered from major to normal: on its own the impact is small (a developer already

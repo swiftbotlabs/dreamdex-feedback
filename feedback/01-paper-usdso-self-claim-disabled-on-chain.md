@@ -5,6 +5,8 @@ Area: docs
 > **Summary.** "Get test funds" on the perps developer page tells developers to self-claim the 1,000 paper USDso with
 > `claimPerpVoucher`. On Hideki that `claim()` reverts for every caller (`SelfClaimDisabled()`, `0x3e31dcc2`): the route fails 100 % of the time.
 
+> **Re-verified 2026-10-25, 22:39 UTC, Somnia Tokyo testnet (chain 50383), block 33158254.** `eth_call claim()` on the VoucherDistributor `0x2ACD…42C4` still reverts with `0x3e31dcc2` (`SelfClaimDisabled()`) for all four callers we tried: a fresh address (`0x…dEaD`), our bot key, our Perps Arena wallet (`isClaimed` true) and `0x1234…7890`. The campaign is in its window and has budget (331,426,000 USDso), so no documented gate explains it. "Get test funds" on the developer page (now also at app.dreamdex.io/docs/developers/perps-testnet) still says "Any address can claim the 1,000 USDso perps credit once" and still shows the `claimPerpVoucher` sample. Evidence: `evidence/recheck_2026-10-25T2239Z.txt`, sections 01 + 02.
+
 The developer page "Perps on Testnet for Developers" says, under **Get test funds**:
 
 > Paper USDso. Any address can claim the 1,000 USDso perps credit once, as long as it holds no perp
@@ -113,10 +115,11 @@ The SDK side of this (eligibility says `eligible: true`, error not decodable) is
 
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (source read from the npm tarball; not executed)
-- Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK), RPC `https://api.hideki2.infra.testnet.somnia.network`
 - Date: 2026-10-19, 09:00–10:00 UTC (eth_call); real transaction 14:36 UTC; re-checked 2026-10-20 02:35 UTC (same
   revert for a fresh address, an active trader and an `isClaimed` account, `evidence/recheck_2026-10-20T0235Z.txt`)
 - Wallet used as `from`: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Area is now `docs` only (the distributor's gate is deliberate; the defect is the developer

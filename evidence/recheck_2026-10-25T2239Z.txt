@@ -1,0 +1,143 @@
+# Re-check of every active report, 2026-10-25 22:37-23:01 UTC (= 2026-10-26 04:07-04:31 IST)
+# Network: Somnia Tokyo testnet = chain 50383 (eth_chainId 0xc4cf on https://api.hideki2.infra.testnet.somnia.network; the docs and
+# SDK call it Hideki, the app's URLs 'tokyo', its region label 'DreamDEX'). Indexer https://hideki-dev.smk.somnia.host/v1/graphql.
+# SDK: npm @somnia-chain/markets-sdk dist-tags at 22:37 UTC: latest 0.32.1 (published 2026-10-13), canary 0.32.2-canary.38575926931.ge4550933d36d
+# (2026-10-14). 0.32.1 tarball sha512 matches dist.integrity sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==.
+# Docs: https://app.dreamdex.io/docs (llms.txt, llms-full.txt; app.testnet.dreamdex.io serves the same files) and the SDK docs
+# https://somnia-platform-explorer.vercel.app/markets/llms-full.txt. All reads are eth_call / GraphQL / HTTP GET unless stated.
+
+## 01 + 02: node scripts/voucher_check.mjs 0x...dEaD ; node scripts/claim_from.mjs <4 callers>
+sel ClaimantNotFlat() 0x3f3d2141
+sel ClaimantIsMainFunded() 0x1fac9b7d
+sel BudgetExhausted() 0x16394a52
+sel CampaignInactive() 0xe72b39f9
+sel AlreadyClaimed() 0x646cf558
+sel NothingToClaim() 0x969bf728
+bank.getCreditGranter = 0x2ACD9EFdA721450906bfE1bef3edE269636E42C4 (matches docs)
+block 33158254 ts 1792967962 campaign 1790553600 - 1798477478 inWindow true
+grant 1000000000000000000000 budget 331426000000000000000000000 claimed false activePools 0 mainFunded 0 floor 0 expiry 0
+eth_call claim() to 0x2ACD9EFdA721450906bfE1bef3edE269636E42C4 {"err":"execution reverted","data":"0x3e31dcc2"}
+code at docs voucher: 354 chars; at granter: 354
+
+0x000000000000000000000000000000000000dEaD code: EOA claimed: false activePools: 0 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x2A11e7388D1D2F9690f2636846d44b478f61bF08 code: EOA claimed: false activePools: 0 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 code: contract claimed: true activePools: 0 mainFunded: 0 floor: 1000000000000000000000 exp: 1793636377 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+0x1234567890123456789012345678901234567890 code: EOA claimed: false activePools: 0 mainFunded: 0 floor: 0 exp: 0 => REVERT 0x3e31dcc2 UNKNOWN-not-in-SDK-ABI
+
+## 02: SDK source (npm pack, read only, nothing executed)
+"version":"0.32.1": files mentioning SelfClaimDisabled or selfClaim: 0; contractErrorsAbi.ts lines: 567
+"version":"0.32.2-canary.38575926931.ge4550933d36d": files mentioning SelfClaimDisabled or selfClaim: 0; contractErrorsAbi.ts lines: 568
+getPerpVoucherEligibility order (0.32.1 src/perp/voucher.ts):
+  // Same order as `VoucherDistributor.claim()`, so the first failure here is the
+  // revert a claim would produce at this block.
+  if (block.timestamp < config.campaignStart) return { eligible: false, reason: "notStarted" };
+  if (block.timestamp >= config.campaignEnd) return { eligible: false, reason: "ended" };
+  if (activePools.length > 0) return { eligible: false, reason: "notFlat" };
+  if (mainFunded > 0n) return { eligible: false, reason: "mainFunded" };
+  if (claimed) return { eligible: false, reason: "alreadyClaimed" };
+  if (budget < config.grantAmount) return { eligible: false, reason: "budgetExhausted" };
+
+## 03: see voucher_only_orders_2026-10-25T2240Z.txt and survey_2026-10-25T2239Z.json (21/21 voucherAllowed true, block 33158494)
+
+## 04: see indexer_accounts_2026-10-25T2240Z.txt (13/13 busy accounts fail)
+
+## 05: SDK source
+latest: grep -c sinceBlock src/perp/history.ts = 0
+  83:export type MarginEventKind = "Deposit" | "Withdraw" | "Locked" | "Unlocked" | "Credited";
+  699:        `Margin event kinds must contain only ${Object.keys(MARGIN_EVENT_KINDS).join(", ")}; got ${String(kind)}`,
+canary: grep -c sinceBlock src/perp/history.ts = 0
+  83:export type MarginEventKind = "Deposit" | "Withdraw" | "Locked" | "Unlocked" | "Credited";
+  699:        `Margin event kinds must contain only ${Object.keys(MARGIN_EVENT_KINDS).join(", ")}; got ${String(kind)}`,
+
+
+## 01: developer page, Get test funds (/docs/developers/perps-testnet/README.md)
+54:**Paper USDso.** Any address can claim the 1,000 USDso perps credit once, as long as it holds no perp positions or orders:
+58:const eligibility = await markets.client.getPerpVoucherEligibility(btc.marginBank, account)
+60:  await markets.trader.claimPerpVoucher({ marginBank: btc.marginBank })
+
+## 03: market table, Paper USDso column (/docs/trading/perps-testnet/README.md) and the rule (margin-and-liquidations.md)
+48:| **1000PEPE-PERP** | 5x | 20% / 10% 
+49:| **LIT-PERP** | 5x | 20% / 10% | 0.0
+50:| **PUMP-PERP** | 5x | 20% / 10% | 0.
+52:| **VVV-PERP** | 5x | 20% / 10% | 0.0
+54:| **ZEC-PERP** | 5x | 20% / 10% | 0.0
+55:| **ZRO-PERP** | 5x | 20% / 10% | 0.0
+33:- **Only some markets.** You can open or increase positions only in the markets marked **Yes** under Paper USDso in the [market table](README.md#markets). The six newest markets are not on that list.
+140:- **Paper USDso blocks some markets.** Increasing a position in a market outside the credit's allowlist reverts, and `getMaxPerpOrderSize` reports it as `limitedBy: "voucherBlocked"`.
+
+## 05: SDK docs llms-full.txt (somnia-platform-explorer.vercel.app/markets/llms-full.txt), scoring recipe
+3216:  list the flows, and each takes the same inclusive `sinceBlock` / `toBlock`:
+3221:  | `getMarginEvents`           | `Withdraw`, `CreditReclaimed` (voucher sweep) | out  |
+3268:        kinds: ["Deposit", "Credited", "Withdraw", "CreditReclaimed"],
+3112:Perps are live on testnet: `BTC/USDSO:USDSO` and `ETH/USDSO:USDSO`, backed by
+
+## 06: developer page links the Errors page; Errors page sections and perp-error matches
+121:A wrong scale does not fail with an error that says so. 0.1 SOL written with 18 decimals is 100,000,000 SOL, and `placeOrderFor` reverts with `InsufficientCollateral()` (`0x3a23d825`). The owner's
+133:The level you saw can be gone by the time the transaction lands, so price an IOC through the book with some slippage room rather than exactly at the touch. The full list of order errors is on the 
+141:- **An isolated account trades one market only.** Orders anywhere else revert with `IsolatedMarketBlocked`, reducing ones included.
+142:- **Each account has a position cap per market**, a tenth of the market's open interest cap on most markets. An order that would take the account past it reverts with `MaxPositionSizeExceeded()` (
+Errors page (/docs/developers/contracts/errors.md) headings:
+# Errors
+## Decoding a revert
+# Decode a raw revert blob (selector + args)
+# Or look up just the selector
+## SpotPool errors
+### Order validation
+### Order rejection
+### Funding and vault
+### Gas
+### Order lifecycle
+### Batch and amend
+### Operators and authorization
+### Builder codes
+## SpotStopOrderRegistry errors
+## Preflight (HTTP API) reverts
+  matches for InsufficientCollateral: 0
+  matches for MaxPositionSizeExceeded: 0
+  matches for IsolatedMarketBlocked: 0
+  matches for Voucher: 0
+  matches for SelfClaimDisabled: 0
+  matches for MarginBank: 0
+  matches for PerpPool: 0
+
+## 08: Link a Bot docs and the developer page: STT source named?
+52:**STT for gas.** The simplest route is through the app: sign in at [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps), then [Link a Bot](../../trading/common/link-a-bot.md) with your key's address and use **Send it … for gas** or **Top up**. G
+  md_developers_perps-testnet_README.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+  md_trading_common_link-a-bot.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+  md_trading_perps-testnet_README.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+  md_trading_perps-testnet_margin-and-liquidations.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+  md_trading_perps-testnet_funding.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+  md_trading_perps-testnet_orders.md: faucet=0 shannon=0 bridge=0 telegram=0 discord=0
+
+## 09: developer page gas figures
+52:**STT for gas.** The simplest route is through the app: sign in at [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps), then [Link a Bot](../../trading/common/link-a-bot.md) with your key's address and use **Send it … for gas** or **Top up**. Gas is billed on what a transaction uses,
+125:Successful `placeOrderFor` transactions on testnet used up to about 1.56M gas, and a simple resting order simulated with a 1.5M limit reverts while the same call with 3.2M succeeds. `eth_estimateGas` returned 3.2M for a resting order and 7.7M for an IOC that crossed several price levels. Gas is 
+
+## 03 detail: docs market table, Paper USDso column per market (/docs/trading/perps-testnet/README.md)
+  **BTC-PERP** -> Yes
+  **ETH-PERP** -> Yes
+  **HYPE-PERP** -> Yes
+  **SOL-PERP** -> Yes
+  **XRP-PERP** -> Yes
+  **ADA-PERP** -> Yes
+  **AVAX-PERP** -> Yes
+  **BNB-PERP** -> Yes
+  **DOGE-PERP** -> Yes
+  **LINK-PERP** -> Yes
+  **NEAR-PERP** -> Yes
+  **SUI-PERP** -> Yes
+  **XLM-PERP** -> Yes
+  **1000PEPE-PERP** -> No
+  **LIT-PERP** -> No
+  **PUMP-PERP** -> No
+  **TAO-PERP** -> Yes
+  **VVV-PERP** -> No
+  **WLD-PERP** -> Yes
+  **ZEC-PERP** -> No
+  **ZRO-PERP** -> No
+
+## 08: see link_a_bot_new_account_2026-10-25T2254Z.txt + screenshots
+## 09: see fee_floor_test_2026-10-25T2250Z.txt and perp_gas_sample_2026-10-25T2250Z.txt
+## 10: see perps_redirect_2026-10-25T2245Z.txt
+## 11: see trade_history_explorer_links_2026-10-25T2248Z.txt (report archived: the explorer now redirects users)
+## 12: see margin_event_fields_2026-10-25T2244Z.txt

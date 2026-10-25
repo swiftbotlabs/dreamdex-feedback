@@ -1,0 +1,36 @@
+# Report 11 re-check, 2026-10-25 22:48-23:0x UTC. Somnia Tokyo testnet (chain 50383).
+
+## A. Portfolio -> Trade history / Order history, logged in as Somnia Account wallet 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (rendered hrefs)
+JS {"href": "https://app.testnet.dreamdex.io/portfolio", "tabs": ["Positions", "Positions", "Open orders", "Trade history", "Order history", "Funding history"], "clicked": true, "tradeLinks": ["https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817", "https://explorer.testnet.somnia.network/tx/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5", "https://explorer.testnet.somnia.network/tx/0x426548fd875ff6c74f82b5c18bc1835170d0bc35d1af94d92295e0abb42d15dc", "https://explorer.testnet.somnia.network/tx/0x426548fd875ff6c74f82b5c18bc1835170d0bc35d1af94d92295e0abb42d15dc", "https://explorer.testnet.somnia.network/tx/0x426548fd875ff6c74f82b5c18bc1835170d0bc35d1af94d92295e0abb42d15dc", "https://explorer.testnet.somnia.network/tx/0x6c37d6651549ce75974e50096882ecf1b4eebc3199c2eb2f64b6706156b53d17", "https://explorer.testnet.somnia.network/tx/0x38fa57f33f8217457db1d329361cbc078607504bad1f43a703b64d26c86708ff", "https://explorer.testnet.somnia.network/tx/0x12c27d9e879639548e799444c3d0af76a6f42f0f7d8ae4241f83d1f43129bdff"], "clicked2": true, "orderLinks": ["https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817", "https://explorer.testnet.somnia.network/tx/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5", "https://explorer.testnet.somnia.network/tx/0x426548fd875ff6c74f82b5c18bc1835170d0bc35d1af94d92295e0abb42d15dc", "https://explorer.testnet.somnia.network/tx/0x6c37d6651549ce75974e50096882ecf1b4eebc3199c2eb2f64b6706156b53d17", "https://explorer.testnet.somnia.network/tx/0x38fa57f33f8217457db1d329361cbc078607504bad1f43a703b64d26c86708ff", "https://explorer.testnet.somnia.network/tx/0x12c27d9e879639548e799444c3d0af76a6f42f0f7d8ae4241f83d1f43129bdff", "https://explorer.testnet.somnia.network/tx/0x1118b65004b7a6afd3bbd62a56c9064ae4e16ff6162ed985cc1ea72a05f143de", "https://explorer.testnet.somnia.network/tx/0x1cf63b360116054766b547d4031b65fdc139759e5d501e760f4b6d195586656b"], "allExplorerHosts": ["explorer.testnet.somnia.network/address", "explorer.testnet.somnia.network/tx"]}
+
+## B. Where those links lead (one of them, a Tokyo tx), vs the same path with the /tokyo network segment
+https://explorer.testnet.somnia.network/tx/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5 -> 200
+https://explorer.testnet.somnia.network/tokyo/tx/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5 -> 200
+https://explorer.testnet.somnia.network/api/v2/transactions/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5 -> 404
+https://explorer.testnet.somnia.network/tokyo/api/v2/transactions/0x53f1f7f7f5efbe2fecfab50c4cfc9e24cff200bc7eb7c92dc1d818824897b9b5 -> 200
+date: 2026-10-25T22:59:30Z
+
+Rendered in Chrome (logged-out window):
+-- explorer_tx_loggedout
+-- explorer_tokyo_tx_loggedout
+  /tx/<hash>        : HTTP 500, header 'Global testnet 50312', 'ERROR Something went wrong. The explorer couldn't load this page. The chain or its index may be briefly unavailable.' (explorer-root-tx-error-2026-10-25.png)
+  /tokyo/tx/<hash>  : HTTP 200, header 'Tokyo testnet 50383', 'Transaction SUCCESS 0x53f1f7f7...' (explorer-tokyo-tx-ok-2026-10-25.png)
+
+## C. Tokyo RPC receipt for the same hash
+status 0x1 block 28540785 to 0xd6cb1dd58580b84d76068ac21594219ce03aeddf
+
+## D. The app's link builder, as served 2026-10-25 (chunk /_next/static/immutable/chunks/04nhweuvbgxuy.js, minified excerpt)
+let u={[i.somnia.id]:i.somnia,[a.somniaTestnet.id]:a.somniaTestnet},p={[i.somnia.id]:{base:"https://new.explorer.somnia.network"},[a.somniaTestnet.id]:{base:"https://explorer.testnet.somnia.network"}};function d(){let e,t=u[o.SOMNIA_CHAIN_ID];if(!t)throw Error(`Unsupported chain ID: ${o.SOMNIA_CHAIN_ID}. Expected ${i.somnia.id} (mainnet) or ${a.somniaTestnet.id} (testnet)`);return r??=void 0===(e=o.SOMNIA_EXPLORER_URL??p[t.id]?.base)?t:{...t,blockExplorers:{...t.blockExplorers,default:{...t.blockExplorers.default,url:e}}}}let l=s.IS_TESTNET,m=d().nativeCurrency.symbol,c=a.somniaTestnet.nativeCurrency.symbol;function y(e,r){let t=void 0===r?d():r.chain,n=t.blockExplorers?.default?.url;return n?new URL(e,`${n}/`).toString():null}function f(e,r){return e?y(`tx/${e}`,r):null}let v=[t.arbitrum,n.mainnet,i.somnia,a.somniaTestnet];e.s(["IS_SOMNIA_TESTNET",0,l,"NATIVE_TOKEN_SYMBOL",0,m,"TESTNET_NATIVE_TOKEN_SYMBOL",0,c,"TX_TOAST_WIDTH",0,380,"getExplorerAddressUrl",0,function(e,r){return e?y(`address/${e}`,r):null},"getExplorerPageUrl",0,y,"getExplorerTxUrl",0,f,"getExplorerTxUrlForChain",0,function(e,r){if(!r)return null;if(e===o.SOMNIA_CHAIN_ID)return y(`tx/${r}`);let t=v.find(r=>r.id===e)?.blockExplorers?.default?.url;return t?new URL(`tx/${r}`,`${t}/`).toString():null},"getSomniaChain",0,d,"viewTxButton",0,function(e,r){let t=f(e,r?.chain.id===o.SOMNIA_CHAIN_ID?void 0:r);if(t)return{label:"View transaction",onClick:()=>window.open(t,"_blank","noopener,noreferrer")}}])},464402,e=>
+
+## E. The Tokyo region config in another chunk sets the right explorer (excerpt)
+L={chain:{...n.hidekiTestnet,blockExplorers:{default:{name:"Somnia Explorer",url:"https://explorer.testnet.somnia.network/tokyo"}}}, ...
+
+## F. Second render of the same link, 23:00 UTC (why report 11 is archived)
+At 22:49 UTC Chrome got HTTP 500 for https://explorer.testnet.somnia.network/tx/0x53f1f7f7...b9b5 ("Something went wrong").
+At 22:59-23:00 UTC the same URL answered 200 every time (12 curl requests over 4 Tokyo tx hashes, incl. 0xdafc8e6a...acd2 from the
+original report), and the rendered page now reads:
+  "BLOCKCHAIN / GLOBAL TESTNET / TRANSACTION | Transaction | 0x53f1f7f7...b9b5 | Not on Global testnet |
+   This transaction is on Tokyo testnet. | Open on Tokyo testnet"
+(explorer-root-tx-redirect-hint-2026-10-25.png). So a history link still opens the 50312 view first (the app's link builder above
+still ignores the row's region), but the explorer now detects the Tokyo transaction and offers a one-click hop: the dead end that
+report 11 described is gone. The 22:49 error looked transient (the page itself says "may be briefly unavailable").

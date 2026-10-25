@@ -1,0 +1,10 @@
+# 2026-10-25T23:03:24Z bash scripts/indexer_timing.sh 0x47537e3a3ea6e9391f3b26ea45618db6828c8bff
+SDK shape: account + kinds D/C/W, ts desc    10.64s ERROR
+SDK shape: account + kinds D/C/W, ts desc    10.49s ERROR
+SDK shape: account + kinds D/C/W, ts desc    10.51s ERROR
+account only, ts desc                        0.80s ok
+account + kinds Locked, ts desc              0.63s ok
+account + kinds D/C/W, order id desc         10.50s ERROR
+account + kinds D/C/W, no order              7.02s ok
+distinct_on kind                             10.48s ERROR
+aggregate count for account                  0.75s ERROR

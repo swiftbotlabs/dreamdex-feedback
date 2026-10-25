@@ -1,0 +1,17 @@
+# 2026-10-25T22:50:13Z node scripts/perp_gas_sample.mjs ETH BTC SOL pools
+head 33164763n txs 80 single-order txs 20
+single-order STT cost: min 0.00134 p50 0.00213 p90 0.00863 max 0.01319 over 0.003: 6
+0x68ae3595 to 0xfa4b76 n 47 orders/tx 1,2,3,4,5,6 STT min 0.00134 max 0.00896 senders 1
+0x24ea3d1f to 0xd6cb1d n 25 orders/tx 4,1 STT min 0.00222 max 0.00293 senders 1
+0x80054449 to 0xd6cb1d n 4 orders/tx 1 STT min 0.00280 max 0.00887 senders 1
+0x53edf33d to 0x11b2a2 n 2 orders/tx 1 STT min 0.00555 max 0.00715 senders 1
+0x53edf33d to 0xfa4b76 n 2 orders/tx 1,5 STT min 0.01319 max 0.01596 senders 1
+sender 0x3fd27cd3cd1432da855db40af1f518fd0ef23c4a txs 47 type legacy gas price gwei 0.6 gasUsed min 2227660 max 14926893 paid STT min 0.00134 max 0.00896 same gas at 6 gwei: min 0.01337 max 0.08956
+sender 0x6c2986a550dc4212b49a1710d8466553e3761ce4 txs 25 type eip1559 gas price gwei 1.8 gasUsed min 1231640 max 1630399 paid STT min 0.00222 max 0.00293 same gas at 6 gwei: min 0.00739 max 0.00978
+sender 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca txs 4 type eip1559 gas price gwei 6 gasUsed min 466544 max 1478220 paid STT min 0.00280 max 0.00887 same gas at 6 gwei: min 0.00280 max 0.00887
+sender 0x11b2a2c7d386d583b85fcf0e9a492663b06b4d8d txs 2 type legacy gas price gwei 0.61 gasUsed min 9105642 max 11713825 paid STT min 0.00555 max 0.00715 same gas at 6 gwei: min 0.05463 max 0.07028
+sender 0xfa4b763c3303248cbef7457646c5e209772478a7 txs 2 type legacy gas price gwei 3.8 gasUsed min 3472111 max 4199348 paid STT min 0.01319 max 0.01596 same gas at 6 gwei: min 0.02083 max 0.02520
+latest block 33164909 baseFeePerGas 6000000000 eth_gasPrice 6000000000
+sample 0x8cedf79e13db48815aadc6a7917347024567586b7e10686257eadb1e90eaa17b 1438511 6 0.00863 0x80054449 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca
+sample 0x8c8c9197e9778f5bebd43f388aaa3ee96305aeae2c67b5aa1f272047473537f1 1478220 6 0.00887 0x80054449 0x48ab6e0c5b7b3540651b3c6a8080cebd9db0afca
+sample 0xd316330e61ce62a9e4cc645862e06f9d562a38c0f458bb19f15a39b4d263b513 3472111 3.8 0.01319 0x53edf33d 0xfa4b763c3303248cbef7457646c5e209772478a7

@@ -1,0 +1,28 @@
+# Report 08 re-check with a brand-new account, 2026-10-25 22:52-22:55 UTC (app.testnet.dreamdex.io, Chrome 155, fresh
+# browser context with no cookies, 1600x786)
+
+1. /competition -> Connect -> "Log in with email or socials" -> e-mail (a new Gmail alias) -> Submit (22:52:26 UTC) ->
+   "Enter confirmation code" -> 6-digit code from the privy.io e-mail (issued 22:52:27 UTC) -> logged in.
+   New Somnia Account wallet: Wallet 1 = 0xa05d5619146FF3Dd30435662B7f5E1D002761d24
+   This app's key (Manage -> SIGNING KEY, THIS APP): 0x24607fB6207E9910ac63C3c66fCeac869C7e5E5A
+2. Wallet panel (Overview) shows: "This app's key is nearly out of gas. Top it up before your next move." and $0.00.
+3. Wallet 1 -> wallet list -> "Link a bot" -> pasted bot address 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 (the field shows the
+   bot's own gas, 1.862 STT). Dialog text (22:54:24 UTC):
+     LET A BOT TRADE WALLET 1
+     Perps - Uses this wallet's perp margin. Perp margin: 0.00 USDso - the bot has nothing to trade with until you move margin in.
+     Spot - Uses this wallet's tokens. Spot balance: 0.00 USDso
+     Send it 5 STT for gas / From Wallet 1 (0.00 STT).
+     Can't add a bot yet: the app's key that sends this change has no STT.      <- red, rgb(255, 102, 102)
+     Add bot                                                                     <- disabled (button.disabled === true)
+   Screenshot: link-a-bot-new-account-2026-10-25.png
+4. Manage -> Gas (the page the warning leads to), text:
+     "Gas / Paid by this app's key / This app's key is nearly out of gas. / 0.00 STT left / ... TOP IT UP / Send STT to this key.
+      It is not one of your wallets - it is the small balance this app spends on your behalf, and it only ever pays for gas.
+      0x2460...5E5A / HOW IT IS DECIDED / Three payers are tried in order: a relayer, then this app's key, then your login wallet. ..."
+   No STT source (faucet, bridge, Arena airdrop, Discord) is named. Screenshot: app-key-gas-page-2026-10-25.png
+5. Balances right after (eth_getBalance, 22:55 UTC): Wallet 1 and the app key hold 0 on Tokyo (api.hideki2.infra.testnet.somnia.network)
+   and 0 on Shannon (dream-rpc.somnia.network).
+6. Perps docs pages (app.dreamdex.io/docs, fetched 22:37 UTC): 0 matches for faucet / Shannon / bridge / Telegram / Discord on
+   /docs/developers/perps-testnet, /docs/trading/common/link-a-bot and the four /docs/trading/perps-testnet pages
+   (recheck_2026-10-25T2239Z.txt, section 08).
+Not re-run today: the Shannon-faucet workaround in the report's steps 4-5 (no new STT was requested).

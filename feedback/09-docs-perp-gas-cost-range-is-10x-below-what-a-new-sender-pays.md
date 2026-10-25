@@ -5,6 +5,8 @@ Area: docs
 > **Summary.** The perps developer page's gas-cost figure is what heavy senders pay after Somnia's 70–90 % sustained-use
 > discount. A new bot key pays the undiscounted 6 gwei, so it under-budgets gas by ~10× if it trusts the page.
 
+> **Re-verified 2026-10-25, 22:50 UTC, Somnia Tokyo testnet (chain 50383), block 33165138.** `eth_gasPrice` and the block's `baseFeePerGas` are both 6 gwei. From our throwaway key, 0-value self-transfers at 0.6 gwei (legacy and EIP-1559) are still rejected by the public RPC with `gas price below base fee`, while the one capped at 12 gwei lands at an effective 6 gwei (tx `0x024923cb3a4725c0e2683021b30ed108b8ec6c27ab637ce0850bf3431d741ce9`, block 33165147). Across recent ETH, BTC and SOL-PERP orders, the one sender that pays 6 gwei paid 0.0028–0.0089 STT per single-order transaction, up to 3× the documented maximum, while the market makers paid 0.6–1.8 gwei. The developer page itself now says successful `placeOrderFor` transactions used "up to about 1.56M gas": at the 6 gwei floor that is 0.0094 STT, outside its own "between 0.0003 and 0.003 STT". Evidence: `evidence/fee_floor_test_2026-10-25T2250Z.txt`, `evidence/perp_gas_sample_2026-10-25T2250Z.txt`.
+
 The developer page "Perps on Testnet for Developers" (`/docs/developers/perps-testnet`, **Get test funds**)
 says:
 
@@ -93,12 +95,13 @@ Quote the cost at the undiscounted price a new sender pays, and link Somnia's su
 "low, top up soon" warning on the same basis.
 
 ## Environment
-- Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK), RPC `https://api.hideki2.infra.testnet.somnia.network`
 - Pools: ETH-PERP `0xD6Cb1DD58580B84D76068aC21594219ce03aeddf`, BTC-PERP `0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0`,
   SOL-PERP `0xB483ec1fb34996638677c20ab087b16F1896FA53`
 - `@somnia-chain/markets-sdk` 0.32.1 (fee defaults read from source; not executed); viem 2.57.7 for our transactions
 - Date: 2026-10-19, 14:36–15:20 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (throwaway testnet bot key)
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Severity minor → normal: "minor" is not on the bounty's scale (critical | major | normal).

@@ -1,0 +1,5 @@
+# 2026-10-25T22:50:50Z node scripts/fee_floor_test.mjs (throwaway testnet key 0x2A11e7388D1D2F9690f2636846d44b478f61bF08; Tokyo/Hideki 50383)
+eth_gasPrice 6000000000 block baseFeePerGas 6000000000 block 33165138
+{"label":"legacy 0.6 gwei","error":"Missing or invalid parameters.\nDouble check you have provided the correct parameters.","details":"gas price below base fee"}
+{"label":"eip1559 maxFee 0.6 gwei","error":"Missing or invalid parameters.\nDouble check you have provided the correct parameters.","details":"gas price below base fee"}
+{"label":"eip1559 maxFee 12 gwei tip 0","hash":"0x024923cb3a4725c0e2683021b30ed108b8ec6c27ab637ce0850bf3431d741ce9","status":"success","gasUsed":"21000","effectiveGasPrice":"6000000000","costWei":"126000000000000","block":"33165147"}

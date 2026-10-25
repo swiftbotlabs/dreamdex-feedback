@@ -5,6 +5,8 @@ Area: docs
 > **Summary.** The scoring recipe in the SDK's Perps guide passes options `getMarginEvents` 0.32.1 does not have. As written
 > it throws (`CreditReclaimed`); with that kind removed, `sinceBlock`/`toBlock` are ignored and pre-window deposits count.
 
+> **Re-verified 2026-10-25, 22:39–22:44 UTC.** npm `latest` is still 0.32.1. In 0.32.1 and in the 0.32.2 canary, `sinceBlock` appears 0 times in `src/perp/history.ts`, `MarginEventKind` (line 83) still has no `CreditReclaimed`, and the runtime check (line 699) still throws for it. The SDK docs (`markets/llms-full.txt`) still carry the recipe: "each takes the same inclusive `sinceBlock` / `toBlock`" (line 3216), `CreditReclaimed` as an out flow (line 3221) and `kinds: ["Deposit", "Credited", "Withdraw", "CreditReclaimed"]` (line 3268). Evidence: `evidence/recheck_2026-10-25T2239Z.txt`, section 05.
+
 The Somnia Markets SDK docs page `/markets/somnia-markets/typescript/perps` ("Account equity for
 scoring is one read", also in `llms-full.txt`) gives a competition-scoring recipe that reads flows
 between two equity snapshots with
@@ -72,8 +74,9 @@ markets are live (`PerpPoolFactory.perpPoolCount()` = 21 at block 27491272, `scr
 - `@somnia-chain/markets-sdk` 0.32.1 and 0.32.2-canary (source read; not executed)
 - Docs: `https://somnia-platform-docs.vercel.app/markets/somnia-markets/typescript/perps` and
   `https://somnia-platform-explorer.vercel.app/markets/llms-full.txt`, read 2026-10-19 ~09:45 UTC
-- Somnia Hideki testnet, chain id 50383
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK)
 - Wallet: n/a
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** The old title said the recipe "silently over-counts", but the body shows the recipe as written

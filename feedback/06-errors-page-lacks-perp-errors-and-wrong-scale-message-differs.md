@@ -5,6 +5,8 @@ Area: docs
 > **Summary.** The perps developer page ends its order-error section with "The full list of order errors is on the Errors
 > page", but that page lists 48 spot / order-book selectors and no perp, MarginBank or voucher error at all.
 
+> **Re-verified 2026-10-25, 22:37 UTC.** The Errors page (now also at app.dreamdex.io/docs/developers/contracts/errors) still has only SpotPool, SpotStopOrderRegistry and Preflight sections. It has 0 matches for `InsufficientCollateral`, `MaxPositionSizeExceeded`, `IsolatedMarketBlocked`, `Voucher`, `SelfClaimDisabled`, `MarginBank` and `PerpPool`. The developer page still names `InsufficientCollateral()` (`0x3a23d825`), `MaxPositionSizeExceeded()` (`0x714b36d6`) and `IsolatedMarketBlocked`, and still says "The full list of order errors is on the Errors page". Evidence: `evidence/recheck_2026-10-25T2239Z.txt`, section 06.
+
 The developer page "Perps on Testnet for Developers" ends its order-error section with "The full list
 of order errors is on the Errors page", and cites perp-specific selectors on the way
 (`InsufficientCollateral()` `0x3a23d825`, `MaxPositionSizeExceeded()` `0x714b36d6`,
@@ -51,9 +53,10 @@ same source as `contractErrorsAbi.ts`, including `SelfClaimDisabled()` `0x3e31dc
 
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (error ABI read from source)
-- Somnia Hideki testnet, chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`, BTC-PERP pool `0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0`
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK), RPC `https://api.hideki2.infra.testnet.somnia.network`, BTC-PERP pool `0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0`
 - Date: 2026-10-19, 09:30–10:00 UTC (eth_call); docs re-checked 2026-10-20 02:40 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (eth_call `from`)
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Removed the second half of this report (the "wrong scale" revert message is

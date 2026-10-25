@@ -5,6 +5,8 @@ Area: app
 > **Summary.** Every perps route in the app answers with a server-side `307` that ends on the STT-USDso spot market, from
 > 38 check-host nodes in 25 countries, logged in or out, while the app's own flags say perps are on and the default landing.
 
+> **Re-verified 2026-10-25, 22:45–22:48 UTC, logged out and logged in.** It still reproduces, more than six days after we first saw it (2026-10-19 ~19:10 UTC). `/trade/perps/tokyo/BTC-PERP` now redirects in one hop (`307 → /trade/spot/tokyo/STT:USDso`). `/perps`, the link in the docs, goes to `/trade/perps/tokyo/BTC-PERP` and then to spot. The `/trade/perps/dreamdex/<market>` form also ends on spot. `/trade/perps/tokyo` answers 200 but shows the app's "Page not found". Logged in as our Perps Arena wallet, the Arena page's **Start trading** button (href `/trade/perps/tokyo/BTC-PERP`) lands on STT-USDso spot. Evidence: `evidence/perps_redirect_2026-10-25T2245Z.txt`, `evidence/perps-redirect-start-trading-2026-10-25.png`.
+
 Why major: the core perps UI cannot be opened by anyone, from any entry point, while the Perps Arena is running, and the
 Arena's call to action (and its onboarding quests: a resting limit order, a TP/SL trigger order, trading 3 markets) leads
 nowhere. It has lasted more than 8 hours (first seen ~19:10 UTC Oct 19, still present 03:36 UTC Oct 20). Funds are not at
@@ -88,6 +90,7 @@ resting limit order, a TP/SL trigger order, trading 3 markets) need it.
   `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817`; logged out = fresh browser context with no cookies
 - curl 8.18.0
 - `@somnia-chain/markets-sdk`: not involved
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Severity normal → major: the core perps trading UI has been unreachable for everyone for

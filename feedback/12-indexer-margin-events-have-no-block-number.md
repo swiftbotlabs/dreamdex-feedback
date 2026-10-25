@@ -5,6 +5,8 @@ Area: API
 > **Summary.** The indexer's `MarginEvent` entity has no `blockNumber` or `logIndex` field, only a seconds `timestamp`.
 > At ~10 Hideki blocks per second, the SDK docs' block-windowed flow read cannot be done from the indexer.
 
+> **Re-verified 2026-10-25, 22:44 UTC, Somnia Tokyo testnet (chain 50383).** Introspection still lists `MarginEvent` as `account amount granter id kind pool timestamp txHash`. Selecting or filtering `blockNumber` fails with `field 'blockNumber' not found in type: 'MarginEvent'` / `'MarginEvent_bool_exp'`, while `Fill`, `Order` and `LiquidationEvent` carry block fields. Ten blocks still share one timestamp second. Evidence: `evidence/margin_event_fields_2026-10-25T2244Z.txt`.
+
 **Distinct from report 05:** 05 is the docs recipe passing options that SDK 0.32.1 does not have (fix: the docs or the
 SDK's option types). This report is the indexer schema: even an SDK that accepted `sinceBlock`/`toBlock` would have no
 column to filter on (fix: add `blockNumber` and `logIndex` to the `MarginEvent` entity). Different component, different fix.
@@ -75,7 +77,8 @@ query by block and log index, as the docs already describe.
 
 ## Environment
 - Indexer `https://hideki-dev.smk.somnia.host/v1/graphql` (`chain_metadata.chain_id` 50383, at the chain head)
-- RPC `https://api.hideki2.infra.testnet.somnia.network`; Somnia Hideki testnet ("Tokyo"), chain id 50383
+- RPC `https://api.hideki2.infra.testnet.somnia.network`; Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK)
 - `@somnia-chain/markets-sdk` 0.32.1 (types read from source; not executed)
 - Date: 2026-10-20, 03:20–03:40 UTC
 - Wallet: n/a (read-only); row shown belongs to `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)

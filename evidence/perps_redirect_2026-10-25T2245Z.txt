@@ -1,0 +1,72 @@
+# Report 10 re-check, 2026-10-25 22:45-22:48 UTC (Somnia Tokyo testnet app, app.testnet.dreamdex.io)
+
+## A. curl -sI with a browser User-Agent, from India (Vercel edge bom1)
+## https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+307 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=1
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:02 GMT
+location: /trade/spot/tokyo/STT:USDso
+x-vercel-id: bom1::6v8hr-1792968361889-bb5e54c32bbf
+## https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+200 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=1
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:04 GMT
+location: /trade/spot/tokyo/STT:USDso
+x-vercel-id: bom1::4nhtk-1792968364103-261b09eec115
+## https://app.testnet.dreamdex.io/trade/perps/dreamdex/BTC-PERP
+200 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=2
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:05 GMT
+location: /trade/perps/dreamdex
+x-vercel-id: bom1::rtbjv-1792968365508-13722d4daf0a
+## https://app.testnet.dreamdex.io/perps
+200 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=2
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:06 GMT
+location: /trade/perps/tokyo/BTC-PERP
+x-vercel-id: bom1::hfmjz-1792968366919-4c92c6de1820
+## https://app.testnet.dreamdex.io/trade/perps
+200 final=https://app.testnet.dreamdex.io/trade/spot/perps redirects=1
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:08 GMT
+location: /trade/spot/perps
+x-vercel-id: bom1::fqlf7-1792968368447-b288ba4a251b
+## https://app.testnet.dreamdex.io/competition
+200 final=https://app.testnet.dreamdex.io/competition redirects=0
+HTTP/2 200 
+date: Sun, 25 Oct 2026 22:27:31 GMT
+x-vercel-id: bom1::iad1::4nhtk-1792968370715-912864065e51
+## https://app.testnet.dreamdex.io/trade
+200 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=1
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:12 GMT
+location: /trade/spot/tokyo/STT:USDso
+x-vercel-id: bom1::k77dd-1792968372133-d63a4542dffa
+## https://app.testnet.dreamdex.io/
+200 final=https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso redirects=1
+HTTP/2 307 
+date: Sun, 25 Oct 2026 22:46:14 GMT
+location: /trade/spot/tokyo/STT:USDso
+x-vercel-id: bom1::fqlf7-1792968374020-1eb6c81cee1e
+
+## B. /trade/perps/tokyo (the only perps path that answers 200) renders the app's 'Page not found', logged out
+REQUEST 2026-10-25T22:46:51Z https://app.testnet.dreamdex.io/trade/perps/tokyo
++  0.3s DOC-RESPONSE 200 https://app.testnet.dreamdex.io/trade/perps/tokyo
++  1.0s IN-PAGE-NAV (history API) https://app.testnet.dreamdex.io/trade/perps/tokyo
++  1.7s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade?_rsc=OXEfaXsCQr9qpu4a -> location: /trade/spot/tokyo/STT:USDso
+FINAL location.href https://app.testnet.dreamdex.io/trade/perps/tokyo
+FINAL title dreamDEX
+JS {"href": "https://app.testnet.dreamdex.io/trade/perps/tokyo", "perpWords": [["Funding", false], ["Leverage", false], ["Liq. price", false], ["Open interest", false], ["Mark", false], ["PERP", false]], "head": "Testnet\nTrade\nEvents\nPerps Arena\nLend\ndreamBot\nSupport\nConnect\n\nPerps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.\n\nPage not found\n\n
+
+## C. Logged in (Somnia Account wallet 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817, a Perps Arena member), /competition -> click 'Start trading'
+REQUEST 2026-10-25T22:47:32Z https://app.testnet.dreamdex.io/competition
+CLICK-CANDIDATES [{"tag": "A", "href": "/trade/perps/tokyo/BTC-PERP", "abs": "https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP"}]
+CLICKED at 22:47:43Z
++  2.6s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=MFMTWxxxayZEd0S_ -> location: /trade/spot/tokyo/STT:USDso
++ 10.4s Fetch REDIRECT 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP?_rsc=OgtlUXdnYyIXYO6J -> location: /trade/spot/tokyo/STT:USDso
+FINAL location.href https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+FINAL title 0.1745 | STT-USDso | dreamDEX
+JS {"href": "https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso", "perpWords": [["Funding", false], ["Leverage", false], ["Liq", false], ["Open interest", false], ["PERP", false], ["STT", true]], "head": "Testnet\nTrade\nEvents\nPortfolio\nPerps Arena\nLend\ndreamBot\nSupport\nDeposit\n0x0e7E…3817\n\nPerps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.\n\nSTT\n-\nUSDso\nMID\n$0.1745\n24H CHANGE\n+0.32%\n24H HIGH\n$0.1778\n24H LOW\n$0.1680\n24H VOL\n$1.64K\nHide book\nOrder book\nTrades\n0.0001\nSTT\nPrice\nSize (STT)\nTotal (STT)\n0.1746\n249.42\
+SHOT start_trading_click_loggedin.png 2026-10-25T22:47:54Z
+
+Screenshot: perps-redirect-start-trading-2026-10-25.png (the page after the click: STT-USDso spot, logged in).

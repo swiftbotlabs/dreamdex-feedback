@@ -1,9 +1,12 @@
-# Indexer: the SDK's `MarginEvents` query (account + `kinds` filter, newest first) fails with "database query error" for about half of the high-activity accounts
+# Indexer: the SDK's `MarginEvents` query (account + `kinds` filter, newest first) fails with "database query error" for high-activity accounts (13 of 13 tested on 2026-10-25)
 Severity: major
 Area: API
 
 > **Summary.** `client.getMarginEvents(account, { kinds })`, the read behind the documented portfolio-return recipe, fails
-> every time after ~10.5 s with a generic `database query error` for 6 of the 13 busy accounts we tested (all >100k rows).
+> every time after ~10.5 s with a generic `database query error` for all 13 busy accounts we tested on 2026-10-25 (6 of 13
+> on 2026-10-20; all have >100k rows).
+
+> **Re-verified 2026-10-25, 22:40–23:04 UTC, Somnia Tokyo testnet (chain 50383). It is worse than first reported.** The SDK's query now fails for **13 of the 13** busy accounts in the table below (6 of 13 on 2026-10-20). Each fails after 10.5–13.3 s with `database query error`, while the two quiet accounts answer in 0.5–1.2 s. On `0x4753…8bff` the SDK shape fails 3 of 3 times. Ordering by `id` now fails too (10.5 s), and dropping `order_by` still completes (7.0 s). Evidence: `evidence/indexer_accounts_2026-10-25T2240Z.txt`, `evidence/indexer_timing_2026-10-25T2303Z.txt`.
 
 **Distinct from report 05:** this is indexer performance (the query is valid and returns correct rows for small
 accounts; fix: an index or a different sort). Report 05 is a docs-vs-SDK mismatch in the recipe's options (fix: the docs
@@ -108,8 +111,9 @@ limit 50) for each, twice (03:28 / 03:34 UTC, and 03:47 / 03:48 UTC for the last
 | `0x567476bd43ff20e6aa44e18abfbdb58280563f45` (quiet) | 2 | 0.64 s ok | 0.55 s ok |
 | `0x2a11e7388d1d2f9690f2636846d44b478f61bf08` (ours) | 3 | 0.48 s ok | 0.51 s ok |
 
-So 6 of the 13 busy accounts fail on both passes, the other 7 and both quiet accounts succeed on both. Workarounds exist
-(`order_by: {id: desc}`, or filtering `kind` on the client), but the SDK offers neither.
+So 6 of the 13 busy accounts fail on both passes, the other 7 and both quiet accounts succeed on both. Workarounds existed
+(`order_by: {id: desc}`, or filtering `kind` on the client), but the SDK offers neither. On 2026-10-25 the `id` ordering
+failed too (10.50 s ERROR); only dropping `order_by` still completed (7.02 s).
 
 Related, same family: `MarginEvent(distinct_on: kind)` and `MarginEvent_aggregate(where: {account: …}) { aggregate { count } }`
 also return `database query error` (2026-10-19 09:2x UTC: 3/3 and 0.52 s; 15:04 UTC: 11.70 s and 1.81 s,
@@ -129,12 +133,15 @@ a distinguishable error (`statement timeout`) instead of the generic `database q
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (query text read from source; the request was sent with curl)
 - Indexer `https://hideki-dev.smk.somnia.host/v1/graphql`, `chain_metadata.latest_processed_block` ≈ 27,50x,xxx (at chain head)
-- Somnia Hideki testnet, chain id 50383
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK)
 - Date: 2026-10-19, 09:20–09:30 UTC
 - Wallet: n/a (read-only); accounts queried: the 15 in the account table
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Added the 15-account table (6 of 13 busy accounts fail, measured twice) and stated the scope
   honestly: quiet accounts are not affected. Changed the title from "for an active account" to match. Area is now `API`
   only (the SDK only sends the query). Moved the `distinct_on` / `_aggregate` results into one "Related" note, since the SDK
   does not use them. Added the summary and the "Distinct from report 05" paragraph.
+- **Updated 2026-10-25.** Title and summary now say 13 of 13 busy accounts (re-run 2026-10-25 22:40 UTC); the 2026-10-20
+  table below is kept as measured then. Noted that the `id` ordering workaround no longer completes.

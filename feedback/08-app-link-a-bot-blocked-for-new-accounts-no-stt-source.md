@@ -5,6 +5,8 @@ Area: app
 > **Summary.** The perps developer page sends developers to Link a bot for gas, but on a new account Link a bot is disabled
 > ("…has no STT") and names no source. The faucets other docs pages name pay on Shannon; the app moves that STT silently.
 
+> **Re-verified 2026-10-25, 22:52–22:55 UTC with a brand-new account.** We made a new Privy e-mail login, which created Somnia Account `0xa05d5619146FF3Dd30435662B7f5E1D002761d24` with app key `0x24607fB6207E9910ac63C3c66fCeac869C7e5E5A`. Both hold 0 STT on Tokyo and on Shannon. With a bot address pasted, Link a bot shows the same red "Can't add a bot yet: the app's key that sends this change has no STT.", and **Add bot** stays disabled. The wallet panel now also warns "This app's key is nearly out of gas". The Gas page it leads to says "Send STT to this key" but names no source. The perps docs pages still contain no "faucet", "Shannon", "bridge", "Telegram" or "Discord". We did not re-run the faucet workaround. Evidence: `evidence/link_a_bot_new_account_2026-10-25T2254Z.txt`, `evidence/link-a-bot-new-account-2026-10-25.png`, `evidence/app-key-gas-page-2026-10-25.png`.
+
 The developer page "Perps on Testnet for Developers" says under **Get test funds**:
 
 > STT for gas. The simplest route is through the app: sign in at app.testnet.dreamdex.io, then Link a
@@ -90,6 +92,7 @@ account never hits the red message.
 - `@somnia-chain/markets-sdk` 0.32.1 (not involved)
 - Wallets: app wallet (Somnia Account) `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817`; app key
   `0x2277Eb46b5116da71e15a0085A640c1E29C149c6`; bot key `0x2A11e7388D1D2F9690f2636846d44b478f61bF08`
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-19 15:20 UTC.** The first version of this report (commit `f2a1e30`, 10:58 UTC) said there was

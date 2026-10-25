@@ -5,6 +5,8 @@ Area: docs
 > **Summary.** The docs say the Perps Arena's paper USDso cannot trade six markets, but the chain allows it on all 21:
 > `isVoucherMarketAllowed` is `true` everywhere, and a paper-USDso-only account's resting bid is accepted on ZEC-PERP and PUMP-PERP.
 
+> **Re-verified 2026-10-25, 22:39–22:40 UTC, Somnia Tokyo testnet (chain 50383), block 33158494.** `isVoucherMarketAllowed` is `true` for all 21 pools, and the docs' market table still marks 1000PEPE, LIT, PUMP, VVV, ZEC and ZRO "No" ("The six newest markets are not on that list"). From the voucher-only account `0x5674…3f45` (paper-USDso floor 2,000, never main-funded, flat), a resting bid at the minimum size simulates as accepted on ZEC-PERP and PUMP-PERP, as on BTC-PERP (a "Yes" market, positive control). Negative control: the same ZEC bid from `0x…dEaD`, which holds no collateral and no voucher, reverts. Evidence: `evidence/voucher_only_orders_2026-10-25T2240Z.txt`, `evidence/survey_2026-10-25T2239Z.json`.
+
 The trading page "Perps on Testnet" has a **Paper USDso** column in its market table with
 1000PEPE-PERP, LIT-PERP, PUMP-PERP, VVV-PERP, ZEC-PERP and ZRO-PERP marked **No**, and "Margin &
 Liquidations" says under **Paper USDso**:
@@ -91,9 +93,10 @@ sentence; or, if the six are meant to be blocked, fix the allowlist on chain.
 
 ## Environment
 - `@somnia-chain/markets-sdk` 0.32.1 (source read; not executed)
-- Somnia Hideki testnet ("Tokyo"), chain id 50383, RPC `https://api.hideki2.infra.testnet.somnia.network`, block 27491272
+- Somnia Tokyo testnet, chain id 50383 ("Hideki" in the docs and SDK), RPC `https://api.hideki2.infra.testnet.somnia.network`, block 27491272
 - Date: 2026-10-19, 09:05 UTC
 - Wallet: `0x2A11e7388D1D2F9690f2636846d44b478f61bF08` (reads only)
+- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
 - **Corrected 2026-10-20.** Fixed the SDK line numbers in the body (they said the `voucherBlocked` derivation is at
