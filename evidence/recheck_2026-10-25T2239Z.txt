@@ -141,3 +141,24 @@ Errors page (/docs/developers/contracts/errors.md) headings:
 ## 10: see perps_redirect_2026-10-25T2245Z.txt
 ## 11: see trade_history_explorer_links_2026-10-25T2248Z.txt (report archived: the explorer now redirects users)
 ## 12: see margin_event_fields_2026-10-25T2244Z.txt
+
+## 05 addendum (23:15 UTC): the other two reads the recipe names, in 0.32.1 and the canary (src/perp/linkedWallet.ts)
+latest: sinceBlock|toBlock matches in linkedWallet.ts: 0
+canary: sinceBlock|toBlock matches in linkedWallet.ts: 0
+  export async function listPerpMarginPulls(
+    opts: { account?: string; pool?: string; orderId?: string; source?: string; limit?: number; offset?: number } = {},
+    indexerUrl: IndexerRead.Source,
+    const where: Record<string, unknown> = {};
+    if (opts.account != null) where.account = { _eq: opts.account.toLowerCase() };
+    if (opts.pool != null) where.pool = { _eq: opts.pool.toLowerCase() };
+    // An order id is a decimal string, not an address — lowercasing it would be harmless but
+    // meaningless, and hiding that it is not an address is worse than leaving it exact.
+    if (opts.orderId != null) where.orderId = { _eq: opts.orderId };
+    if (opts.source != null) where.source = { _eq: opts.source };
+  export async function listPerpMainFundingEvents(
+    opts: { account?: string; payer?: string; kind?: string; limit?: number; offset?: number } = {},
+    indexerUrl: IndexerRead.Source,
+    const where: Record<string, unknown> = {};
+    if (opts.account != null) where.account = { _eq: opts.account.toLowerCase() };
+    if (opts.payer != null) where.payer = { _eq: opts.payer.toLowerCase() };
+    if (opts.kind != null) where.kind = { _eq: opts.kind };
