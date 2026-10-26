@@ -1,0 +1,22 @@
+# 2026-10-26T07:35:20Z
+$ curl -s https://api.testnet.dreamdex.io/.well-known/oapi.json | jq -r '.paths["/v0/markets/{symbol}/funding"].get.description'
+The pool's live funding state plus its settlement history, newest first. Rates are per funding CALCULATION WINDOW as 1e18-scaled fractions, exactly as the contract emits them.
+
+# 2026-10-26T07:35:23Z
+$ curl -s "https://api.testnet.dreamdex.io/v0/markets/ADA:USDso/funding?kind=perp&limit=2"
+{"symbol":"ADA:USDso","current":{"fundingRate":"0.0001","cumulativeFundingPerUnit":"1681955455868061.497860058525909559","indexPrice":"0.2016","markPrice":"0.20145","asOf":1792997513000},"history":[{"timestamp":1792997515000,"fundingRate":"0.0001","cumulativeFundingPerUnit":"1681955455868061.497860058525909559","indexPrice":"0.20225","markPrice":"0.20205","intervalsSettled":1},{"timestamp":1792993914000,"fundingRate":"0.0001","cumulativeFundingPerUnit":"1679427330868061.497860058525909559","indexPrice":"0.2044","markPrice":"0.20425","intervalsSettled":1}],"nextCursor":"Mg"}
+
+# 2026-10-26T07:35:25Z
+$ curl -s "https://api.testnet.dreamdex.io/v0/markets?kind=perp" | jq -c '.markets[] | select(.symbol=="ADA:USDso") | {symbol, chainId, contract, quoteDecimals, perp: (.perp | {fundingRate, cumulativeFundingPerUnit, indexPrice, asOf})}'
+{"symbol":"ADA:USDso","chainId":50312,"contract":"0x440f5a79857cd632ae45439410969c3f4049cc41","quoteDecimals":18,"perp":{"fundingRate":"0.0001","cumulativeFundingPerUnit":"1681955455868061.497860058525909559","indexPrice":"0.2016","asOf":1792997513000}}
+
+# 2026-10-26T07:35:27Z  (Somnia Shannon testnet RPC, chain 50312)
+# block 524259239
+$ cast call 0x440f5a79857cd632ae45439410969c3f4049cc41 'getCurrentFundingRate()(int256)' --rpc-url https://dream-rpc.somnia.network
+100000000000000 [1e14]
+$ cast call 0x440f5a79857cd632ae45439410969c3f4049cc41 'getCumulativeFundingPerUnit()(int256)' --rpc-url https://dream-rpc.somnia.network
+1681955455868061497860058525909559 [1.681e33]
+$ cast call 0x440f5a79857cd632ae45439410969c3f4049cc41 'getLastFundingUpdateTimestampNs()(uint64)' --rpc-url https://dream-rpc.somnia.network
+1792997513000000000 [1.792e18]
+$ cast keccak 'FundingUpdated(int256,int256,uint256,uint64,uint256)'
+0x5380593bd7dd2a1a6267dab2a1ab312f8e07094228a12ff26fe44fd6c6f857b9

@@ -1,0 +1,30 @@
+# docs grep, fetched 2026-10-26 08:09 UTC
+## https://app.dreamdex.io/llms-full.txt (438288 bytes)
+(identical to the copy fetched 07:37 UTC)
+3736:Prices are raw quote units per whole base asset and quantities are raw base units, so convert with each market's own decimals: they differ per market. A price must sit on the market's `tickSize` and a quantity on its `lotSize`, at least `minQuantity`.
+5203:Every market has a **`minQuantity`**, the smallest order it will accept. Anything below it is rejected automatically.
+5683:> **Every order must clear the market's minimum size.** Each pair sets a `minQuantity` (minimum order size) and a `lotSize` (size increment) in base-token units, plus a `tickSize` price increment. An order below `minQuantity`, or whose size/price is not a whole multiple of `lotSize`/`tickSize`, is rejected on-chain. `minQua
+matches for dust|full close|full-close|reduce-only|reduceOnly|exempt: 5
+1234:* **Race handling (`alwaysPlace`).** If `oldOrderId` is already filled/cancelled by the time the tx lands, the default (`alwaysPlace = false`) reverts `AmendOldOrderGone` and places nothing — the
+2443:| `lockedSurplus`   | `uint256` | Everything locked above principal: the maker + builder fee reserve, price-improvement over-lock (refunded to the owner on cancel/removal), and rounding dust. Not
+4826:Somnia follows industry-leading security standards, including:
+6251:**Reduce-only** orders can only shrink a position, never open or flip one.
+6255:A **take profit (TP)** closes a position when the price reaches your target, and a **stop loss (SL)** closes it when the price moves against you. Both are reduce-only.
+
+## https://somnia-platform-explorer.vercel.app/markets/llms-full.txt (1176525 bytes)
+3409:- **What do I get if I close?** `client.previewPerpClosePnl({ pool, marginBank, account,
+3430:  `placeable` is the pool minimum and nothing else. A close is only purely reducing up to
+11999:- **Close preview.** `previewPerpClosePnl` for a full or partial close. Handles the two
+15777:| Perps                   | `getPerpState`, `getPerpFeedStatus`, `getPerpPosition`, `getMarginAccount`, `getAccountHealth`, `getAccountEquity`, `listAccountEquities`, `getLiquidationPrice`, `previewPerpLiquidationPrice`, `getPerpLeverage`, `getPerpPositi
+page_docs_developers_perps-testnet_2026-10-26T0809Z.html: Anything below it is rejected automatically=0  at least minQuantity=1  is rejected on-chain=0  dust=0  full close=0  
+page_docs_support_faq_order-rejected_2026-10-26T0809Z.html: Anything below it is rejected automatically=3  at least minQuantity=0  is rejected on-chain=0  dust=0  full close=0  
+page_docs_trading_common_order-types_2026-10-26T0809Z.html: Anything below it is rejected automatically=0  at least minQuantity=0  is rejected on-chain=3  dust=0  full close=0  
+
+## whole-word re-check of https://app.dreamdex.io/llms-full.txt (same 08:09 UTC copy)
+(the substring count above also matched 'industry' on lines 1234 and 4826)
+word 'dust':
+2443:| `lockedSurplus`   | `uint256` | Everything locked above principal: the maker + builder fee reserve, price-improvement over-lock (refunded to the owner on
+'full close' / 'full-close' / 'fully close' / 'close the whole' / 'whole position': 0 lines
+reduce-only lines:
+6251:**Reduce-only** orders can only shrink a position, never open or flip one.
+6255:A **take profit (TP)** closes a position when the price reaches your target, and a **stop loss (SL)** closes it when the price moves against you. Both are reduce-only.

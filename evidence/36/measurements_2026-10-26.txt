@@ -1,0 +1,62 @@
+Perps Arena hub (/competition-hub), hero card: description and title clipped on phone widths
+app.testnet.dreamdex.io, signed in (Privy e-mail login, Somnia Account 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817).
+Chrome 155 on Linux, DevTools device emulation: mobile=true, touch on, iPhone Safari UA, DPR 2 (07:0x and 07:3x runs) / DPR 3 (06:09 run).
+Desktop: 1440x900, mobile=false.
+
+1) Text right edge vs the card's clip edge (text_edges_by_width_2026-10-26T0738Z.jsonl, 07:38:04-07:38:25 UTC)
+   clip edge = header right edge minus its 1 px border; the card has overflow-x: clip.
+   The page itself does not scroll sideways (documentElement.scrollWidth == viewport width at every size).
+
+   viewport | clip edge | description line ends (px) | hidden per line (px) | title text ends | title hidden
+   360      | 353       | 547 / 582 / 542            | 194 / 229 / 189      | 375.8           | 22.8 px
+   375      | 368       | 547 / 582 / 542            | 179 / 214 / 174      | 375.8           | 7.8 px
+   390      | 383       | 547 / 582 / 542            | 164 / 199 / 159      | 375.8           | 0
+   414      | 407       | 547 / 582 / 542            | 140 / 175 / 135      | 375.8           | 0
+   430      | 423       | 547 / 582 / 542            | 124 / 159 / 119      | 375.8           | 0
+   600      | 593       | (fits; layout_json/phone_600: p right 591, header right 594)
+   1440     | 1383      | 597 / 632 / 592 (fits)     | 0                    | 426             | 0      (07:39:51 UTC, css_fix_test "before")
+
+2) Paragraph box vs card (layout_json/*.json): p "w-141 max-w-full ..." is 564 px wide at EVERY width.
+   viewport  p.right  header.right   run (UTC)
+   360       591      354            07:35:24
+   375       591      369            07:03:35
+   390       591      384            07:35:14
+   414       591      408            07:03:54
+   430       591      424            07:04:08
+   600       591      594            07:04:19   (fits)
+   1440      641      1384           07:37:00   (fits)
+   Computed chain at 390 (07:35:14):
+     P      "w-141 max-w-full text-paragraph-400 text-subtle leading-5"  width 564px  max-width 100%
+     DIV    "flex flex-col gap-2xl font-medium"                          width 564px
+     DIV    "relative flex min-w-0 flex-col items-start gap-3xl"         width 336px
+     HEADER "relative flex items-center gap-5 overflow-clip ... p-5"     width 378px  overflow-x clip
+
+3) What a phone shows (screenshots)
+   390 (arena_hero_phone_390x844_2026-10-26T0735Z.png):
+     "Four-week paper trading competition with $15,000 in r"
+     "weekly airdrop of 1,000 paper USDso per wallet, comp"
+     "and complete quests for raffle tickets, without risking y"
+     hidden: "real rewards. Trade with a" / "compete on weekly and season ROI," / "your own trading capital."
+   375 (arena_hero_phone_375x844_2026-10-26T0703Z.png): the last "a" of "dreamDEX Perps Arena" is cut in half.
+   360 (arena_hero_phone_360x844_2026-10-26T0735Z.png):
+     title "dreamDEX Perps Aren"
+     "Four-week paper trading competition with $15,00"
+     "weekly airdrop of 1,000 paper USDso per wallet, c"
+     "and complete quests for raffle tickets, without risk"
+   1440 (arena_hero_desktop_1440x900_2026-10-26T0737Z.png): full title and full description.
+   Full text (DOM and RSC payload): "Four-week paper trading competition with $15,000 in real rewards. Trade with a weekly
+   airdrop of 1,000 paper USDso per wallet, compete on weekly and season ROI, and complete quests for raffle tickets,
+   without risking your own trading capital."
+
+4) Same result in three separate runs: 06:09-06:21 UTC (DPR 3), 07:02-07:05 UTC and 07:35-07:38 UTC (DPR 2):
+   p.right 591 vs header.right 354/369/384/408/424 at 360/375/390/414/430 each time.
+
+5) Logged out (fresh isolated browser context, 390x844, 07:34:47 UTC, logged_out_390_2026-10-26T0734Z.json):
+   no hero card in the DOM; the page shows "Connect your wallet to see your quests". The hero is shown only when signed in.
+
+6) Candidate fix, applied client-side only in our own tab (css_fix_test_2026-10-26T0739Z.jsonl):
+   p.style.width = 'auto'; p.style.maxWidth = '564px'   (i.e. "max-w-141" instead of "w-141 max-w-full")
+   360: p 564 -> 306 px, 3 -> 6 lines, all line ends <= 317 (clip 353); title wraps to 2 lines (ends 281 / 115)
+   390: p 564 -> 336 px, 3 -> 5 lines, all line ends <= 361 (clip 383); title wraps to 2 lines
+   1440: unchanged (564 px, 3 lines, same line ends 597/632/592, title on one line)
+   Screenshot: arena_hero_phone_390x844_with_css_fix_2026-10-26T0739Z.png

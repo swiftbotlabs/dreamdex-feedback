@@ -1,0 +1,418 @@
+{
+ "tx": "0x7e128dfa20858595d8221c7b983e2894f900b42918fc5a977ea79ea6256cdff4",
+ "block": "31439526",
+ "blockTimeUTC": "2026-10-23T22:53:45.000Z",
+ "txFrom": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+ "txTo": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+ "status": "success",
+ "registry": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+ "pool": "0xB483ec1fb34996638677c20ab087b16F1896FA53",
+ "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+ "slippageToleranceBps": "500",
+ "registryImplSlotAtBlock": "0x",
+ "registryBeaconSlotAtBlock": "0x00000000000000000000000006683223b403374cb58c135b87b0f81ef0fd18f0",
+ "implSlotHead": "0x",
+ "beaconSlotHead": "0x00000000000000000000000006683223b403374cb58c135b87b0f81ef0fd18f0",
+ "parentBlockMark": "101.8570486598745",
+ "base": "SOL",
+ "baseDecimals": 9,
+ "positionBefore": "-1896.46",
+ "positionAfter": "-851.65",
+ "positionChange": "1044.81",
+ "triggeredLeg": {
+  "id": "2102928824402888886116",
+  "before": {
+   "live": true,
+   "isBid": true,
+   "quantity": "1896.46",
+   "triggerPrice": "101.9",
+   "triggerOperator": 1,
+   "orderType": 1,
+   "siblingOrderId": "110680464442257311587",
+   "intent": 0,
+   "somiPaid": "0.15"
+  },
+  "after": {
+   "live": false,
+   "isBid": true,
+   "quantity": "1896.46",
+   "triggerPrice": "101.9",
+   "triggerOperator": 1,
+   "orderType": 1,
+   "siblingOrderId": "0",
+   "intent": 0,
+   "somiPaid": "0"
+  }
+ },
+ "sibling": {
+  "id": "110680464442257311587",
+  "before": {
+   "live": true,
+   "isBid": true,
+   "quantity": "1896.46",
+   "triggerPrice": "106.48",
+   "triggerOperator": 0,
+   "orderType": 1,
+   "siblingOrderId": "2102928824402888886116",
+   "intent": 0,
+   "somiPaid": "0.15"
+  },
+  "after": {
+   "live": false,
+   "isBid": true,
+   "quantity": "1896.46",
+   "triggerPrice": "106.48",
+   "triggerOperator": 0,
+   "orderType": 1,
+   "siblingOrderId": "0",
+   "intent": 0,
+   "somiPaid": "0"
+  }
+ },
+ "PendingOrderTriggered": {
+  "pendingOrderId": "2102928824402888886116",
+  "placedOrderId": "21822498239198407036405",
+  "success": true,
+  "dropReason": 0
+ },
+ "LinkedOrderCancelled": {
+  "cancelledOrderId": "110680464442257311587",
+  "triggeredOrderId": "2102928824402888886116",
+  "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+  "somiCredited": "150000000000000000"
+ },
+ "placedOrderFromOrderPlaced": {
+  "orderId": "21822498239198407036405",
+  "isBid": true,
+  "price": "106.94",
+  "fullQuantity": "1896.46",
+  "quantityRemaining": "851.65",
+  "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8"
+ },
+ "fillsOfPlacedOrder": 7,
+ "filledSumFromOrderFilled": "1044.81",
+ "unfilledOfPlaced": "851.65",
+ "fillRatioPct": 55.09,
+ "unclaimedSomiBefore": "0",
+ "unclaimedSomiAfter": "0.15",
+ "indexerStopRows": [
+  {
+   "id": "0x85a0879d19777c343eb317a890d5058ab92b8f5d_2102928824402888886116",
+   "orderIdRaw": "2102928824402888886116",
+   "status": "TRIGGERED",
+   "placedOrderId": "21822498239198407036405",
+   "dropReason": null,
+   "cancelReason": null,
+   "siblingOrderId": null,
+   "quantity": "1896460000000",
+   "triggerPrice": "101900000000000000000",
+   "isBid": true,
+   "updatedAt": "1792796025"
+  },
+  {
+   "id": "0x85a0879d19777c343eb317a890d5058ab92b8f5d_110680464442257311587",
+   "orderIdRaw": "110680464442257311587",
+   "status": "CANCELLED",
+   "placedOrderId": null,
+   "dropReason": null,
+   "cancelReason": "LinkedFill",
+   "siblingOrderId": null,
+   "quantity": "1896460000000",
+   "triggerPrice": "106480000000000000000",
+   "isBid": true,
+   "updatedAt": "1792796025"
+  }
+ ],
+ "indexerPlacedOrderRow": {
+  "price": "106940000000000000000",
+  "fullQuantity": "1896460000000",
+  "filledQuantity": "1044810000000",
+  "status": "Closed"
+ },
+ "logs": [
+  {
+   "i": 212,
+   "addr": "0x0000000000000000000000000000000000000100",
+   "ev": "undecoded:0xc338904b2660b1919e916da6c5c8a16f6410eb1930a1e41b3d22649c85041640"
+  },
+  {
+   "i": 213,
+   "addr": "0x0000000000000000000000000000000000000100",
+   "ev": "undecoded:0x7b911629d9bc2f016c34a9deca518fb4574bb0b1e9a96b99bce95fb5ea1e4a27"
+  },
+  {
+   "i": 214,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "737869762948382066538",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 1
+  },
+  {
+   "i": 215,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "4242751136953196873577"
+  },
+  {
+   "i": 216,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 217,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 218,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 219,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 220,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 221,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "19.61",
+   "takerRem": "1876.85",
+   "px": "102.07"
+  },
+  {
+   "i": 222,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 223,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 224,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 225,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 226,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "68.66",
+   "takerRem": "1808.19",
+   "px": "102.07"
+  },
+  {
+   "i": 227,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 228,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 229,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 230,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 231,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "9.8",
+   "takerRem": "1798.39",
+   "px": "102.07"
+  },
+  {
+   "i": 232,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 233,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 234,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 235,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 236,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "196.18",
+   "takerRem": "1602.21",
+   "px": "102.09"
+  },
+  {
+   "i": 237,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 238,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 239,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 240,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 241,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "686.66",
+   "takerRem": "915.55",
+   "px": "102.13"
+  },
+  {
+   "i": 242,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 243,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 244,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 245,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 246,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "0.24",
+   "takerRem": "915.31",
+   "px": "102.24"
+  },
+  {
+   "i": 247,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 248,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 249,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 250,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 251,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderFilled",
+   "taker": "21822498239198407036405",
+   "qty": "63.66",
+   "takerRem": "851.65",
+   "px": "102.42"
+  },
+  {
+   "i": 252,
+   "addr": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "ev": "OrderPlaced",
+   "orderId": "21822498239198407036405",
+   "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+   "full": "1896.46",
+   "rem": "851.65"
+  },
+  {
+   "i": 253,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "2102928824402888886116",
+   "placedOrderId": "21822498239198407036405",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 254,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "110680464442257311587",
+   "triggeredOrderId": "2102928824402888886116",
+   "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 255,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "350488137400481482505",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 5
+  },
+  {
+   "i": 256,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "3080606260309495121768",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 1
+  },
+  {
+   "i": 257,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "1401952549601925924711"
+  }
+ ]
+}

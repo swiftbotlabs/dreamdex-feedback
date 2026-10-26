@@ -1,0 +1,10 @@
+run 2026-10-26T08:07:32.884Z; stop-loss trigger was mark <= 4.60
+firing block 33004739 (2026-10-25T18:23:25.000Z): mark 4.5998906211095, position 2434.1
+2026-10-25T20:00:00Z block 33062668: mark 4.5674529626935, position 2434.1
+2026-10-26T00:00:00Z block 33206611: mark 4.587588961259, position 2434.1
+2026-10-26T02:23:00Z block 33292376: mark 4.4782532335435, position 2434.1
+2026-10-26T02:58:30Z block 33313667: mark 4.454818865244, position 0
+position changed from 2434.1 to 0 at block 33313569 (2026-10-26T02:58:20.000Z), mark 4.455818291998
+stop 184467440737095517909: sell 4617.7 LTE 4.6 -> TRIGGERED, created 2026-10-25T17:42:55.000Z, updated 2026-10-25T18:23:25.000Z
+stop 534955578137576998614: sell 4617.7 GTE 4.75 -> CANCELLED (Owner), created 2026-10-25T17:43:07.000Z, updated 2026-10-26T02:58:22.000Z
+resting ask 737869762948391806990: {"status":"Cancelled","price":"4800000000000000000","fullQuantity":"2434100000000000000000000000","filledQuantity":"0","placedAtTimestamp":"1792950321","lastUpdatedAtTimestamp":"1792983508","cancelReason":null}

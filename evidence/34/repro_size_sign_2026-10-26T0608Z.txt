@@ -1,0 +1,14 @@
+example  PositionLiquidated block 33422553 tx 0x7932ea624f435573a64180d769f5031f151e4c583b5c30ff0f0e33b3c55df5b1 account 0x5521160e05bb130783e003f746f03d9d31ea1e69 held -674680000 row.size 460280000
+example  PositionLiquidated block 33346996 tx 0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247 account 0xea377c343ea8b4d2c718b71f4fe7a09e2a95931b held 24010000 row.size -24010000
+example  PositionLiquidated block 33346880 tx 0xf4c8a892bf446158a240e7bfb28ac611133c52f2272bd151b2537dbf32c9330e account 0x51dbb84bf6f3ddf96f01676da784e178a844b5db held 23038000 row.size -23038000
+example  PositionLiquidated block 32967953 tx 0xf312541d54295c4d20aef92e9bed31523c747df56721dbc6e800560e67459b25 account 0x309e802a9f4b22e18ba678f9200806308b7ec9c3 held -11751200000000000000000000000 row.size 5293600000000000000000000000
+example  PositionTakenOver block 28537567 tx 0x40099b2c64df594961a4b113da8132795efd58cc15e67a9dced866ae4e8b3300 account 0x5e7a5481e91aeb199e974bcba961a9aee1a21436 held -156920000000 row.size -156920000000
+example  PositionTransferred block 28537567 tx 0x40099b2c64df594961a4b113da8132795efd58cc15e67a9dced866ae4e8b3300 account 0x5e7a5481e91aeb199e974bcba961a9aee1a21436 held -156920000000 row.size -156920000000
+example  PositionTakenOver block 28537567 tx 0x170891a3829d9362c44805fbbcf3ea8b02747c7c129a1cf57eeb1d00927f855e account 0x671846a0c593e8685342dae71da9c25fd8b8ce16 held -227770000000 row.size -227770000000
+example  PositionTransferred block 28537567 tx 0x170891a3829d9362c44805fbbcf3ea8b02747c7c129a1cf57eeb1d00927f855e account 0x671846a0c593e8685342dae71da9c25fd8b8ce16 held -227770000000 row.size -227770000000
+
+(read 2026-10-26T06:08:43.971Z)
+  11  PositionLiquidated: position held short, row size +
+  69  PositionLiquidated: position held long, row size -
+   3  PositionTakenOver: position held short, row size -
+   3  PositionTransferred: position held short, row size -

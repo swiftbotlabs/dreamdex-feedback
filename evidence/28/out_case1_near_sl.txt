@@ -1,0 +1,105 @@
+# NEAR-PERP stop 184467440737095517909 fired in tx 0x43dbc0706b992846233f66661cb93b116e70ca9c515ca270a0ea3e7468903f02 (block 33004739, 2026-10-25T18:23:25.000Z)
+stop: sell 4617.7 when mark LTE 4.6, orderType 1, intent 0, sibling 0
+parent block 33004738: mark 4.5998906211095, position 4617.7, pool minQuantity 5.1
+getReducingCapacity(owner): { "positionSize": "4617.7", "pendingBidQuantity": "0", "pendingAskQuantity": "2434.1", "pendingOppositeQuantity": "2434.1", "effectiveReducingCapacity": "2183.6" }
+owner's resting orders: ask 2434.1 @ 4.8
+PendingOrderTriggered: success=true dropReason=0 (None) placedOrderId=110680464442267059879
+placed: ask 2183.6 @ 4.3699, filled 2183.6 in 4 fills
+min(stop qty, |position|) = 4617.7 (905.43x pool minimum); placed = 2183.6; capacity = 2183.6; placed == capacity: true
+position after: 2434.1; stop still live after: false; indexer: TRIGGERED dropReason null
+created in 0x93a2b9b2f9b65e34e516d68819aadb1dc20fee519dcb1ce85a63a15b3dcc3ebe (block 32980457), to 0x0c56a63043be6943eb4c7be73ad44afe75bb44f2, selector 0x6a761202
+--- JSON
+{
+ "ranAtUtc": "2026-10-26T07:54:35.636Z",
+ "tx": "0x43dbc0706b992846233f66661cb93b116e70ca9c515ca270a0ea3e7468903f02",
+ "stopId": "184467440737095517909",
+ "block": "33004739",
+ "parentBlock": "33004738",
+ "blockTimeUtc": "2026-10-25T18:23:25.000Z",
+ "txFrom": "0xf3a51c26ead3f84c2221336484bb42b8cfca076e",
+ "txStatus": "success",
+ "registry": "0xf3a51c26ead3f84c2221336484bb42b8cfca076e",
+ "event": {
+  "topic0": "0x6db08222a2387c726ca77ff4adbc7e706774b08efed6244b9b6f6eca1b60127c",
+  "logIndex": 30,
+  "data": "0x00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+  "success": true,
+  "dropReason": 0,
+  "dropReasonName": "None",
+  "placedOrderId": "110680464442267059879"
+ },
+ "pool": "0x1cD15ae8bFf0FE0a7F49233BE8b90734775bA454",
+ "base": "NEAR",
+ "baseDecimals": 24,
+ "stopAtParent": {
+  "live": true,
+  "owner": "0x0C56a63043be6943EB4c7bE73AD44AFE75BB44f2",
+  "isBid": false,
+  "quantity": "4617.7",
+  "quantityRaw": "4617700000000000000000000000",
+  "orderType": 1,
+  "triggerPrice": "4.6",
+  "triggerOperator": "LTE",
+  "intent": 0,
+  "siblingOrderId": "0",
+  "somiPaid": "0.15"
+ },
+ "otherRegistryEvents": [],
+ "stopLiveAfter": false,
+ "parentState": {
+  "mark": "4.5998906211095",
+  "position": "4617.7",
+  "minQuantity": "5.1",
+  "reducingCapacity": {
+   "positionSize": "4617.7",
+   "pendingBidQuantity": "0",
+   "pendingAskQuantity": "2434.1",
+   "pendingOppositeQuantity": "2434.1",
+   "effectiveReducingCapacity": "2183.6"
+  },
+  "ownerRestingOrders": [
+   {
+    "orderId": "737869762948391806990",
+    "side": "ask",
+    "price": "4.8",
+    "remaining": "2434.1"
+   }
+  ]
+ },
+ "placedOrder": {
+  "orderId": "110680464442267059879",
+  "side": "ask",
+  "owner": "0x0C56a63043be6943EB4c7bE73AD44AFE75BB44f2",
+  "price": "4.3699",
+  "fullQuantity": "2183.6",
+  "filled": "2183.6",
+  "fills": 4
+ },
+ "positionAfter": "2434.1",
+ "check": {
+  "minOfStopQtyAndPosition": "4617.7",
+  "placedQuantity": "2183.6",
+  "effectiveReducingCapacity": "2183.6",
+  "placedEqualsCapacity": true,
+  "placedBelowMinOfQtyAndPosition": true,
+  "restingClosingSideQuantity": "2434.1",
+  "minOfQtyAndPositionOverPoolMinimum": "905.43",
+  "positionLeftOpen": "2434.1"
+ },
+ "indexerRow": {
+  "status": "TRIGGERED",
+  "dropReason": null,
+  "placedOrderId": "110680464442267059879",
+  "quantity": "4617700000000000000000000000",
+  "createdAt": "1792950175",
+  "updatedAt": "1792952605",
+  "txHash": "0x93a2b9b2f9b65e34e516d68819aadb1dc20fee519dcb1ce85a63a15b3dcc3ebe"
+ },
+ "creationTx": {
+  "hash": "0x93a2b9b2f9b65e34e516d68819aadb1dc20fee519dcb1ce85a63a15b3dcc3ebe",
+  "from": "0x44977abd345795b6f4e36192bd79c29be739d215",
+  "to": "0x0c56a63043be6943eb4c7be73ad44afe75bb44f2",
+  "selector": "0x6a761202",
+  "block": "32980457"
+ }
+}

@@ -1,0 +1,62 @@
+Account 0x0a606f1daac74a3c0265b94057822533521664cf. App read with read_both_tabs.js in my own Chrome tab on https://app.testnet.dreamdex.io/trader/0x0a606f1daac74a3c0265b94057822533521664cf (signed in as an unrelated wallet; the page is public).
+Chain read right after with: node pnl_gap_check.mjs 0x0a606f1daac74a3c0265b94057822533521664cf  (viem 2.57.7, eth_call only, Somnia Tokyo 50383).
+
+== APP (raw JSON returned by read_both_tabs.js)
+{
+ "url": "https://app.testnet.dreamdex.io/trader/0x0a606f1daac74a3c0265b94057822533521664cf?tab=positions",
+ "t_positions": "2026-10-26T08:08:02.292Z",
+ "positions": "|MARKET|SIDE|SIZE|VALUE|ENTRY|MARK|LIQ. PRICE|PNL (ROI%)|SOL-PERP|20×|Long|300.00 SOL|30,045.87 USDso|101.50|100.15|97.76|-406.04 (-27.0%)|XLM-PERP|10×|Long|5,129 XLM|858.79 USDso|0.169|0.1674|0.024|-8.01 (-9.3%)|VVV-PERP|5×|Long|28.18 VVV|684.73 USDso|24.744|24.298|—|-12.58 (-9.2%)|HYPE-PERP|20×|Long|6.47 HYPE|492.67 USDso|76.84|76.14|—|-4.48 (-18.2%)|BTC-PERP|20×|Long|0.00247 BTC|196.82 USDso|80,481.8|79,685.9|—|-1.97 (-20.0%)|1000PEPE-PERP|5×|Long|7,800 1000PEPE|34.08 USDso|0.0050717|0.0043687|—|-5.48 (-80.5%)|BNB-PERP|10×|Long|0.039 BNB|28.63 USDso|748.025|733.989|—|-0.55 (-19.1%)|ZRO-PERP|5×|Short|16.4 ZRO|27.28 USDso|1.7249|1.6633|40.4011|+1.01 (+18.5%)|XRP-PERP|20×|Short|19.3 XRP|24.56 USDso|1.2993|1.2725|36.5982|+0.52 (+42.0%)|AVAX-PERP|10×|Long|2.4 AVAX|21.12 USDso|9.601|8.799|—|-1.92 (-91.0%)|",
+ "positions_pnl": [
+  -406.04,
+  -8.01,
+  -12.58,
+  -4.48,
+  -1.97,
+  -5.48,
+  -0.55,
+  1.01,
+  0.52,
+  -1.92
+ ],
+ "positions_pnl_sum": -439.5,
+ "t_balances": "2026-10-26T08:08:02.701Z",
+ "balances": "|PERPS ACCOUNT|COLLATERAL|UNREALIZED PNL|AVAILABLE TO TRADE|WITHDRAWABLE|ACCOUNT VALUE|USDso · DreamDEX|2,035.36 USDso|-447.49 USDso|-190.20 USDso|0.00 USDso|1,587.86 USDso|MARGIN HEALTH|STATUS|OPEN MARKETS|LOCKED IN ORDERS|INITIAL MARGIN|MAINTENANCE MARGIN|USDso · DreamDEX|Margin call|10|0.00 USDso|1,778.07 USDso|889.03 USDso|",
+ "t_positions_again": "2026-10-26T08:08:03.103Z",
+ "positions_again_pnl": [
+  -406.04,
+  -8.01,
+  -12.58,
+  -4.48,
+  -1.97,
+  -5.48,
+  -0.55,
+  1.01,
+  0.52,
+  -1.92
+ ],
+ "positions_again_pnl_sum": -439.5
+}
+
+== APP summary
+Positions tab at 2026-10-26T08:08:02.292Z: PNL column [-406.04, -8.01, -12.58, -4.48, -1.97, -5.48, -0.55, 1.01, 0.52, -1.92] -> sum -439.50
+Balances tab at 2026-10-26T08:08:02.701Z: PERPS MARGIN row: PERPS ACCOUNT | COLLATERAL | UNREALIZED PNL | AVAILABLE TO TRADE | WITHDRAWABLE | ACCOUNT VALUE | USDso · DreamDEX | 2,035.36 USDso | -447.49 USDso | -190.20 USDso | 0.00 USDso | 1,587.86 USDso | MARGIN HEALTH | STATUS | OPEN MARKETS | LOCKED IN ORDERS | INITIAL MARGIN | MAINTENANCE MARGIN | USDso · DreamDEX | Margin call | 10 | 0.00 USDso | 1,778.07 USDso | 889.03 USDso
+Positions tab again at 2026-10-26T08:08:03.103Z: sum -439.50
+
+== CHAIN (output of pnl_gap_check.mjs)
+chainId 50383 account 0x0a606f1daac74a3c0265b94057822533521664cf block 33499330 blockTime 2026-10-26T08:08:03.000Z readAt 2026-10-26T08:08:04.818Z
+unlockedCollateralBalance 2035.3572  lockedCollateral 0.0000  getAccountHealth.equity 1582.4788
+  AVAX      pool 0xde9762B6b441133D1314C68864ae4e63A6eE45C7 snapshotOk true size 2.4 entry 9.6010 mark 8.7968 | uPnL(price only) -1.9300 | accruedFunding(owed) 0.0363
+  1000PEPE  pool 0xfA9B9e50CC1745113d57893991aF200a74c86B6f snapshotOk true size 7800 entry 0.0051 mark 0.0044 | uPnL(price only) -5.4813 | accruedFunding(owed) 0.0291
+  ZRO       pool 0x2a1822b02039DDf0e293F3F7243673fc03EAF16c snapshotOk true size -16.4 entry 1.7250 mark 1.6626 | uPnL(price only) 1.0223 | accruedFunding(owed) -0.0138
+  BNB       pool 0x3D2A99fE1e2BdEaA25024515A2D2202DAF9531aD snapshotOk true size 0.039 entry 748.0250 mark 733.8088 | uPnL(price only) -0.5544 | accruedFunding(owed) 0.0906
+  XRP       pool 0x7058579F3248559963f79AdB937c6De9f953E060 snapshotOk true size -19.3 entry 1.2993 mark 1.2723 | uPnL(price only) 0.5207 | accruedFunding(owed) 0.0258
+  VVV       pool 0x352636aB146039851Ef06D6367A106d5FB4E6409 snapshotOk true size 28.18 entry 24.7448 mark 24.2936 | uPnL(price only) -12.7163 | accruedFunding(owed) 0.0259
+  BTC       pool 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 snapshotOk true size 0.00247 entry 80481.8308 mark 79678.2035 | uPnL(price only) -1.9850 | accruedFunding(owed) 0.5492
+  SOL       pool 0xB483ec1fb34996638677c20ab087b16F1896FA53 snapshotOk true size 300 entry 101.5064 mark 100.1363 | uPnL(price only) -411.0277 | accruedFunding(owed) 7.2022
+  HYPE      pool 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A snapshotOk true size 6.47 entry 76.8400 mark 76.1369 | uPnL(price only) -4.5490 | accruedFunding(owed) 0.0305
+  XLM       pool 0x74b05B9B8c8F180b53b7891018F3B254B3E658C9 snapshotOk true size 5129 entry 0.1690 mark 0.1674 | uPnL(price only) -8.1909 | accruedFunding(owed) 0.0108
+SUM price-only uPnL           -444.8916
+SUM accruedFunding (owed)     7.9868
+uPnL - funding                -452.8784
+equity - unlockedCollateral   -452.8784   (what the trader page shows as "Unrealized PnL")
+residual equity - unlocked - (uPnL - funding) = -0.000000000000000002

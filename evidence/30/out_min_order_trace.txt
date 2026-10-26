@@ -1,0 +1,2 @@
+run 2026-10-26T08:12:25.780Z block 0x1fee777 (33482615): BTC long 2000, sell 13000 (= minQuantity) FOK, top-level error: none
+   PositionUpdated account 0x1cc7ecC3a7DbA7760c7A47B926Bd11B6211ed276 newSize -11000 (minQuantity 13000)

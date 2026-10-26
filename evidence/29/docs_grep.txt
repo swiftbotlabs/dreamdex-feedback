@@ -1,0 +1,59 @@
+Live docs fetched 2026-10-26T08:03:38Z: https://app.dreamdex.io/llms-full.txt (438288 bytes, saved as llms-full_live.txt.gz) and https://app.dreamdex.io/docs/developers/perps-testnet (perps-testnet_page.html.gz).
+
+== Perps 'Orders' page, Take profit and stop loss section (llms-full_live.txt):
+6233:# /docs/trading/perps-testnet/orders
+  6253	## Take profit and stop loss
+  6254	
+  6255	A **take profit (TP)** closes a position when the price reaches your target, and a **stop loss (SL)** closes it when the price moves against you. Both are reduce-only.
+  6256	
+  6257	- Set them on a new order, or on an open position from the positions table.
+  6258	- On a limit order, TP/SL can be armed before it fills only with GTC or ALO, the time-in-force options that rest on the book.
+  6259	- They show as lines on the chart, where you can drag them to a new price or cancel them.
+  6260	
+  6261	## TP and SL hold a little STT
+  6262	
+  6263	Each pending TP or SL holds **0.15 STT** from your wallet. It pays for the transaction that fires the trigger, and you get it back if you cancel it. Keep enough STT in the wallet for every TP and SL you want open.
+  6264	
+
+== Perps margin page recommends a stop loss against liquidation:
+  6227	> To stay clear of liquidation, keep equity well above maintenance margin: use less than the maximum leverage, add margin through **Perps ⇆ Spot**, or set a stop loss. See [Orders](orders.md).
+
+== Spot stop FAQ scope line:
+  5355	This page covers spot stops, which run through the stop order registry. Perps are not covered here.
+
+== Matches in llms-full_live.txt for linked-pair terms (case-insensitive):
+LinkedFill                   0
+LinkedOrderCancelled         0
+PendingOrdersLinked          0
+PendingOrderUnlinked         0
+createLinkedPendingOrders    0
+linkPerpStopOrders           0
+siblingOrderId               0
+placePerpStopOrder           0
+listPerpStopOrders           0
+partial fill                 3
+partially fill               3
+partly fill                  1
+
+== Matches in perps-testnet_page.html:
+LinkedFill                   0
+createLinkedPendingOrders    0
+partial                      0
+pair                         0
+
+== Every 'partial fill' / 'partially fill' / 'partly fill' line in llms-full_live.txt (none concerns stops or linked TP/SL):
+4654:##### Partially filled buy order
+4677:partial fills, complete fills, and cancellations. The update contains
+4699:##### Order partially filled
+5219:## A market order only partly filled
+5221:Market orders are **Immediate-or-Cancel**. They fill whatever is available at that moment and cancel the rest rather than resting on the book. If there was not enough liquidity for your full size, you get a partial fill and the remaind
+5256:A partially filled market order is **not** a rejection. It fills what it can, cancels the rest, and succeeds.
+5711:- **Use case**: Large orders where partial fills are acceptable
+
+Context headings:
+4654: under # /docs/developers/websocket-api/real-time-feed
+4677: under # /docs/developers/websocket-api/real-time-feed
+4699: under # /docs/developers/websocket-api/real-time-feed
+5219: under # /docs/support/faq/order-rejected
+5256: under # /docs/support/faq/order-rejected
+5711: under # /docs/trading/common/order-types

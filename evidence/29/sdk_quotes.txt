@@ -1,0 +1,118 @@
+@somnia-chain/markets-sdk 0.32.1 (npm latest; tarball sha512 = dist.integrity, see npm_check.txt). Read as text, not executed.
+
+== dist/trade.d.ts lines 1453,1456
+  1453	    /**
+  1454	     *  A second leg, armed atomically and LINKED to the first: when one fires and
+  1455	     *  fills, the other is cancelled and its SOMI refunded.
+  1456	     *
+
+== dist/trade.d.ts lines 1483,1487
+  1483	 *
+  1484	 *  The after-the-fact form of {@link PlacePerpStopOrderParams.pair}, and the way to
+  1485	 *  re-pair a survivor: when one leg of a pair fires WITHOUT filling, the other stays
+  1486	 *  armed and is unlinked, free to be paired with a fresh leg.
+  1487	 *
+
+== dist/perp/stops.d.ts lines 84,86
+    84	    status: StopOrderStatus;
+    85	    /** The PerpPool order id created on a successful trigger; null otherwise. */
+    86	    placedOrderId: string | null;
+
+== dist/perp/stops.d.ts lines 96,108
+    96	    /**
+    97	     *  The LIVE OCO sibling's registry id, as a decimal string — null when this stop is
+    98	     *  unlinked, and null on every terminal row.
+    99	     *
+   100	     *  Live is the whole contract, which is why every terminal write clears it. A pair's
+   101	     *  two rows leave at different times, so a pointer surviving on a departed row names an
+   102	     *  order whose own state has moved on: a client acting on "cancel the pair" would tear
+   103	     *  down a stop the trader deliberately kept armed.
+   104	     *
+   105	     *  A leg that fires WITHOUT filling leaves its partner live and unlinked (back to
+   106	     *  null) — that is what lets the survivor be re-paired.
+   107	     *
+   108	     *  Provenance is deliberately not here. Which leg retired this one is
+
+== dist/perp/stops.d.ts lines 125,139
+   125	    /**
+   126	     *  WHY this stop reached `CANCELLED` — `"Owner"`, `"LinkedFill"` or `"Inert"`. Null on
+   127	     *  every row that is not cancelled.
+   128	     *
+   129	     *  All three end the same way for the trader — the order is no longer working — but
+   130	     *  they are three different stories and **two different refunds**, so a UI that renders
+   131	     *  CANCELLED as "you cancelled this, SOMI refunded to your wallet" is wrong for two of
+   132	     *  them:
+   133	     *
+   134	     *  - `"Owner"` — the owner cancelled it, and the SOMI is pushed back to them in that
+   135	     *    same transaction.
+   136	     *  - `"LinkedFill"` — the protocol retired it because its OCO sibling FILLED.
+   137	     *  - `"Inert"` — a keeper swept it after the registry's Schedule chain wound down.
+   138	     *
+   139	     *  The last two only CREDIT `unclaimedSomi`; the trader recovers it via `claimSomi()`.
+
+== dist/gql/graphql.d.ts lines 2420,2428
+  2420	     * PERP only — the LIVE link to this stop's OCO sibling, when this stop is one leg of a
+  2421	     * take-profit / stop-loss pair. Null when unlinked, and null on every spot stop.
+  2422	     *
+  2423	     * A pair is one trader intent expressed as two orders: when one leg triggers AND FILLS
+  2424	     * the registry cancels the other and refunds its SOMI. Without this column a client
+  2425	     * shows two unrelated stops and cannot say that cancelling one leaves the other armed.
+  2426	     *
+  2427	     * Mutable, unlike most of this row. A leg that fires WITHOUT filling leaves its partner
+  2428	     * live and UNLINKED (back to null), which is what lets the survivor be re-paired.
+
+== dist/perp/stops.js lines 51,73
+    51	/**
+    52	 *  Why a triggered stop placed nothing. Mirrors the registry's `DropReason` enum.
+    53	 *
+    54	 *  The distinction matters for what a UI should say. `ReduceOnly*` are ordinary
+    55	 *  outcomes of a stop that events overtook — the position was already closed, or
+    56	 *  flipped, or what remained was dust — while `PlacementFailed` is a real rejection.
+    57	 *  Collapsing them all to "failed" makes routine behaviour look broken.
+    58	 *
+    59	 * @category perpetual markets
+    60	 */
+    61	export const PERP_STOP_DROP_REASON = [
+    62	    "None",
+    63	    "ReduceOnlyNoPosition",
+    64	    "ReduceOnlyWrongSide",
+    65	    "ReduceOnlyBelowMinQty",
+    66	    "PlacementFailed",
+    67	    // Appended by the registry; every earlier member keeps its index, so already-indexed
+    68	    // rows are unaffected. Separates a placement the pool ACCEPTED but that traded
+    69	    // nothing from one it rejected outright — the pool decides an IOC's fate on a dry
+    70	    // run, and the real run can fill less, including zero, when it pulls a maker the dry
+    71	    // run had counted. Previously reported as a success, which concealed it.
+    72	    "NoFill",
+    73	];
+
+== PerpStopOrdersQuery selection (dist/perp/stops.js) - no filled-quantity field:
+      id
+      registry
+      orderIdRaw
+      owner
+      isBid
+      quantity
+      triggerPrice
+      triggerOperator
+      orderType
+      builder
+      builderFeeBpsTimes1k
+      status
+      placedOrderId
+      dropReason
+      siblingOrderId
+      intent
+      cancelReason
+      createdAt
+      updatedAt
+      txHash
+      market {
+        poolAddress
+        baseSymbol
+        quoteSymbol
+        baseDecimals
+        quoteDecimals
+      }
+    }
+  }

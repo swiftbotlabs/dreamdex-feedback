@@ -1,0 +1,75 @@
+2026-10-26T06:10:21Z
+$ curl -s https://api.testnet.dreamdex.io/.well-known/oapi.json | jq ".paths[\"/v0/markets/{symbol}/funding\"].get.description, .paths[\"/v0/markets/{symbol}/funding\"].get.parameters[3].description, .components.schemas.NextCursor"
+"The pool's live funding state plus its settlement history, newest first. Rates are per funding CALCULATION WINDOW as 1e18-scaled fractions, exactly as the contract emits them."
+"The chain to answer for. Defaults to 50312, the only chain this deployment serves."
+{"type": "string", "description": "Opaque cursor for the next page"}
+
+$ curl -s "https://api.testnet.dreamdex.io/v0/markets/ADA:USDso/funding?kind=perp&limit=2"
+{"symbol":"ADA:USDso","current":{"fundingRate":"0.0001","cumulativeFundingPerUnit":"1679427330868061.497860058525909559","indexPrice":"0.20285","markPrice":"0.20265","asOf":1792993913000},"history":[{"timestamp":1792993914000,"fundingRate":"0.0001","cumulativeFundingPerUnit":"1679427330868061.497860058525909559","indexPrice":"0.2044","markPrice":"0.20425","intervalsSettled":1},{"timestamp":1792990319000,"fundingRate":"0.0001","cumulativeFundingPerUnit":"1676872330868061.497860058525909559","indexPrice":"0.20345","markPrice":"0.20335","intervalsSettled":1}],"nextCursor":"Mg"}
+
+# same pool on Shannon 50312 (node evidence/31/rest_vs_chain.mjs ADA:USDso, run 05:51 UTC):
+{
+ "checkedAtUtc": "2026-10-26T05:51:31.315Z",
+ "symbol": "ADA:USDso",
+ "pool": "0x440f5a79857cd632ae45439410969c3f4049cc41",
+ "restMarketChainId": 50312,
+ "restBaseDecimals": 6,
+ "restQuoteDecimals": 18,
+ "codeOnShannon50312": "321 bytes",
+ "codeOnTokyo50383": "none",
+ "chain": {
+  "block": "524196529",
+  "getCurrentFundingRate": "100000000000000",
+  "getCumulativeFundingPerUnit": "1676872330868061497860058525909559",
+  "getOneBase": "1000000",
+  "indexPrice": "204450000000000000",
+  "lastSettle": "2026-10-26T04:51:53.000Z",
+  "windowSec": "28800",
+  "intervalSec": "3600"
+ },
+ "lastFundingUpdatedLogs": [
+  {
+   "block": "524125126",
+   "tx": "0x82abff71ce6984281e37f716d3d1373f734e564c032aeb6ccf1292ad28c92baf",
+   "fundingRate": "100000000000000",
+   "cumulativeFundingPerUnit": "1674329205868061497860058525909559",
+   "indexPrice": "200500000000000000",
+   "intervalsSettled": "1"
+  },
+  {
+   "block": "524161173",
+   "tx": "0xa67746668780a74e39380b1fc9eb1db12c10d086d7a30daea863d3f864daca7e",
+   "fundingRate": "100000000000000",
+   "cumulativeFundingPerUnit": "1676872330868061497860058525909559",
+   "indexPrice": "203450000000000000",
+   "intervalsSettled": "1"
+  }
+ ],
+ "rest": {
+  "current": {
+   "fundingRate": "0.0001",
+   "cumulativeFundingPerUnit": "1676872330868061.497860058525909559",
+   "indexPrice": "0.20445",
+   "markPrice": "0.20425",
+   "asOf": 1792990313000
+  },
+  "history": [
+   {
+    "timestamp": 1792990319000,
+    "fundingRate": "0.0001",
+    "cumulativeFundingPerUnit": "1676872330868061.497860058525909559",
+    "indexPrice": "0.20345",
+    "markPrice": "0.20335",
+    "intervalsSettled": 1
+   },
+   {
+    "timestamp": 1792986713000,
+    "fundingRate": "0.0001",
+    "cumulativeFundingPerUnit": "1674329205868061.497860058525909559",
+    "indexPrice": "0.2005",
+    "markPrice": "0.20035",
+    "intervalsSettled": 1
+   }
+  ]
+ }
+}

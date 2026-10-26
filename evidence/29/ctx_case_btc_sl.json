@@ -1,0 +1,41 @@
+{
+ "case": "case_btc_sl.json",
+ "headBlock": "33493760",
+ "headTimeUTC": "2026-10-26T07:58:46.000Z",
+ "beacon": "0x06683223b403374cb58c135b87b0f81ef0fd18f0",
+ "implementationAtFireBlock": "0x8d7FcDfC6D043B0296Ccf84D82f9dbe2c701096E",
+ "implementationAtHead": "0x8d7FcDfC6D043B0296Ccf84D82f9dbe2c701096E",
+ "parentBlock": {
+  "reducingCapacity": {
+   "positionSize": "-0.17982",
+   "pendingBid": "0",
+   "pendingAsk": "0",
+   "pendingOpposite": "0",
+   "effective": "0.17982"
+  },
+  "ownerRestingOrders": 0
+ },
+ "iocLimit": "84529.2",
+ "iocSideIsBid": true,
+ "oppositeBookWithinLimit_before": {
+  "orders": 18,
+  "qty": "3.14733",
+  "bestPrice": "80661.8"
+ },
+ "oppositeBookWithinLimit_after": {
+  "orders": 0,
+  "qty": "0",
+  "bestPrice": "85953"
+ },
+ "now": {
+  "position": "-0.14511",
+  "mark": "79934.641223499263",
+  "indexerBlock": [
+   {
+    "latest_processed_block": 33493970
+   }
+  ],
+  "stopRowsSinceFireOrPending": [],
+  "pendingRecheckedOnChain": []
+ }
+}

@@ -1,0 +1,22 @@
+# getOrderBookParameters() -> (tickSize, minQuantity, lotSize) at the blocks of the two example receipts and their parents, and at a recent block
+# run 2026-10-26T08:27:59Z, RPC https://api.hideki2.infra.testnet.somnia.network, cast 1.8.5
+$ cast call --block 23296282 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000000 [1e17], 13000 [1.3e4], 1000)
+$ cast call --block 23296282 0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000 [1e14], 26000000000000000000 [2.6e19], 1000000000000000000 [1e18])
+$ cast call --block 23296283 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000000 [1e17], 13000 [1.3e4], 1000)
+$ cast call --block 23296283 0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000 [1e14], 26000000000000000000 [2.6e19], 1000000000000000000 [1e18])
+$ cast call --block 31419482 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000000 [1e17], 13000 [1.3e4], 1000)
+$ cast call --block 31419482 0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000 [1e14], 26000000000000000000 [2.6e19], 1000000000000000000 [1e18])
+$ cast call --block 31419483 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000000 [1e17], 13000 [1.3e4], 1000)
+$ cast call --block 31419483 0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000 [1e14], 26000000000000000000 [2.6e19], 1000000000000000000 [1e18])
+$ cast call --block 33501000 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000000 [1e17], 13000 [1.3e4], 1000)
+$ cast call --block 33501000 0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394 'getOrderBookParameters()((uint256,uint256,uint256))' --rpc-url $RPC
+(100000000000000 [1e14], 26000000000000000000 [2.6e19], 1000000000000000000 [1e18])

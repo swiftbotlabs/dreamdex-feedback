@@ -1,0 +1,22 @@
+Second pass, 2026-10-26 07:22-07:27 UTC
+1. 07:22:18Z curl /trader/0x2d12...32d4 and /trader/0x0e7E...3817 (logged out, HTTP 200):
+   href="https://explorer.testnet.somnia.network/address/<addr>" with aria-label "Open <addr> on the block explorer" (no /tokyo)
+2. 07:22:37Z explorer API:
+   Global  0x2d12: coin_balance "0", transactions_count "1"; Tokyo: "15000000000000000000", "3"
+   Global  0x0e7E: coin_balance "650000000000000000", "3";    Tokyo: "42957216984000000000", "12"
+3. 07:22:58Z RPC: hideki2 (chainId 0xc4cf=50383): 0x2d12=0xd02ab486cedc0000 (15 STT), 0x0e7E=0x25426b13ff6b27000 (42.957 STT)
+               infra/dream-rpc (0xc488=50312): 0x2d12=0x0, 0x0e7E=0x905438e60010000 (0.65 STT)
+4. Chunks (07:23Z): 04nhweuvbgxuy.js y(e,r){let t=void 0===r?d():r.chain ...} d()=somniaTestnet w/ base https://explorer.testnet.somnia.network;
+   getExplorerAddressUrl(e,r)->y(`address/${e}`,r). 1zz4tdgl8_i8w.js AddressExplorerLink: getExplorerAddressUrl(e) (no region); also used for
+   "View trading Safe on the Somnia explorer" / "View session signer on the Somnia explorer". 27kddaaff2hz-.js trader header + "Login EOA" use it.
+   1wrqovc00mi6p.js Portfolio te(): getExplorerAddressUrl(e). 0p4rb93gq9d0a.js TOKYO_TESTNET_REGION blockExplorers url .../tokyo.
+   33gcg8vfyjjn_.js token contract link: getExplorerAddressUrl(e,a) (region-aware).
+5. Rendered (Chrome, own tab): Global /address/0x0e7E: "BLOCKCHAIN / GLOBAL TESTNET / ADDRESS ... Transactions (3) ... Balance 0.65 STT",
+   0 "tokyo" in body text (07:24:19Z). /address/0x2d12: Balance 0 STT, Transactions (1), 0 tokyo, no tokyo links (07:25:32Z).
+   MarginBank 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 Global: "Account ... 0 STT ... Externally owned account ... No transactions" (07:25:16Z).
+   Tokyo /tokyo/address/0x0e7E: "TOKYO TESTNET / ADDRESS ... Transactions (12) ... Balance 42.957216 STT" (07:25:03Z).
+   Global /tx/0xae8c3a...0867: "Not on Global testnet / This transaction is on Tokyo testnet. / Open on Tokyo testnet" (07:24:39Z).
+6. Logged-in /portfolio (07:26:39Z): Trader card link aria-label "Open 0x0e7E... on the block explorer" -> https://explorer.testnet.somnia.network/address/0x0e7E... ;
+   same page shows STT 42.95 in Balances.
+7. Docs (07:25:39Z): /docs/developers/perps-testnet Explorer = https://explorer.testnet.somnia.network/tokyo ;
+   /docs/support/faq/order-rejected: "copy your DreamDEX trading account address from the wallet panel, open it on the block explorer, and the failed transaction is the most recent one."

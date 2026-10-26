@@ -1,0 +1,112 @@
+# SDK excerpts, read as text from the npm tarballs (nothing installed or executed); checked 2026-10-26T08:10:16Z
+npm dist-tags: {"rc":"0.32.0-rc.1791380050012","next-0.31":"0.31.1-rc.1791533467513","next-0.32":"0.32.1-rc.1791818930433","latest":"0.32.1","canary-staging":"0.32.2-canary.38575926931.ge4550933d36d","canary":"0.32.2-canary.38575926931.ge4550933d36d"}
+0.32.1 tarball sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==
+  npm dist.integrity sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==  match=yes
+canary tarball sha512-tnxIl0Tak0grcRVs1+8yoiWPs6uLLtmp7NHusaioUa4/AKqvLq8L347RhcyWgphVVPAQ9MMgDl4RcAkytjwn+g==
+  npm dist.integrity sha512-tnxIl0Tak0grcRVs1+8yoiWPs6uLLtmp7NHusaioUa4/AKqvLq8L347RhcyWgphVVPAQ9MMgDl4RcAkytjwn+g==  match=yes
+
+## "version":"0.32.1"
+-- dist/perp/margin.d.ts 2003-2012 (PerpClosePreview.placeable)
+  2003	     *  Whether {@link closedQuantity} clears the pool's `minQuantity`.
+  2004	     *
+  2005	     *  `false` means the close cannot be placed at all — not that it is small. A dust
+  2006	     *  position below the minimum can only leave via liquidation or ADL.
+  2007	     *
+  2008	     *  It is the pool minimum and **nothing else**: `true` is not a promise the
+  2009	     *  placement is accepted. See the note on reducing capacity in
+  2010	     *  {@link SomniaMarketsClient.previewPerpClosePnl}.
+  2011	     */
+  2012	    placeable: boolean;
+-- dist/perp/margin.js 1960-1984 (previewPerpClosePnl return)
+  1960	    // pays it out, so it lands here as a negative fee — a credit.
+  1961	    const fee = feeBpsTimes1k >= 0n
+  1962	        ? (fillNotional * feeBpsTimes1k) / BPS_TIMES_1K_DENOMINATOR
+  1963	        : -((fillNotional * -feeBpsTimes1k) / BPS_TIMES_1K_DENOMINATOR);
+  1964	    const remainingSize = size === 0n ? 0n : size - sizeSign * closedQuantity;
+  1965	    return {
+  1966	        priceable: true,
+  1967	        asOfBlock: blockNumber,
+  1968	        requestedQuantity: requested,
+  1969	        closedQuantity,
+  1970	        remainingSize,
+  1971	        fullClose: size !== 0n && remainingSize === 0n,
+  1972	        realizedPnl,
+  1973	        fundingSettled,
+  1974	        fee,
+  1975	        netProceeds: realizedPnl - fundingSettled - fee,
+  1976	        placeable: closedQuantity >= book.minQuantity && closedQuantity > 0n,
+  1977	        fillPrice,
+  1978	        markPrice,
+  1979	        avgEntryPrice: position.avgEntryPrice,
+  1980	        // The EFFECTIVE grid — see `getMaxPerpOrderSize`, same reason.
+  1981	        lotSize,
+  1982	        minQuantity: book.minQuantity,
+  1983	    };
+  1984	}
+-- src/perp/margin.ts 3484-3492 and 3623
+  3484	       *  Whether {@link closedQuantity} clears the pool's `minQuantity`.
+  3485	       *
+  3486	       *  `false` means the close cannot be placed at all — not that it is small. A dust
+  3487	       *  position below the minimum can only leave via liquidation or ADL.
+  3488	       *
+  3489	       *  It is the pool minimum and **nothing else**: `true` is not a promise the
+  3490	       *  placement is accepted. See the note on reducing capacity in
+  3491	       *  {@link SomniaMarketsClient.previewPerpClosePnl}.
+  3492	       */
+  3623	    placeable: closedQuantity >= book.minQuantity && closedQuantity > 0n,
+-- docs/PERPS.md 255
+   255	  `placeable` is the pool minimum and nothing else. A close is only purely reducing up to
+-- grep for a full-close / dust exemption: 0 files
+
+## "version":"0.32.2-canary.38575926931.ge4550933d36d"
+-- dist/perp/margin.d.ts 2003-2012 (PerpClosePreview.placeable)
+  2003	     *  Whether {@link closedQuantity} clears the pool's `minQuantity`.
+  2004	     *
+  2005	     *  `false` means the close cannot be placed at all — not that it is small. A dust
+  2006	     *  position below the minimum can only leave via liquidation or ADL.
+  2007	     *
+  2008	     *  It is the pool minimum and **nothing else**: `true` is not a promise the
+  2009	     *  placement is accepted. See the note on reducing capacity in
+  2010	     *  {@link SomniaMarketsClient.previewPerpClosePnl}.
+  2011	     */
+  2012	    placeable: boolean;
+-- dist/perp/margin.js 1960-1984 (previewPerpClosePnl return)
+  1960	    // pays it out, so it lands here as a negative fee — a credit.
+  1961	    const fee = feeBpsTimes1k >= 0n
+  1962	        ? (fillNotional * feeBpsTimes1k) / BPS_TIMES_1K_DENOMINATOR
+  1963	        : -((fillNotional * -feeBpsTimes1k) / BPS_TIMES_1K_DENOMINATOR);
+  1964	    const remainingSize = size === 0n ? 0n : size - sizeSign * closedQuantity;
+  1965	    return {
+  1966	        priceable: true,
+  1967	        asOfBlock: blockNumber,
+  1968	        requestedQuantity: requested,
+  1969	        closedQuantity,
+  1970	        remainingSize,
+  1971	        fullClose: size !== 0n && remainingSize === 0n,
+  1972	        realizedPnl,
+  1973	        fundingSettled,
+  1974	        fee,
+  1975	        netProceeds: realizedPnl - fundingSettled - fee,
+  1976	        placeable: closedQuantity >= book.minQuantity && closedQuantity > 0n,
+  1977	        fillPrice,
+  1978	        markPrice,
+  1979	        avgEntryPrice: position.avgEntryPrice,
+  1980	        // The EFFECTIVE grid — see `getMaxPerpOrderSize`, same reason.
+  1981	        lotSize,
+  1982	        minQuantity: book.minQuantity,
+  1983	    };
+  1984	}
+-- src/perp/margin.ts 3484-3492 and 3623
+  3484	       *  Whether {@link closedQuantity} clears the pool's `minQuantity`.
+  3485	       *
+  3486	       *  `false` means the close cannot be placed at all — not that it is small. A dust
+  3487	       *  position below the minimum can only leave via liquidation or ADL.
+  3488	       *
+  3489	       *  It is the pool minimum and **nothing else**: `true` is not a promise the
+  3490	       *  placement is accepted. See the note on reducing capacity in
+  3491	       *  {@link SomniaMarketsClient.previewPerpClosePnl}.
+  3492	       */
+  3623	    placeable: closedQuantity >= book.minQuantity && closedQuantity > 0n,
+-- docs/PERPS.md 255
+   255	  `placeable` is the pool minimum and nothing else. A close is only purely reducing up to
+-- grep for a full-close / dust exemption: 0 files

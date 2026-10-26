@@ -1,0 +1,78 @@
+UTC 2026-10-26T07:34:52.025Z chainId 50383 block 33479416 pool 0xd6cb1dd58580b84d76068ac21594219ce03aeddf
+  getProjectedCumulativeFundingPerUnit() = 21643722683000819243720643463148437500
+  getOneBase() = 1000000000000000000
+LONG  0xab8b612548cc3f5f9f7e723823be37058d0110b2  indexer size 104654300000000000000 (isLong true) | chain size 104654300000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 28971874167444762500000000000000000
+   description: (proj - entry) * size    = 3032031210682014408103750000000000000000000000000000000
+   same, / 1e18                          = 3032031210682014408103750000000000000
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 3032031210682014409  (3.032031 USDso; + pays, - receives)
+   description / chain                   = 999999999999999999704406077073856807
+LONG  0xe1aee0e57e2909969970e7eab0f153a4f3777953  indexer size 17305700000000000000 (isLong true) | chain size 17305700000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 486373785904655138575818116295625000
+   description: (proj - entry) * size    = 8417038826730190431651535575177197562500000000000000000
+   same, / 1e18                          = 8417038826730190431651535575177197562
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 8417038826730190432  (8.417039 USDso; + pays, - receives)
+   description / chain                   = 999999999999999999958600116739847311
+LONG  0xffc2d88f6836a48a127766813167dc42a35c512b  indexer size 14500000000000000000 (isLong true) | chain size 14500000000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 202507927794825400000000000000000000
+   description: (proj - entry) * size    = 2936364953024968300000000000000000000000000000000000000
+   same, / 1e18                          = 2936364953024968300000000000000000000
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 2936364953024968300  (2.936365 USDso; + pays, - receives)
+   description / chain                   = 1000000000000000000000000000000000000
+SHORT 0xf3ed3f5b90a13b39f30759e9800ec638711008f8  indexer size 58651400000000000000 (isLong false) | chain size -58651400000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 457142216869607788575818116295625000
+   description: (proj - entry) * size    = 26812031018506114250875738666101220125000000000000000000
+   same, / 1e18                          = 26812031018506114250875738666101220125
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -26812031018506114250  (-26.812031 USDso; + pays, - receives)
+   description / chain                   = -1000000000000000000032662153251156937
+SHORT 0x5bca575389dea29eba83c4c9dfa682ea0ec12955  indexer size 57435400000000000000 (isLong false) | chain size -57435400000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 457142216869607788575818116295625000
+   description: (proj - entry) * size    = 26256146082792671179967543836685740125000000000000000000
+   same, / 1e18                          = 26256146082792671179967543836685740125
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -26256146082792671179  (-26.256146 USDso; + pays, - receives)
+   description / chain                   = -1000000000000000000036850184853284061
+SHORT 0x8345545ba80a5396e54787dbb90ded1e2f64e666  indexer size 50338000000000000000 (isLong false) | chain size -50338000000000000000 | entry match true | rowMatchesChain true
+   proj - entry                          = 457142216869607788575818116295625000
+   description: (proj - entry) * size    = 23011624912782316861329532338089171250000000000000000000
+   same, / 1e18                          = 23011624912782316861329532338089171250
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -23011624912782316861  (-23.011625 USDso; + pays, - receives)
+   description / chain                   = -1000000000000000000014320255059699205
+UTC 2026-10-26T07:34:56.463Z chainId 50383 block 33479459 pool 0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0
+  getProjectedCumulativeFundingPerUnit() = 3802061680469651715606245441077127281250
+  getOneBase() = 100000000
+LONG  0x2c7d4bf84599b1900c3ccf881f8d52a7d02cc5a6  indexer size 1000 (isLong true) | chain size 1000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3106776491174390266344719386353813406250
+   description: (proj - entry) * size    = 3106776491174390266344719386353813406250000
+   same, / 1e18                          = 3106776491174390266344719
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 31067764911743903  (0.031068 USDso; + pays, - receives)
+   description / chain                   = 99999999999999998916713812
+LONG  0xfcdf06ae9707d711de1bf44970f20321a94583e6  indexer size 1000 (isLong true) | chain size 1000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3106776491174390266344719386353813406250
+   description: (proj - entry) * size    = 3106776491174390266344719386353813406250000
+   same, / 1e18                          = 3106776491174390266344719
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 31067764911743903  (0.031068 USDso; + pays, - receives)
+   description / chain                   = 99999999999999998916713812
+LONG  0xbe1c31db8de6fcab6276e66accb2637fa523f61f  indexer size 1000 (isLong true) | chain size 1000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3106776491174390266344719386353813406250
+   description: (proj - entry) * size    = 3106776491174390266344719386353813406250000
+   same, / 1e18                          = 3106776491174390266344719
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = 31067764911743903  (0.031068 USDso; + pays, - receives)
+   description / chain                   = 99999999999999998916713812
+SHORT 0xeeaba9383415b85dc19a6fa035f0999ecd04d56e  indexer size 3000 (isLong false) | chain size -3000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3185134631189494275150868955379255093750
+   description: (proj - entry) * size    = 9555403893568482825452606866137765281250000
+   same, / 1e18                          = 9555403893568482825452606
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -95554038935684828  (-0.095554 USDso; + pays, - receives)
+   description / chain                   = -100000000000000000266368718
+SHORT 0x904c81faad1c312945e9f7b60459746de31663e9  indexer size 4000 (isLong false) | chain size -4000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3185134631189494275150868955379255093750
+   description: (proj - entry) * size    = 12740538524757977100603475821517020375000000
+   same, / 1e18                          = 12740538524757977100603475
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -127405385247579771  (-0.127405 USDso; + pays, - receives)
+   description / chain                   = -100000000000000000004736658
+SHORT 0x435229d2ecae994cfc44bf38b8e003192202d5f0  indexer size 5000 (isLong false) | chain size -5000 | entry match true | rowMatchesChain true
+   proj - entry                          = 3185134631189494275150868955379255093750
+   description: (proj - entry) * size    = 15925673155947471375754344776896275468750000
+   same, / 1e18                          = 15925673155947471375754344
+   chain/SDK: ceil(signedSize*(proj-entry) / (1e18*oneBase)) = -159256731559474713  (-0.159257 USDso; + pays, - receives)
+   description / chain                   = -100000000000000000475674365

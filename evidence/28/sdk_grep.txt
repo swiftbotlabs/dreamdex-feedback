@@ -1,0 +1,94 @@
+# @somnia-chain/markets-sdk 0.32.1, read as text from the npm tarball (npm pack; nothing executed). Run 2026-10-26T08:09:25Z
+tarball sha512: sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==
+npm view dist.integrity: sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==   npm latest: 0.32.1
+
+## PerpStopOrderLeg.quantity (dist/trade.d.ts 1404-1411)
+     *  Base quantity to trade at trigger, raw base units.
+     *
+     *  ZERO is a sentinel meaning "the whole position at trigger time" — the size is
+     *  resolved against the live position when it fires, so the stop keeps covering a
+     *  position that GREW after it was armed. A non-zero quantity is fixed at creation
+     *  and only ever clamped DOWN. Rejected for `"opening"` intent, where it has no
+     *  meaning.
+     */
+
+## PERP_STOP_DROP_REASON doc (dist/perp/stops.d.ts 8-18)
+/**
+ *  Why a triggered stop placed nothing. Mirrors the registry's `DropReason` enum.
+ *
+ *  The distinction matters for what a UI should say. `ReduceOnly*` are ordinary
+ *  outcomes of a stop that events overtook — the position was already closed, or
+ *  flipped, or what remained was dust — while `PlacementFailed` is a real rejection.
+ *  Collapsing them all to "failed" makes routine behaviour look broken.
+ *
+ * @category perpetual markets
+ */
+export declare const PERP_STOP_DROP_REASON: readonly ["None", "ReduceOnlyNoPosition", "ReduceOnlyWrongSide", "ReduceOnlyBelowMinQty", "PlacementFailed", "NoFill"];
+
+## PerpStopOrder.dropReason doc (dist/perp/stops.d.ts 86-94)
+    placedOrderId: string | null;
+    /**
+     *  Why a trigger placed nothing, decoded — null on a pending or successful order.
+     *
+     *  Read it before calling a `TRIGGER_FAILED` order a failure: a reduce-only drop
+     *  means the stop was overtaken by events (position already closed, flipped, or
+     *  below minimum), which is ordinary. Only `PlacementFailed` is a rejection. SOMI is
+     *  consumed on every fire regardless of outcome.
+     */
+
+## listPerpStopOrders guide (docs/PERPS.md 445-448)
+  Read `dropReason` before calling a `TRIGGER_FAILED` order a failure: `ReduceOnly*`
+  means the stop was overtaken by events (position already closed, flipped, or below
+  the minimum), which is ordinary; only `PlacementFailed` is a rejection. SOMI is
+  consumed on every fire either way.
+
+## indexer enum doc (dist/gql/graphql.d.ts 2373-2384)
+     * PERP only — WHY a trigger placed nothing, when `status` is TRIGGER_FAILED.
+     *
+     *   0 None                    (unused here; a successful trigger records null)
+     *   1 ReduceOnlyNoPosition    fired with no position left to reduce
+     *   2 ReduceOnlyWrongSide     the position flipped before it fired
+     *   3 ReduceOnlyBelowMinQty   what remained was below the pool's minimum
+     *   4 PlacementFailed         the pool rejected the order outright
+     *   5 NoFill                  the pool ACCEPTED the order and it traded nothing
+     *
+     * Null on spot, and null on success. The distinction is load-bearing for a UI: 1-3 and
+     * 5 are ordinary outcomes of a stop that was overtaken by events or by a thin book,
+     * while 4 is a real rejection — collapsing them to "failed" makes routine behaviour look
+
+## where the SDK describes reducing capacity: plain orders and the collateral lock only (docs/PERPS.md 142-144, 255-258, 530-532)
+  Note what it deliberately does **not** do: it applies the whole quantity rather than
+  splitting it against `getReducingCapacity` (that split governs the collateral _lock_,
+  not the position), and it does not judge whether the order would be accepted — that is
+  `placeable` is the pool minimum and nothing else. A close is only purely reducing up to
+  `_reducingCapacity` — `|size|` minus what is already resting on the reducing side — so
+  closing out while a reduce order is down leaves an increasing remainder that locks
+  collateral and must clear `meetsIMForOrder`. Read `previewPerpOrderMargin` beside this
+  Only the _increasing_ leg locks. An order that nets against an existing position
+  locks nothing up to `effectiveReducingCapacity`, which resting opposite-side orders
+  have already partly spoken for.
+
+## every mention of reducing capacity in the package's .ts sources and docs (excluding dist .js/.d.ts)
+docs/PERPS.md:143:  splitting it against `getReducingCapacity` (that split governs the collateral _lock_,
+docs/PERPS.md:256:  `_reducingCapacity` — `|size|` minus what is already resting on the reducing side — so
+docs/PERPS.md:531:  locks nothing up to `effectiveReducingCapacity`, which resting opposite-side orders
+src/readsAbi.ts:259:  "function getReducingCapacity(address account) view returns ((int128 positionSize, uint256 pendingBidQuantity, uint256 pendingAskQuantity, uint256 pendingOppositeQuantity, uint25
+src/perp/margin.ts:1853:  /** Reducing capacity resting orders have not already spoken for, raw base units. */
+src/perp/margin.ts:1854:  effectiveReducingCapacity: bigint;
+src/perp/margin.ts:2123:    if (p.quantity > p.effectiveReducingCapacity) {
+src/perp/margin.ts:2124:      increasingQuantity = p.quantity - p.effectiveReducingCapacity;
+src/perp/margin.ts:2355:    client.readContract({ ...pool, functionName: "getReducingCapacity", args: [p.account] }),
+src/perp/margin.ts:2433:    effectiveReducingCapacity: capacity.effectiveReducingCapacity,
+src/perp/margin.ts:2508: * - `p.additionalSize`: the INCREASING quantity, raw base units — not necessarily the whole order (see `getReducingCapacity`)
+src/perp/margin.ts:3248: *  not split the order against `getReducingCapacity` — that split governs how much
+src/perp/margin.ts:3490:       *  placement is accepted. See the note on reducing capacity in
+src/perp/margin.ts:3527: *  `_reducingCapacity` — `|size|` minus the quantity ALREADY resting on the reducing
+src/perp/margin.ts:3532: *  account has resting orders; with none down, `_reducingCapacity` is the full position
+
+
+## the perp stop module and the stop sections of the SDK docs: matches for resting / open order / capacity
+src/perp/stops.ts: 1 matches
+dist/perp/stops.d.ts: 0 matches
+docs/PERPS.md stop section (lines 420-470): 0 matches
+src/trade.ts placePerpStopOrder / PerpStopOrderLeg docs (lines 1480-1560): 0 matches
+  (the one stops.ts match, line 9: "// PerpPool view about RESTING book orders, not a registry one. So nothing on chain" is about listing, not about trigger sizing)

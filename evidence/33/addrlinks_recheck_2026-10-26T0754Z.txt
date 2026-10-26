@@ -1,0 +1,51 @@
+# Re-check 2026-10-26T07:53:57Z
+## /trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (logged-out curl)
+HTTP 200
+aria-label="Open 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 on the block explorer" class="flex min-w-0 items-center gap-xs text-body transition-colors hover:text-heading" href="https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817"
+  https://explorer.testnet.somnia.network/api/v2/addresses/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 -> coin_balance/is_contract: 650000000000000000 True ; counters: {"transactions_count":"3","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+  https://explorer.testnet.somnia.network/tokyo/api/v2/addresses/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 -> coin_balance/is_contract: 42957216984000000000 True ; counters: {"transactions_count":"12","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+  https://api.hideki2.infra.testnet.somnia.network [{"jsonrpc":"2.0","id":0,"result":"0xc4cf"},{"jsonrpc":"2.0","id":1,"result":"0x25426b13ff6b27000"}]
+  https://api.infra.testnet.somnia.network [{"jsonrpc":"2.0","id":0,"result":"0xc488"},{"jsonrpc":"2.0","id":1,"result":"0x905438e60010000"}]
+## /trader/0x2d1242b88f6979d93bae5968ec292fae640932d4 (logged-out curl)
+HTTP 200
+aria-label="Open 0x2d1242b88f6979d93bae5968ec292fae640932d4 on the block explorer" class="flex min-w-0 items-center gap-xs text-body transition-colors hover:text-heading" href="https://explorer.testnet.somnia.network/address/0x2d1242b88f6979d93bae5968ec292fae640932d4"
+  https://explorer.testnet.somnia.network/api/v2/addresses/0x2d1242b88f6979d93bae5968ec292fae640932d4 -> coin_balance/is_contract: 0 True ; counters: {"transactions_count":"1","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+  https://explorer.testnet.somnia.network/tokyo/api/v2/addresses/0x2d1242b88f6979d93bae5968ec292fae640932d4 -> coin_balance/is_contract: 15000000000000000000 True ; counters: {"transactions_count":"3","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+  https://api.hideki2.infra.testnet.somnia.network [{"jsonrpc":"2.0","id":0,"result":"0xc4cf"},{"jsonrpc":"2.0","id":1,"result":"0xd02ab486cedc0000"}]
+  https://api.infra.testnet.somnia.network [{"jsonrpc":"2.0","id":0,"result":"0xc488"},{"jsonrpc":"2.0","id":1,"result":"0x0"}]
+2026-10-26T07:54:13Z
+# Chunk + docs re-check 2026-10-26T07:54:26Z
+04nhweuvbgxuy.js HTTP 200 live=6dc8df9a469273e4 saved07:23Z=6dc8df9a469273e4
+0p4rb93gq9d0a.js HTTP 200 live=075cbb1e21204a21 saved07:23Z=075cbb1e21204a21
+1wrqovc00mi6p.js HTTP 200 live=0f42d526b3130c3c saved07:23Z=0f42d526b3130c3c
+1zz4tdgl8_i8w.js HTTP 200 live=c2bb0b9732a6e03c saved07:23Z=c2bb0b9732a6e03c
+27kddaaff2hz-.js HTTP 200 live=8556fda94b218ac5 saved07:23Z=8556fda94b218ac5
+33gcg8vfyjjn_.js HTTP 200 live=5520ff409831ba1e saved07:23Z=5520ff409831ba1e
+3
+https://app.dreamdex.io/docs/support/faq/order-rejected HTTP 200
+    ies no link, so find the failed transaction yourself: copy your DreamDEX trading account address from the wallet panel, open it on the block explorer, and the failed transaction is the most recent one.
+https://app.dreamdex.io/docs/developers/perps-testnet HTTP 200
+    Explorer explorer.testnet.somnia.network/tokyo
+    hQL) https://hideki-dev.smk.somnia.host/v1/graphql Explorer explorer.testnet.somnia.network/tokyo Gas coin STT Contracts Contract Address
+# Logged-in /portfolio, own Chrome tab, 2026-10-26T07:55:19Z (signed in as Somnia Account 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817)
+Trader card text: "Trader / View my trader page / ? / Connect X / account: / 0x0e7E…3817 / Connect Discord / Wallet / Wallet 1 / Main"
+Address links on the page (a[href*=explorer.testnet.somnia.network][href*=/address/]):
+  aria-label="Open 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 on the block explorer"
+  href="https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817"  text "0x0e7E…3817"
+07:55:28Z: the wallet panel (header button "0x0e7E…3817") shows the address "0x0e...3817" with no explorer link; the Trader card link above is the only address link on the page.
+Tab closed.
+# Link target rendered in Chrome (own tab), 2026-10-26T07:56:50Z
+https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817
+  page text starts "EXPLORER / Global testnet / 50312 · 832 ms / BLOCKCHAIN ..."; matches of /tokyo/i in document.body.innerText: 0; links whose href contains "tokyo": 0
+  only network control: button "Global testnet 50312 · 832 ms"
+07:56:5xZ clicked that button -> list contains option "Tokyo testnet Asia-Pacific · Tokyo · testnet · 50383 321 ms"
+07:57:06Z after choosing it: URL https://explorer.testnet.somnia.network/tokyo, breadcrumb "BLOCKCHAIN / OVERVIEW", address 0x0e7E8DF6… not on the page (the switch drops the address).
+Tab closed.
+# Docs, fetched 2026-10-26 07:54:38-07:59:04 UTC (page text, tags stripped)
+https://app.dreamdex.io/docs/developers/perps-testnet:
+  "Testnet perps run on the Hideki testnet chain, which the app shows as the DreamDEX region."
+  "... Explorer explorer.testnet.somnia.network/tokyo Gas coin STT Contracts ..."
+https://app.dreamdex.io/docs/trading/perps-testnet:
+  "On testnet your wallets live in DreamDEX, the region the perp markets are in."
+https://app.dreamdex.io/docs/support/faq/order-rejected:
+  "Saw "Order could not be completed — please try again" instead? That is every other rejection, including an order that would have matched your own resting order. The toast does not show the specific reason and carries no link, so find the failed transaction yourself: copy your DreamDEX trading account address from the wallet panel, open it on the block explorer, and the failed transaction is the most recent one."

@@ -1,0 +1,150 @@
+{
+ "headBlock": "33495084",
+ "headTimeUTC": "2026-10-26T08:00:58.000Z",
+ "indexer": [
+  {
+   "chain_id": 50383,
+   "latest_processed_block": 33495079
+  }
+ ],
+ "where": {
+  "market_id": {
+   "_eq": "0xb483ec1fb34996638677c20ab087b16f1896fa53"
+  },
+  "owner": {
+   "_eq": "0x8d4a4e4484e0fc2c24dd4622dda314d0538d5df8"
+  },
+  "status": {
+   "_in": [
+    "PENDING",
+    "TRIGGERED",
+    "TRIGGER_FAILED",
+    "CANCELLED"
+   ]
+  }
+ },
+ "positionNow": "-851.65",
+ "markNow": "100.5013097511905",
+ "rows": [
+  {
+   "orderIdRaw": "2102928824402888886116",
+   "status": "TRIGGERED",
+   "cancelReason": null,
+   "dropReason": null,
+   "placedOrderId": "21822498239198407036405",
+   "isBid": true,
+   "triggerOperator": 1,
+   "triggerPrice": "101.9",
+   "quantity": "1896.46",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-22T15:16:01.000Z",
+   "updatedAtUTC": "2026-10-23T22:53:45.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "110680464442257311587",
+   "status": "CANCELLED",
+   "cancelReason": "LinkedFill",
+   "dropReason": null,
+   "placedOrderId": null,
+   "isBid": true,
+   "triggerOperator": 0,
+   "triggerPrice": "106.48",
+   "quantity": "1896.46",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-22T15:16:01.000Z",
+   "updatedAtUTC": "2026-10-23T22:53:45.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "2785458355130142295390",
+   "status": "CANCELLED",
+   "cancelReason": "LinkedFill",
+   "dropReason": null,
+   "placedOrderId": null,
+   "isBid": false,
+   "triggerOperator": 1,
+   "triggerPrice": "101.8",
+   "quantity": "383.68",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-20T08:02:14.000Z",
+   "updatedAtUTC": "2026-10-20T14:07:35.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "1900014639592083817821",
+   "status": "TRIGGERED",
+   "cancelReason": null,
+   "dropReason": null,
+   "placedOrderId": "2693224634761601325609",
+   "isBid": false,
+   "triggerOperator": 0,
+   "triggerPrice": "106.7",
+   "quantity": "383.68",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-20T08:02:14.000Z",
+   "updatedAtUTC": "2026-10-20T14:07:35.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "2785458355130142295387",
+   "status": "CANCELLED",
+   "cancelReason": "Owner",
+   "dropReason": null,
+   "placedOrderId": null,
+   "isBid": false,
+   "triggerOperator": 0,
+   "triggerPrice": "106.65",
+   "quantity": "383.68",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-20T08:02:01.000Z",
+   "updatedAtUTC": "2026-10-20T08:02:04.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "1900014639592083817820",
+   "status": "CANCELLED",
+   "cancelReason": "Owner",
+   "dropReason": null,
+   "placedOrderId": null,
+   "isBid": false,
+   "triggerOperator": 1,
+   "triggerPrice": "101.85",
+   "quantity": "383.68",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-20T08:02:01.000Z",
+   "updatedAtUTC": "2026-10-20T08:02:05.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "1235931852938539959027",
+   "status": "CANCELLED",
+   "cancelReason": "LinkedFill",
+   "dropReason": null,
+   "placedOrderId": null,
+   "isBid": false,
+   "triggerOperator": 1,
+   "triggerPrice": "100",
+   "quantity": "331.24",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-15T07:44:42.000Z",
+   "updatedAtUTC": "2026-10-15T14:44:25.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  },
+  {
+   "orderIdRaw": "1162144876643701752562",
+   "status": "TRIGGERED",
+   "cancelReason": null,
+   "dropReason": null,
+   "placedOrderId": "6419466937650928577316",
+   "isBid": false,
+   "triggerOperator": 0,
+   "triggerPrice": "104.1",
+   "quantity": "331.24",
+   "siblingOrderId": null,
+   "createdAtUTC": "2026-10-15T07:44:42.000Z",
+   "updatedAtUTC": "2026-10-15T14:44:25.000Z",
+   "fieldNames": "id,registry,orderIdRaw,owner,isBid,quantity,triggerPrice,triggerOperator,orderType,builder,builderFeeBpsTimes1k,status,placedOrderId,dropReason,siblingOrderId,intent,cancelReason,createdAt,updatedAt,txHash,market"
+  }
+ ]
+}

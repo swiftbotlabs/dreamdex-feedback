@@ -1,0 +1,19 @@
+== https://app.dreamdex.io/llms-full.txt  HTTP 200  2026-10-26T07:36:18Z  bytes 438288
+  'entryFundingIndex': 0 lines
+  'getProjectedCumulativeFundingPerUnit': 0 lines
+  'funding index': 0 lines
+  'reconstructible': 0 lines
+  'hideki-dev.smk.somnia.host': 2 lines
+== https://somnia-platform-explorer.vercel.app/markets/llms-full.txt  HTTP 200  2026-10-26T07:36:19Z  bytes 1176525
+  'entryFundingIndex': 1 lines
+  'getProjectedCumulativeFundingPerUnit': 0 lines
+  'funding index': 1 lines
+  'reconstructible': 0 lines
+  'hideki-dev.smk.somnia.host': 3 lines
+
+== app.dreamdex.io llms-full: lines naming the indexer
+3680:| **Indexer (GraphQL)** | `https://hideki-dev.smk.somnia.host/v1/graphql` |
+3709:  indexerUrl: "https://hideki-dev.smk.somnia.host/v1/graphql",
+
+== somnia markets llms-full: lines with entryFundingIndex / getProjectedCumulativeFundingPerUnit
+3187:  reads all accounts' positions with `entryFundingIndex`. Each page is one request

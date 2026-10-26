@@ -1,0 +1,108 @@
+{
+ "registries": 21,
+ "slippageToleranceBpsValues": [
+  "500"
+ ],
+ "firedRows": 1000,
+ "window": [
+  "2026-10-22T16:45:55.000Z",
+  "2026-10-26T06:27:00.000Z"
+ ],
+ "triggeredWithOrder": 910,
+ "fullFill": 904,
+ "zeroFill": 0,
+ "partialFill": 6,
+ "missingOrderRow": 0,
+ "partials": [
+  {
+   "stop": "1328165573307087717210",
+   "registry": "0x655e89a7e52490a421ad4c04fb6a7dd295cf1a5f",
+   "owner": "0x5734ad8f22f450b77a6f9c16b3a0089c60b751e4",
+   "tx": "0x671045f16c54ffb5d22291cec49331849163a26d3d9e65e9b5372c942ccc47e1",
+   "block": "32419269",
+   "timeUTC": "2026-10-25T02:07:15.000Z",
+   "fillPct": 30.1,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": false,
+   "siblingAtParent": "0",
+   "siblingCancelled": null
+  },
+  {
+   "stop": "4722366482869645220938",
+   "registry": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "owner": "0x2b7b1fd01311c616ffba48a92037fe74e3f189a5",
+   "tx": "0x374537402dad63a77d0ef52a8a7a07089b397bc38117391341b4fe721efb3940",
+   "block": "32162067",
+   "timeUTC": "2026-10-24T18:58:25.000Z",
+   "fillPct": 23.39,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": true,
+   "siblingAtParent": "5939851591734475627595",
+   "siblingCancelled": "5939851591734475627595"
+  },
+  {
+   "stop": "2102928824402888886116",
+   "registry": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "owner": "0x8d4a4e4484e0fc2c24dd4622dda314d0538d5df8",
+   "tx": "0x7e128dfa20858595d8221c7b983e2894f900b42918fc5a977ea79ea6256cdff4",
+   "block": "31439526",
+   "timeUTC": "2026-10-23T22:53:45.000Z",
+   "fillPct": 55.09,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": true,
+   "siblingAtParent": "110680464442257311587",
+   "siblingCancelled": "110680464442257311587"
+  },
+  {
+   "stop": "1383505805528216373000",
+   "registry": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "owner": "0x41dc3574517164cbc27cde3a91604a3d83f98fb0",
+   "tx": "0x8e47a59d0427e8aa87d9d29b0f6deb5b75dde3bd1e45d67b1fc172b432bf3810",
+   "block": "31436677",
+   "timeUTC": "2026-10-23T22:49:00.000Z",
+   "fillPct": 70.61,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": false,
+   "siblingAtParent": "0",
+   "siblingCancelled": null
+  },
+  {
+   "stop": "2029141848108050679133",
+   "registry": "0x44c24cd26cf41037c6ebf337948a6c9bbc0ee055",
+   "owner": "0xa14d4561f2697859ab6c2d5eb62e1172a6cc3d14",
+   "tx": "0x02884ad95dc73d31635a5ff084e7a17276f083463311510183982f62e6fb66d4",
+   "block": "31307116",
+   "timeUTC": "2026-10-23T19:13:00.000Z",
+   "fillPct": 76.55,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": false,
+   "siblingAtParent": "0",
+   "siblingCancelled": null
+  },
+  {
+   "stop": "553402322211286550578",
+   "registry": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "owner": "0x657a4803b3da3702b677ef45b5033d196125df6a",
+   "tx": "0x352dc23d3b72cf6c712d03a55e7097de91432d89a73994c5a056843e72f7772e",
+   "block": "31150465",
+   "timeUTC": "2026-10-23T14:51:50.000Z",
+   "fillPct": 48.26,
+   "orderType": 1,
+   "triggeredSuccess": true,
+   "dropReason": 0,
+   "linkedAtParent": true,
+   "siblingAtParent": "2195162544771436644403",
+   "siblingCancelled": "2195162544771436644403"
+  }
+ ]
+}

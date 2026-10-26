@@ -1,0 +1,16 @@
+run 2026-10-26T07:19:42.252Z
+tx 0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247 block 33346996 status success
+  PositionLiquidated log 95 account 0xEa377C343ea8B4d2c718B71f4fe7A09e2A95931B pool 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0
+    raw log size -24010000 | indexer row PositionLiquidated size -24010000
+    position at block-1 24010000 (long) | at block 0 (flat) | row size negative | size == post - pre
+tx 0x7932ea624f435573a64180d769f5031f151e4c583b5c30ff0f0e33b3c55df5b1 block 33422553 status success
+  PositionLiquidated log 118 account 0x5521160E05bB130783E003F746F03d9D31ea1e69 pool 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A
+    raw log size 460280000 | indexer row PositionLiquidated size 460280000
+    position at block-1 -674680000 (short) | at block -214400000 (short) | row size positive | size == post - pre
+tx 0x170891a3829d9362c44805fbbcf3ea8b02747c7c129a1cf57eeb1d00927f855e block 28537567 status success
+  PositionTransferred log 86 account 0x671846a0c593e8685342dae71Da9C25fD8b8ce16 pool 0xB483ec1fb34996638677c20ab087b16F1896FA53
+    raw log size -227770000000 | indexer row PositionTransferred size -227770000000
+    position at block-1 -227770000000 (short) | at block 0 (flat) | row size negative | size != post - pre
+  PositionTakenOver log 87 account 0x671846a0c593e8685342dae71Da9C25fD8b8ce16 pool 0xB483ec1fb34996638677c20ab087b16F1896FA53
+    raw log size -227770000000 | indexer row PositionTakenOver size -227770000000
+    position at block-1 -227770000000 (short) | at block 0 (flat) | row size negative | size != post - pre

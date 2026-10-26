@@ -1,0 +1,103 @@
+SDK source excerpts, read as text (nothing installed or executed). Extracted 2026-10-26T07:20Z.
+npm view @somnia-chain/markets-sdk dist-tags at 2026-10-26T07:18:22Z: latest 0.32.1, canary 0.32.2-canary.38575926931.ge4550933d36d; time.modified 2026-10-14T18:08:33.695Z
+0.32.1 tarball sha512 (base64): RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==  (equals npm dist.integrity)
+
+== 0.32.1 src/perp/history.ts:248-254 (LiquidationEvent.size)
+248:   /**
+249:    *  Signed size for the leg, where the event carries one (raw base units).
+250:    *
+251:    *  Signed, not absolute: `PositionLiquidated` emits a signed `sizeDelta`, and the sign
+252:    *  is the side being closed.
+253:    */
+254:   size: string | null;
+
+== 0.32.1 dist/perp/history.d.ts:203-207
+203:      *  Signed size for the leg, where the event carries one (raw base units).
+204:      *
+205:      *  Signed, not absolute: `PositionLiquidated` emits a signed `sizeDelta`, and the sign
+206:      *  is the side being closed.
+207:      */
+
+== 0.32.1 src/perp/plane.ts:36-45 (live store, behind listLiveLiquidations / useLiveLiquidations)
+36:     case "PositionLiquidated":
+37:       // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+38:       // through rather than taking a magnitude.
+39:       writeLiquidation(
+40:         ev,
+41:         ev.eventName,
+42:         ev.args.account,
+43:         { pool: ev.args.perpPool, size: ev.args.sizeDelta, price: ev.args.markPrice },
+44:         store,
+45:       );
+
+== 0.32.1 dist/perp/plane.js:26-28
+26:         case "PositionLiquidated":
+27:             // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+28:             // through rather than taking a magnitude.
+
+== 0.32.1 src/perp/history.ts:813-819 (listLiquidations passes the indexer's size through unchanged)
+813:     { where, limit: opts.limit ?? 50, offset: opts.offset ?? 0 },
+814:     indexerUrl,
+815:   );
+816:   // The indexer row has no chain column; the owner's context names the chain.
+817:   return data.LiquidationEvent.map((row) => ({ ...row, chainId: indexerUrl.chainId }));
+818: }
+819: 
+
+== 0.32.1 SDK convention for signed sizes elsewhere
+src/perp/adl.ts:89: *  Amounts are raw: `size` in base units (positive long, negative short), prices
+src/perp/history.ts:1306:  /** Signed size before the update: positive long, negative short, zero flat. */
+src/somniaMarketsClient.ts:3586:   *  positive = long). `ref.marginBank` comes off the {@link PerpMarket} row.
+src/perp/state.ts:455: *  signed base units: positive = long, negative = short, zero = flat.
+src/perp/state.ts:461:   *  Signed position size in raw base units: positive = long, negative = short,
+src/perp/state.ts:530:   *  SIGNED position size in raw base units: positive = long, negative = short.
+src/perp/margin.ts:602:  /** SIGNED position size in this market, raw base units (positive = long, 0 = flat). */
+src/perp/margin.ts:869:  /** SIGNED position size, raw base units (positive = long, negative = short). */
+
+== 0.32.1 docs/PERPS.md:1070-1082 (guide combines position-leg kinds in one read)
+1070: Use `kind` to select one stage. A wallet view can select its position legs in
+1071: one bounded read. `kinds: []` adds no filter.
+1072: 
+1073: ```ts
+1074: const positionLegs = await client.listLiquidations({
+1075:   party: account,
+1076:   kinds: ["PositionLiquidated", "PositionTakenOver", "AutoDeleveraged"],
+1077: });
+1078: ```
+1079: 
+1080: This selection omits `PositionTransferred`. MarginBank emits it as the
+1081: settlement record for the same takeover as `PositionTakenOver`, so including
+1082: both would count one takeover twice.
+
+== 0.32.1 docs/PERPS.md:1151-1158 (only mention of sizeDelta in the docs: printed, sign not described)
+1151: // Every liquidation on the venue. `PositionLiquidated` is pool-scoped, so filter
+1152: // by pool here if you only want one market.
+1153: const unwatchLiquidations = viem.watchEvent({
+1154:   address: liquidationEngine,
+1155:   event: getAbiItem({ abi: liquidationEngineEventsAbi, name: "PositionLiquidated" }),
+1156:   onLogs: (logs) => {
+1157:     for (const log of logs) console.log(log.args.account, log.args.sizeDelta, log.args.markPrice);
+1158:   },
+
+== grep 'side being closed' in 0.32.1
+src/perp/plane.ts:37:      // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+src/perp/history.ts:252:   *  is the side being closed.
+dist/perp/history.d.ts:206:     *  is the side being closed.
+dist/perp/plane.js:27:            // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+
+== grep 'side being closed' in canary   "version": "0.32.2-canary.38575926931.ge4550933d36d",
+src/perp/history.ts:252:   *  is the side being closed.
+src/perp/plane.ts:37:      // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+dist/perp/history.d.ts:206:     *  is the side being closed.
+dist/perp/plane.js:27:            // `sizeDelta` is a SIGNED int128 and the sign is the side being closed — pass it
+
+== dreamDEX docs snapshots (fetched 2026-10-26 ~06:40 UTC): count of PositionLiquidated / sizeDelta
+app.dreamdex.io_llms-full.txt: PositionLiquidated=0 sizeDelta=0
+app.testnet.dreamdex.io_llms-full.txt: PositionLiquidated=0 sizeDelta=0
+events.html: PositionLiquidated=0 sizeDelta=0
+perps-testnet.html: PositionLiquidated=0 sizeDelta=0
+
+== app chunk https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3w46wu70iystk.js fetched 2026-10-26 06:40 UTC, sha256 7676aa31feaed15e9bdeeade3429045608a0ac24d62440e056c03e8567a32a7d
+"liquidationLegLabel",0,function(e){let t="long"===e.closedSide?"Close Long":"Close Short";if("deleveraged"===e.role)return`Auto-deleveraged: ${t}`;switch(e.kind){case"PositionLiquidated":return`Liquidation: ${t}`;case"PositionTakenOver":return`Backstop liquidation: ${t}`;case"AutoDeleveraged":return`Liquidation (ADL): ${t}`}},"
+...
+closedSide:function(e,t,r){if("PositionLiquidated"===e)return t?"short":"long";if("PositionTakenOver"===e)return t?"long":"short";let n=t?"short":"long";return"liquidated"===r?n:"short"===n?"long":"short"}(e.kind,s>0n,n),id:e.id,kind:e.kind,pool:e.pool.toLower

@@ -1,0 +1,86 @@
+# @somnia-chain/markets-sdk 0.32.1 (npm latest), tarball sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og== = npm dist.integrity (checked 2026-10-26T07:35:41Z); read as text, not installed or run
+
+## src/funding.ts:28-32
+ * Fixed-point scale for every rate and cumulative-index value (1e18).
+ *
+ * @category funding
+ */
+export const FUNDING_PRECISION = 1_000_000_000_000_000_000n;
+
+## src/perp/margin.ts:419-441 (divCeilSigned)
+
+/**
+ *  Signed ceiling division (toward +∞), matching the protocol's `divCeilInt`.
+ *
+ *  The signed twin of {@link divCeil} above, which takes unsigned operands and cannot
+ *  express this: for a NEGATIVE quotient, ceiling and "round the magnitude up" are
+ *  opposite corrections, and only one of them is what the contract does.
+ *
+ *  `PerpMath.fundingPayment` rounds this way so a PAYER (positive, a debit) pays at
+ *  least what is owed while a RECEIVER (negative, a credit) receives at most it. The
+ *  protocol adopted it after plain truncation let split payers collectively underpay a
+ *  single receiver and left the MarginBank under-backed, so reproducing a funding
+ *  payment with bare `/` under-reports whatever the PAYER owes.
+ *
+ *  Which side that is turns on the sign of `size × fundingDelta`, not on being long or
+ *  short: a long pays while the index is rising and a short pays while it is falling.
+ *  The correction fires on `(a < 0n) === (b < 0n)` for exactly that reason — it keys off
+ *  the quotient's sign, never off the position's direction.
+ */
+function divCeilSigned(a: bigint, b: bigint): bigint {
+  const q = a / b;
+  return a % b !== 0n && a < 0n === b < 0n ? q + 1n : q;
+}
+
+## src/perp/margin.ts:991-994 (accruedFunding)
+
+  // Ceil toward +∞, NOT the truncation above. See the module note.
+  const fundingDelta = p.projectedCumulativeFunding - p.entryFundingIndex;
+  const accruedFunding = divCeilSigned(p.size * fundingDelta, FUNDING_PRECISION * p.oneBase);
+
+## dist/perp/margin.d.ts:485-500 (PerpPositionAnalyticsInputs)
+ *
+ * @category perpetual markets
+ */
+export interface PerpPositionAnalyticsInputs {
+    /** SIGNED position size, raw base units (positive = long, negative = short). */
+    size: bigint;
+    /** Volume-weighted average entry price, raw quote units per whole base. */
+    avgEntryPrice: bigint;
+    /** Cumulative funding index stamped at open / last settlement (1e18-scaled, signed). */
+    entryFundingIndex: bigint;
+    /** Current mark price, raw quote units per whole base. */
+    markPrice: bigint;
+    /** Cumulative funding per unit INCLUDING unsettled intervals (1e18-scaled, signed). */
+    projectedCumulativeFunding: bigint;
+    /** 10^decimals of the synthetic base asset. */
+    oneBase: bigint;
+
+## dist/perp/state.d.ts:280-292 (PerpPosition: chain read)
+ */
+export interface PerpPosition {
+    /**
+     *  Signed position size in raw base units: positive = long, negative = short,
+     *  zero = flat.
+     */
+    size: bigint;
+    /** Volume-weighted average entry price (raw quote units per whole base). */
+    avgEntryPrice: bigint;
+    /** Cumulative funding index at open / last settlement (1e18-scaled, signed). */
+    entryFundingIndex: bigint;
+    /** Last position update (nanoseconds). */
+    lastUpdatedTimestampNs: bigint;
+
+## docs/PERPS.md:69-73
+  the shape will not let you get wrong, both documented on the type:
+  `size` is **signed** (the entity stores magnitude and direction separately; they
+  are folded back together here so a short can't read as a long), and the entry
+  funding index is **absent by design** — it is not on the schema production
+  serves, so it waits on the next reindex — and anything funding-sensitive belongs
+
+## docs/PERPS.md:975-979
+If you query the indexer's GraphQL directly rather than through the SDK, note
+that its own field descriptions still carry the older wording for `kind`,
+`counterparty` and `stageReached`. Correcting them changes the served schema and
+so needs a reindex; it is tracked separately. This section is the current
+reference.

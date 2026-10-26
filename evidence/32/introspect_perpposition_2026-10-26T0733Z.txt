@@ -1,0 +1,12 @@
+== https://hideki-dev.smk.somnia.host/v1/graphql  2026-10-26T07:33:21Z
+entryFundingIndex :: Cumulative funding index this position entered at (1e18-scaled, signed). Makes the account's UNSETTLED funding reconstructible as (getProjectedCumulativeFundingPerUnit() - entryFundingIndex) * size — a per-MARKET chain read instead of a per-account one.  Written by the 6-arg PositionUpdated, which MarginBank has emitted since its 2026-08-06 upgrade. NULL on rows last updated by the retired 5-arg form.
+isLong :: 
+size :: Absolute position size in base units (sign carried by isLong)
+== https://dev.smk.somnia.host/v1/graphql  2026-10-26T07:33:35Z
+entryFundingIndex :: Cumulative funding index this position entered at (1e18-scaled, signed). Makes the account's UNSETTLED funding reconstructible as (getProjectedCumulativeFundingPerUnit() - entryFundingIndex) * size — a per-MARKET chain read instead of a per-account one.  Written by the 6-arg PositionUpdated, which MarginBank has emitted since its 2026-08-06 upgrade. NULL on rows last updated by the retired 5-arg form.
+isLong :: 
+size :: Absolute position size in base units (sign carried by isLong)
+== https://prd.smk.somnia.host/v1/graphql  2026-10-26T07:33:41Z
+entryFundingIndex :: Cumulative funding index this position entered at (1e18-scaled, signed). Makes the account's UNSETTLED funding reconstructible as (getProjectedCumulativeFundingPerUnit() - entryFundingIndex) * size — a per-MARKET chain read instead of a per-account one.  Written by the 6-arg PositionUpdated, which MarginBank has emitted since its 2026-08-06 upgrade. NULL on rows last updated by the retired 5-arg form.
+isLong :: 
+size :: Absolute position size in base units (sign carried by isLong)

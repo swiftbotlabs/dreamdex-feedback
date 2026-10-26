@@ -1,0 +1,18 @@
+Arena hub hero card: live bundle excerpt
+Page: https://app.testnet.dreamdex.io/competition-hub  (curl, HTTP 200, 345,301 bytes, 2026-10-26 07:32:50 UTC)
+The page references chunk /_next/static/immutable/chunks/218evw0w6er2j.js (one of 54 chunks).
+Chunk fetched 2026-10-26 07:32 UTC: 27,860 bytes, sha256 fb83b10b5036ad7cb876ce14582c2d2dd89259e7731b485d6e9275b2c46b0fa0
+(byte-identical to the copy taken at 07:05 UTC).
+
+Component (function el, the hero <header>), verbatim from the chunk:
+(0,t.jsxs)("header",{className:"relative flex items-center gap-5 overflow-clip rounded-lg border border-card-edge bg-surface-raised p-5",children:[(0,t.jsxs)("div",{"aria-hidden":!0,className:es.default.art,children:[(0,t.jsx)(X.default,{alt:"",className:"absolute -top-7.75 -right-1 h-106 w-auto max-w-[none] max-xl:hidden",height:848,src:"/images/competition/arena-trophy.webp",unoptimized:!0,width:1375}),(0,t.jsx)("div",{className:es.default.glow})]}),(0,t.jsxs)("div",{className:"relative flex min-w-0 flex-col items-start gap-3xl",children:[(0,t.jsxs)("div",{className:"flex items-center gap-xl font-medium text-paragraph-400",children:[(0,t.jsx)(er,{view:o}),null!==d.opensAt&&null!==d.closesAt?(0,t.jsxs)("span",{className:"text-subtle",children:[(0,P.formatUtcDay)(d.opensAt)," -"," ",(0,P.formatUtcDay)(d.closesAt-1)]}):null]}),(0,t.jsxs)("div",{className:"flex flex-col gap-2xl font-medium",children:[(0,t.jsx)("h2",{className:"text-heading text-large-title",children:d.title}),d.description?(0,t.jsx)("p",{className:"w-141 max-w-full text-paragraph-400 text-subtle leading-5",children:d.description}):null]}),(0,t.jsxs)("div",{className:"flex flex-wrap items-end gap-x-15.75 gap-y-2xl",c
+
+Layout chain that clips the description:
+  header  "relative flex items-center gap-5 overflow-clip rounded-lg ... p-5"   <- overflow-x: clip, cuts instead of wrapping
+   div    "relative flex min-w-0 flex-col items-start gap-3xl"                 <- items-start: children are sized to their content
+    div   "flex flex-col gap-2xl font-medium"                                   <- takes the width of its widest child (564 px)
+     h2   "text-heading text-large-title"           -> "dreamDEX Perps Arena"
+     p    "w-141 max-w-full ..."                    -> width 141 x 4 px = 564 px; max-w-full = 100% of the 564 px div = no limit
+
+Full description text, from the same page's RSC payload (campaign catalogue):
+  "Four-week paper trading competition with $15,000 in real rewards. Trade with a weekly airdrop of 1,000 paper USDso per wallet, compete on weekly and season ROI, and complete quests for raffle tickets, without risking your own trading capital."

@@ -1,0 +1,15 @@
+# 2026-10-26T07:38:51Z
+$ D=$(cast receipt 0x82abff71ce6984281e37f716d3d1373f734e564c032aeb6ccf1292ad28c92baf --rpc-url https://dream-rpc.somnia.network --json | jq -r '.logs[] | select(.topics[0]=="0x5380593bd7dd2a1a6267dab2a1ab312f8e07094228a12ff26fe44fd6c6f857b9") | .data')
+$ cast decode-event --sig 'FundingUpdated(int256,int256,uint256,uint64,uint256)' $D
+100000000000000 [1e14]
+1674329205868061497860058525909559 [1.674e33]
+200500000000000000 [2.005e17]
+1
+200350000000000000 [2.003e17]
+$ D=$(cast receipt 0xa67746668780a74e39380b1fc9eb1db12c10d086d7a30daea863d3f864daca7e --rpc-url https://dream-rpc.somnia.network --json | jq -r '.logs[] | select(.topics[0]=="0x5380593bd7dd2a1a6267dab2a1ab312f8e07094228a12ff26fe44fd6c6f857b9") | .data')
+$ cast decode-event --sig 'FundingUpdated(int256,int256,uint256,uint64,uint256)' $D
+100000000000000 [1e14]
+1676872330868061497860058525909559 [1.676e33]
+203450000000000000 [2.034e17]
+1
+203350000000000000 [2.033e17]

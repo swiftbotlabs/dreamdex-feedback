@@ -1,0 +1,156 @@
+{
+ "headBlock": "33497972",
+ "headTimeUTC": "2026-10-26T08:05:47.000Z",
+ "res": [
+  {
+   "case": "case_sol_tp.json",
+   "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+   "cancelledSibling": "110680464442257311587",
+   "siblingTrigger": "106.48",
+   "siblingOp": "GTE",
+   "leftoverAfterFire": "-851.65",
+   "ownerRecentStopRows": [
+    {
+     "orderIdRaw": "2102928824402888886116",
+     "status": "TRIGGERED",
+     "cancelReason": null,
+     "createdAt": "1792682161",
+     "updatedAt": "1792796025"
+    },
+    {
+     "orderIdRaw": "110680464442257311587",
+     "status": "CANCELLED",
+     "cancelReason": "LinkedFill",
+     "createdAt": "1792682161",
+     "updatedAt": "1792796025"
+    },
+    {
+     "orderIdRaw": "1900014639592083817821",
+     "status": "TRIGGERED",
+     "cancelReason": null,
+     "createdAt": "1792483334",
+     "updatedAt": "1792505255"
+    },
+    {
+     "orderIdRaw": "2785458355130142295390",
+     "status": "CANCELLED",
+     "cancelReason": "LinkedFill",
+     "createdAt": "1792483334",
+     "updatedAt": "1792505255"
+    },
+    {
+     "orderIdRaw": "2785458355130142295387",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792483321",
+     "updatedAt": "1792483324"
+    }
+   ],
+   "positionNow": "-851.65",
+   "firstMarkCrossOfCancelledSiblingTrigger": null,
+   "firstHourlySampleWithPositionChanged": null
+  },
+  {
+   "case": "case_btc_sl.json",
+   "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5",
+   "cancelledSibling": "5939851591734475627595",
+   "siblingTrigger": "74635.2",
+   "siblingOp": "LTE",
+   "leftoverAfterFire": "-0.13776",
+   "ownerRecentStopRows": [
+    {
+     "orderIdRaw": "4722366482869645220938",
+     "status": "TRIGGERED",
+     "cancelReason": null,
+     "createdAt": "1792852167",
+     "updatedAt": "1792868305"
+    },
+    {
+     "orderIdRaw": "5939851591734475627595",
+     "status": "CANCELLED",
+     "cancelReason": "LinkedFill",
+     "createdAt": "1792852167",
+     "updatedAt": "1792868305"
+    },
+    {
+     "orderIdRaw": "4722366482869645220508",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792767179",
+     "updatedAt": "1792852159"
+    },
+    {
+     "orderIdRaw": "4445665321764001946267",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792767179",
+     "updatedAt": "1792852159"
+    },
+    {
+     "orderIdRaw": "6825295307272534103848",
+     "status": "TRIGGERED",
+     "cancelReason": null,
+     "createdAt": "1792632019",
+     "updatedAt": "1792657950"
+    }
+   ],
+   "positionNow": "-0.14511",
+   "firstMarkCrossOfCancelledSiblingTrigger": null,
+   "firstHourlySampleWithPositionChanged": {
+    "atOrBeforeBlock": "32954067",
+    "size": "-0.03603"
+   }
+  },
+  {
+   "case": "case_sol_sl.json",
+   "owner": "0x657a4803B3Da3702B677EF45B5033d196125DF6a",
+   "cancelledSibling": "2195162544771436644403",
+   "siblingTrigger": "98",
+   "siblingOp": "LTE",
+   "leftoverAfterFire": "-1385.81",
+   "ownerRecentStopRows": [
+    {
+     "orderIdRaw": "2195162544771436644403",
+     "status": "CANCELLED",
+     "cancelReason": "LinkedFill",
+     "createdAt": "1792766456",
+     "updatedAt": "1792767110"
+    },
+    {
+     "orderIdRaw": "553402322211286550578",
+     "status": "TRIGGERED",
+     "cancelReason": null,
+     "createdAt": "1792766456",
+     "updatedAt": "1792767110"
+    },
+    {
+     "orderIdRaw": "553402322211286550576",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792766391",
+     "updatedAt": "1792766456"
+    },
+    {
+     "orderIdRaw": "2195162544771436644401",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792766391",
+     "updatedAt": "1792766456"
+    },
+    {
+     "orderIdRaw": "1272825341085959062531",
+     "status": "CANCELLED",
+     "cancelReason": "Owner",
+     "createdAt": "1792293288",
+     "updatedAt": "1792316360"
+    }
+   ],
+   "positionNow": "1485.48",
+   "firstMarkCrossOfCancelledSiblingTrigger": null,
+   "firstHourlySampleWithPositionChanged": {
+    "atOrBeforeBlock": "31186465",
+    "size": "-2829.14"
+   }
+  }
+ ]
+}

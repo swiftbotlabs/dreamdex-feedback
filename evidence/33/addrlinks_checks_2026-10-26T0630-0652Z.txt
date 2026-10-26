@@ -1,0 +1,57 @@
+# App explorer ADDRESS links open the Global (Shannon 50312) explorer view for Tokyo/DreamDEX (50383) traders. Captured 2026-10-26T06:52:11Z
+
+## 1. Trader page as served (logged-out curl)
+$ curl -s https://app.testnet.dreamdex.io/trader/0x2d1242b88f6979d93bae5968ec292fae640932d4 | grep -o 'href="https://explorer[^"]*"'
+href="https://explorer.testnet.somnia.network/address/0x2d1242b88f6979d93bae5968ec292fae640932d4"
+$ curl -s https://app.testnet.dreamdex.io/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 | grep -o 'href="https://explorer[^"]*"'
+href="https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817"
+
+## 2. Explorer API, Global view (what the link opens) vs Tokyo view
+$ curl -s https://explorer.testnet.somnia.network/api/v2/addresses/0x2d1242b88f6979d93bae5968ec292fae640932d4  (+ /counters)
+  coin_balance 0 is_contract True
+  {"transactions_count":"1","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+$ curl -s https://explorer.testnet.somnia.network/tokyo/api/v2/addresses/0x2d1242b88f6979d93bae5968ec292fae640932d4  (+ /counters)
+  coin_balance 15000000000000000000 is_contract True
+  {"transactions_count":"3","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+$ curl -s https://explorer.testnet.somnia.network/api/v2/addresses/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817  (+ /counters)
+  coin_balance 650000000000000000 is_contract True
+  {"transactions_count":"3","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+$ curl -s https://explorer.testnet.somnia.network/tokyo/api/v2/addresses/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817  (+ /counters)
+  coin_balance 42957216984000000000 is_contract True
+  {"transactions_count":"12","token_transfers_count":"0","gas_usage_count":null,"validations_count":"0"}
+## 3. Chain truth (RPC eth_getBalance)
+  https://api.hideki2.infra.testnet.somnia.network 0x2d1242b88f6979d93bae5968ec292fae640932d4 {"jsonrpc":"2.0","id":1,"result":"0xd02ab486cedc0000"}
+  https://api.infra.testnet.somnia.network 0x2d1242b88f6979d93bae5968ec292fae640932d4 {"jsonrpc":"2.0","id":1,"result":"0x0"}
+  https://api.hideki2.infra.testnet.somnia.network 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 {"jsonrpc":"2.0","id":1,"result":"0x25426b13ff6b27000"}
+  https://api.infra.testnet.somnia.network 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 {"jsonrpc":"2.0","id":1,"result":"0x905438e60010000"}
+
+## 4. Rendered in Chrome (own tab), 2026-10-26 06:30-06:43 UTC
+- https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (the link's target):
+  "BLOCKCHAIN / GLOBAL TESTNET / ADDRESS | Contract | ... Transactions (3) | Balance 0.65 STT | ... 0x32aea4…0d0e execTransaction 518,460,995 6 d ago ... 0x73e36f…b14a Transfer 50 STT | // somnia explorer · global testnet · chain 50312"
+  The page body contains no "Tokyo" text and no "Open on Tokyo testnet" hint (document.body.innerText has no /tokyo/i match after the breadcrumb).
+- https://explorer.testnet.somnia.network/tokyo/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (where the account trades):
+  "BLOCKCHAIN / TOKYO TESTNET / ADDRESS | Contract | ... Transactions (12) | Balance 42.957216 STT | ... 0x434915…6543 execTransaction 33,163,210 7 h ago ..."
+- https://explorer.testnet.somnia.network/address/0x2d1242b88f6979d93bae5968ec292fae640932d4: "GLOBAL TESTNET ... Transactions (1) | Balance 0 STT"
+- https://explorer.testnet.somnia.network/tokyo/address/0x2d1242b88f6979d93bae5968ec292fae640932d4: "TOKYO TESTNET ... Transactions (3) | Balance 15 STT"
+- Contrast, a Tokyo TX on the Global view DOES get a hint:
+  https://explorer.testnet.somnia.network/tx/0xae8c3ae7369b11bf307cc046a882f4071efae94fc0763fa987e454e0c31e0867 ->
+  "Not on Global testnet | This transaction is on Tokyo testnet. | Open on Tokyo testnet" (06:41:50 UTC)
+- Tokyo-only contract on the Global view, for comparison (MarginBank from the perps dev page):
+  https://explorer.testnet.somnia.network/address/0x478769E1177C0773c43A593DCCc4Ad15F15F1394 -> "GLOBAL TESTNET / ADDRESS | Account | Balance 0 STT | Transactions sent 0 | Type Externally owned account | No transactions"
+
+## 5. Where the app renders the link (logged in as Wallet 1, own tab, 06:30-06:33 UTC)
+- /portfolio, "Trader" card: "account: 0x0e7E…3817" = <a aria-label="Open 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 on the block explorer" href="https://explorer.testnet.somnia.network/address/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817">
+- /trader/<address> header (public, also in logged-out SSR above).
+- The same Portfolio's Trade history tx links are also root-path (/tx/<hash>), 43 of them at 06:35 UTC; those get the explorer's Tokyo hint, addresses do not.
+
+## 6. Served code (chunks fetched 2026-10-26 ~06:20-06:35 UTC from app.testnet.dreamdex.io/_next/static/immutable/chunks/)
+- 1wrqovc00mi6p.js (Portfolio): function te({address:e,label:t}){let n=(0,H.getExplorerAddressUrl)(e) ... "aria-label":`Open ${e} on the block explorer` ... href:n
+- 27kddaaff2hz-.js (trader page): (0,s.jsx)(N.AddressExplorerLink,{address:e,label:`Open ${e} on the block explorer`}) ; Login EOA row: AddressExplorerLink,{address:l.eoa,...}
+- 1zz4tdgl8_i8w.js: AddressExplorerLink = function({address:e,label:s}){let o=(0,n.getExplorerAddressUrl)(e) ...   <- no region argument
+- 04nhweuvbgxuy.js: getExplorerAddressUrl(e,r){return e?y(`address/${e}`,r):null}; y(e,r){let t=void 0===r?d():r.chain ...} ; d() = getSomniaChain() = Somnia Testnet 50312 with explorer base https://explorer.testnet.somnia.network
+- 0p4rb93gq9d0a.js: TOKYO_TESTNET_REGION = {chain:{...hidekiTestnet,blockExplorers:{default:{name:"Somnia Explorer",url:"https://explorer.testnet.somnia.network/tokyo"}}}, ... label:"DreamDEX"}
+- 33gcg8vfyjjn_.js shows the region-aware form already used for token contracts: Q({address:e,region:a}){... (0,T.getExplorerAddressUrl)(e,a)}
+
+## 7. Docs that send users to this link
+https://app.dreamdex.io/docs/support/faq/order-rejected (fetched 06:49 UTC): "copy your DreamDEX trading account address from the wallet panel, open it on the block explorer, and the failed transaction is the most recent one."
+https://app.dreamdex.io/docs/developers/perps-testnet: "Explorer | explorer.testnet.somnia.network/tokyo"

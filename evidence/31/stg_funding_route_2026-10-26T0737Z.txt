@@ -1,0 +1,7 @@
+# 2026-10-26T07:37:21Z
+$ curl -s -w "\nHTTP %{http_code}\n" "https://stg.api.dreamdex.io/v0/markets/ADA:USDso/funding?kind=perp&limit=2"
+{"description":"GetMarketSymbolFunding is not yet implemented","name":"not_implemented","status":501}
+
+HTTP 501
+$ curl -s https://stg.api.dreamdex.io/.well-known/oapi.json | jq -c ".components.schemas.SignedAmount"
+{"description":"Signed decimal amount as a string (e.g. \"-12.5\").","example":"-12.5","pattern":"^-?[0-9]+(\\.[0-9]+)?$","type":"string"}

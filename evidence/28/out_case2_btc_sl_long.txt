@@ -1,0 +1,106 @@
+# BTC-PERP stop 3099053004383204677666 fired in tx 0xbedbbaeeedd754a44d5ef98c0caa85179cb4b4148d3d6c5e9e0b3eb39b8e52fa (block 30228282, 2026-10-22T13:14:00.000Z)
+stop: sell 0.01554 when mark LTE 81500, orderType 1, intent 0, sibling 3357307421415138400289
+parent block 30228281: mark 81499.6250215160135, position 0.01554, pool minQuantity 0.00013
+getReducingCapacity(owner): { "positionSize": "0.01554", "pendingBidQuantity": "0", "pendingAskQuantity": "0.09811", "pendingOppositeQuantity": "0.09811", "effectiveReducingCapacity": "0" }
+owner's resting orders: ask 0.09811 @ 82400
+PendingOrderTriggered: success=false dropReason=3 (ReduceOnlyBelowMinQty) placedOrderId=0
+placed: nothing
+min(stop qty, |position|) = 0.01554 (119.54x pool minimum); placed = 0; capacity = 0; placed == capacity: true
+position after: 0.01554; stop still live after: false; indexer: TRIGGER_FAILED dropReason 3
+other registry events for this stop or its sibling: PendingOrderUnlinked(3357307421415138400289); sibling 3357307421415138400289 still live after: true
+created in 0x484007f5af95e915a500f9d86542890bbb1c4af8e5a4c6bf183d197ce8e941dd (block 30133660), to 0x5cfc1b26ee9ef6bd398458f0fd700393ce3d376d, selector 0x6a761202
+--- JSON
+{
+ "ranAtUtc": "2026-10-26T07:54:20.867Z",
+ "tx": "0xbedbbaeeedd754a44d5ef98c0caa85179cb4b4148d3d6c5e9e0b3eb39b8e52fa",
+ "stopId": "3099053004383204677666",
+ "block": "30228282",
+ "parentBlock": "30228281",
+ "blockTimeUtc": "2026-10-22T13:14:00.000Z",
+ "txFrom": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+ "txStatus": "success",
+ "registry": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+ "event": {
+  "topic0": "0x6db08222a2387c726ca77ff4adbc7e706774b08efed6244b9b6f6eca1b60127c",
+  "logIndex": 88,
+  "data": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003",
+  "success": false,
+  "dropReason": 3,
+  "dropReasonName": "ReduceOnlyBelowMinQty",
+  "placedOrderId": "0"
+ },
+ "pool": "0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0",
+ "base": "BTC",
+ "baseDecimals": 8,
+ "stopAtParent": {
+  "live": true,
+  "owner": "0x5CFC1b26eE9EF6Bd398458f0fD700393Ce3d376d",
+  "isBid": false,
+  "quantity": "0.01554",
+  "quantityRaw": "1554000",
+  "orderType": 1,
+  "triggerPrice": "81500",
+  "triggerOperator": "LTE",
+  "intent": 0,
+  "siblingOrderId": "3357307421415138400289",
+  "somiPaid": "0.15"
+ },
+ "otherRegistryEvents": [
+  {
+   "event": "PendingOrderUnlinked",
+   "args": {
+    "orderId": "3357307421415138400289"
+   }
+  }
+ ],
+ "siblingLiveAfter": true,
+ "stopLiveAfter": false,
+ "parentState": {
+  "mark": "81499.6250215160135",
+  "position": "0.01554",
+  "minQuantity": "0.00013",
+  "reducingCapacity": {
+   "positionSize": "0.01554",
+   "pendingBidQuantity": "0",
+   "pendingAskQuantity": "0.09811",
+   "pendingOppositeQuantity": "0.09811",
+   "effectiveReducingCapacity": "0"
+  },
+  "ownerRestingOrders": [
+   {
+    "orderId": "8706863202790915325821",
+    "side": "ask",
+    "price": "82400",
+    "remaining": "0.09811"
+   }
+  ]
+ },
+ "placedOrder": null,
+ "positionAfter": "0.01554",
+ "check": {
+  "minOfStopQtyAndPosition": "0.01554",
+  "placedQuantity": "0",
+  "effectiveReducingCapacity": "0",
+  "placedEqualsCapacity": true,
+  "placedBelowMinOfQtyAndPosition": true,
+  "restingClosingSideQuantity": "0.09811",
+  "minOfQtyAndPositionOverPoolMinimum": "119.54",
+  "positionLeftOpen": "0.01554"
+ },
+ "indexerRow": {
+  "status": "TRIGGER_FAILED",
+  "dropReason": 3,
+  "placedOrderId": null,
+  "quantity": "1554000",
+  "createdAt": "1792665371",
+  "updatedAt": "1792674840",
+  "txHash": "0x484007f5af95e915a500f9d86542890bbb1c4af8e5a4c6bf183d197ce8e941dd"
+ },
+ "creationTx": {
+  "hash": "0x484007f5af95e915a500f9d86542890bbb1c4af8e5a4c6bf183d197ce8e941dd",
+  "from": "0xb9d162bcf168e2567cf80698650aedc30fd58ac9",
+  "to": "0x5cfc1b26ee9ef6bd398458f0fd700393ce3d376d",
+  "selector": "0x6a761202",
+  "block": "30133660"
+ }
+}

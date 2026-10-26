@@ -1,0 +1,30 @@
+run 2026-10-26T07:21:12Z
+$ curl -s https://hideki-dev.smk.somnia.host/v1/graphql -H "content-type: application/json" --data '{"query":"{ LiquidationEvent(where:{id:{_in:[\"0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247_95\",\"0x7932ea624f435573a64180d769f5031f151e4c583b5c30ff0f0e33b3c55df5b1_118\",\"0x170891a3829d9362c44805fbbcf3ea8b02747c7c129a1cf57eeb1d00927f855e_87\"]}}, order_by:{blockNumber:desc}){ id kind account pool size price blockNumber } }"}'
+{"data":{"LiquidationEvent":[{"id":"0x7932ea624f435573a64180d769f5031f151e4c583b5c30ff0f0e33b3c55df5b1_118","kind":"PositionLiquidated","account":"0x5521160e05bb130783e003f746f03d9d31ea1e69","pool":"0x63b47ed4a7de0fde659b0d82441dd74828b7297a","size":"460280000","price":"76903865397765500000","blockNumber":"33422553"}, {"id":"0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247_95","kind":"PositionLiquidated","account":"0xea377c343ea8b4d2c718b71f4fe7a09e2a95931b","pool":"0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0","size":"-24010000","price":"79247006744658869500000","blockNumber":"33346996"}, {"id":"0x170891a3829d9362c44805fbbcf3ea8b02747c7c129a1cf57eeb1d00927f855e_87","kind":"PositionTakenOver","account":"0x671846a0c593e8685342dae71da9c25fd8b8ce16","pool":"0xb483ec1fb34996638677c20ab087b16f1896fa53","size":"-227770000000","price":"110047200427667631389","blockNumber":"28537567"}]}}
+
+$ cast call --block 33346995 $MB 'getPosition(address,address)((int128,uint128,int256,uint64))' 0xea377c343ea8b4d2c718b71f4fe7a09e2a95931b 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 --rpc-url $RPC
+(24010000 [2.401e7], 81809967305289462723865 [8.18e22], 2648176135383958687884594870009559031250 [2.648e39], 0)
+$ cast call --block 33346996 $MB 'getPosition(address,address)((int128,uint128,int256,uint64))' 0xea377c343ea8b4d2c718b71f4fe7a09e2a95931b 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 --rpc-url $RPC
+(0, 0, 0, 0)
+$ cast call --block 33422552 $MB 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x5521160e05bb130783e003f746f03d9d31ea1e69 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A --rpc-url $RPC
+(-674680000 [-6.746e8], 75825109744354685514 [7.582e19], 420885637320508162902463062584500000 [4.208e35], 0)
+$ cast call --block 33422553 $MB 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x5521160e05bb130783e003f746f03d9d31ea1e69 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A --rpc-url $RPC
+(-214400000 [-2.144e8], 75825109744354685514 [7.582e19], 423726124934920144152463062584500000 [4.237e35], 0)
+$ cast call --block 28537566 $MB 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x671846a0c593e8685342dae71da9c25fd8b8ce16 0xB483ec1fb34996638677c20ab087b16F1896FA53 --rpc-url $RPC
+(-227770000000 [-2.277e11], 104369681257408789568 [1.043e20], 809398362193753343575368527973312500 [8.093e35], 0)
+
+$ cast sig-event 'PositionLiquidated(address,address,int128,uint256)'
+0x93081d01d1d71353943ee57a980221b9a5484309c46fcd39f88b1cd90320b349
+$ cast receipt 0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247 --json | jq '.logs[] | select(.logIndex=="0x5f") | {address,topics,data}'
+{
+  "address": "0xa66d3c24ad4a389d863846905d8173e1017e9f4d",
+  "topics": [
+    "0x93081d01d1d71353943ee57a980221b9a5484309c46fcd39f88b1cd90320b349",
+    "0x000000000000000000000000ea377c343ea8b4d2c718b71f4fe7a09e2a95931b",
+    "0x0000000000000000000000004181dd08e73bbcdd1ba3e615a18f6abd941b94c0"
+  ],
+  "data": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffe91a2f00000000000000000000000000000000000000000000010c7fd24dda178e83860"
+}
+$ cast decode-abi --input 'x(int128,uint256)' <data>  (non-indexed sizeDelta, markPrice)
+-24010000 [-2.401e7]
+79247006744658869500000 [7.924e22]

@@ -1,0 +1,121 @@
+{
+ "utc": "2026-10-26T07:03:54.042Z",
+ "innerWidth": 414,
+ "docScrollW": 414,
+ "pText": "Four-week paper trading competition with $15,000 in real rewards. Trade with a weekly airdrop of 1,000 paper USDso per wallet, compete on weekly and season ROI, and complete quests for raffle tickets, without risking your own trading capital.",
+ "pClass": "w-141 max-w-full text-paragraph-400 text-subtle leading-5",
+ "pRect": {
+  "x": 27,
+  "y": 580.640625,
+  "width": 564,
+  "height": 60,
+  "top": 580.640625,
+  "right": 591,
+  "bottom": 640.640625,
+  "left": 27
+ },
+ "hdrClass": "relative flex items-center gap-5 overflow-clip rounded-lg border border-card-edge bg-surface-raised p-5",
+ "hdrRect": {
+  "x": 6,
+  "y": 456.640625,
+  "width": 402,
+  "height": 407,
+  "top": 456.640625,
+  "right": 408,
+  "bottom": 863.640625,
+  "left": 6
+ },
+ "hdrOverflowX": "clip",
+ "h2Text": "dreamDEX Perps Arena",
+ "h2Rect": {
+  "x": 27,
+  "y": 527.640625,
+  "width": 564,
+  "height": 37,
+  "top": 527.640625,
+  "right": 591,
+  "bottom": 564.640625,
+  "left": 27
+ },
+ "chain": [
+  {
+   "tag": "P",
+   "cls": "w-141 max-w-full text-paragraph-400 text-subtle leading-5",
+   "w": "564px",
+   "maxW": "100%",
+   "ovx": "visible"
+  },
+  {
+   "tag": "DIV",
+   "cls": "flex flex-col gap-2xl font-medium",
+   "w": "564px",
+   "maxW": "none",
+   "ovx": "visible"
+  },
+  {
+   "tag": "DIV",
+   "cls": "relative flex min-w-0 flex-col items-start gap-3xl",
+   "w": "360px",
+   "maxW": "none",
+   "ovx": "visible"
+  },
+  {
+   "tag": "HEADER",
+   "cls": "relative flex items-center gap-5 overflow-clip rounded-lg border border-card-edge bg-surface-raised p-5",
+   "w": "402px",
+   "maxW": "none",
+   "ovx": "clip"
+  }
+ ],
+ "lines": [
+  {
+   "top": 582,
+   "full": "Four-week paper trading competition with $15,000 in real rewards. Trade with a",
+   "visible": "Four-week paper trading competition with $15,000 in real",
+   "cut": "",
+   "hidden": "rewards. Trade with a"
+  },
+  {
+   "top": 602,
+   "full": "weekly airdrop of 1,000 paper USDso per wallet, compete on weekly and season ROI,",
+   "visible": "weekly airdrop of 1,000 paper USDso per wallet, compete",
+   "cut": "on",
+   "hidden": "weekly and season ROI,"
+  },
+  {
+   "top": 622,
+   "full": "and complete quests for raffle tickets, without risking your own trading capital.",
+   "visible": "and complete quests for raffle tickets, without risking",
+   "cut": "your",
+   "hidden": "own trading capital."
+  }
+ ],
+ "status": [
+  {
+   "tag": "SPAN",
+   "text": "Updated October 26, 06:48 UTC \u00b7 68 recent traders still being added",
+   "cls": "truncate",
+   "scrollW": 417,
+   "clientW": 269,
+   "textOverflow": "ellipsis",
+   "overflow": "hidden",
+   "whiteSpace": "nowrap",
+   "title": null,
+   "parentTitle": "Updated October 26, 06:48 UTC \u00b7 68 recent traders still being added\nActivity to October 26, 06:56 UTC \u00b7 Equity to October 26, 06:48 UTC",
+   "ariaLabel": null,
+   "rect": {
+    "x": 120.171875,
+    "y": 1773.640625,
+    "width": 268.828125,
+    "height": 18,
+    "top": 1773.640625,
+    "right": 389,
+    "bottom": 1791.640625,
+    "left": 120.171875
+   }
+  }
+ ],
+ "W": 414,
+ "H": 844,
+ "mobile": true
+}

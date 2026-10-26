@@ -1,0 +1,30 @@
+cast 1.8.5, eth_call only, all pinned to block 33501773 (read 2026-10-26 08:12 UTC). RPC https://api.hideki2.infra.testnet.somnia.network (chain 50383). Each command below was run with --rpc-url <that RPC>.
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getAccountState(address)((int256,uint256,address[]))' 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c -b 33501773
+(3573017773467732091720 [3.573e21], 685022620000000000000 [6.85e20], [0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A, 0x1cD15ae8bFf0FE0a7F49233BE8b90734775bA454, 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0, 0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4, 0xD6Cb1DD58580B84D76068aC21594219ce03aeddf])
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getAccountHealth(address)(int256,uint256,uint256,uint256)' 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c -b 33501773   # equity, imReq, mmReq, cmReq
+2969139183148446138130 [2.969e21]
+1683819743857425158472 [1.683e21]
+841909871928712579236 [8.419e20]
+420954935964356289618 [4.209e20]
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A -b 33501773   # size, avgEntryPrice, entryFundingIndex, lastUpdatedTimestampNs
+(251120000 [2.511e8], 77278776282255495379 [7.727e19], 347163266883055029557548037353875000 [3.471e35], 0)
+$ cast call 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A 'tryGetHealthSnapshot()(bool,(uint256,uint256,int256,uint256,uint256,uint256))' -b 33501773   # ok, (oneBase, markPrice, projectedCumulativeFunding, effectiveIMFBps, mmBps, cmBps)
+true
+(1000000 [1e6], 75956560532855500000 [7.595e19], 428444850813472429717662126422062500 [4.284e35], 500, 250, 125)
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 -b 33501773   # size, avgEntryPrice, entryFundingIndex, lastUpdatedTimestampNs
+(7704000 [7.704e6], 80562873429387331256489 [8.056e22], 3397138118589414472614668180348412156250 [3.397e39], 0)
+$ cast call 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 'tryGetHealthSnapshot()(bool,(uint256,uint256,int256,uint256,uint256,uint256))' -b 33501773   # ok, (oneBase, markPrice, projectedCumulativeFunding, effectiveIMFBps, mmBps, cmBps)
+true
+(100000000 [1e8], 79552832275729686000000 [7.955e22], 3813088048592028621387222282284249156250 [3.813e39], 500, 250, 125)
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getPosition(address,address)((int128,uint128,int256,uint64))' 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c 0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4 -b 33501773   # size, avgEntryPrice, entryFundingIndex, lastUpdatedTimestampNs
+(4703000000000 [4.703e12], 930577120986604295 [9.305e17], 10069047448261052563995388894625000 [1.006e34], 0)
+$ cast call 0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4 'tryGetHealthSnapshot()(bool,(uint256,uint256,int256,uint256,uint256,uint256))' -b 33501773   # ok, (oneBase, markPrice, projectedCumulativeFunding, effectiveIMFBps, mmBps, cmBps)
+true
+(1000000000 [1e9], 900854050352500000 [9.008e17], 10448887060417933813995388894625000 [1.044e34], 1000, 500, 250)
+
+# Computed from the values above (python, integer math): uPnL = (mark-entry)*size/oneBase (toward zero); funding = ceil(size*(pcf-efi)/(1e18*oneBase))
+pool 0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A: uPnL -332.0348  accruedFunding 20.4114
+pool 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0: uPnL -77.8136  accruedFunding 32.0448
+pool 0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4: uPnL -139.7876  accruedFunding 1.7864
+sum uPnL -549.6360  sum accruedFunding 54.2426  uPnL - funding -603.8786
+equity - unlocked -603.8786  residual (wei) -2

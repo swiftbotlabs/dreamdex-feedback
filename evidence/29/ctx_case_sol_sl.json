@@ -1,0 +1,41 @@
+{
+ "case": "case_sol_sl.json",
+ "headBlock": "33493997",
+ "headTimeUTC": "2026-10-26T07:59:10.000Z",
+ "beacon": "0x06683223b403374cb58c135b87b0f81ef0fd18f0",
+ "implementationAtFireBlock": "0x8d7FcDfC6D043B0296Ccf84D82f9dbe2c701096E",
+ "implementationAtHead": "0x8d7FcDfC6D043B0296Ccf84D82f9dbe2c701096E",
+ "parentBlock": {
+  "reducingCapacity": {
+   "positionSize": "-2678.91",
+   "pendingBid": "0",
+   "pendingAsk": "0",
+   "pendingOpposite": "0",
+   "effective": "2678.91"
+  },
+  "ownerRestingOrders": 0
+ },
+ "iocLimit": "110.07",
+ "iocSideIsBid": true,
+ "oppositeBookWithinLimit_before": {
+  "orders": 14,
+  "qty": "1293.1",
+  "bestPrice": "104.97"
+ },
+ "oppositeBookWithinLimit_after": {
+  "orders": 0,
+  "qty": "0",
+  "bestPrice": null
+ },
+ "now": {
+  "position": "1485.48",
+  "mark": "100.553774975999",
+  "indexerBlock": [
+   {
+    "latest_processed_block": 33494036
+   }
+  ],
+  "stopRowsSinceFireOrPending": [],
+  "pendingRecheckedOnChain": []
+ }
+}

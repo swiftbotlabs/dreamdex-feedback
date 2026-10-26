@@ -1,0 +1,1378 @@
+{
+ "tx": "0x374537402dad63a77d0ef52a8a7a07089b397bc38117391341b4fe721efb3940",
+ "block": "32162067",
+ "blockTimeUTC": "2026-10-24T18:58:25.000Z",
+ "txFrom": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+ "txTo": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+ "status": "success",
+ "registry": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+ "pool": "0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0",
+ "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5",
+ "slippageToleranceBps": "500",
+ "registryImplSlotAtBlock": "0x",
+ "registryBeaconSlotAtBlock": "0x00000000000000000000000006683223b403374cb58c135b87b0f81ef0fd18f0",
+ "implSlotHead": "0x",
+ "beaconSlotHead": "0x00000000000000000000000006683223b403374cb58c135b87b0f81ef0fd18f0",
+ "parentBlockMark": "80504.0043977812745",
+ "base": "BTC",
+ "baseDecimals": 8,
+ "positionBefore": "-0.17982",
+ "positionAfter": "-0.13776",
+ "positionChange": "0.04206",
+ "triggeredLeg": {
+  "id": "4722366482869645220938",
+  "before": {
+   "live": true,
+   "isBid": true,
+   "quantity": "0.17982",
+   "triggerPrice": "80493.7",
+   "triggerOperator": 0,
+   "orderType": 1,
+   "siblingOrderId": "5939851591734475627595",
+   "intent": 0,
+   "somiPaid": "0.15"
+  },
+  "after": {
+   "live": false,
+   "isBid": true,
+   "quantity": "0.17982",
+   "triggerPrice": "80493.7",
+   "triggerOperator": 0,
+   "orderType": 1,
+   "siblingOrderId": "0",
+   "intent": 0,
+   "somiPaid": "0"
+  }
+ },
+ "sibling": {
+  "id": "5939851591734475627595",
+  "before": {
+   "live": true,
+   "isBid": true,
+   "quantity": "0.17982",
+   "triggerPrice": "74635.2",
+   "triggerOperator": 1,
+   "orderType": 1,
+   "siblingOrderId": "4722366482869645220938",
+   "intent": 0,
+   "somiPaid": "0.15"
+  },
+  "after": {
+   "live": false,
+   "isBid": true,
+   "quantity": "0.17982",
+   "triggerPrice": "74635.2",
+   "triggerOperator": 1,
+   "orderType": 1,
+   "siblingOrderId": "0",
+   "intent": 0,
+   "somiPaid": "0"
+  }
+ },
+ "PendingOrderTriggered": {
+  "pendingOrderId": "4722366482869645220938",
+  "placedOrderId": "16233134784864412908698",
+  "success": true,
+  "dropReason": 0
+ },
+ "LinkedOrderCancelled": {
+  "cancelledOrderId": "5939851591734475627595",
+  "triggeredOrderId": "4722366482869645220938",
+  "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5",
+  "somiCredited": "150000000000000000"
+ },
+ "placedOrderFromOrderPlaced": {
+  "orderId": "16233134784864412908698",
+  "isBid": true,
+  "price": "84529.2",
+  "fullQuantity": "0.17982",
+  "quantityRemaining": "0.13776",
+  "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5"
+ },
+ "fillsOfPlacedOrder": 1,
+ "filledSumFromOrderFilled": "0.04206",
+ "unfilledOfPlaced": "0.13776",
+ "fillRatioPct": 23.39,
+ "unclaimedSomiBefore": "0",
+ "unclaimedSomiAfter": "0.15",
+ "indexerStopRows": [
+  {
+   "id": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef_4722366482869645220938",
+   "orderIdRaw": "4722366482869645220938",
+   "status": "TRIGGERED",
+   "placedOrderId": "16233134784864412908698",
+   "dropReason": null,
+   "cancelReason": null,
+   "siblingOrderId": null,
+   "quantity": "17982000",
+   "triggerPrice": "80493700000000000000000",
+   "isBid": true,
+   "updatedAt": "1792868305"
+  },
+  {
+   "id": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef_5939851591734475627595",
+   "orderIdRaw": "5939851591734475627595",
+   "status": "CANCELLED",
+   "placedOrderId": null,
+   "dropReason": null,
+   "cancelReason": "LinkedFill",
+   "siblingOrderId": null,
+   "quantity": "17982000",
+   "triggerPrice": "74635200000000000000000",
+   "isBid": true,
+   "updatedAt": "1792868305"
+  }
+ ],
+ "indexerPlacedOrderRow": {
+  "price": "84529200000000000000000",
+  "fullQuantity": "17982000",
+  "filledQuantity": "4206000",
+  "status": "Closed"
+ },
+ "logs": [
+  {
+   "i": 148,
+   "addr": "0x0000000000000000000000000000000000000100",
+   "ev": "undecoded:0xc338904b2660b1919e916da6c5c8a16f6410eb1930a1e41b3d22649c85041640"
+  },
+  {
+   "i": 149,
+   "addr": "0x0000000000000000000000000000000000000100",
+   "ev": "undecoded:0x7b911629d9bc2f016c34a9deca518fb4574bb0b1e9a96b99bce95fb5ea1e4a27"
+  },
+  {
+   "i": 150,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 151,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 152,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 153,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 154,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 155,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.01013",
+   "takerRem": "0.28643",
+   "px": "80661.8"
+  },
+  {
+   "i": 156,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 157,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 158,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 159,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 160,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.01242",
+   "takerRem": "0.27401",
+   "px": "80663.7"
+  },
+  {
+   "i": 161,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 162,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 163,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 164,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 165,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.01863",
+   "takerRem": "0.25538",
+   "px": "80664.1"
+  },
+  {
+   "i": 166,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 167,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 168,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 169,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 170,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.02485",
+   "takerRem": "0.23053",
+   "px": "80664.8"
+  },
+  {
+   "i": 171,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 172,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 173,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 174,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 175,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.03727",
+   "takerRem": "0.19326",
+   "px": "80664.9"
+  },
+  {
+   "i": 176,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 177,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 178,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 179,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 180,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.08698",
+   "takerRem": "0.10628",
+   "px": "80665.7"
+  },
+  {
+   "i": 181,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 182,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 183,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 184,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 185,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.05591",
+   "takerRem": "0.05037",
+   "px": "80666"
+  },
+  {
+   "i": 186,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 187,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 188,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 189,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 190,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908688",
+   "qty": "0.05037",
+   "takerRem": "0",
+   "px": "80666.2"
+  },
+  {
+   "i": 191,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908688",
+   "owner": "0xa0DC0c95A5c99A5562ff346C37144b24a2930855",
+   "full": "0.29656",
+   "rem": "0"
+  },
+  {
+   "i": 192,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "1844674407370955168921",
+   "placedOrderId": "16233134784864412908688",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 193,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "5331109037302060424346",
+   "triggeredOrderId": "1844674407370955168921",
+   "owner": "0xa0DC0c95A5c99A5562ff346C37144b24a2930855",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 194,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 195,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 196,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 197,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 198,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 199,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908689",
+   "qty": "0.09874",
+   "takerRem": "0.12255",
+   "px": "80666.2"
+  },
+  {
+   "i": 200,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 201,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 202,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 203,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 204,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908689",
+   "qty": "0.12255",
+   "takerRem": "0",
+   "px": "80669.1"
+  },
+  {
+   "i": 205,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908689",
+   "owner": "0x6579b2366e4AFD392Cb982147802AB3d01dDe1e2",
+   "full": "0.22129",
+   "rem": "0"
+  },
+  {
+   "i": 206,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "2859245331424980507799",
+   "placedOrderId": "16233134784864412908689",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 207,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "6253446240987538005144",
+   "triggeredOrderId": "2859245331424980507799",
+   "owner": "0x6579b2366e4AFD392Cb982147802AB3d01dDe1e2",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 208,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 209,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 210,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 211,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 212,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 213,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908690",
+   "qty": "0.16324",
+   "takerRem": "0.24276",
+   "px": "80669.1"
+  },
+  {
+   "i": 214,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 215,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 216,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 217,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 218,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908690",
+   "qty": "0.24276",
+   "takerRem": "0",
+   "px": "80673.1"
+  },
+  {
+   "i": 219,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908690",
+   "owner": "0x7185B8849bF618BC18D4C2E103618aF53dc8A71f",
+   "full": "0.406",
+   "rem": "0"
+  },
+  {
+   "i": 220,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "239807672958224178381",
+   "placedOrderId": "16233134784864412908690",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 221,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "627189298506124762318",
+   "triggeredOrderId": "239807672958224178381",
+   "owner": "0x7185B8849bF618BC18D4C2E103618aF53dc8A71f",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 222,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 223,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 224,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 225,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 226,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 227,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908691",
+   "qty": "0.31639",
+   "takerRem": "0.01518",
+   "px": "80673.1"
+  },
+  {
+   "i": 228,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 229,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 230,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 231,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 232,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908691",
+   "qty": "0.01518",
+   "takerRem": "0",
+   "px": "80729.3"
+  },
+  {
+   "i": 233,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908691",
+   "owner": "0x481d3CbaC91eC56406Dd31C4a59e6E4910F46782",
+   "full": "0.33157",
+   "rem": "0"
+  },
+  {
+   "i": 234,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "3449541141783686159561",
+   "placedOrderId": "16233134784864412908691",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 235,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "534955578137577004234",
+   "triggeredOrderId": "3449541141783686159561",
+   "owner": "0x481d3CbaC91eC56406Dd31C4a59e6E4910F46782",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 236,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 237,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 238,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 239,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 240,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 241,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908692",
+   "qty": "0.08482",
+   "takerRem": "0.25008",
+   "px": "80729.3"
+  },
+  {
+   "i": 242,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 243,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 244,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 245,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 246,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908692",
+   "qty": "0.15",
+   "takerRem": "0.10008",
+   "px": "80769.6"
+  },
+  {
+   "i": 247,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 248,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 249,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 250,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 251,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908692",
+   "qty": "0.10008",
+   "takerRem": "0",
+   "px": "80809.9"
+  },
+  {
+   "i": 252,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908692",
+   "owner": "0x3EA4336Ba6DB2308710963352ea1aFb0823D4f5C",
+   "full": "0.3349",
+   "rem": "0"
+  },
+  {
+   "i": 253,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "202914184810805075147",
+   "placedOrderId": "16233134784864412908692",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 254,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "6216552752840118901964",
+   "triggeredOrderId": "202914184810805075147",
+   "owner": "0x3EA4336Ba6DB2308710963352ea1aFb0823D4f5C",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 255,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 256,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 257,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 258,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 259,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 260,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908693",
+   "qty": "0.09992",
+   "takerRem": "0.22513",
+   "px": "80809.9"
+  },
+  {
+   "i": 261,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 262,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 263,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 264,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 265,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908693",
+   "qty": "0.22513",
+   "takerRem": "0",
+   "px": "80850.3"
+  },
+  {
+   "i": 266,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908693",
+   "owner": "0x2998Ab87E29a16f69A68b35c0E9D1fBCf965ca99",
+   "full": "0.32505",
+   "rem": "0"
+  },
+  {
+   "i": 267,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "4316538113248035085509",
+   "placedOrderId": "16233134784864412908693",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 268,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "553402322211286555846",
+   "triggeredOrderId": "4316538113248035085509",
+   "owner": "0x2998Ab87E29a16f69A68b35c0E9D1fBCf965ca99",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 269,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 270,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 271,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 272,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 273,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 274,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908694",
+   "qty": "0.02487",
+   "takerRem": "0.29165",
+   "px": "80850.3"
+  },
+  {
+   "i": 275,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 276,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 277,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 278,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 279,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908694",
+   "qty": "0.04841",
+   "takerRem": "0.24324",
+   "px": "83000"
+  },
+  {
+   "i": 280,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 281,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 282,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 283,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 284,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908694",
+   "qty": "0.24324",
+   "takerRem": "0",
+   "px": "83450"
+  },
+  {
+   "i": 285,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908694",
+   "owner": "0xBA4E56718344b5b28EB5029B825A359ecd01aDCb",
+   "full": "0.31652",
+   "rem": "0"
+  },
+  {
+   "i": 286,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "5902958103587056524487",
+   "placedOrderId": "16233134784864412908694",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 287,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "6991316003935920069832",
+   "triggeredOrderId": "5902958103587056524487",
+   "owner": "0xBA4E56718344b5b28EB5029B825A359ecd01aDCb",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 288,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 289,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 290,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 291,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 292,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 293,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908695",
+   "qty": "0.27931",
+   "takerRem": "0",
+   "px": "83450"
+  },
+  {
+   "i": 294,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908695",
+   "owner": "0x6F579e29B56F2BB1D179F2372159483A54b4F3d1",
+   "full": "0.27931",
+   "rem": "0"
+  },
+  {
+   "i": 295,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "7286463909115272895635",
+   "placedOrderId": "16233134784864412908695",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 296,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "7304910653188982447252",
+   "triggeredOrderId": "7286463909115272895635",
+   "owner": "0x6F579e29B56F2BB1D179F2372159483A54b4F3d1",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 297,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 298,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 299,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 300,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 301,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 302,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908696",
+   "qty": "0.19083",
+   "takerRem": "0.11809",
+   "px": "83450"
+  },
+  {
+   "i": 303,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 304,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 305,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 306,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 307,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 308,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908696",
+   "qty": "0.11809",
+   "takerRem": "0",
+   "px": "83500"
+  },
+  {
+   "i": 309,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908696",
+   "owner": "0x4933E80dEf0e3CC58d1f860A3Bd613fD5F126Ad0",
+   "full": "0.30892",
+   "rem": "0"
+  },
+  {
+   "i": 310,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "1770887431076116962443",
+   "placedOrderId": "16233134784864412908696",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 311,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "3652455326594491227276",
+   "triggeredOrderId": "1770887431076116962443",
+   "owner": "0x4933E80dEf0e3CC58d1f860A3Bd613fD5F126Ad0",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 312,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 313,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 314,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 315,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 316,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 317,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908697",
+   "qty": "0.14864",
+   "takerRem": "0.13651",
+   "px": "83500"
+  },
+  {
+   "i": 318,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 319,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 320,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 321,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 322,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 323,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908697",
+   "qty": "0.13651",
+   "takerRem": "0",
+   "px": "84000"
+  },
+  {
+   "i": 324,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908697",
+   "owner": "0x159D155ba41A296b6f243B4Bc9906E19616DE085",
+   "full": "0.28515",
+   "rem": "0"
+  },
+  {
+   "i": 325,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "184467440737095523523",
+   "placedOrderId": "16233134784864412908697",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 326,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "3154393236604333333700",
+   "triggeredOrderId": "184467440737095523523",
+   "owner": "0x159D155ba41A296b6f243B4Bc9906E19616DE085",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 327,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a"
+  },
+  {
+   "i": 328,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xa15061682858c3fa114522ab30e2d34c3454420d616b62130925b9ee2631ca85"
+  },
+  {
+   "i": 329,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 330,
+   "addr": "0x478769e1177c0773c43a593dccc4ad15f15f1394",
+   "ev": "undecoded:0xf7816a375f0ca01053ed213b57908bff79f578810301d50971a5f685529b82de"
+  },
+  {
+   "i": 331,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "undecoded:0x9bdc2f215c3fcb9fc57c7c2b23f8c67f16ad99f52f662cb7422db7544703f502"
+  },
+  {
+   "i": 332,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderFilled",
+   "taker": "16233134784864412908698",
+   "qty": "0.04206",
+   "takerRem": "0.13776",
+   "px": "84000"
+  },
+  {
+   "i": 333,
+   "addr": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "ev": "OrderPlaced",
+   "orderId": "16233134784864412908698",
+   "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5",
+   "full": "0.17982",
+   "rem": "0.13776"
+  },
+  {
+   "i": 334,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "4722366482869645220938",
+   "placedOrderId": "16233134784864412908698",
+   "success": true,
+   "dropReason": 0
+  },
+  {
+   "i": 335,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "LinkedOrderCancelled",
+   "cancelledOrderId": "5939851591734475627595",
+   "triggeredOrderId": "4722366482869645220938",
+   "owner": "0x2b7B1FD01311C616ffBa48a92037FE74E3f189a5",
+   "somiCredited": "150000000000000000"
+  },
+  {
+   "i": 336,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "3080606260309495127183",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 5
+  },
+  {
+   "i": 337,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "3541774862152233917584"
+  },
+  {
+   "i": 338,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "147573952589676420221",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 5
+  },
+  {
+   "i": 339,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "5644703686555122801790"
+  },
+  {
+   "i": 340,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "6198106008766409350305",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 5
+  },
+  {
+   "i": 341,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "92233720368547765410"
+  },
+  {
+   "i": 342,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderTriggered",
+   "pendingOrderId": "4574792530279968808085",
+   "placedOrderId": "0",
+   "success": false,
+   "dropReason": 5
+  },
+  {
+   "i": 343,
+   "addr": "0x52e2ccebaec9332672c247e9a90aa3d61fb615ef",
+   "ev": "PendingOrderUnlinked",
+   "orderId": "5146641596564964908182"
+  }
+ ]
+}

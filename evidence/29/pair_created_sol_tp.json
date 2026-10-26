@@ -1,0 +1,72 @@
+{
+ "tx": "0x34e6b719250dbea032933127ed9b809c6af1469d8c8a74aa96b572d117a8f1c9",
+ "block": "30301440",
+ "timeUTC": "2026-10-22T15:16:01.000Z",
+ "status": "success",
+ "from": "0xb800b726bc21c33f1d2c0b3d62ff8e313bd32c01",
+ "to": "0x8d4a4e4484e0fc2c24dd4622dda314d0538d5df8",
+ "selector": "0x6a761202",
+ "valueSTT": "0",
+ "events": [
+  {
+   "i": 5,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "name": "PendingOrderCreated",
+   "args": {
+    "orderId": "110680464442257311587",
+    "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+    "isBid": "true",
+    "quantity": "1896460000000",
+    "triggerPrice": "106480000000000000000",
+    "triggerOperator": "0",
+    "orderType": "1",
+    "builder": "0x0000000000000000000000000000000000000000",
+    "builderFeeBpsTimes1k": "0"
+   }
+  },
+  {
+   "i": 6,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "name": "PendingOrderIntentSet",
+   "args": {
+    "orderId": "110680464442257311587",
+    "intent": "0"
+   }
+  },
+  {
+   "i": 7,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "name": "PendingOrderCreated",
+   "args": {
+    "orderId": "2102928824402888886116",
+    "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8",
+    "isBid": "true",
+    "quantity": "1896460000000",
+    "triggerPrice": "101900000000000000000",
+    "triggerOperator": "1",
+    "orderType": "1",
+    "builder": "0x0000000000000000000000000000000000000000",
+    "builderFeeBpsTimes1k": "0"
+   }
+  },
+  {
+   "i": 8,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "name": "PendingOrderIntentSet",
+   "args": {
+    "orderId": "2102928824402888886116",
+    "intent": "0"
+   }
+  },
+  {
+   "i": 9,
+   "addr": "0x85a0879d19777c343eb317a890d5058ab92b8f5d",
+   "name": "PendingOrdersLinked",
+   "args": {
+    "gteOrderId": "110680464442257311587",
+    "lteOrderId": "2102928824402888886116",
+    "owner": "0x8D4a4E4484e0fC2C24dD4622dDa314D0538D5dF8"
+   }
+  }
+ ]
+}

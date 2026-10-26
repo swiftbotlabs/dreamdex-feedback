@@ -1,0 +1,1169 @@
+{
+ "summary": {
+  "startedUtc": "2026-10-26T08:08:03.957Z",
+  "finishedUtc": "2026-10-26T08:08:58.190Z",
+  "indexerHeadBlock": "33499336",
+  "pools": 21,
+  "openPositions": 10856,
+  "belowMinQuantity": 63,
+  "chainSizeMatchesIndexer": 63,
+  "belowMinByMarket": {
+   "WLD": 2,
+   "NEAR": 2,
+   "ZRO": 1,
+   "VVV": 1,
+   "BNB": 1,
+   "BTC": 39,
+   "HYPE": 1,
+   "XLM": 3,
+   "SOL": 2,
+   "DOGE": 2,
+   "ETH": 5,
+   "TAO": 1,
+   "AVAX": 1,
+   "LINK": 1,
+   "1000PEPE": 1
+  },
+  "lastChangeKind": {
+   "REDUCE": 38,
+   "FLIP": 21,
+   "OPEN": 4
+  }
+ },
+ "rows": [
+  {
+   "sym": "WLD",
+   "pool": "0x0f464d57c1fd839e4d87a408bbccdab8f77e6394",
+   "account": "0x3391dc5839157e746c5f1756cc11e0765ad5ae62",
+   "indexerSize": "-5000000000000000000",
+   "chainSize": "-5000000000000000000",
+   "minQuantity": "26000000000000000000",
+   "lotSize": "1000000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-37000000000000000000",
+    "sizeAfter": "-5000000000000000000",
+    "closedSize": "32000000000000000000",
+    "blockNumber": "31419483",
+    "timestamp": "1792794020",
+    "txHash": "0x143639eb810c340a9d041e6cdc6154065f2ddb1df242222e0a6e3fe5d579b6ec"
+   }
+  },
+  {
+   "sym": "WLD",
+   "pool": "0x0f464d57c1fd839e4d87a408bbccdab8f77e6394",
+   "account": "0xb853b97e1f8fa2c50268fdb28e050f6dcdde233c",
+   "indexerSize": "10000000000000000000",
+   "chainSize": "10000000000000000000",
+   "minQuantity": "26000000000000000000",
+   "lotSize": "1000000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "20000000000000000000",
+    "sizeAfter": "10000000000000000000",
+    "closedSize": "10000000000000000000",
+    "blockNumber": "16348685",
+    "timestamp": "1791284429",
+    "txHash": "0x5d6c62cd566de3a34c85ab1d06d68c2337342f6ebfb3861a3aa9bfdf7be8d9a2"
+   }
+  },
+  {
+   "sym": "NEAR",
+   "pool": "0x1cd15ae8bff0fe0a7f49233be8b90734775ba454",
+   "account": "0x8d2a3f94bd13464d6427a4db8cb70b10d0d8c3ab",
+   "indexerSize": "-1000000000000000000000000",
+   "chainSize": "-1000000000000000000000000",
+   "minQuantity": "5100000000000000000000000",
+   "lotSize": "100000000000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-44600000000000000000000000",
+    "sizeAfter": "-1000000000000000000000000",
+    "closedSize": "43600000000000000000000000",
+    "blockNumber": "27828268",
+    "timestamp": "1792434663",
+    "txHash": "0x92d11ec4b768962ab677ceb66494e1b446f10950b9c35618fa174db745cc6082"
+   }
+  },
+  {
+   "sym": "NEAR",
+   "pool": "0x1cd15ae8bff0fe0a7f49233be8b90734775ba454",
+   "account": "0xee38f68d3a475d112f82b8a69ee79477bafeab89",
+   "indexerSize": "100000000000000000000000",
+   "chainSize": "100000000000000000000000",
+   "minQuantity": "5100000000000000000000000",
+   "lotSize": "100000000000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "19900000000000000000000000",
+    "sizeAfter": "100000000000000000000000",
+    "closedSize": "19800000000000000000000000",
+    "blockNumber": "29212995",
+    "timestamp": "1792573243",
+    "txHash": "0x70abded2f52835237ef2720704809225f752b84e663e8bd79804ed4785f3ce3e"
+   }
+  },
+  {
+   "sym": "ZRO",
+   "pool": "0x2a1822b02039ddf0e293f3f7243673fc03eaf16c",
+   "account": "0x420691db9d2b5a79210fda48c177471386b6dfd1",
+   "indexerSize": "700000000000000000",
+   "chainSize": "700000000000000000",
+   "minQuantity": "5100000000000000000",
+   "lotSize": "100000000000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-23100000000000000000",
+    "sizeAfter": "700000000000000000",
+    "closedSize": "23100000000000000000",
+    "blockNumber": "24564665",
+    "timestamp": "1792108118",
+    "txHash": "0x257a799b9075fe3382c847570472cc05a5e0e54896c02d1c6a79ac36a06bd8c3"
+   }
+  },
+  {
+   "sym": "VVV",
+   "pool": "0x352636ab146039851ef06d6367a106d5fb4e6409",
+   "account": "0x85c6956392aeea8dcec55e6ded069506f248a831",
+   "indexerSize": "80000000000000000",
+   "chainSize": "80000000000000000",
+   "minQuantity": "440000000000000000",
+   "lotSize": "10000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "40590000000000000000",
+    "sizeAfter": "80000000000000000",
+    "closedSize": "40510000000000000000",
+    "blockNumber": "33467158",
+    "timestamp": "1792998865",
+    "txHash": "0x178378988cdf25a0e12b03d8db5cba5954c106ea05e75fedfd5cebd2253269f5"
+   }
+  },
+  {
+   "sym": "BNB",
+   "pool": "0x3d2a99fe1e2bdeaa25024515a2d2202daf9531ad",
+   "account": "0x93f4fde0e614b9b9ea78235773f4c49bb0f71d29",
+   "indexerSize": "1000000000000000",
+   "chainSize": "1000000000000000",
+   "minQuantity": "14000000000000000",
+   "lotSize": "1000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "51000000000000000",
+    "sizeAfter": "1000000000000000",
+    "closedSize": "50000000000000000",
+    "blockNumber": "17828767",
+    "timestamp": "1791433502",
+    "txHash": "0xb5ee2db17328a04bdfd3ca5d433296a701cbd498f3a271048a9d326c757c7d98"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x008d0038cd9b81ff768b3c4f4d79510cf8c134bb",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-130000",
+    "sizeAfter": "-12000",
+    "closedSize": "118000",
+    "blockNumber": "26677500",
+    "timestamp": "1792319522",
+    "txHash": "0x8e57b800a7be3143ef9a7b70bd56f773c45f56fb1b7835aea466e2bbf46a1afd"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x0eca846b99f4058e187866f1ecb8bb0da811bb60",
+   "indexerSize": "-7000",
+   "chainSize": "-7000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "6000",
+    "sizeAfter": "-7000",
+    "closedSize": "6000",
+    "blockNumber": "24728247",
+    "timestamp": "1792124486",
+    "txHash": "0xdd8d9d115e3a6628ab6ef2a8fe81e473f2ef09a9db2446ae5837f52f2e6a0c75"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x161032376d900ec5ee458e86ced4c0eff2f13bc1",
+   "indexerSize": "12000",
+   "chainSize": "12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-2000",
+    "sizeAfter": "12000",
+    "closedSize": "2000",
+    "blockNumber": "24607707",
+    "timestamp": "1792112424",
+    "txHash": "0xdd8c8285c614c6e11c7c5b5ca5b95863cc6cc962b4844ae98032865c8aae5683"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x19a3f629702f4a12104c25fc72a3e7f994f1cbb5",
+   "indexerSize": "11000",
+   "chainSize": "11000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-3000",
+    "sizeAfter": "11000",
+    "closedSize": "3000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x1cc7ecc3a7dba7760c7a47b926bd11b6211ed276",
+   "indexerSize": "2000",
+   "chainSize": "2000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "OPEN",
+    "sizeBefore": "0",
+    "sizeAfter": "2000",
+    "closedSize": "0",
+    "blockNumber": "28169956",
+    "timestamp": "1792468856",
+    "txHash": "0x05fb59aa675971db42299c5eb52dd2fa40a9c07cc462c0611be0869a9f0d2ad8"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x2b42103c7cffdbecc839de189b39531b19dce6ab",
+   "indexerSize": "9000",
+   "chainSize": "9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-5000",
+    "sizeAfter": "9000",
+    "closedSize": "5000",
+    "blockNumber": "23296292",
+    "timestamp": "1791981007",
+    "txHash": "0x9618b78abcabd3118ecb73e13620949eb5daf548d6af0507764d666ac6b646c8"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x2c13130d7ded1b281e893fcc98496accff928e6e",
+   "indexerSize": "12000",
+   "chainSize": "12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "26000",
+    "sizeAfter": "12000",
+    "closedSize": "14000",
+    "blockNumber": "24671719",
+    "timestamp": "1792118829",
+    "txHash": "0x76820367806ce027fcbf1192d1921f381c83512e79f9db19607dc55e58f6a44a"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x2c7d4bf84599b1900c3ccf881f8d52a7d02cc5a6",
+   "indexerSize": "1000",
+   "chainSize": "1000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-13000",
+    "sizeAfter": "1000",
+    "closedSize": "13000",
+    "blockNumber": "25140980",
+    "timestamp": "1792165783",
+    "txHash": "0x60e8c296de0eee0da15bba0766310d3414e4011ca04605d37c8376f05d8973dd"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x2f92ab9455b49892ac77ca2fc6321fdf23e55590",
+   "indexerSize": "-11000",
+   "chainSize": "-11000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-24000",
+    "sizeAfter": "-11000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x427814ebce9c001ed7f03113caaae711a91928b5",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-25000",
+    "sizeAfter": "-12000",
+    "closedSize": "13000",
+    "blockNumber": "23296508",
+    "timestamp": "1791981028",
+    "txHash": "0x60dfeddae9a8a3d9b97cd49092381276fbbfc704f158e73ded64bb5de8681847"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x4330e2424b27f6d39a825fdf4d0cea5ed97b39c5",
+   "indexerSize": "9000",
+   "chainSize": "9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-4000",
+    "sizeAfter": "9000",
+    "closedSize": "4000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x435229d2ecae994cfc44bf38b8e003192202d5f0",
+   "indexerSize": "-5000",
+   "chainSize": "-5000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-18000",
+    "sizeAfter": "-5000",
+    "closedSize": "13000",
+    "blockNumber": "23296355",
+    "timestamp": "1791981013",
+    "txHash": "0x835b08fba77ecb2d013470e9155a0a9ff62c2477f95e3ba5d614e0a8a62cb2d3"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x4a824457e88fc64789261463f9412d28a42c32cf",
+   "indexerSize": "9000",
+   "chainSize": "9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "22000",
+    "sizeAfter": "9000",
+    "closedSize": "13000",
+    "blockNumber": "24626209",
+    "timestamp": "1792114276",
+    "txHash": "0x4f02f775c6b9662abbfaa487e5df8aab47780fd40002ad96721344eddc09a44d"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x560f0bed09454d71a3f59562f35ac661126d5d50",
+   "indexerSize": "-9000",
+   "chainSize": "-9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-22000",
+    "sizeAfter": "-9000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x5681e14b93372492b4d70b9b94e50b2be3850991",
+   "indexerSize": "9000",
+   "chainSize": "9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "OPEN",
+    "sizeBefore": "0",
+    "sizeAfter": "9000",
+    "closedSize": "0",
+    "blockNumber": "26669748",
+    "timestamp": "1792318746",
+    "txHash": "0xeeb60b110d2045ee1d0a28bd759bbf007ebd618f93b4998a27b85a10c765fd80"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x6088ab3fed1abcbe1c1d5f1997275c782d8148ea",
+   "indexerSize": "8000",
+   "chainSize": "8000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-5000",
+    "sizeAfter": "8000",
+    "closedSize": "5000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x60b4a2a60e961b19c835c9df75fb3d87cbca798f",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-25000",
+    "sizeAfter": "-12000",
+    "closedSize": "13000",
+    "blockNumber": "23295860",
+    "timestamp": "1791980963",
+    "txHash": "0xff56278bf040da425cecf7d186de9f85e75d0e66a22f3c5905a23be6cd2a1d9f"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x6a56283a95c97f031cee0ca4a641f96cc87fb7ba",
+   "indexerSize": "-11000",
+   "chainSize": "-11000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "3000",
+    "sizeAfter": "-11000",
+    "closedSize": "3000",
+    "blockNumber": "23293999",
+    "timestamp": "1791980777",
+    "txHash": "0x1677741b9349c7cc84581f850cee349537565d2a131459c5ae9dbf6a0dcf256c"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x6c91d26663c33225fdd1783a6b21021af13e07ee",
+   "indexerSize": "-11000",
+   "chainSize": "-11000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-24000",
+    "sizeAfter": "-11000",
+    "closedSize": "13000",
+    "blockNumber": "24739675",
+    "timestamp": "1792125629",
+    "txHash": "0x62151d1590cc3fc56e17ab92dc900ca9a354192c7470c6e16e97a57c6b4e3406"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x795ac58725deaa8c7a1172785d10413b2562bab0",
+   "indexerSize": "-10000",
+   "chainSize": "-10000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-23000",
+    "sizeAfter": "-10000",
+    "closedSize": "13000",
+    "blockNumber": "24647423",
+    "timestamp": "1792116398",
+    "txHash": "0xc1aa3bbfb0cd849edf481120d381c1b04a023c5443bb6d5cc2e05ec8865f061a"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x7bf969ef8fdf264475d0518fff6c766a43affc67",
+   "indexerSize": "12000",
+   "chainSize": "12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "25000",
+    "sizeAfter": "12000",
+    "closedSize": "13000",
+    "blockNumber": "23296018",
+    "timestamp": "1791980979",
+    "txHash": "0xeaac57baa77a0a4475b32123e6d3b27c17f22fbaef7998486e7ce12361025cb2"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x8620a06995e57e5ed0b4841848362879e98d0f32",
+   "indexerSize": "3000",
+   "chainSize": "3000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-11000",
+    "sizeAfter": "3000",
+    "closedSize": "11000",
+    "blockNumber": "24701269",
+    "timestamp": "1792121786",
+    "txHash": "0x11258d57e37ddfc2dc6bce18b5c517b27c25790eec55d5dcd1f50caf873da92d"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x9002b9c4958ef4b71675d7a33956f9f6913ff566",
+   "indexerSize": "-9000",
+   "chainSize": "-9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-14000",
+    "sizeAfter": "-9000",
+    "closedSize": "5000",
+    "blockNumber": "26679835",
+    "timestamp": "1792319756",
+    "txHash": "0x0edd47abad69a01af9909279728626d8068a7668aacd851b9c10b2fb880368be"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x904c81faad1c312945e9f7b60459746de31663e9",
+   "indexerSize": "-4000",
+   "chainSize": "-4000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-17000",
+    "sizeAfter": "-4000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x95b2edd6e63a85b575852fd8b67ca7082b201f4e",
+   "indexerSize": "9000",
+   "chainSize": "9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "246000",
+    "sizeAfter": "9000",
+    "closedSize": "237000",
+    "blockNumber": "26696245",
+    "timestamp": "1792321398",
+    "txHash": "0xf05b47a8e3aaa57ddb8278ae4b00c8e7b035190573e79b02fb2e39d738562ad8"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0x9a478f31234c8323703dd5be4ef70d0a18d5517f",
+   "indexerSize": "10000",
+   "chainSize": "10000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-4000",
+    "sizeAfter": "10000",
+    "closedSize": "4000",
+    "blockNumber": "23296292",
+    "timestamp": "1791981007",
+    "txHash": "0x9618b78abcabd3118ecb73e13620949eb5daf548d6af0507764d666ac6b646c8"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xa55e93154356a8b7215c9536648622eef36b7622",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-26000",
+    "sizeAfter": "-12000",
+    "closedSize": "14000",
+    "blockNumber": "25126598",
+    "timestamp": "1792164344",
+    "txHash": "0x61cd8b1fdbf884168a4d654dae79204cc82aaf0062209348b2a87b1e70775771"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xbe1c31db8de6fcab6276e66accb2637fa523f61f",
+   "indexerSize": "1000",
+   "chainSize": "1000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-14000",
+    "sizeAfter": "1000",
+    "closedSize": "14000",
+    "blockNumber": "25141529",
+    "timestamp": "1792165838",
+    "txHash": "0x10e13e1409cff5361856657ac09f062508228efdb5d02dba1609571582b7ca56"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xc83196ffb6cf2c9dd4d12b29632b56323dee967c",
+   "indexerSize": "-9000",
+   "chainSize": "-9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "4000",
+    "sizeAfter": "-9000",
+    "closedSize": "4000",
+    "blockNumber": "24677360",
+    "timestamp": "1792119394",
+    "txHash": "0x1dbe378950d062ba169f2d52ac22b9a44fffc524c20405ffc7166a909b7b740c"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xd37f49ab2741d7586d41704ed91264eafd704997",
+   "indexerSize": "-8000",
+   "chainSize": "-8000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-22000",
+    "sizeAfter": "-8000",
+    "closedSize": "14000",
+    "blockNumber": "24216378",
+    "timestamp": "1792073158",
+    "txHash": "0x8148c1ce781f03013a52a6661dfb675fcf8a0ce83676493b0135640a72a526c1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xd912e4f43332c8dc588d92df61ac62a235e16dcc",
+   "indexerSize": "-11000",
+   "chainSize": "-11000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-24000",
+    "sizeAfter": "-11000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xdb99cd59607d843ef0661b9d4c045dcd168673c2",
+   "indexerSize": "-9000",
+   "chainSize": "-9000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-22000",
+    "sizeAfter": "-9000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xdf9756795f44d208691a6f1c084593b79ed151d3",
+   "indexerSize": "-10000",
+   "chainSize": "-10000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-23000",
+    "sizeAfter": "-10000",
+    "closedSize": "13000",
+    "blockNumber": "23296295",
+    "timestamp": "1791981007",
+    "txHash": "0xb0b354040be7b167b43dad8ec3da89a351646b3517bcb3a2fa556f178ef2ca03"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xe1e5223bbb99bd4819ce8d1a86a78ed864fbca97",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-25000",
+    "sizeAfter": "-12000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xee69e2c8c13c3ffadbbbb62e73f43e3e9d11e1a8",
+   "indexerSize": "8000",
+   "chainSize": "8000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-6000",
+    "sizeAfter": "8000",
+    "closedSize": "6000",
+    "blockNumber": "23296286",
+    "timestamp": "1791981006",
+    "txHash": "0x1395cebbefd28254bb29e7c78acfafcd2c6161b8fd436d70c8e4a4d010cda9b3"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xeeaba9383415b85dc19a6fa035f0999ecd04d56e",
+   "indexerSize": "-3000",
+   "chainSize": "-3000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-16000",
+    "sizeAfter": "-3000",
+    "closedSize": "13000",
+    "blockNumber": "23296286",
+    "timestamp": "1791981006",
+    "txHash": "0x1395cebbefd28254bb29e7c78acfafcd2c6161b8fd436d70c8e4a4d010cda9b3"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xeecee83b149694488d047664424632ee1e1f93f6",
+   "indexerSize": "-12000",
+   "chainSize": "-12000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-25000",
+    "sizeAfter": "-12000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xf8f1b4f724a3504eaf2330a2bb86b5adb3254873",
+   "indexerSize": "-8000",
+   "chainSize": "-8000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-21000",
+    "sizeAfter": "-8000",
+    "closedSize": "13000",
+    "blockNumber": "23296283",
+    "timestamp": "1791981006",
+    "txHash": "0xfd97806156143b1b298d5ef551190bcff60d4cca506fe1a5738663956769ebc1"
+   }
+  },
+  {
+   "sym": "BTC",
+   "pool": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0",
+   "account": "0xfcdf06ae9707d711de1bf44970f20321a94583e6",
+   "indexerSize": "1000",
+   "chainSize": "1000",
+   "minQuantity": "13000",
+   "lotSize": "1000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "-14000",
+    "sizeAfter": "1000",
+    "closedSize": "14000",
+    "blockNumber": "25141529",
+    "timestamp": "1792165838",
+    "txHash": "0x10e13e1409cff5361856657ac09f062508228efdb5d02dba1609571582b7ca56"
+   }
+  },
+  {
+   "sym": "HYPE",
+   "pool": "0x63b47ed4a7de0fde659b0d82441dd74828b7297a",
+   "account": "0x85c6956392aeea8dcec55e6ded069506f248a831",
+   "indexerSize": "10000",
+   "chainSize": "10000",
+   "minQuantity": "120000",
+   "lotSize": "10000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "13280000",
+    "sizeAfter": "10000",
+    "closedSize": "13270000",
+    "blockNumber": "33315327",
+    "timestamp": "1792983676",
+    "txHash": "0x2a9daccd34e9838d5ad814d5f864a92052e0c73b55dc71f63679968bc9da2943"
+   }
+  },
+  {
+   "sym": "XLM",
+   "pool": "0x74b05b9b8c8f180b53b7891018f3b254b3e658c9",
+   "account": "0xb4388beb1e193e4731edd3ed1952fb295919b63e",
+   "indexerSize": "-370000000",
+   "chainSize": "-370000000",
+   "minQuantity": "540000000",
+   "lotSize": "10000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-1180000000",
+    "sizeAfter": "-370000000",
+    "closedSize": "810000000",
+    "blockNumber": "16470454",
+    "timestamp": "1791296613",
+    "txHash": "0x0cec60b2dbad2999a404fbe6f6f556a2f67e53d66fd97a216b9a6438010c40a0"
+   }
+  },
+  {
+   "sym": "XLM",
+   "pool": "0x74b05b9b8c8f180b53b7891018f3b254b3e658c9",
+   "account": "0xb5c645dd510762c961aa86f6c6d13a2e89ee88a3",
+   "indexerSize": "-240000000",
+   "chainSize": "-240000000",
+   "minQuantity": "540000000",
+   "lotSize": "10000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "570000000",
+    "sizeAfter": "-240000000",
+    "closedSize": "570000000",
+    "blockNumber": "16563336",
+    "timestamp": "1791305907",
+    "txHash": "0xdcc7740250643f6241a55ce284d26e45f112ee0fb801d62cb1076f2af0c5be28"
+   }
+  },
+  {
+   "sym": "XLM",
+   "pool": "0x74b05b9b8c8f180b53b7891018f3b254b3e658c9",
+   "account": "0xc209e86c3b73645fb8f9a044521666ef2d6332d1",
+   "indexerSize": "-30000000",
+   "chainSize": "-30000000",
+   "minQuantity": "540000000",
+   "lotSize": "10000000",
+   "lastChange": {
+    "kind": "OPEN",
+    "sizeBefore": "0",
+    "sizeAfter": "-30000000",
+    "closedSize": "0",
+    "blockNumber": "22128960",
+    "timestamp": "1791863983",
+    "txHash": "0xc4dd1ef9f33b6a379421af88e3de392b07702bb793e276339cae27a19c5cf189"
+   }
+  },
+  {
+   "sym": "SOL",
+   "pool": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "account": "0x6a33d41c8931a6cf19806bf35a6fab0d07f0d94b",
+   "indexerSize": "90000000",
+   "chainSize": "90000000",
+   "minQuantity": "100000000",
+   "lotSize": "10000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "370000000",
+    "sizeAfter": "90000000",
+    "closedSize": "280000000",
+    "blockNumber": "26670555",
+    "timestamp": "1792318827",
+    "txHash": "0xc6aee1e13b574e1185667f785cff6522eecebc39a99543127f7b3bd8860665b8"
+   }
+  },
+  {
+   "sym": "SOL",
+   "pool": "0xb483ec1fb34996638677c20ab087b16f1896fa53",
+   "account": "0x99dddbdb3fee4b3859435b90434845014b6a84ad",
+   "indexerSize": "20000000",
+   "chainSize": "20000000",
+   "minQuantity": "100000000",
+   "lotSize": "10000000",
+   "lastChange": {
+    "kind": "OPEN",
+    "sizeBefore": "0",
+    "sizeAfter": "20000000",
+    "closedSize": "0",
+    "blockNumber": "28287387",
+    "timestamp": "1792480611",
+    "txHash": "0x7076d6ebe145f16ff174da0af38bcd6377449e6f0d80b6983dd1593777df4c88"
+   }
+  },
+  {
+   "sym": "DOGE",
+   "pool": "0xc410012e39765cd5f772e84bacb19554aec040df",
+   "account": "0x0517239af91f5ba94b552f0cb6613e62f7191da5",
+   "indexerSize": "-8000000000",
+   "chainSize": "-8000000000",
+   "minQuantity": "12000000000",
+   "lotSize": "1000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-1205000000000",
+    "sizeAfter": "-8000000000",
+    "closedSize": "1197000000000",
+    "blockNumber": "22417278",
+    "timestamp": "1791892837",
+    "txHash": "0xb4be7268ba667afb1ffb79be4c51fafc09df9f316cd8a7f7ce9641def92fe591"
+   }
+  },
+  {
+   "sym": "DOGE",
+   "pool": "0xc410012e39765cd5f772e84bacb19554aec040df",
+   "account": "0xfad7c54e84248baa76cf845c46ff3b1716794f62",
+   "indexerSize": "-1000000000",
+   "chainSize": "-1000000000",
+   "minQuantity": "12000000000",
+   "lotSize": "1000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "17000000000",
+    "sizeAfter": "-1000000000",
+    "closedSize": "17000000000",
+    "blockNumber": "16249298",
+    "timestamp": "1791274485",
+    "txHash": "0x812088c30104f686cd32dbcaa3e9817b2e329130dffbf58568480e1e997bed27"
+   }
+  },
+  {
+   "sym": "ETH",
+   "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+   "account": "0x150ebfe00ba220f48ec410c01fc606a99bb4bf2a",
+   "indexerSize": "-1700000000000000",
+   "chainSize": "-1700000000000000",
+   "minQuantity": "4000000000000000",
+   "lotSize": "100000000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "41300000000000000",
+    "sizeAfter": "-1700000000000000",
+    "closedSize": "41300000000000000",
+    "blockNumber": "26931422",
+    "timestamp": "1792344927",
+    "txHash": "0x08a196123f434a7df44b1e621b3f6abb784b44c2a97490cab5284a63a3265b73"
+   }
+  },
+  {
+   "sym": "ETH",
+   "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+   "account": "0x5ad3f981bc477868844f1c925a82c6c0f5a33817",
+   "indexerSize": "-100000000000000",
+   "chainSize": "-100000000000000",
+   "minQuantity": "4000000000000000",
+   "lotSize": "100000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-9474100000000000000",
+    "sizeAfter": "-100000000000000",
+    "closedSize": "9474000000000000000",
+    "blockNumber": "32971412",
+    "timestamp": "1792949271",
+    "txHash": "0x1d8c7d282d2792702e53037ea3f64ee2f2a2b78de170c61b806183beead94a65"
+   }
+  },
+  {
+   "sym": "ETH",
+   "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+   "account": "0x84d46ed212b3828edb82d53d50049a3a238adf85",
+   "indexerSize": "-1800000000000000",
+   "chainSize": "-1800000000000000",
+   "minQuantity": "4000000000000000",
+   "lotSize": "100000000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "2205400000000000000",
+    "sizeAfter": "-1800000000000000",
+    "closedSize": "2205400000000000000",
+    "blockNumber": "21747459",
+    "timestamp": "1791825808",
+    "txHash": "0xa996d80bc2230bb6b4702940ecdb107e930cd561fa55d223b464e020c6eca6f0"
+   }
+  },
+  {
+   "sym": "ETH",
+   "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+   "account": "0x879f00002e1ebf877da934a6332ca1bed907154f",
+   "indexerSize": "-500000000000000",
+   "chainSize": "-500000000000000",
+   "minQuantity": "4000000000000000",
+   "lotSize": "100000000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "41400000000000000",
+    "sizeAfter": "-500000000000000",
+    "closedSize": "41400000000000000",
+    "blockNumber": "27785824",
+    "timestamp": "1792430416",
+    "txHash": "0x669bcaf414383f977644b99abfcdb355944a1f7a2c31a66cff8dcf10864fd738"
+   }
+  },
+  {
+   "sym": "ETH",
+   "pool": "0xd6cb1dd58580b84d76068ac21594219ce03aeddf",
+   "account": "0x93f4fde0e614b9b9ea78235773f4c49bb0f71d29",
+   "indexerSize": "-3400000000000000",
+   "chainSize": "-3400000000000000",
+   "minQuantity": "4000000000000000",
+   "lotSize": "100000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-40000000000000000",
+    "sizeAfter": "-3400000000000000",
+    "closedSize": "36600000000000000",
+    "blockNumber": "18045398",
+    "timestamp": "1791455178",
+    "txHash": "0xf9376a812ccba70578eb409619d283afc59666297f444d2a0e53b320a0ab9785"
+   }
+  },
+  {
+   "sym": "TAO",
+   "pool": "0xd9b6a347a3ae9fd6ba21179d3343f2c8a922f697",
+   "account": "0xb853b97e1f8fa2c50268fdb28e050f6dcdde233c",
+   "indexerSize": "-1000000",
+   "chainSize": "-1000000",
+   "minQuantity": "44000000",
+   "lotSize": "1000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-164000000",
+    "sizeAfter": "-1000000",
+    "closedSize": "163000000",
+    "blockNumber": "16344806",
+    "timestamp": "1791284041",
+    "txHash": "0x9627cacb3b907321821c606bdf55882dd1f78717fe07c7448d9d1d1d6d4d2d9a"
+   }
+  },
+  {
+   "sym": "AVAX",
+   "pool": "0xde9762b6b441133d1314c68864ae4e63a6ee45c7",
+   "account": "0x1efd0cae1463018c93a60d15c17d29898febe063",
+   "indexerSize": "-200000000000000000",
+   "chainSize": "-200000000000000000",
+   "minQuantity": "1400000000000000000",
+   "lotSize": "100000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "-2200000000000000000",
+    "sizeAfter": "-200000000000000000",
+    "closedSize": "2000000000000000000",
+    "blockNumber": "29822298",
+    "timestamp": "1792634215",
+    "txHash": "0x2de440332cfd7d5f3b547102f2f35ed615d12717fa1220f37a30a785ed4dd159"
+   }
+  },
+  {
+   "sym": "LINK",
+   "pool": "0xf71b619450bafe953f47b9b556416a3a67b443b5",
+   "account": "0x9d6a58500c1cf883034dfd178ad197c2c574cb6f",
+   "indexerSize": "-100000000000000000",
+   "chainSize": "-100000000000000000",
+   "minQuantity": "900000000000000000",
+   "lotSize": "100000000000000000",
+   "lastChange": {
+    "kind": "FLIP",
+    "sizeBefore": "1200000000000000000",
+    "sizeAfter": "-100000000000000000",
+    "closedSize": "1200000000000000000",
+    "blockNumber": "16518893",
+    "timestamp": "1791301460",
+    "txHash": "0x148871bb572775d04cf04445f6ccae637c9042a435ac8c6318acac5b6231d83c"
+   }
+  },
+  {
+   "sym": "1000PEPE",
+   "pool": "0xfa9b9e50cc1745113d57893991af200a74c86b6f",
+   "account": "0x420691db9d2b5a79210fda48c177471386b6dfd1",
+   "indexerSize": "100000000000000000000",
+   "chainSize": "100000000000000000000",
+   "minQuantity": "2700000000000000000000",
+   "lotSize": "100000000000000000000",
+   "lastChange": {
+    "kind": "REDUCE",
+    "sizeBefore": "12200000000000000000000",
+    "sizeAfter": "100000000000000000000",
+    "closedSize": "12100000000000000000000",
+    "blockNumber": "24439383",
+    "timestamp": "1792095582",
+    "txHash": "0xf58a5c485d206d959c2c79f8370badec19f1b80d8b32698eb05addc1f08b216e"
+   }
+  }
+ ]
+}

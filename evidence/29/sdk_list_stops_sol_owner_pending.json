@@ -1,0 +1,26 @@
+{
+ "headBlock": "33495063",
+ "headTimeUTC": "2026-10-26T08:00:56.000Z",
+ "indexer": [
+  {
+   "chain_id": 50383,
+   "latest_processed_block": 33495057
+  }
+ ],
+ "where": {
+  "market_id": {
+   "_eq": "0xb483ec1fb34996638677c20ab087b16f1896fa53"
+  },
+  "owner": {
+   "_eq": "0x8d4a4e4484e0fc2c24dd4622dda314d0538d5df8"
+  },
+  "status": {
+   "_in": [
+    "PENDING"
+   ]
+  }
+ },
+ "positionNow": "-851.65",
+ "markNow": "100.5059288964345",
+ "rows": []
+}

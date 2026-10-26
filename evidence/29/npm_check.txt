@@ -1,0 +1,14 @@
+2026-10-26T08:04:33Z
+npm view @somnia-chain/markets-sdk dist-tags:
+{
+  "rc": "0.32.0-rc.1791380050012",
+  "next-0.31": "0.31.1-rc.1791533467513",
+  "next-0.32": "0.32.1-rc.1791818930433",
+  "latest": "0.32.1",
+  "canary-staging": "0.32.2-canary.38575926931.ge4550933d36d",
+  "canary": "0.32.2-canary.38575926931.ge4550933d36d"
+}
+dist.integrity 0.32.1:
+sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==
+local tarball sha512:
+sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==

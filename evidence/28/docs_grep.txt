@@ -1,0 +1,71 @@
+# Live dreamDEX docs, fetched 2026-10-26T08:08:20Z (see docs_fetch_time.txt for status codes and sizes)
+
+## docs/trading/perps-testnet/orders.md: the whole TP/SL section
+## Take profit and stop loss
+
+A **take profit (TP)** closes a position when the price reaches your target, and a **stop loss (SL)** closes it when the price moves against you. Both are reduce-only.
+
+- Set them on a new order, or on an open position from the positions table.
+- On a limit order, TP/SL can be armed before it fills only with GTC or ALO, the time-in-force options that rest on the book.
+- They show as lines on the chart, where you can drag them to a new price or cancel them.
+
+## TP and SL hold a little STT
+
+## docs/trading/perps-testnet/orders.md: reduce-only
+17:**Reduce-only** orders can only shrink a position, never open or flip one.
+21:A **take profit (TP)** closes a position when the price reaches your target, and a **stop loss (SL)** closes it when the price moves against you. Both are reduce-only.
+
+## docs/trading/perps-testnet/margin-and-liquidations.md line 51
+> To stay clear of liquidation, keep equity well above maintenance margin: use less than the maximum leverage, add margin through **Perps ⇆ Spot**, or set a stop loss. See [Orders](orders.md).
+
+## llms-full.txt (saved as docs_llms-full.txt.gz, 438288 bytes): the stop troubleshooting page excludes perps (lines 5351-5355)
+# My stop or take-profit did not work
+
+Your stop-loss or take-profit on a **spot** market triggered at a price you did not expect, did not trigger at all, or triggered and then did not fill.
+
+This page covers spot stops, which run through the stop order registry. Perps are not covered here.
+
+## llms-full.txt: matches
+  'PerpStopOrderRegistry': 0
+  'getReducingCapacity': 0
+  'reducing capacity': 0
+  'effectiveReducingCapacity': 0
+  'ReduceOnlyBelowMinQty': 0
+  'dropReason': 0
+  'resting order': 29
+
+## llms-full.txt: lines with 'resting order'
+134:| Track a specific resting order to a terminal state | WebSocket `order` channel | Per-`orderId` lifecycle events. There is [no account-wide order/fills channel](websocket-api/real-time-feed.md#order-lifecycle-tracki
+407:| `0x6ffc9258` | `SelfMatchCancelTaker()` | The order would have matched your own resting order under `SelfMatchingOption.CancelTaker`. Cancel the resting side first, price away from it, or pass `CancelMaker`. |
+528:Emitted when an order comes to rest on the book after placement. Only emitted for the residual quantity that is actually inserted into the priority index. Orders that fully fill on placement, IOC residuals, and FOK o
+634:Emitted when a resting maker order is cancelled because an incoming **same-owner** taker crossed it with `SelfMatchingOption.CancelMaker`. Distinct from `OrderCancelled` (owner-initiated): this is the protocol removi
+1069:> | `SelfMatchCancelTaker()` | `0x6ffc9258` | The order would match the caller's own resting order under `SelfMatchingOption.CancelTaker`. |
+1355:Returns a pool-wide breakdown of locked tokens for the base and quote tokens, aggregated across every user. For each token the fields are exhaustive and disjoint — `principalLocked + lockedSurplus + leftover` equals
+2390:| `oldOrderId`  | `OrderId`                                               | The resting order to cancel, then replace                                                                                                  
+2442:| `principalLocked` | `uint256` | Principal locked by resting orders — the tradeable amount they would pay out if fully filled, before fees.                                                                    |
+3474:A resting order can be shrunk without cancelling it. `newQuantityRemaining` must be at or below the current remaining quantity, at least `minQuantity`, and a multiple of `lotSize`; the order's `fullQuantity` and `qu
+3793:Successful `placeOrderFor` transactions on testnet used up to about 1.56M gas, and a simple resting order simulated with a 1.5M limit reverts while the same call with 3.2M succeeds. `eth_estimateGas` returned 3.2M f
+4114:> **Own-fill attribution.** The public `trades` channel carries *market-wide* executed trades and does **not** attribute fills to your account - do not use it to detect your own fills. Use the per-order `order` chan
+5061:**0% maker, 0% taker.** dreamDEX does not take a cut of your trades. The venue is paid from the yield on collateral rather than from charging traders, and makers earn **collateral yield** on resting orders instead o
+5232:## It would have matched your own resting order
+5234:If an incoming order would have matched one of your own resting orders, [self-trade prevention](../../trading/common/order-types.md#self-trade-prevention-stp) refuses the whole incoming order: the transaction fails,
+5254:**Saw "Order could not be completed — please try again" instead?** That is every other rejection, including an order that would have matched your own resting order. The toast does not show the specific reason and ca
+5735:| Would have matched your own resting order (Cancel Taker) | `SelfMatchCancelTaker` |
+5769:dreamDEX prevents users from trading against themselves. Via the SDK or API you specify one of the following behaviours for when an order would match against your own resting order. **The dreamDEX app always sends C
+5771:- **Cancel Taker** (the SDK's default when omitted): The incoming (taker) order is cancelled. This prevents the trade without affecting your resting orders.
+5789:Unlike traditional "rebate" models that pay per fill, dreamDEX rewards **Open Interest** (resting orders). This mechanism ensures that liquidity providers are compensated for their capital commitment and the risk of
+5797:1.  **Notional Value**: The size of the resting order.
+5829:Each resting order accrues a **proximity-weighted score** for every second it stays on the book:
+5842:- **A market mid must exist.** You do **not** have to quote both sides yourself; if anyone provides the opposite side so a mid exists, every resting order on both sides accrues.
+6214:You can add your own USDso alongside it; both sit in one balance. A voucher can be taken back 14 days after it was granted, but only while the account has no positions and no resting orders: it never forces a positi
+6283:- **Amend Orders**: Atomically cancel and replace a resting order — or a whole ladder — in one call, returning a new order id.
+6305:- **Amend (cancel + replace).** `amendOrder` atomically cancels a resting order and places a replacement in one call, returning a **new** order id — update your tracking, as the old id is dead. `amendOrders` re-ladd
+6315:When an incoming order crosses the book, it matches resting orders in strict order:
+6320:An order that does not (or cannot) fully fill either rests on the book as a maker (GTC, or PostOnly, shown as ALO in the app) or is cut short: IOC keeps whatever filled and cancels the rest, while an order the pool 
+7023:> * **USDso (the quote token):** acquire by swapping from a token you hold on a live testnet market (e.g. sell SOMI on `SOMI:USDso`) or via [Simple Swap](../trading/spot/simple-swap.md). Testnet books can be thin - 
+7322:> **This changed with the order-rejection upgrade.** Previously an order the book could not honour — an IOC that never crossed, a PostOnly that would have crossed, an already-expired order — came back as a *successf
+
+## docs/developers/perps-testnet/README.md: matches for stop / capacity / resting
+28:Read per-market addresses off the market row rather than hardcoding them: `poolAddress`, `marginBank` and `stopRegistry` are all on it. `client.getPerpSystemConfig(marginBank)` returns the MarginBank's collateral, fac
+125:Successful `placeOrderFor` transactions on testnet used up to about 1.56M gas, and a simple resting order simulated with a 1.5M limit reverts while the same call with 3.2M succeeds. `eth_estimateGas` returned 3.2M fo
+143:- **Stop orders carry 0.15 STT each**, sent with the order and refunded on cancel. An account holding only USDso cannot place one.

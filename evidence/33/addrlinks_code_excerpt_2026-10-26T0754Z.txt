@@ -1,0 +1,34 @@
+# Served app code behind the explorer address links. Chunks fetched from https://app.testnet.dreamdex.io/_next/static/immutable/chunks/ at 2026-10-26T07:54:26Z
+# (byte-identical to copies fetched at ~07:23Z; sha256 prefixes below)
+04nhweuvbgxuy.js sha256 6dc8df9a469273e4…
+0p4rb93gq9d0a.js sha256 075cbb1e21204a21…
+1wrqovc00mi6p.js sha256 0f42d526b3130c3c…
+1zz4tdgl8_i8w.js sha256 c2bb0b9732a6e03c…
+27kddaaff2hz-.js sha256 8556fda94b218ac5…
+33gcg8vfyjjn_.js sha256 5520ff409831ba1e…
+
+## 04nhweuvbgxuy.js: explorer URL helpers. With no region argument, y() uses d() (the default Somnia chain, somniaTestnet 50312, base https://explorer.testnet.somnia.network)
+p={[i.somnia.id]:{base:"https://new.explorer.somnia.network"},[a.somniaTestnet.id]:{base:"https://explorer.testnet.somnia.network"}}
+function d(){let e,t=u[o.SOMNIA_CHAIN_ID];if(!t)throw Error(`Unsupported chain ID: ${o.SOMNIA_CHAIN_ID}. Expected ${i.somnia.id} (mainnet) or ${a.somniaTestnet.id} (testnet)`);return r??=void 0===(e=o.
+function y(e,r){let t=void 0===r?d():r.chain,n=t.blockExplorers?.default?.url;return n?new URL(e,`${n}/`).toString():null}
+"getExplorerAddressUrl",0,function(e,r){return e?y(`address/${e}`,r):null}
+
+## 1zz4tdgl8_i8w.js: AddressExplorerLink calls getExplorerAddressUrl(e) with no region
+function({address:e,label:s}){let o=(0,n.getExplorerAddressUrl)(e),u=(0,l.formatTraderAddress)(e);return o?(0,t.jsxs)("a",{"ar
+Other labels in this chunk that render an explorer address link:
+View session signer on the Somnia explorer
+View trading Safe on the Somnia explorer
+
+## 27kddaaff2hz-.js: /trader/<address> page header and the Login EOA row use AddressExplorerLink
+(0,s.jsx)(N.AddressExplorerLink,{address:e,label:`Open ${e} on the block explorer`})
+(0,s.jsx)(N.AddressExplorerLink,{address:l.eoa,label:`Open ${l.eoa} on the block explorer`})
+
+## 1wrqovc00mi6p.js: Portfolio Trader card 'account:' link, getExplorerAddressUrl(e) with no region
+function te({address:e,label:t}){let n=(0,H.getExplorerAddressUrl)(e),s=(0,d.formatTraderAddress)(e);return(0,a.jsxs)("span",{className:"flex shrink-
+
+## 0p4rb93gq9d0a.js: the DreamDEX (tokyo) region config already carries the Tokyo explorer
+L={chain:{...n.hidekiTestnet,blockExplorers:{default:{name:"Somnia Explorer",url:"https://explorer.testnet.somnia.network/tokyo"}}}
+"TOKYO_TESTNET_REGION",0,L
+
+## 33gcg8vfyjjn_.js: token-contract links already pass the region
+let r=e.toLowerCase()===S.NATIVE_TOKEN_SENTINEL.toLowerCase()?null:(0,T.getExplorerAddressUrl)(e,a)

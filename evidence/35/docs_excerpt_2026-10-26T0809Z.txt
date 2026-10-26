@@ -1,0 +1,22 @@
+Docs excerpts, fetched 2026-10-26T08:09:24Z (curl, HTTP 200 for both).
+
+1) SDK guide 'Perps', Position analytics (hosted): https://somnia-platform-docs.vercel.app/markets/somnia-markets/typescript/perps
+   Page text (tags stripped):
+   This is the split getAccountHealth cannot give you: it returns one equity figure for the whole account, with every market's PnL and funding already summed and netted together, so a two-position trader cannot see which position carries the loss and cannot see funding at all. Back apart: Field Means unrealizedPnl (mark − entry) × size / oneBase — price only, excludes funding accruedFunding funding owed since entry; positive means you pay equityContribution unrealizedPnl − accruedFunding — what this position adds to equity notional |size| × mark / oneBase initialMarginRequirement "position margin" — the only per-position margin the protocol defines maintenanceMarginRequirement / closeOutMarginRequirement the liquidation and takeover thresholds' shares returnOnMarginBps equityContribution over the initial requirement, net of funding ; null when flat A direct port of MarginBank._computePositionMetrics and _marketHealthFromSnapshot , which is what lets the rows re-sum to the bank's own equity to the wei — a test pins that. The two roundings differ and are not interchangeable : unrealized PnL truncates toward zero, while funding ceils toward +∞ so a payer never underpays. For a negative quotient that is the opposite of rounding the magnitude up. accruedFunding uses the pool's projected cumulative index, so it includes intervals no one has settled yet — settlement is permissionless and lazy, and measuring against the settled index under-reports what the account already owes.
+
+   Same table in the npm package @somnia-chain/markets-sdk@0.32.1 (npm latest), docs/PERPS.md lines 268-276 (tarball read as text):
+   268:   for the whole account, with every market's PnL and funding already summed and netted
+   269:   together, so a two-position trader cannot see which position carries the loss and
+   270:   cannot see funding at all. Back apart:
+   271: 
+   272:   | Field                                                        | Means                                                                                   |
+   273:   | ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+   274:   | `unrealizedPnl`                                              | `(mark − entry) × size / oneBase` — price only, **excludes** funding                    |
+   275:   | `accruedFunding`                                             | funding **owed** since entry; **positive means you pay**                                |
+   276:   | `equityContribution`                                         | `unrealizedPnl − accruedFunding` — what this position adds to equity                    |
+
+2) dreamDEX docs, https://app.testnet.dreamdex.io/llms-full.txt, Perps (Testnet) > Funding:
+   line 6166: Funding is applied to your position the next time it is touched, by a trade, a withdrawal or a liquidation, and everything owed since the last time is settled at once. The result is the same as paying every hour.
+
+   The file has no definition of 'Unrealized PnL' or 'Account value' for the perps account. grep -i 'unrealized|unrealised' matches only line 3441 (wallet analytics, spot fills):
+   line 3441: Metrics are computed from the wallet's fills alone, not its on-chain balances. The engine reconstructs the wallet's net base position from its trades and marks it to market at each bucket's price (priced in USDso, treated as 1 USD), so only realized and unrealized trading PnL counts: deposits and wi...
