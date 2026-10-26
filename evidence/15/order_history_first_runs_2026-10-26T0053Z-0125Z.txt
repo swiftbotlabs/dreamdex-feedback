@@ -1,0 +1,92 @@
+# Note: e2_body_default.json / e2_body_placed.json below are the files sdk_body_ended_0x3024.json / sdk_body_placed_0x3024.json in this folder (identical content).
+# E2 listPerpOrderHistory (SDK 0.32.1 default) -> database query error for busy accounts — compiled 2026-10-26T01:25:27Z
+## curl repro (body = SDK PerpOrderHistory document + the variables perp/portfolio.ts:396-430 builds for listPerpOrderHistory(0x3024ad2a...))
+$ curl -s -w ' %{time_total}s\n' -H 'content-type: application/json' https://hideki-dev.smk.somnia.host/v1/graphql --data @e2_body_default.json   # 01:25:27Z
+{"errors":[{"message":"database query error","extensions":{"path":"$","code":"unexpected"}}]} 10.522256s
+$ curl -s -w ' %{time_total}s\n' -H 'content-type: application/json' https://hideki-dev.smk.somnia.host/v1/graphql --data @e2_body_placed.json   # 01:25:37Z
+{"data":{"_sdkWatermark":[{"chain_id":50383,"latest_processed_block":33257970}],"Order":[{"id":"0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0_7766079255031725464281","orderId":"7766079255031725464281","i
+
+## Pass 1 (00:53 UTC)
+at 2026-10-26T00:53:13.935Z
+listPerpOrderHistory             0x420691db 10.54s ERROR database query error
+listPerpOrderHistory             0x3024ad2a 10.18s ERROR database query error
+listPerpOrderHistory             0x72b1b17d 10.16s ERROR database query error
+listPerpOrderHistory             0x44718499 10.28s ERROR database query error
+listPerpOrderHistory             0xfa5f80c0 0.48s ok rows=100
+listPerpOrderHistory             0x79b33726 10.16s ERROR database query error
+listPerpOrderHistory             0xab8b6125 1.52s ok rows=100
+listPerpOrderHistory             0xe8c0d36d 0.45s ok rows=100
+listPerpOrderHistory             0x4e42d094 10.16s ERROR database query error
+listPerpOrderHistory             0xd0e04f28 10.16s ERROR database query error
+listPerpOrderHistory             0x6c2986a5 0.43s ok rows=100
+listPerpOrderHistory             0x3299e48c 10.16s ERROR database query error
+listPerpOrderHistory             0x85c69563 0.36s ok rows=100
+listPerpOrderHistory             0x8239544d 0.33s ok rows=100
+listPerpOrderHistory             0x567476bd 0.16s ok rows=0
+listPerpOrderHistory             0x0e7e8df6 0.17s ok rows=29
+
+## Pass 2 (01:02 UTC)
+at 2026-10-26T01:02:19.967Z
+0x420691db9d2b5a79210fda48c177471386b6dfd1  getOrders: 10.53s ERROR database query error  |  listPerpOrderHistory: 10.17s ERROR database query error
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff  getOrders: 0.65s ok rows=200  |  listPerpOrderHistory: 0.18s ok rows=100
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50  getOrders: 0.34s ok rows=200  |  listPerpOrderHistory: 10.16s ERROR database query error
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2  getOrders: 0.43s ok rows=200  |  listPerpOrderHistory: 10.16s ERROR database query error
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d  getOrders: 0.33s ok rows=200  |  listPerpOrderHistory: 10.16s ERROR database query error
+0xfa5f80c0bb94e4a5016f883a7e86070ae7e1fb5a  getOrders: 0.20s ok rows=200  |  listPerpOrderHistory: 0.18s ok rows=100
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac  getOrders: 0.19s ok rows=200  |  listPerpOrderHistory: 10.16s ERROR database query error
+0xab8b612548cc3f5f9f7e723823be37058d0110b2  getOrders: 0.20s ok rows=200  |  listPerpOrderHistory: 0.18s ok rows=100
+0xe8c0d36d69a10bea8d00fe45a2fde45527eda984  getOrders: 0.19s ok rows=200  |  listPerpOrderHistory: 0.18s ok rows=100
+0x4e42d094f9d066a013a98a61b34690c882d1f896  getOrders: 0.18s ok rows=200  |  listPerpOrderHistory: 10.28s ERROR database query error
+0xd0e04f285b63b8655678f1fa39923727f1889140  getOrders: 0.22s ok rows=200  |  listPerpOrderHistory: 10.19s ERROR database query error
+0x6c2986a550dc4212b49a1710d8466553e3761ce4  getOrders: 0.22s ok rows=200  |  listPerpOrderHistory: 0.20s ok rows=100
+0x3299e48c454a8084ad37011353c6e14f2622d3c5  getOrders: 0.24s ok rows=200  |  listPerpOrderHistory: 10.16s ERROR database query error
+0x85c6956392aeea8dcec55e6ded069506f248a831  getOrders: 0.20s ok rows=200  |  listPerpOrderHistory: 1.23s ok rows=100
+0x8239544db8718d75111e4aeedc42036742d22e68  getOrders: 0.19s ok rows=200  |  listPerpOrderHistory: 0.19s ok rows=100
+0x567476bd43ff20e6aa44e18abfbdb58280563f45  getOrders: 0.17s ok rows=0  |  listPerpOrderHistory: 0.16s ok rows=0
+0x2a11e7388d1d2f9690f2636846d44b478f61bf08  getOrders: 0.16s ok rows=2  |  listPerpOrderHistory: 0.17s ok rows=1
+0x0e7e8df6eac2e14165b4fa4cb2bd4e445d0e3817  getOrders: 0.19s ok rows=29  |  listPerpOrderHistory: 0.17s ok rows=29
+
+## Pass 3 (01:20 UTC) matrix
+at 2026-10-26T01:20:53.089Z | cells: seconds + ok/ERR (ERR = {"message":"database query error"})
+account | getOrders(a) | getOrders(a,{status:Filled}) | getOrders(a,{pool:BTC}) | listPerpOrderHistory(a) | listPerpOrderHistory(a,{orderBy:placed})
+0x420691db9d2b5a79210fda48c177471386b6dfd1 | 10.6s ERR | 0.8s ok 200 | 0.5s ok 200 | 10.2s ERR | 10.2s ERR
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | 0.4s ok 200 | 1.0s ok 200 | 0.3s ok 200 | 10.2s ERR | 0.2s ok 100
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 | 0.4s ok 200 | 0.4s ok 200 | 0.2s ok 0 | 10.2s ERR | 0.2s ok 100
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d | 0.4s ok 200 | 0.4s ok 200 | 0.2s ok 0 | 10.2s ERR | 0.3s ok 100
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac | 0.4s ok 200 | 0.4s ok 200 | 0.2s ok 0 | 10.2s ERR | 0.4s ok 100
+0x4e42d094f9d066a013a98a61b34690c882d1f896 | 0.3s ok 200 | 0.5s ok 200 | 0.2s ok 0 | 10.2s ERR | 0.5s ok 100
+0xd0e04f285b63b8655678f1fa39923727f1889140 | 0.9s ok 200 | 1.8s ok 200 | 0.3s ok 0 | 10.6s ERR | 0.2s ok 100
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 | 0.2s ok 200 | 0.3s ok 200 | 0.2s ok 0 | 10.2s ERR | 0.2s ok 100
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff | 0.2s ok 200 | 0.2s ok 200 | 0.2s ok 200 | 0.2s ok 100 | 0.2s ok 100
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 | 0.2s ok 200 | 0.2s ok 200 | 0.2s ok 0 | 0.2s ok 100 | 0.2s ok 100
+0x0e7e8df6eac2e14165b4fa4cb2bd4e445d0e3817 | 0.2s ok 29 | 0.2s ok 29 | 0.2s ok 2 | 0.2s ok 29 | 0.2s ok 29
+
+## Variants, 0x420691db (00:55 UTC)
+at 2026-10-26T00:55:01.657Z account 0x420691db9d2b5a79210fda48c177471386b6dfd1
+10.71s ERROR database query error  A SDK default (owner + 21 perp market_ids + status!=Open, ended desc, id desc)
+10.17s ERROR database query error  B SDK opts.pool=BTC (market_id _eq)
+10.17s ERROR database query error  C SDK opts.status=[Filled]
+10.18s ERROR database query error  D owner + status!=Open, no market_id
+10.16s ERROR database query error  E owner only, ended desc
+10.17s ERROR database query error  F SDK where, order_by id desc only
+0.56s ok rows=100  G SDK where, no order_by
+
+## Variants, 0x3024ad2a (01:04 UTC)
+at 2026-10-26T01:04:06.773Z account 0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50
+10.62s ERROR database query error  A SDK default (owner + 21 perp market_ids + status!=Open, ended desc, id desc)
+10.17s ERROR database query error  B SDK opts.pool=BTC (market_id _eq)
+10.18s ERROR database query error  C SDK opts.status=[Filled]
+10.17s ERROR database query error  D owner + status!=Open, no market_id
+10.17s ERROR database query error  E owner only, ended desc
+10.17s ERROR database query error  F SDK where, order_by id desc only
+0.53s ok rows=100  H SDK opts.orderBy='placed' (placedAtTimestamp desc, id desc)
+0.34s ok rows=100  I owner only, placed desc (= client.getOrders sort)
+10.21s ERROR database query error  G SDK where, no order_by
+Q: { Order(where:{owner:{_eq:"0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50"}, status:{_neq:"Open"}}, order_by:[{lastUpdatedAtTimestamp:desc},{id:desc}], limit:100) { id status lastUpdatedAtTimestamp } }
+{"errors":[{"message":"database query error","extensions":{"path":"$","code":"unexpected"}}]}
+
+__time_http 10.684056 200 2026-10-26T01:25:55Z
+Q: { Order(where:{owner:{_eq:"0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50"}, status:{_neq:"Open"}}, order_by:[{placedAtTimestamp:desc},{id:desc}], limit:100) { id status lastUpdatedAtTimestamp } }
+{"data":{"Order":[{"id":"0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0_7766079255031725464281","status":"Cancelled","lastUpdatedAtTimestamp":"1791984497"}, {"id":"
+
+__time_http 0.831311 200 2026-10-26T01:25:56Z

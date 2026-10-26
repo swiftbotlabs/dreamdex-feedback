@@ -1,0 +1,12 @@
+
+> perp-maker@0.1.0 dev
+> tsx watch src/index.ts
+
+perp-maker on XRP-PERP | 25 USDso per side at 2x | half-spread 15bps skew 10bps | cap 100 USDso | dry-run true
+[dry-run] would place quote long 19.4 XRP @ 1.283
+[dry-run] would place quote short 19.4 XRP @ 1.2868
+^C[siglog] bot pid 26 received SIGINT at 2026-10-26T03:07:44.918Z
+
+stopping, finishing the current cycle first. Press Ctrl-C again to exit now.
+[siglog] bot pid 26 received SIGINT at 2026-10-26T03:07:44.921Z
+[siglog] bot pid 26 exit code=1 at 2026-10-26T03:07:44.921Z

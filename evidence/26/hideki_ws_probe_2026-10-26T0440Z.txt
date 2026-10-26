@@ -1,0 +1,4 @@
+2026-10-26T04:40:20.550Z open wss://api.hideki2.infra.testnet.somnia.network/ws
+2026-10-26T04:40:20.551Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"BTC-PERP","orderId":"1"}}
+2026-10-26T04:40:20.750Z << {"jsonrpc":"2.0","id":"unknown","error":{"code":-32600,"message":"invalid request","data":null}}
+2026-10-26T04:40:24.990Z ws error 

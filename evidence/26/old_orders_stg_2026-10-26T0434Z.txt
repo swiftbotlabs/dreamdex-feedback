@@ -1,0 +1,26 @@
+2026-10-26T04:34:04.081Z open wss://stg.api.dreamdex.io/v0/ws/public
+2026-10-26T04:34:04.086Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"959230691832913713755"}}
+2026-10-26T04:34:04.503Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"959230691832913713755"}
+2026-10-26T04:34:04.788Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x34000000000103da5b"}}
+2026-10-26T04:34:05.209Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:34:05.490Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1199038364791142869051"}}
+2026-10-26T04:34:05.908Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1199038364791142869051"}
+2026-10-26T04:34:06.193Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x4100000000014fe83b"}}
+2026-10-26T04:34:06.679Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:34:06.894Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275048430"}}
+2026-10-26T04:34:07.596Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x44000000000185afee"}}
+2026-10-26T04:34:07.840Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1254378597012275048430"}
+2026-10-26T04:34:08.017Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:34:08.209Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"placed","timestamp":1792989191572,"block":524149897,"isBid":false,"price":"176100000000000000","quantity":"750400000000000000000","remaining":"750400000000000000000","expiresAt":1792989221000}
+2026-10-26T04:34:08.209Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"rested","timestamp":1792989191572,"block":524149897}
+2026-10-26T04:34:08.209Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"cancelled","timestamp":1792989200371,"block":524149985}
+2026-10-26T04:34:08.296Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1"}}
+2026-10-26T04:34:08.717Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1"}
+2026-10-26T04:34:08.998Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x1"}}
+2026-10-26T04:34:09.435Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:34:22.768Z << {"operation":"pong","serverTimestamp":1792989262656}
+2026-10-26T04:34:27.352Z SUMMARY wss://stg.api.dreamdex.io/v0/ws/public {"frames":12,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":4}
+  id 1 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 959230691832913713755 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 1199038364791142869051 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 1254378597012275048430 {"subscribed":1,"snapshot":0,"update":3,"events":["placed","rested","cancelled"],"withOrderObj":0,"withOrderStatus":0}

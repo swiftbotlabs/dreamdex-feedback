@@ -1,0 +1,13 @@
+2026-10-26T04:16:41.030Z open wss://api.testnet.dreamdex.io/v0/ws
+2026-10-26T04:16:41.033Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1199038364791142869051"}}
+2026-10-26T04:16:41.524Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1199038364791142869051"}
+2026-10-26T04:16:41.739Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x4100000000014fe83b"}}
+2026-10-26T04:16:42.160Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:16:42.446Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"959230691832913713755"}}
+2026-10-26T04:16:42.868Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"959230691832913713755"}
+2026-10-26T04:16:43.152Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x34000000000103da5b"}}
+2026-10-26T04:16:43.587Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:16:59.719Z << {"operation":"pong","serverTimestamp":1792988219502}
+2026-10-26T04:17:09.200Z SUMMARY wss://api.testnet.dreamdex.io/v0/ws {"frames":5,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":2}
+  id 1199038364791142869051 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 959230691832913713755 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}

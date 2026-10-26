@@ -1,0 +1,12 @@
+# Fetched 2026-10-26T03:37:20Z: curl -s https://app.testnet.dreamdex.io/llms-full.txt (200, 438288 bytes). Lines quoted verbatim.
+3671:Testnet perps run on the **Hideki** testnet chain, which the app shows as the **DreamDEX** region. Build against it with [`@somnia-chain/markets-sdk`](https://www.npmjs.com/package/@somnia-chain/markets-sdk); this page uses version 0.32.1, the one the app runs. For how the markets themselves work, see [Perps on Testnet](../../trading/perps-testnet/README.md).
+6069:Testnet perps run in the **DreamDEX** region of [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps). Everything here uses test funds: nothing you win or lose is real money.
+6076:1. **Sign in** at [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps). On testnet your wallets live in DreamDEX, the region the perp markets are in.
+6095:All 21 markets are margined in USDso. **Paper USDso** shows whether the Perps Arena credit can open positions in that market (see [Paper USDso](margin-and-liquidations.md#paper-usdso)).
+
+# Section headers above those lines:
+line 3671 is under: # /docs/developers/perps-testnet
+lines 6069-6095 are under: # /docs/trading/perps-testnet
+
+# Market rows in the /docs/trading/perps-testnet table:
+BTC-PERP ETH-PERP HYPE-PERP SOL-PERP XRP-PERP ADA-PERP AVAX-PERP BNB-PERP DOGE-PERP LINK-PERP NEAR-PERP SUI-PERP XLM-PERP 1000PEPE-PERP LIT-PERP PUMP-PERP TAO-PERP VVV-PERP WLD-PERP ZEC-PERP ZRO-PERP 

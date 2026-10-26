@@ -1,0 +1,28 @@
+cast 1.8.5 read-only eth_call checks, RPC https://api.hideki2.infra.testnet.somnia.network
+$ cast chain-id --rpc-url $RPC
+50383
+$ cast block-number --rpc-url $RPC  (2026-10-26T03:22:26Z)
+33328034
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getMaxLeverageLimit()(uint16)'
+20
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getVoucherLeverageCap()(uint16)'
+20
+$ cast call 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'getMaxLeverage(address,address)(uint16)' 0xd631B6253990e7669e8cb5100c375ED2F8142122 0x7058579F3248559963f79AdB937c6De9f953E060   # XRP-PERP
+5
+$ cast call --from 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'setMaxLeverage(address,uint16)' 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 20   (2026-10-26T03:22:31Z)
+0x
+
+$ cast call --from 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'setMaxLeverage(address,uint16)' 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 10000   (2026-10-26T03:22:32Z)
+Error: execution reverted: InvalidLeverage
+
+Context:
+- server returned an error response: error code 3: execution reverted, data: "0x7fd13972"
+
+$ cast call --from 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'setMaxLeverage(address,uint16)' 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 200000   (2026-10-26T03:22:35Z)
+Error: parser error:
+200000
+      ^
+number too large to fit in target type
+
+$ cast sig 'InvalidLeverage()'
+0x7fd13972

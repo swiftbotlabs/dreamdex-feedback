@@ -1,0 +1,29 @@
+2026-10-26T04:33:16.731Z head 524149939 OrderRested topic0 0xcdd45acd62788abc10f79d86fac34df2a63e1a3b20f061c5bcf431ff6a09b866 logs in last 300 blocks: 34
+2026-10-26T04:33:16.732Z   rested id 1254378597012275048430 block 524149897 tx 0xe2364d3d0818ca7e48a204d054f0a3eee48c2c457e91c853b46cb7d34b4cfda8
+2026-10-26T04:33:16.733Z   rested id 922337203685503119343 block 524149897 tx 0xe2364d3d0818ca7e48a204d054f0a3eee48c2c457e91c853b46cb7d34b4cfda8
+2026-10-26T04:33:18.553Z open wss://stg.api.dreamdex.io/v0/ws/public
+2026-10-26T04:33:18.554Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275048430"}}
+2026-10-26T04:33:19.152Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1254378597012275048430"}
+2026-10-26T04:33:19.153Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"placed","timestamp":1792989191572,"block":524149897,"isBid":false,"price":"176100000000000000","quantity":"750400000000000000000","remaining":"750400000000000000000","expiresAt":1792989221000}
+2026-10-26T04:33:19.153Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"rested","timestamp":1792989191572,"block":524149897}
+2026-10-26T04:33:19.256Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x44000000000185afee"}}
+2026-10-26T04:33:19.706Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:19.960Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x44000000000185afee"}}
+2026-10-26T04:33:20.401Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:20.662Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"1254378597012275048430"}}
+2026-10-26T04:33:20.706Z << {"channel":"order","type":"update","orderId":"1254378597012275048430","event":"cancelled","timestamp":1792989200371,"block":524149985}
+2026-10-26T04:33:21.100Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:21.363Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"922337203685503119343"}}
+2026-10-26T04:33:21.812Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"922337203685503119343"}
+2026-10-26T04:33:21.814Z << {"channel":"order","type":"update","orderId":"922337203685503119343","event":"placed","timestamp":1792989191572,"block":524149897,"isBid":false,"price":"176200000000000000","quantity":"844200000000000000000","remaining":"844200000000000000000","expiresAt":1792989221000}
+2026-10-26T04:33:21.814Z << {"channel":"order","type":"update","orderId":"922337203685503119343","event":"rested","timestamp":1792989191572,"block":524149897}
+2026-10-26T04:33:21.814Z << {"channel":"order","type":"update","orderId":"922337203685503119343","event":"cancelled","timestamp":1792989200371,"block":524149985}
+2026-10-26T04:33:22.064Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x32000000000185afef"}}
+2026-10-26T04:33:22.496Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:22.765Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x32000000000185afef"}}
+2026-10-26T04:33:23.199Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:23.466Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"922337203685503119343"}}
+2026-10-26T04:33:23.899Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:33:36.749Z SUMMARY wss://stg.api.dreamdex.io/v0/ws/public {"frames":14,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":6}
+  id 1254378597012275048430 {"subscribed":1,"snapshot":0,"update":3,"events":["placed","rested","cancelled"],"withOrderObj":0,"withOrderStatus":0}
+  id 922337203685503119343 {"subscribed":1,"snapshot":0,"update":3,"events":["placed","rested","cancelled"],"withOrderObj":0,"withOrderStatus":0}

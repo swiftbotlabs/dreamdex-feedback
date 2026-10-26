@@ -1,0 +1,27 @@
+checked at 2026-10-26T03:12:01.911Z chainId 50383 head 33321810n
+watch: bid placed    block 33263643 2026-10-26T01:35:05.000Z status success from BOT key to XRP-PERP pool sel 0x4e978373 orderId-in-calldata -
+watch: ask placed    block 33263650 2026-10-26T01:35:06.000Z status success from BOT key to XRP-PERP pool sel 0x4e978373 orderId-in-calldata -
+manual cancel 1      block 33264914 2026-10-26T01:37:12.000Z status success from BOT key to XRP-PERP pool sel 0xdbc91396 orderId-in-calldata watchBid
+manual cancel 2      block 33264917 2026-10-26T01:37:12.000Z status success from BOT key to XRP-PERP pool sel 0xdbc91396 orderId-in-calldata watchAsk
+plain: bid placed    block 33265180 2026-10-26T01:37:39.000Z status success from BOT key to XRP-PERP pool sel 0x4e978373 orderId-in-calldata -
+plain: ask placed    block 33265187 2026-10-26T01:37:40.000Z status success from BOT key to XRP-PERP pool sel 0x4e978373 orderId-in-calldata -
+plain: bot cancel 1  block 33265225 2026-10-26T01:37:43.000Z status success from BOT key to XRP-PERP pool sel 0xdbc91396 orderId-in-calldata plainBid
+plain: bot cancel 2  block 33265229 2026-10-26T01:37:44.000Z status success from BOT key to XRP-PERP pool sel 0xdbc91396 orderId-in-calldata plainAsk
+watch run, after both placed             block 33263651 (2026-10-26T01:35:06.000Z) watchBid: owner BOT isBid true full 7700000 remaining 7700000
+watch run, after both placed             block 33263651 (2026-10-26T01:35:06.000Z) watchAsk: owner BOT isBid false full 7700000 remaining 7700000
+watch run, ~SIGINT+1s (01:35:10Z)        block 33263700 (2026-10-26T01:35:11.000Z) watchBid: owner BOT isBid true full 7700000 remaining 7700000
+watch run, ~SIGINT+1s (01:35:10Z)        block 33263700 (2026-10-26T01:35:11.000Z) watchAsk: owner BOT isBid false full 7700000 remaining 7700000
+watch run, first run's 01:36:58Z block      block 33264772 (2026-10-26T01:36:58.000Z) watchBid: owner BOT isBid true full 7700000 remaining 7700000
+watch run, first run's 01:36:58Z block      block 33264772 (2026-10-26T01:36:58.000Z) watchAsk: owner BOT isBid false full 7700000 remaining 7700000
+watch run, block before manual cancel    block 33264913 (2026-10-26T01:37:12.000Z) watchBid: owner BOT isBid true full 7700000 remaining 7700000
+watch run, block before manual cancel    block 33264913 (2026-10-26T01:37:12.000Z) watchAsk: owner BOT isBid false full 7700000 remaining 7700000
+watch run, after manual cancels          block 33264918 (2026-10-26T01:37:13.000Z) watchBid: ERR The contract function "getOrder" reverted with the following signature:
+0x8080c2ed
+watch run, after manual cancels          block 33264918 (2026-10-26T01:37:13.000Z) watchAsk: ERR The contract function "getOrder" reverted with the following signature:
+0x8080c2ed
+plain run, block before bot cancel       block 33265224 (2026-10-26T01:37:43.000Z) plainBid: owner BOT isBid true full 7700000 remaining 7700000
+plain run, block before bot cancel       block 33265224 (2026-10-26T01:37:43.000Z) plainAsk: owner BOT isBid false full 7700000 remaining 7700000
+plain run, after bot cancels             block 33265230 (2026-10-26T01:37:44.000Z) plainBid: ERR The contract function "getOrder" reverted with the following signature:
+0x8080c2ed
+plain run, after bot cancels             block 33265230 (2026-10-26T01:37:44.000Z) plainAsk: ERR The contract function "getOrder" reverted with the following signature:
+0x8080c2ed

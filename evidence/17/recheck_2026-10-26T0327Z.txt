@@ -1,0 +1,59 @@
+# recheck indexer-api-0, start 2026-10-26T03:27:16.950Z
+
+## 1. SDK query document (listPerpOrderRejections({ owner: 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b }) -> where {owner:{_eq}}, limit 50, offset 0)
+HTTP 200 674 ms at 2026-10-26T03:27:17.625Z watermark [{"chain_id":50383,"latest_processed_block":33330933}]
+raw rows: [{"id":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","pool":"0xb483ec1fb34996638677c20ab087b16f1896fa53","reason":0,"requestIndex":"0","timestamp":"1792546953","blockNumber":"28950329","txHash":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c"},{"id":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab_63","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","pool":"0xb483ec1fb34996638677c20ab087b16f1896fa53","reason":3,"requestIndex":"0","timestamp":"1792546953","blockNumber":"28950325","txHash":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab"}]
+as the SDK maps them: [{"id":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42","reason":"None","reasonRaw":0,"requestIndex":"0","blockNumber":"28950329","txHash":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c"},{"id":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab_63","reason":"PostOnlyWouldCross","reasonRaw":3,"requestIndex":"0","blockNumber":"28950325","txHash":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab"}]
+
+## 2. Same query plus the columns the SDK does not select (isAmend, oldOrderId)
+HTTP 200 165 ms at 2026-10-26T03:27:17.790Z
+  0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42 reason 0 requestIndex 0 block 28950329 isAmend true oldOrderId 14941862699704743729270
+  0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab_63 reason 3 requestIndex 0 block 28950325 isAmend true oldOrderId 14941862699704743729270
+
+## 3. Owner 0xdba45e5480fc0f365d36e79a2e9eacdb98ac44f9: newest 50 rows (SDK default limit), isAmend split; and any isAmend=false row at all
+HTTP 200 at 2026-10-26T03:27:18.003Z rows 50 isAmend split {"true":50} reasons {"3":50} oldOrderId values ["0","14314673401198619377518","17782661287056015081284","15790412927095383236660","7692292278736890076738","11732129230879281879906","7415591117631246801378","5238875316933521064223","14868075723409905909693","5939851591734482927621","16749643618928279894794","10385516913498485890154","16749643618928279894551","6769955075051412469955"]
+  newest: 0x58778fdc629c789a2132fa6f61c10d99c96d186b15ac68efb3b196d4b1d331a2_62 block 30509340 tx 0x58778fdc629c789a2132fa6f61c10d99c96d186b15ac68efb3b196d4b1d331a2
+  isAmend=false rows for 0xdba45e5480fc0f365d36e79a2e9eacdb98ac44f9: 0
+
+## 4. Control: a placeOrders rejection row, and the Order row the 0x440e amend rows point at
+   {"PerpOrderRejection_by_pk":{"id":"0xacc5d5e968716e67d5359d71fde00d7b67bef6022a711ae187909859023bb128_15","owner":"0x8239544db8718d75111e4aeedc42036742d22e68","pool":"0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0","reason":5,"requestIndex":"0","blockNumber":"33232851","isAmend":false,"oldOrderId":null}}
+   {"Order":[{"id":"0xb483ec1fb34996638677c20ab087b16f1896fa53_14941862699704743729270","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","status":"Cancelled","fullQuantity":"100000000","filledQuantity":"0","placedAtBlock":"28950307","lastUpdatedAtBlock":"28950325"}]}
+
+## 5. Rows with reason 0 ("None") in the whole table
+   {"PerpOrderRejection":[{"id":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","reason":0,"isAmend":true,"oldOrderId":"14941862699704743729270","blockNumber":"28950329"}]}
+
+## 6. All isAmend=true rows (keyset paging by id, 1000 per request)
+  at 2026-10-26T03:27:35.189Z: isAmend=true rows 16856 by reason {"0":1,"1":6,"2":2,"3":16847} oldOrderId=="0": 80 owners 406 pools 15
+
+## 7. Transactions on the Hideki RPC (https://api.hideki2.infra.testnet.somnia.network)
+  selector 0x24ea3d1f = placeOrders
+  selector 0xddb300e4 = amendOrders
+  selector 0xd89b1396 = amendOrdersFor
+  topic0 0x301df5439616a26556fbd4318a9c8816c072c80c47a991818fcc1e0d5564b0ed = AmendRejected(address,uint128,uint8,uint256)
+  topic0 0xa8d29afa5f94c3b7716775d4d634f8b829870b24615782f87b7796a33f7c3057 = OrderRejected(address,uint8,uint256)
+  topic0 0x06ff08ed6b6987bb7df963009d8b54dc03988f4e465c009924929bb010fe03e7 = OrderCancelled(uint128)
+
+  TX 0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab
+    block 28950325 status success from 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b to 0xb483ec1fb34996638677c20ab087b16f1896fa53 selector 0xddb300e4
+    decoded: amendOrders requests [{"oldOrderId":"14941862699704743729270","alwaysPlace":false,"orderType":3,"isBid":true}]
+    log 61 addr 0x478769e1177c0773c43a593dccc4ad15f15f1394 topic0 0x5c87c81b4945a78d… (other)
+    log 62 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 OrderCancelled(uint128) orderId 14941862699704743729270
+    log 63 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 AmendRejected(address,uint128,uint8,uint256) owner 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b oldOrderId 14941862699704743729270 reason 3 requestIndex 0
+
+  TX 0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c
+    block 28950329 status success from 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b to 0xb483ec1fb34996638677c20ab087b16f1896fa53 selector 0xddb300e4
+    decoded: amendOrders requests [{"oldOrderId":"14941862699704743729270","alwaysPlace":false,"orderType":0,"isBid":true}]
+    log 42 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 AmendRejected(address,uint128,uint8,uint256) owner 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b oldOrderId 14941862699704743729270 reason 0 requestIndex 0
+
+  TX 0xacc5d5e968716e67d5359d71fde00d7b67bef6022a711ae187909859023bb128
+    block 33232851 status success from 0x8239544db8718d75111e4aeedc42036742d22e68 to 0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0 selector 0x24ea3d1f
+    decoded: placeOrders requests [{"orderType":2,"isBid":true}]
+    log 15 addr 0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0 OrderRejected(address,uint8,uint256) owner 0x8239544db8718d75111e4aeedc42036742d22e68 reason 5 requestIndex 0
+
+  TX 0x58778fdc629c789a2132fa6f61c10d99c96d186b15ac68efb3b196d4b1d331a2
+    block 30509340 status success from 0xaa4a20a097ff24abe32c7aaca6115b7159571af4 to 0xd6cb1dd58580b84d76068ac21594219ce03aeddf selector 0xd89b1396
+    decoded: amendOrdersFor account 0xdBA45e5480fc0F365d36E79A2E9EAcdB98aC44F9 requests [{"oldOrderId":"0","alwaysPlace":true,"orderType":0,"isBid":true},{"oldOrderId":"0","alwaysPlace":true,"orderType":0,"isBid":false}]
+    log 61 addr 0xd6cb1dd58580b84d76068ac21594219ce03aeddf AmendRejected(address,uint128,uint8,uint256) owner 0xdba45e5480fc0f365d36e79a2e9eacdb98ac44f9 oldOrderId 0 reason 3 requestIndex 0
+    log 62 addr 0xd6cb1dd58580b84d76068ac21594219ce03aeddf AmendRejected(address,uint128,uint8,uint256) owner 0xdba45e5480fc0f365d36e79a2e9eacdb98ac44f9 oldOrderId 0 reason 3 requestIndex 1
+
+# end 2026-10-26T03:27:37.750Z

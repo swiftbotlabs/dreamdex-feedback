@@ -1,0 +1,5 @@
+fetched 2026-10-26T03:30:43Z https://somnia-platform-docs.vercel.app/markets/somnia-markets/typescript/perps
+call: hist = await client.listPerpOrderHistory(account, { limit: 100 }); // FINISHED orders const state = 
+prose: ot indexed rows. getPerpPortfolio returns open orders only, so listPerpOrderHistory is the other half — finished orders, most-recently-ended first. It excludes working orders by default and sorts by when each order ended rather than when it was placed, so a long-resting order that just filled lands at the top of a hist
+sort: Sort axis is selectable — orderBy: "ended" (default) or "placed" . Wat
+mentions timeout: 0

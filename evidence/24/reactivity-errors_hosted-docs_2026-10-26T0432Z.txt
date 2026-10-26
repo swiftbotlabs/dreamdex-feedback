@@ -1,0 +1,18 @@
+Hosted copies of the SDK Reactivity page, fetched with curl (browser UA), 2026-10-26 UTC.
+
+== https://prd.smk.somnia.host/docs/typescript/reactivity  HTTP 200, 403123 bytes, 04:32:10Z (saved: reactivity-errors_page_2026-10-26T0432Z.html)
+  [found] Note that writes need a wallet client : pass one to createReactivity , or upstream's write silently resolves to null . Cancel with unsubscribe(subscriptionId) (owner only), read one back with getSubscriptionInfo(subscriptionId) , and use subscribeRaw when you 
+  [found] Upstream methods resolve to T | Error instead of throwing. Two ways to live with that, both fine: ts // 1. this SDK's contract — throw (recommended) const hash = unwrap ( await reactivity. subscribe ({ ... })); // 2. upstream's own idiom — check const result =
+  [found] if (result instanceof Error ) throw result; Local development The precompile does not exist on anvil or hardhat — check isLocalPrecompileUnavailable(chainId) before offering Solidity subscriptions in a UI, and note that it has no bytecode on any chain, so eth_
+  [found] upstream returns Error objects; this SDK throws instead, so a failure stops the caller SOMNIA_REACTIVITY_PRECOMPILE_ADDRESS not exposed by upstream's published build DEFAULT_SUBSCRIPTION_OPTIONS the protocol's own SomniaExtensions.DEFAULT_* values: upstream sh
+
+== https://somnia-platform-docs.vercel.app/markets/somnia-markets/typescript/reactivity  HTTP 200, 175319 bytes, 04:33:20Z
+  [found] Note that writes need a wallet client : pass one to createReactivity , or upstream's write silently resolves to null . Upstream sends each write on the wallet's chain, so the wallet must be on the engine's chain. When wallet.chain is set to another chain, crea
+  [found] Upstream methods resolve to T | Error instead of throwing. Two ways to live with that, both fine: // 1. this SDK's contract — throw (recommended) const hash = unwrap(await reactivity.subscribe({ ... })); // 2. upstream's own idiom — check const result = await 
+  [found] (tags stripped without spaces on this host) ...const result = await reactivity.subscribe({ ... }); if (result instanceof Error) throw result; Copy Loc...
+  [found] upstream returns Error objects; this SDK throws instead, so a failure stops the caller SOMNIA_REACTIVITY_PRECOMPILE_ADDRESS not exposed by upstream's published build DEFAULT_SUBSCRIPTION_OPTIONS the protocol's own SomniaExtensions.DEFAULT_* values: upstream sh
+
+== https://somnia-platform-explorer.vercel.app/markets/llms-full.txt  HTTP 200, 1176525 bytes, 04:33:21Z
+  line 6548: to `createReactivity`, or upstream's write silently resolves to `null`.
+  line 6577: Upstream methods resolve to `T | Error` instead of throwing. Two ways to live
+  line 6586: if (result instanceof Error) throw result;

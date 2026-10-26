@@ -1,0 +1,6 @@
+# 2026-10-26T03:35:58Z introspection of OpenInterestSnapshot on https://hideki-dev.smk.somnia.host/v1/graphql
+{"name":"blockNumber","type":"numeric"}
+{"name":"id","type":"String"}
+{"name":"openInterest","type":"numeric"}
+{"name":"pool","type":"String"}
+{"name":"timestamp","type":"numeric"}

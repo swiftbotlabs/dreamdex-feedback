@@ -1,0 +1,20 @@
+export const OpenInterestHistoryDocument = new TypedDocumentString(`
+    query OpenInterestHistory($pool: String!, $limit: Int, $offset: Int) {
+  _sdkWatermark: chain_metadata {
+    chain_id
+    latest_processed_block
+  }
+  OpenInterestSnapshot(
+    where: {pool: {_eq: $pool}}
+    order_by: {timestamp: desc}
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    pool
+    openInterest
+    timestamp
+    blockNumber
+  }
+}
+    `);

@@ -1,0 +1,16 @@
+2026-10-26T04:21:05.222Z REST(before) GET https://api.testnet.dreamdex.io/v0/markets/WETH%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:20:54.000, oldest 04:02:54.000
+2026-10-26T04:21:05.223Z REST(before) row[0] keys=id,timestamp,chainId,symbol,kind,contract,side,price,amount,cost,takerRemaining,makerRemaining,txHash id=524142526_3 ts=1792988454000 price=2309.02 qty=0.0016 side=sell
+2026-10-26T04:21:07.055Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":1}}
+2026-10-26T04:21:07.563Z << limit=1: 1 trades, order n/a, first 04:21:04.000, last 04:21:04.000, ids[0..1]=524142626_38, ids in REST 0/1, same trade by (ts,price,qty,side) in REST 0/1, REST rows older than WS oldest: 100, msgs=subscribed,snapshot
+2026-10-26T04:21:10.284Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":3}}
+2026-10-26T04:21:10.759Z << limit=3: 3 trades, order DESC(newest first), first 04:21:04.000, last 04:20:44.000, ids[0..1]=524142626_38 524142526_3, ids in REST 2/3, same trade by (ts,price,qty,side) in REST 2/3, REST rows older than WS oldest: 98, msgs=subscribed,snapshot
+2026-10-26T04:21:14.047Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":10}}
+2026-10-26T04:21:14.524Z << limit=10: 10 trades, order DESC(newest first), first 04:21:04.000, last 04:19:34.000, ids[0..1]=524142626_38 524142526_3, ids in REST 9/10, same trade by (ts,price,qty,side) in REST 9/10, REST rows older than WS oldest: 91, msgs=subscribed,snapshot
+2026-10-26T04:21:17.932Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":100}}
+2026-10-26T04:21:18.611Z << limit=100: 100 trades, order DESC(newest first), first 04:21:14.000, last 04:03:14.000, ids[0..1]=524142726_3 524142626_38, ids in REST 98/100, same trade by (ts,price,qty,side) in REST 98/100, REST rows older than WS oldest: 2, msgs=subscribed,snapshot
+2026-10-26T04:21:22.081Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"]}}
+2026-10-26T04:21:22.969Z << limit=undefined: 100 trades, order DESC(newest first), first 04:21:14.000, last 04:03:14.000, ids[0..1]=524142726_3 524142626_38, ids in REST 98/100, same trade by (ts,price,qty,side) in REST 98/100, REST rows older than WS oldest: 2, msgs=subscribed,snapshot
+2026-10-26T04:21:26.621Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":500}}
+2026-10-26T04:21:27.922Z << limit=500: 500 trades, order DESC(newest first), first 04:21:24.000, last 02:49:44.000, ids[0..1]=524142826_4 524142726_3, ids in REST 100/500, same trade by (ts,price,qty,side) in REST 100/500, REST rows older than WS oldest: 0, msgs=subscribed,snapshot
+2026-10-26T04:21:31.255Z REST(after) GET https://api.testnet.dreamdex.io/v0/markets/WETH%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:21:24.000, oldest 04:03:24.000
+2026-10-26T04:21:31.255Z REST(after) row[0] keys=id,timestamp,chainId,symbol,kind,contract,side,price,amount,cost,takerRemaining,makerRemaining,txHash id=524142826_4 ts=1792988484000 price=2309.55 qty=0.0019 side=buy

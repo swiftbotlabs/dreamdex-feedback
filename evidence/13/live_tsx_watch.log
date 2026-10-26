@@ -1,0 +1,6 @@
+perp-maker on XRP-PERP | 10 USDso per side at 10x | half-spread 100bps skew 10bps | cap 100 USDso | dry-run false
+MarginBank ready: 3.39 unlocked, 0.00 locked, equity 3.39, status Healthy.
+placed quote long 7.7 XRP @ 1.2778 | filled 0 | order 664082786653550186447
+placed quote short 7.7 XRP @ 1.3036 | filled 0 | order 866996971464355254224
+
+stopping, finishing the current cycle first. Press Ctrl-C again to exit now.

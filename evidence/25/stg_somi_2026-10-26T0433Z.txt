@@ -1,0 +1,16 @@
+2026-10-26T04:33:52.041Z REST(before) GET https://stg.api.dreamdex.io/v0/markets/SOMI%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:33:48.571, oldest 04:16:58.383
+2026-10-26T04:33:52.045Z REST(before) row[0] keys=amount,cost,id,price,side,symbol,timestamp,txHash id=627189298506150293511:1272825341085984600061 ts=1792989228571 price=0.1756 qty=25 side=sell
+2026-10-26T04:33:53.932Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":1}}
+2026-10-26T04:33:54.427Z << limit=1: trades is null (not an array). raw: {"channel":"trades","type":"snapshot","symbol":"SOMI:USDso","trades":null}  msgs=subscribed,snapshot
+2026-10-26T04:33:57.291Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":3}}
+2026-10-26T04:33:57.742Z << limit=3: 1 trades, order n/a, first 04:33:48.571, last 04:33:48.571, ids[0..1]=1792989228720-0, ids in REST 0/1, same trade by (ts,price,qty,side) in REST 1/1, REST rows older than WS oldest: 99, msgs=subscribed,snapshot
+2026-10-26T04:34:00.835Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":10}}
+2026-10-26T04:34:01.371Z << limit=10: 5 trades, order ASC(oldest first), first 04:33:18.573, last 04:33:58.572, ids[0..1]=1792989198748-0 1792989208771-0, ids in REST 0/5, same trade by (ts,price,qty,side) in REST 4/5, REST rows older than WS oldest: 96, msgs=subscribed,snapshot
+2026-10-26T04:34:04.458Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":100}}
+2026-10-26T04:34:05.037Z << limit=100: 11 trades, order ASC(oldest first), first 04:32:18.572, last 04:33:58.572, ids[0..1]=1792989138755-0 1792989148834-0, ids in REST 0/11, same trade by (ts,price,qty,side) in REST 10/11, REST rows older than WS oldest: 90, msgs=subscribed,snapshot
+2026-10-26T04:34:08.262Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"]}}
+2026-10-26T04:34:08.692Z << limit=undefined: 11 trades, order ASC(oldest first), first 04:32:18.572, last 04:33:58.572, ids[0..1]=1792989138755-0 1792989148834-0, ids in REST 0/11, same trade by (ts,price,qty,side) in REST 10/11, REST rows older than WS oldest: 90, msgs=subscribed,snapshot
+2026-10-26T04:34:11.716Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":500}}
+2026-10-26T04:34:12.157Z << limit=500: 11 trades, order ASC(oldest first), first 04:32:28.572, last 04:34:08.572, ids[0..1]=1792989148834-0 1792989158732-0, ids in REST 0/11, same trade by (ts,price,qty,side) in REST 9/11, REST rows older than WS oldest: 91, msgs=subscribed,snapshot
+2026-10-26T04:34:15.296Z REST(after) GET https://stg.api.dreamdex.io/v0/markets/SOMI%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:34:08.572, oldest 04:17:18.382
+2026-10-26T04:34:15.296Z REST(after) row[0] keys=amount,cost,id,price,side,symbol,timestamp,txHash id=627189298506150293523:1272825341085984600073 ts=1792989248572 price=0.1756 qty=25 side=sell

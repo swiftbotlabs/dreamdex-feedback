@@ -1,0 +1,8 @@
+2026-10-26T03:40:15Z
+cast Version: 1.8.5
+$ cast 4byte 0x44a03a20
+Error: No matching function signatures found for selector `0x44a03a20`
+rc=1
+$ cast decode-error 0x44a03a200000000000000000000000000000000000000000000000b9000000000092049b
+Error: No matching error signature found for selector `44a03a20`
+rc=1

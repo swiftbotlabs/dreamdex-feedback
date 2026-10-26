@@ -1,0 +1,15 @@
+# RPC https://api.hideki2.infra.testnet.somnia.network; OpenInterestUpdated logs of the pool in one block + getOpenInterest() at that block
+{"at":"2026-10-26T03:34:38.947Z","chainId":50383,"block":"31777970","blockTimestamp":"1792829880"}
+  logIndex 103 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5353500000000
+  logIndex 109 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5826800000000
+  logIndex 115 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5858200000000
+  getOpenInterest() at end of block 31777970: 5858200000000
+{"at":"2026-10-26T03:34:41.605Z","chainId":50383,"block":"30362653","blockTimestamp":"1792688287"}
+  logIndex 49 tx 0xa7bca9e91fa6eb48bd268188e98607c96bf6cb9b0b2e6415a305c8f2bfe23437 openInterest 3510700000000
+  logIndex 54 tx 0xa7bca9e91fa6eb48bd268188e98607c96bf6cb9b0b2e6415a305c8f2bfe23437 openInterest 3074000000000
+  logIndex 59 tx 0xa7bca9e91fa6eb48bd268188e98607c96bf6cb9b0b2e6415a305c8f2bfe23437 openInterest 2198100000000
+  getOpenInterest() at end of block 30362653: 2198100000000
+{"at":"2026-10-26T03:34:43.897Z","chainId":50383,"block":"31439536","blockTimestamp":"1792796026"}
+  logIndex 100 tx 0x500d40437f93fb8a4d3d94338d0a45468c4ef798c0764a0e2d3d8343ea715c0b openInterest 2285700000000000000000000
+  logIndex 106 tx 0x500d40437f93fb8a4d3d94338d0a45468c4ef798c0764a0e2d3d8343ea715c0b openInterest 2726200000000000000000000
+  getOpenInterest() at end of block 31439536: 2726200000000000000000000

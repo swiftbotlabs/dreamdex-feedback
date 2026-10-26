@@ -1,0 +1,59 @@
+# @somnia-chain/markets-sdk 0.32.1 src/perp/history.ts (tarball sha512 matches npm dist.integrity sha512-RfshQP8X...F0Og==)
+## lines 1006,1018
+  1006	/** A perp pool's open-interest history, newest first — paginated. */
+  1007	export async function getOpenInterestHistory(
+  1008	  pool: string,
+  1009	  opts: { limit?: number; offset?: number } = {},
+  1010	  indexerUrl: IndexerRead.Source,
+  1011	): Promise<OpenInterestSnapshot[]> {
+  1012	  const data = await IndexerRead.gqlRequest(
+  1013	    OpenInterestHistoryQuery,
+  1014	    { pool: pool.toLowerCase(), limit: opts.limit ?? 100, offset: opts.offset ?? 0 },
+  1015	    indexerUrl,
+  1016	  );
+  1017	  return data.OpenInterestSnapshot;
+  1018	}
+## lines 1040,1056
+  1040	// prettier-ignore
+  1041	// ORDERED BY A TOTAL KEY, not by `timestamp` alone. Every row a block produces
+  1042	// carries that block's timestamp, so a timestamp-only sort leaves ties in an
+  1043	// order the server may choose differently per request - and an `offset` page
+  1044	// boundary landing inside one block then skips or repeats a row, silently in the
+  1045	// skip case. `id` is the primary key, so appending it makes the order total and
+  1046	// the paging contract honest; `blockNumber` sits between so rows still group by
+  1047	// block when two blocks share a timestamp.
+  1048	const LiquidationsQuery = graphql(`
+  1049	  query Liquidations($where: LiquidationEvent_bool_exp!, $limit: Int, $offset: Int) {
+  1050	    _sdkWatermark: chain_metadata { chain_id latest_processed_block }
+  1051	         LiquidationEvent(where: $where, order_by: [{timestamp: desc}, {blockNumber: desc}, {id: desc}], limit: $limit, offset: $offset) {
+  1052	           id account pool kind size price counterparty penalty
+  1053	           badDebt insuranceCovered deficit coverageDeclined collateralAmount equity
+  1054	           positionsProcessed stageReached marginStatusBefore marginStatusAfter
+  1055	           timestamp blockNumber txHash
+  1056	         }
+## lines 1095,1104
+  1095	
+  1096	// prettier-ignore
+  1097	const OpenInterestHistoryQuery = graphql(`
+  1098	  query OpenInterestHistory($pool: String!, $limit: Int, $offset: Int) {
+  1099	    _sdkWatermark: chain_metadata { chain_id latest_processed_block }
+  1100	         OpenInterestSnapshot(where: {pool: {_eq: $pool}}, order_by: {timestamp: desc}, limit: $limit, offset: $offset) {
+  1101	           id pool openInterest timestamp blockNumber
+  1102	         }
+  1103	       }
+  1104	`);
+## src/somniaMarketsClient.ts lines 3134-3135
+  /** A perp pool's open-interest history, newest first — paginated. */
+  getOpenInterestHistory(pool: string, opts?: { limit?: number; offset?: number }): Promise<OpenInterestSnapshot[]>;
+## docs/PERPS.md lines 905-911
+`listFundingRateHistory` / `getOpenInterestHistory` are the append-only
+counterparts to the overwrite-only `fundingRate` / `openInterest` fields on the
+perp `Market` row (which only carry the latest value). `getFundingRateHistory` is
+the deprecated alias of the first; it forwards verbatim. `listFundingRateHistory`
+sorts on `timestamp`, then `blockNumber`, then `id`, all in the direction of
+`order`. Rows that share a timestamp therefore come back in the same order on
+every read.
+## canary 0.32.2-canary.38575926931 src/perp/history.ts line 1100
+         OpenInterestSnapshot(where: {pool: {_eq: $pool}}, order_by: {timestamp: desc}, limit: $limit, offset: $offset) {
+## src/perp/history.ts line 1024 (FundingPaymentsQuery)
+  1024	         FundingPayment(where: $where, order_by: [{timestamp: desc}, {id: desc}], limit: $limit, offset: $offset) {

@@ -1,0 +1,121 @@
+# dreamDEX Documentation
+
+> dreamDEX is a fully on-chain CLOB DEX on the Somnia network: zero-fee spot trading, event contracts, and a yield-bearing order book. User guides plus developer docs for the smart contracts, HTTP API, WebSocket API, and event-contract SDK integration.
+
+## Welcome
+
+- [Introduction](/docs/README.md)
+- [Why dreamDEX?](/docs/welcome/why-dreamdex.md)
+- [Making Your First Deposit](/docs/welcome/making-your-first-deposit.md)
+- [Quick Start](/docs/welcome/quick-start.md)
+- [Roadmap](/docs/welcome/roadmap.md)
+
+## Trading
+
+- [Overview](/docs/trading/README.md)
+
+### Common
+
+- [Fees](/docs/trading/common/fees.md)
+- [Collateral Yield Algorithm](/docs/trading/common/yield-algorithm.md)
+- [Order Types](/docs/trading/common/order-types.md)
+- [Link a Bot](/docs/trading/common/link-a-bot.md)
+
+### Spot
+
+- [Overview](/docs/trading/spot/README.md)
+- [Simple Swap](/docs/trading/spot/simple-swap.md)
+- [Operators & Session Keys](/docs/trading/spot/operators.md)
+- [Stop Orders](/docs/trading/spot/stop-orders.md)
+
+### Event Contracts
+
+- [Overview](/docs/trading/event-contracts/README.md)
+- [Settlement & Voids](/docs/trading/event-contracts/settlement-and-voids.md)
+- [FAQ](/docs/trading/event-contracts/faq.md)
+
+### Perps (Testnet)
+
+- [Overview](/docs/trading/perps-testnet/README.md)
+- [Margin & Liquidations](/docs/trading/perps-testnet/margin-and-liquidations.md)
+- [Funding](/docs/trading/perps-testnet/funding.md)
+- [Orders](/docs/trading/perps-testnet/orders.md)
+
+### Lend
+
+- [Overview](/docs/trading/earn/README.md)
+
+## Developers
+
+- [Overview](/docs/developers/README.md)
+
+### Contracts
+
+- [Overview](/docs/developers/contracts/README.md)
+- [Addresses](/docs/developers/contracts/contract-addresses.md)
+- [Specifications](/docs/developers/contracts/contract-specifications.md)
+- [Functions](/docs/developers/contracts/functions.md)
+- [Events](/docs/developers/contracts/events.md)
+- [Types](/docs/developers/contracts/types.md)
+- [Errors](/docs/developers/contracts/errors.md)
+- [SpotRouter](/docs/developers/contracts/spot-router.md)
+
+### HTTP API
+
+- [Overview](/docs/developers/http-api/README.md)
+- [Error Handling](/docs/developers/http-api/error-handling.md)
+- [Authentication](/docs/developers/http-api/authentication.md)
+- [Market Data](/docs/developers/http-api/market-data.md)
+- [Trading](/docs/developers/http-api/trading.md)
+- [Builder Fees](/docs/developers/http-api/builder-fees.md)
+- [Vault](/docs/developers/http-api/vault.md)
+- [Wallets](/docs/developers/http-api/wallets.md)
+- [Portfolio](/docs/developers/http-api/portfolio.md)
+
+### Libraries
+
+- [Overview](/docs/developers/libraries/README.md)
+- [CCXT](/docs/developers/libraries/ccxt.md)
+
+### Event Contracts
+
+- [Overview](/docs/developers/event-contracts/README.md)
+- [Recipes](/docs/developers/event-contracts/recipes.md)
+- [Market Structure & Lifecycle](/docs/developers/event-contracts/market-structure.md)
+- [Contracts & Addresses](/docs/developers/event-contracts/contracts-and-addresses.md)
+- [Gotchas](/docs/developers/event-contracts/gotchas.md)
+
+### Perps (Testnet)
+
+- [Overview](/docs/developers/perps-testnet/README.md)
+
+### WebSocket API
+
+- [Overview](/docs/developers/websocket-api/README.md)
+- [Real-Time Feed](/docs/developers/websocket-api/real-time-feed.md)
+- [Operations](/docs/developers/websocket-api/operations.md)
+- [Errors](/docs/developers/websocket-api/errors.md)
+
+## Security
+
+- [Risks](/docs/security/risks.md)
+- [Audits](/docs/security/audits.md)
+
+## Support
+
+- [Overview](/docs/support/README.md)
+- [Get help](/docs/support/get-help.md)
+
+### FAQ
+
+- [Overview](/docs/support/faq/README.md)
+- [My funds are not showing](/docs/support/faq/funds-not-showing.md)
+- [My order was rejected](/docs/support/faq/order-rejected.md)
+- [My stop did not work](/docs/support/faq/stop-order-did-not-work.md)
+- [My Event Contract settled against me](/docs/support/faq/event-contract-settlement.md)
+- [Fees and gas](/docs/support/faq/fees-funding-and-gas.md)
+- [I got scammed or hacked](/docs/support/faq/scammed-or-hacked.md)
+
+## Full text
+
+- [Complete documentation](/llms-full.txt): every page concatenated as Markdown

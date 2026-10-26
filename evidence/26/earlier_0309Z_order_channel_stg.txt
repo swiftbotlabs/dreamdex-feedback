@@ -1,0 +1,24 @@
+2026-10-26T03:08:55.755Z Shannon head 524099310 logs 237 orders 92
+  R 922337203685503111888 (0x3200000000018592d0) chain: [{"ev":"placed","block":524099170,"tx":"0x28cded4f066913003b5fd414fe9a08b237e49948f9b4196787a40311b5ab77a3","li":12,"qty":"533000000000000000000","price":"174100000000000000"},{"ev":"rested","block":524099170,"tx":"0x28cded4f066913003b5fd414fe9a08b237e49948f9b4196787a40311b5ab77a3","li":13},{"ev":"filled(maker)","block":524099176,"tx":"0x5cc333a72e3c0a2d5c4587f63425a72e0659147ce54e62107fd0f2a877d83cbf","li":3,"q":"25000000000000000000","rem":"508000000000000000000"},{"ev":"filled(maker)","block":524099276,"tx":"0xd36479f000da95d558b5f8689688df39d44a3549a66a754a66ae70ea59b8e3bc","li":29,"q":"25000000000000000000","rem":"483000000000000000000"}]
+  T 627189298506150286043 (0x2200000000018592db) chain: [{"ev":"filled(taker)","block":524099276,"tx":"0xd36479f000da95d558b5f8689688df39d44a3549a66a754a66ae70ea59b8e3bc","li":29,"q":"25000000000000000000","rem":"0"},{"ev":"placed","block":524099276,"tx":"0xd36479f000da95d558b5f8689688df39d44a3549a66a754a66ae70ea59b8e3bc","li":30,"qty":"25000000000000000000","price":"174100000000000000"}]
+2026-10-26T03:08:58.827Z open wss://stg.api.dreamdex.io/v0/ws/public
+2026-10-26T03:08:58.829Z >> a R docs step 2 {symbol, hex}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x3200000000018592d0"}}
+2026-10-26T03:08:59.252Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:09:00.031Z >> b R docs example {hex only}: {"operation":"subscribe","channel":"order","params":{"orderId":"0x3200000000018592d0"}}
+2026-10-26T03:09:00.453Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:09:01.233Z >> c R {decimal only}: {"operation":"subscribe","channel":"order","params":{"orderId":"922337203685503111888"}}
+2026-10-26T03:09:01.652Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:09:02.436Z >> d R spec shape {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"922337203685503111888"}}
+2026-10-26T03:09:02.858Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"922337203685503111888"}
+2026-10-26T03:09:02.860Z << {"channel":"order","type":"update","orderId":"922337203685503111888","event":"placed","timestamp":1792984117804,"block":524099170,"isBid":true,"price":"174100000000000000","quantity":"533000000000000000000","remaining":"533000000000000000000","expiresAt":1792984147000}
+2026-10-26T03:09:02.860Z << {"channel":"order","type":"update","orderId":"922337203685503111888","event":"rested","timestamp":1792984117804,"block":524099170}
+2026-10-26T03:09:02.860Z << {"channel":"order","type":"update","orderId":"922337203685503111888","event":"filled","timestamp":1792984118406,"block":524099176,"quantity":"25000000000000000000"}
+2026-10-26T03:09:02.860Z << {"channel":"order","type":"update","orderId":"922337203685503111888","event":"filled","timestamp":1792984128404,"block":524099276,"quantity":"25000000000000000000"}
+2026-10-26T03:09:02.860Z << {"channel":"order","type":"update","orderId":"922337203685503111888","event":"cancelled","timestamp":1792984133405,"block":524099326}
+2026-10-26T03:09:03.638Z >> e T spec shape {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"627189298506150286043"}}
+2026-10-26T03:09:04.060Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"627189298506150286043"}
+2026-10-26T03:09:04.469Z << {"channel":"order","type":"update","orderId":"627189298506150286043","event":"filled","timestamp":1792984128404,"block":524099276,"quantity":"25000000000000000000"}
+2026-10-26T03:09:04.469Z << {"channel":"order","type":"update","orderId":"627189298506150286043","event":"placed","timestamp":1792984128404,"block":524099276,"isBid":false,"price":"174100000000000000","quantity":"25000000000000000000","remaining":"0","expiresAt":18446744073709}
+2026-10-26T03:09:15.776Z SUMMARY wss://stg.api.dreamdex.io/v0/ws/public {"orderSnapshotFrames":0,"orderUpdateFrames":7,"framesWithOrderObject":0,"framesWithOrderStatus":0,"events":{"placed":2,"rested":1,"filled":3,"cancelled":1},"perOrderSequence":{"922337203685503111888":["placed","rested","filled","filled","cancelled"],"627189298506150286043":["filled","placed"]}}
+  docs expect: `order:snapshot` first, then `order:update` frames each carrying `order` {id, market, side, price, quantity, filled, status, createdAt, updatedAt}; terminal = order.status filled|cancelled
+  chain order of events: R ["placed","rested","filled(maker)","filled(maker)"] | T ["filled(taker)","placed"]

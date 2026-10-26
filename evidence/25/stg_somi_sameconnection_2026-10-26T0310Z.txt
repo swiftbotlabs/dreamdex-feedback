@@ -1,0 +1,12 @@
+2026-10-26T03:10:42.532Z REST GET https://stg.api.dreamdex.io/v0/markets/SOMI:USDso/trades?limit=100 -> HTTP 200, 100 rows, newest 03:10:38.391, oldest 02:53:58.604, rows in the last 120 s: 12
+2026-10-26T03:10:44.205Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":1}}
+2026-10-26T03:10:44.610Z << snapshot limit=1: trades = null  raw {"channel":"trades","type":"snapshot","symbol":"SOMI:USDso","trades":null}
+2026-10-26T03:10:45.411Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":3}}
+2026-10-26T03:10:45.849Z << snapshot limit=3: 1 trades, order n/a, first 03:10:38.391 last 03:10:38.391, ids e.g. 1792984238561-0, ids also in REST: 0/1
+2026-10-26T03:10:46.677Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":10}}
+2026-10-26T03:10:47.155Z << snapshot limit=10: 4 trades, order ASC (oldest first), first 03:10:08.391 last 03:10:38.391, ids e.g. 1792984208548-0, 1792984218592-0, ids also in REST: 0/4
+2026-10-26T03:10:47.955Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":100}}
+2026-10-26T03:10:48.760Z << snapshot limit=100: 19 trades, order ASC (oldest first), first 03:07:38.405 last 03:10:38.391, ids e.g. 1792984058595-0, 1792984068564-0, ids also in REST: 0/19
+2026-10-26T03:10:49.718Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"]}}
+2026-10-26T03:10:52.142Z << snapshot limit=undefined: 20 trades, order ASC (oldest first), first 03:07:38.405 last 03:10:48.391, ids e.g. 1792984058595-0, 1792984068564-0, ids also in REST: 0/20
+2026-10-26T03:10:54.794Z REST id examples: 627189298506150286139:1272825341085984592687, 627189298506150286137:1272825341085984592687

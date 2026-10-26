@@ -1,0 +1,92 @@
+### Run 2026-10-26T03:27:26Z
+
+## 1. npm
+npm view @somnia-chain/markets-sdk dist-tags.latest homepage
+  dist-tags.latest = '0.32.1'
+  homepage = 'https://prd.smk.somnia.host/docs/typescript'
+npm view @somnia-chain/markets-sdk time --json | grep -E '"0\.(31\.0|32\.0|32\.1)"'
+   "0.31.0": "2026-09-29T09:05:07.610Z",
+   "0.32.0": "2026-10-12T13:25:00.116Z",
+   "0.32.1": "2026-10-13T09:04:28.229Z",
+
+## 2. Hosted pages (HTTP status, bytes, URL)
+  200  500039 B  https://prd.smk.somnia.host/docs/typescript
+  200  338161 B  https://prd.smk.somnia.host/docs/typescript/api
+  200  339615 B  https://prd.smk.somnia.host/docs/typescript/api/index/variables/SOMNIA_TESTNET_ADDRESSES
+  404  28762 B  https://prd.smk.somnia.host/docs/typescript/api/index/variables/SOMNIA_HIDEKI_TESTNET_ADDRESSES
+  200  961822 B  https://prd.smk.somnia.host/docs/typescript/api/index/interfaces/Trader
+  200  2268628 B  https://prd.smk.somnia.host/docs/typescript/api/index/interfaces/SomniaMarketsClient
+  200  714945 B  https://prd.smk.somnia.host/docs/typescript/perps
+  200  1923133 B  https://prd.smk.somnia.host/docs/typescript/release-notes
+  200  9018 B  https://app.dreamdex.io/docs/developers/perps-testnet/README.md
+  200  135029 B  https://somnia-platform-docs.vercel.app/markets/somnia-markets
+
+## 3. Name counts on hosted pages (grep -o NAME FILE | wc -l)
+  Trader.html: claimPerpVoucher=0 buildClaimPerpVoucher=0 getPerpVoucherEligibility=0 getPerpVoucherCampaign=0 getPerpVoucher=0 getAccountEquity=0 listAccountEquities=0 SOMNIA_HIDEKI_TESTNET_ADDRESSES=0
+  Client.html: claimPerpVoucher=0 buildClaimPerpVoucher=0 getPerpVoucherEligibility=0 getPerpVoucherCampaign=0 getPerpVoucher=0 getAccountEquity=0 listAccountEquities=0 SOMNIA_HIDEKI_TESTNET_ADDRESSES=0
+  perps.html: claimPerpVoucher=0 buildClaimPerpVoucher=0 getPerpVoucherEligibility=0 getPerpVoucherCampaign=0 getPerpVoucher=0 getAccountEquity=0 listAccountEquities=0 SOMNIA_HIDEKI_TESTNET_ADDRESSES=0
+  api.html: claimPerpVoucher=0 buildClaimPerpVoucher=0 getPerpVoucherEligibility=0 getPerpVoucherCampaign=0 getPerpVoucher=0 getAccountEquity=0 listAccountEquities=0 SOMNIA_HIDEKI_TESTNET_ADDRESSES=0
+  release-notes.html: claimPerpVoucher=0 buildClaimPerpVoucher=0 getPerpVoucherEligibility=0 getPerpVoucherCampaign=0 getPerpVoucher=0 getAccountEquity=0 listAccountEquities=0 SOMNIA_HIDEKI_TESTNET_ADDRESSES=0
+  controls: Trader.html placePerpOrder=6  Client.html getMaxPerpOrderSize=4  perps.html getMaxPerpOrderSize=2
+  perps.html 'Credit vouchers'=0
+  'HIDEKI' (any case) across all fetched prd.smk pages: 38
+  404 page <title>: <title>Page not found · SomniaMarkets</title>
+
+## 4. Release notes: version headings on the page (first 6, in page order)
+  headings: Release notes | 0.31.0 | Minor Changes | Fixedsame-second PnL events are folded in chain order | Fixedclosing an outcome leg now releases all of its cost basis | Patch Changes | Fixeda complete set now records the collateral it actually cost | Fixedbaked testnet venue-2 creator/policy reconciled with chain truth
+  highest 0.x.y version named anywhere on the page: 0.31.0
+  any 0.32.x on the page: False
+
+## 5. Package contents (grep -rlw NAME package/dist | wc -l = files)
+  claimPerpVoucher: 0.31.0=0  0.32.1=5
+  buildClaimPerpVoucher: 0.31.0=0  0.32.1=4
+  getPerpVoucherEligibility: 0.31.0=0  0.32.1=5
+  getPerpVoucherCampaign: 0.31.0=0  0.32.1=4
+  getPerpVoucher: 0.31.0=0  0.32.1=4
+  getAccountEquity: 0.31.0=2  0.32.1=10
+  listAccountEquities: 0.31.0=0  0.32.1=4
+  SOMNIA_HIDEKI_TESTNET_ADDRESSES: 0.31.0=0  0.32.1=5
+  0.31.0 getAccountEquity hits (ABI entry only, not a client method):
+    dist/readsAbi.js:287:    "function getAccountEquity(address account) view returns (int256)",
+    dist/readsAbi.js:295:    // Non-reverting equity. `getAccountEquity` propagates an oracle revert, which is
+    dist/readsAbi.d.ts:1307:    readonly name: "getAccountEquity";
+  0.31.0 dist/somniaMarketsClient.d.ts getAccountEquity|getPerpVoucher: 0
+  0.32.1 declarations:
+    dist/addresses.d.ts:28:export declare const SOMNIA_HIDEKI_TESTNET_ADDRESSES: SomniaMarketsAddresses;
+    dist/somniaMarketsClient.d.ts:3285:    getAccountEquity(account: Address, params: GetAccountEquityParams): Promise<AccountEquity>;
+    dist/somniaMarketsClient.d.ts:3345:    listAccountEquities(accounts: readonly Address[], params: GetAccountEquityParams): Promise<AccountEquityEntry[]>;
+    dist/somniaMarketsClient.d.ts:4511:    getPerpVoucherCampaign(marginBank: Address): Promise<PerpVoucherCampaign | null>;
+    dist/somniaMarketsClient.d.ts:4553:    getPerpVoucherEligibility(marginBank: Address, account: Address): Promise<PerpVoucherEligibility>;
+    dist/somniaMarketsClient.d.ts:4591:    getPerpVoucher(marginBank: Address, account: Address): Promise<PerpVoucher | null>;
+    dist/trade.d.ts:3448:    claimPerpVoucher(params: ClaimPerpVoucherParams): Promise<TxResult>;
+    dist/trade.d.ts:3806:    buildClaimPerpVoucher(params: ClaimPerpVoucherParams): Promise<UnsignedCall>;
+  docs/PERPS.md 'Credit vouchers': 0.31.0=0  0.32.1: 809:## Credit vouchers (house money)
+  docs/PERPS.md client.getAccountEquity lines (0.32.1): 87 108 110 
+  README.md (0.32.1) links to the hosted site:
+    84:New to the SDK? The **[documentation map](https://prd.smk.somnia.host/docs/typescript)** groups every page
+    99:- **[Perps](https://prd.smk.somnia.host/docs/typescript/perps)** — live on testnet: cross-margin via the
+  package.json homepage: 0.31.0 "homepage":"https://prd.smk.somnia.host/docs/typescript"  0.32.1 "homepage":"https://prd.smk.somnia.host/docs/typescript"
+
+## 6. dreamDEX perps developer page (README.md) lines that use these APIs
+  3:Testnet perps run on the **Hideki** testnet chain, which the app shows as the **DreamDEX** region. Build against it with [`@somnia-chain/markets-sdk`](https://www.npmjs
+  34:  SOMNIA_HIDEKI_TESTNET_ADDRESSES,
+  42:  addresses: SOMNIA_HIDEKI_TESTNET_ADDRESSES,
+  50:## Get test funds
+  58:const eligibility = await markets.client.getPerpVoucherEligibility(btc.marginBank, account)
+  60:  await markets.trader.claimPerpVoucher({ marginBank: btc.marginBank })
+  138:- **The perps collateral is not `SOMNIA_HIDEKI_TESTNET_ADDRESSES.collateral`.** That entry is a different token. Read the perps collateral from the market row (`quote
+
+## 7. The bounty-listed SDK docs link builders to the hosted reference
+  link: https://prd.smk.somnia.host/docs/typescript/api | text: API reference
+  quote: under the hood. The generated API reference lists every exported function, hook and type. Raw smart contracts 
+
+## 8. SOMNIA_* constants: hosted API index vs each package's dist/index.d.ts
+  hosted /api : SOMNIA_MAINNET_ADDRESSES SOMNIA_MAINNET_LEND SOMNIA_MAINNET_PRICE_FEED SOMNIA_TESTNET_ADDRESSES SOMNIA_TESTNET_LEND SOMNIA_TESTNET_PRICE_FEED 
+  0.31.0      : SOMNIA_MAINNET_ADDRESSES SOMNIA_MAINNET_LEND SOMNIA_MAINNET_PRICE_FEED SOMNIA_TESTNET_ADDRESSES SOMNIA_TESTNET_LEND SOMNIA_TESTNET_PRICE_FEED 
+  0.32.1      : SOMNIA_HIDEKI_TESTNET_ADDRESSES SOMNIA_MAINNET_ADDRESSES SOMNIA_MAINNET_LEND SOMNIA_MAINNET_PRICE_FEED SOMNIA_TESTNET_ADDRESSES SOMNIA_TESTNET_LEND SOMNIA_TESTNET_PRICE_FEED 
+### End 2026-10-26T03:28:08Z
+
+## 9. Added 2026-10-26T03:30:06Z, same saved pages: parameter/result types (grep -o NAME | wc -l)
+  PerpVoucherEligibility: hosted api index=0  hosted SomniaMarketsClient=0  hosted Trader=0  0.32.1 dist files=3  0.31.0 dist files=0
+  ClaimPerpVoucherParams: hosted api index=0  hosted SomniaMarketsClient=0  hosted Trader=0  0.32.1 dist files=3  0.31.0 dist files=0
+  GetAccountEquityParams: hosted api index=0  hosted SomniaMarketsClient=0  hosted Trader=0  0.32.1 dist files=3  0.31.0 dist files=0

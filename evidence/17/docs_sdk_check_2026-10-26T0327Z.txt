@@ -1,0 +1,37 @@
+# docs + SDK check, 2026-10-26T03:27:53Z
+GET https://app.dreamdex.io/llms-full.txt -> HTTP 200, 438288 bytes
+page markers: 2261:# /docs/developers/contracts/types 3667:# /docs/developers/perps-testnet 
+## lines mentioning listPerpOrderRejections:
+3799:An IOC order that finds nothing to fill reverts a single `placeOrderFor` with `ImmediateOrCancelNoFill()` (`0xd48c4403`). In a batch (`placeOrdersFor`) a refused request does not revert: the rest of the batch commits, `successes[i]` is false for that entry, and its `OrderRejected` log carries reason `5`, which `client.listPerpOrderRejections` returns by name. An all-or-nothing `amendOrders` reverts with `AmendReplacementRejected(requestIndex, reason)` instead.
+## OrderRejectionReason None row:
+2321:| `None` | `0` | — (never emitted; the zero value) |
+## counts: AmendRejected=0 isAmend=0 PerpOrderRejection=1
+## npm dist-tags:
+{"rc":"0.32.0-rc.1791380050012","next-0.31":"0.31.1-rc.1791533467513","next-0.32":"0.32.1-rc.1791818930433","latest":"0.32.1","canary-staging":"0.32.2-canary.38575926931.ge4550933d36d","canary":"0.32.2-canary.38575926931.ge4550933d36d"}
+## 0.32.1 : ../indexer-api/verify-0-repro/pkg/x/package
+1108:// `placeOrders` / `placeOrdersFor` ONLY. The singular entry points revert instead, and a
+1117: *  cannot appear on a {@link PerpOrderRejection} row, and is kept in the table only so
+1138: *  **Batch placements only.** `placeOrder` / `placeOrderFor` REVERT on the same
+1144: *  There is no `Order` row to join to: a rejected request never rested and never filled.
+1192:           id owner pool reason requestIndex timestamp blockNumber txHash
+1204: *  Nothing here has an `Order` row: a rejected request never rested and never filled. Pair
+1232:  // Presence, not truthiness: index 0 is a real enum member. It cannot appear on a
+2091:  isAmend?: Boolean_Comparison_Exp | null | undefined;
+2092:  oldOrderId?: String_Comparison_Exp | null | undefined;
+434:           id owner pool reason requestIndex timestamp blockNumber txHash
+216:  pool's `uint8` rejection code (the SDK does not export a name table for it).
+## 0.32.2-canary.38575926931.ge4550933d36d : ../indexer-api/verify-0-repro/pkgcanary/x/package
+1108:// `placeOrders` / `placeOrdersFor` ONLY. The singular entry points revert instead, and a
+1117: *  cannot appear on a {@link PerpOrderRejection} row, and is kept in the table only so
+1138: *  **Batch placements only.** `placeOrder` / `placeOrderFor` REVERT on the same
+1144: *  There is no `Order` row to join to: a rejected request never rested and never filled.
+1192:           id owner pool reason requestIndex timestamp blockNumber txHash
+1204: *  Nothing here has an `Order` row: a rejected request never rested and never filled. Pair
+1232:  // Presence, not truthiness: index 0 is a real enum member. It cannot appear on a
+2091:  isAmend?: Boolean_Comparison_Exp | null | undefined;
+2092:  oldOrderId?: String_Comparison_Exp | null | undefined;
+434:           id owner pool reason requestIndex timestamp blockNumber txHash
+216:  pool's `uint8` rejection code (the SDK does not export a name table for it).
+## tarball integrity 2026-10-26T03:28:03Z
+registry 0.32.1: sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==
+local tgz:       sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==

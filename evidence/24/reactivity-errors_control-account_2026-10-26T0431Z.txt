@@ -1,0 +1,3 @@
+2026-10-26T04:31:48.401Z random account 0xe8FA3E86698b3F05214e2a4487c96a713a5037f2 balance 0
+2026-10-26T04:31:49.954Z E1 subscribe() with funded-less account wallet: RESOLVED -> Error object: Owner balance must be at least 32 SOMI to create a subscription
+2026-10-26T04:31:50.257Z E2 scheduleSubscriptionAtTimestamp(now+60s) same wallet: RESOLVED -> Error object: Owner balance must be at least 32 SOMI to create a subscription

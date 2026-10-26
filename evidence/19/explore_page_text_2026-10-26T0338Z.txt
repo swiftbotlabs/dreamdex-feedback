@@ -1,0 +1,118 @@
+Testnet
+Trade
+Events
+Portfolio
+Perps Arena
+Lend
+dreamBot
+Support
+Deposit
+0x0e7E…3817
+
+Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.
+
+Markets
+
+Spot, perpetuals and event contracts, each with its busiest live markets.
+
+spot
+3 PAIRS
+
+own the asset. fully onchain clob, validator clearing, zero protocol fees.
+
+NO EXPIRY
+MARKET
+PRICE
+24H
+24H VOL
+BTC
+Bitcoin
+79,612.1
+-1.42%
+96.04K
+STT
+Somnia
+0.1736
+-0.06%
+36.33K
+ETH
+Ethereum
+2,305.81
+-2.30%
+28.17K
+perpetuals
+15 MARKETS
+
+deep leverage on the same book. no delivery date, ever.
+
+FUNDING IN 13:06
+MARKET
+PRICE
+24H
+ETH
+Ethereum
+20x
+2,305.50
+-2.28%
+SOL
+Solana
+20x
+100.38
+-1.78%
+XRP
+XRP
+20x
+1.2782
+-2.38%
+BTC
+Bitcoin
+20x
+79,546.6
+-1.45%
+ADA
+Cardano
+10x
+0.2019
+-2.84%
+BNB
+BNB
+10x
+736.643
+-1.13%
+event contracts
+2 ASSETS
+
+call the direction over a fixed window. right pays a fixed payout — wrong costs only your stake.
+
+SETTLES IN 01:17
+MARKET
+CHANCE
+BTC
+Bitcoin
+5m
+15m
+1h
+4h
+1d
+5m
+98%
+ETH
+Ethereum
+5m
+15m
+1h
+4h
+1d
+5m
+87%
+ELSEWHERE
+portfolio
+every position, every venue, one balance sheet.
+lend
+lend collateral to the venue and earn the borrow rate.
+dreambot
+your strategy runs free. build it, let it trade the book.
+© 2026 - DreamDEX, S.A.
+Terms
+Privacy policy
+Support

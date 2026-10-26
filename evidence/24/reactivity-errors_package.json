@@ -1,0 +1,11 @@
+{
+  "name": "verify5-sbx",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@somnia-chain/markets-sdk": "0.32.1",
+    "@somnia-chain/reactivity": "0.2.1",
+    "viem": "2.57.7",
+    "ws": "8.21.0"
+  }
+}

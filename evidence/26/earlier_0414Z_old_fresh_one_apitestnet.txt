@@ -1,0 +1,19 @@
+2026-10-26T04:15:49.215Z open wss://api.testnet.dreamdex.io/v0/ws
+2026-10-26T04:15:49.215Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"959230691832913713755"}}
+2026-10-26T04:15:49.920Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x34000000000103da5b"}}
+2026-10-26T04:15:50.087Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"959230691832913713755"}
+2026-10-26T04:15:50.378Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:15:50.622Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1272825341085984598636"}}
+2026-10-26T04:15:51.060Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1272825341085984598636"}
+2026-10-26T04:15:51.262Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1272825341085984598636","event":"placed","timestamp":1792988139000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792988169000,"block":524139378}
+2026-10-26T04:15:51.263Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1272825341085984598636","event":"cancelled","timestamp":1792988143000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792988169000,"block":524139421}
+2026-10-26T04:15:51.326Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x45000000000185aa6c"}}
+2026-10-26T04:15:51.774Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:15:52.030Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1"}}
+2026-10-26T04:15:52.467Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1"}
+2026-10-26T04:15:52.736Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x1"}}
+2026-10-26T04:15:53.173Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:16:05.374Z SUMMARY wss://api.testnet.dreamdex.io/v0/ws {"frames":8,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":3}
+  id 1 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 959230691832913713755 {"subscribed":1,"snapshot":0,"update":0,"events":[],"withOrderObj":0,"withOrderStatus":0}
+  id 1272825341085984598636 {"subscribed":1,"snapshot":0,"update":2,"events":["placed","cancelled"],"withOrderObj":0,"withOrderStatus":0}

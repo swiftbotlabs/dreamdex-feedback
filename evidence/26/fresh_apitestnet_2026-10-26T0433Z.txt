@@ -1,0 +1,31 @@
+2026-10-26T04:33:17.118Z head 524149942 OrderRested topic0 0xcdd45acd62788abc10f79d86fac34df2a63e1a3b20f061c5bcf431ff6a09b866 logs in last 300 blocks: 34
+2026-10-26T04:33:17.119Z   rested id 1254378597012275048430 block 524149897 tx 0xe2364d3d0818ca7e48a204d054f0a3eee48c2c457e91c853b46cb7d34b4cfda8
+2026-10-26T04:33:17.120Z   rested id 922337203685503119343 block 524149897 tx 0xe2364d3d0818ca7e48a204d054f0a3eee48c2c457e91c853b46cb7d34b4cfda8
+2026-10-26T04:33:18.926Z open wss://api.testnet.dreamdex.io/v0/ws
+2026-10-26T04:33:18.926Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275048430"}}
+2026-10-26T04:33:19.379Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1254378597012275048430"}
+2026-10-26T04:33:19.627Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275048430","event":"placed","timestamp":1792989191000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792989221000,"block":524149897}
+2026-10-26T04:33:19.628Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x44000000000185afee"}}
+2026-10-26T04:33:20.073Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:33:20.331Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x44000000000185afee"}}
+2026-10-26T04:33:20.593Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275048430","event":"cancelled","timestamp":1792989200000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792989221000,"block":524149985}
+2026-10-26T04:33:20.794Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"0x44000000000185afee"}
+2026-10-26T04:33:20.960Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275048430","event":"placed","timestamp":1792989191000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792989221000,"block":524149897}
+2026-10-26T04:33:20.960Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275048430","event":"cancelled","timestamp":1792989200000,"isBid":false,"price":"0.1761","quantity":"750.4","remaining":"750.4","expiresAt":1792989221000,"block":524149985}
+2026-10-26T04:33:21.034Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"1254378597012275048430"}}
+2026-10-26T04:33:21.486Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:33:21.735Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"922337203685503119343"}}
+2026-10-26T04:33:22.207Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"922337203685503119343"}
+2026-10-26T04:33:22.400Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"922337203685503119343","event":"placed","timestamp":1792989191000,"isBid":false,"price":"0.1762","quantity":"844.2","remaining":"844.2","expiresAt":1792989221000,"block":524149897}
+2026-10-26T04:33:22.400Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"922337203685503119343","event":"cancelled","timestamp":1792989200000,"isBid":false,"price":"0.1762","quantity":"844.2","remaining":"844.2","expiresAt":1792989221000,"block":524149985}
+2026-10-26T04:33:22.439Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x32000000000185afef"}}
+2026-10-26T04:33:22.877Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:33:23.144Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x32000000000185afef"}}
+2026-10-26T04:33:23.581Z << {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"0x32000000000185afef"}
+2026-10-26T04:33:23.779Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"922337203685503119343","event":"placed","timestamp":1792989191000,"isBid":false,"price":"0.1762","quantity":"844.2","remaining":"844.2","expiresAt":1792989221000,"block":524149897}
+2026-10-26T04:33:23.779Z << {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"922337203685503119343","event":"cancelled","timestamp":1792989200000,"isBid":false,"price":"0.1762","quantity":"844.2","remaining":"844.2","expiresAt":1792989221000,"block":524149985}
+2026-10-26T04:33:23.848Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"922337203685503119343"}}
+2026-10-26T04:33:24.300Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:33:37.140Z SUMMARY wss://api.testnet.dreamdex.io/v0/ws {"frames":16,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":4}
+  id 1254378597012275048430 {"subscribed":2,"snapshot":0,"update":4,"events":["placed","cancelled","placed","cancelled"],"withOrderObj":0,"withOrderStatus":0}
+  id 922337203685503119343 {"subscribed":2,"snapshot":0,"update":4,"events":["placed","cancelled","placed","cancelled"],"withOrderObj":0,"withOrderStatus":0}

@@ -1,0 +1,32 @@
+2026-10-26T04:14:19.197Z head 524138566 OrderRested topic0 0xcdd45acd62788abc10f79d86fac34df2a63e1a3b20f061c5bcf431ff6a09b866 logs in last 300 blocks: 33
+2026-10-26T04:14:19.199Z   rested id 1420399293675661011436 block 524138549 tx 0x8dc82e25a02d329a244f562cf72478bce946347f8afe614abce723950b28a6f6
+2026-10-26T04:14:19.199Z   rested id 1328165573307113253357 block 524138549 tx 0x8dc82e25a02d329a244f562cf72478bce946347f8afe614abce723950b28a6f6
+2026-10-26T04:14:20.897Z open wss://stg.api.dreamdex.io/v0/ws/public
+2026-10-26T04:14:20.898Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1420399293675661011436"}}
+2026-10-26T04:14:21.311Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1420399293675661011436"}
+2026-10-26T04:14:21.312Z << {"channel":"order","type":"update","orderId":"1420399293675661011436","event":"placed","timestamp":1792988056517,"block":524138549,"isBid":true,"price":"175500000000000000","quantity":"531500000000000000000","remaining":"531500000000000000000","expiresAt":1792988086000}
+2026-10-26T04:14:21.312Z << {"channel":"order","type":"update","orderId":"1420399293675661011436","event":"rested","timestamp":1792988056517,"block":524138549}
+2026-10-26T04:14:21.313Z << {"channel":"order","type":"update","orderId":"1420399293675661011436","event":"filled","timestamp":1792988058418,"block":524138568,"quantity":"25000000000000000000"}
+2026-10-26T04:14:21.601Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x4d000000000185a9ec"}}
+2026-10-26T04:14:22.011Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:22.305Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x4d000000000185a9ec"}}
+2026-10-26T04:14:22.712Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:23.008Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"1420399293675661011436"}}
+2026-10-26T04:14:23.415Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:23.711Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1328165573307113253357"}}
+2026-10-26T04:14:24.121Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1328165573307113253357"}
+2026-10-26T04:14:24.412Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"0x48000000000185a9ed"}}
+2026-10-26T04:14:24.460Z << {"channel":"order","type":"update","orderId":"1328165573307113253357","event":"placed","timestamp":1792988056517,"block":524138549,"isBid":false,"price":"175900000000000000","quantity":"749600000000000000000","remaining":"749600000000000000000","expiresAt":1792988086000}
+2026-10-26T04:14:24.460Z << {"channel":"order","type":"update","orderId":"1328165573307113253357","event":"rested","timestamp":1792988056517,"block":524138549}
+2026-10-26T04:14:24.821Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:25.114Z >> {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x48000000000185a9ed"}}
+2026-10-26T04:14:25.526Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:25.820Z >> {"operation":"subscribe","channel":"order","params":{"orderId":"1328165573307113253357"}}
+2026-10-26T04:14:26.231Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:14:28.799Z << {"channel":"order","type":"update","orderId":"1420399293675661011436","event":"filled","timestamp":1792988068418,"block":524138668,"quantity":"25000000000000000000"}
+2026-10-26T04:14:35.706Z << {"channel":"order","type":"update","orderId":"1328165573307113253357","event":"cancelled","timestamp":1792988075319,"block":524138737}
+2026-10-26T04:14:35.707Z << {"channel":"order","type":"update","orderId":"1420399293675661011436","event":"cancelled","timestamp":1792988075319,"block":524138737}
+2026-10-26T04:14:39.641Z << {"operation":"pong","serverTimestamp":1792988079441}
+2026-10-26T04:14:44.211Z SUMMARY wss://stg.api.dreamdex.io/v0/ws/public {"frames":17,"snapshotType":0,"withOrderObj":0,"withOrderStatus":0,"errors":6}
+  id 1420399293675661011436 {"subscribed":1,"snapshot":0,"update":5,"events":["placed","rested","filled","filled","cancelled"],"withOrderObj":0,"withOrderStatus":0}
+  id 1328165573307113253357 {"subscribed":1,"snapshot":0,"update":3,"events":["placed","rested","cancelled"],"withOrderObj":0,"withOrderStatus":0}

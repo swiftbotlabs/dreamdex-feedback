@@ -1,0 +1,54 @@
+# 2026-10-26T03:32:21.811Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x76c981a52530cdf9497559140aafcd8cd16836e7, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:32:34.034Z SDK order_by {timestamp: desc}: watermark 33334005, newest row before …_33195496_44 / after …_33195496_44, one read 1000 rows, pages of 100 -> 1000 rows, 998 unique, 2 repeated, 2 never returned
+  REPEATED       …_31777970_103 ts 1792829880 oi 5353500000000 at offset 300 row 99 and offset 400 row 0
+  REPEATED       …_30362653_59 ts 1792688287 oi 2198100000000 at offset 800 row 99 and offset 900 row 1
+  NEVER RETURNED …_31777970_115 ts 1792829880 oi 5858200000000 (index 399 of the one read)
+  NEVER RETURNED …_30362653_49 ts 1792688287 oi 3510700000000 (index 899 of the one read)
+2026-10-26T03:32:40.530Z control order_by [{timestamp: desc}, {blockNumber: desc}, {id: desc}]: watermark 33334111, newest row before …_33195496_44 / after …_33195496_44, one read 1000 rows, pages of 100 -> 1000 rows, 1000 unique, 0 repeated, 0 never returned
+
+# 2026-10-26T03:32:40.599Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x76c981a52530cdf9497559140aafcd8cd16836e7, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:32:41.329Z offset 300 limit 100: 100 rows, first …_31949296_61, watermark 33334169
+  row 99 (absolute 399) …_31777970_103 block 31777970 oi 5353500000000
+2026-10-26T03:32:41.741Z offset 400 limit 100: 100 rows, first …_31777970_103, watermark 33334172
+  row 0 (absolute 400) …_31777970_103 block 31777970 oi 5353500000000
+  row 1 (absolute 401) …_31777970_109 block 31777970 oi 5826800000000
+2026-10-26T03:32:42.278Z offset 0 limit 1000: 1000 rows, first …_33195496_44, watermark 33334177
+  row 399 (absolute 399) …_31777970_115 block 31777970 oi 5858200000000
+  row 400 (absolute 400) …_31777970_109 block 31777970 oi 5826800000000
+  row 401 (absolute 401) …_31777970_103 block 31777970 oi 5353500000000
+  every row with timestamp 1792829880: …_31777970_103 (oi 5353500000000), …_31777970_109 (oi 5826800000000), …_31777970_115 (oi 5858200000000)
+
+# 2026-10-26T03:32:51.447Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x76c981a52530cdf9497559140aafcd8cd16836e7, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:33:06.576Z full walk, pages of 100: 30 pages, 2992 rows, 2990 unique ids; repeated: …_31777970_103 x2, …_30362653_59 x2
+  …_31777970_115 returned by the walk: NEVER
+  …_30362653_49 returned by the walk: NEVER
+  …_31777970_103 returned by the walk: 2 time(s)
+  …_30362653_59 returned by the walk: 2 time(s)
+
+# 2026-10-26T03:33:06.653Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:33:13.012Z SDK order_by {timestamp: desc}: watermark 33334435, newest row before …_33285609_13 / after …_33285609_13, one read 1000 rows, pages of 100 -> 1000 rows, 1000 unique, 0 repeated, 0 never returned
+2026-10-26T03:33:18.096Z control order_by [{timestamp: desc}, {blockNumber: desc}, {id: desc}]: watermark 33334494, newest row before …_33285609_13 / after …_33285609_13, one read 1000 rows, pages of 100 -> 1000 rows, 1000 unique, 0 repeated, 0 never returned
+
+# 2026-10-26T03:33:18.172Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0xfa9b9e50cc1745113d57893991af200a74c86b6f, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:33:24.260Z SDK order_by {timestamp: desc}: watermark 33334554, newest row before …_33315207_41 / after …_33315207_41, one read 1000 rows, pages of 100 -> 1000 rows, 998 unique, 2 repeated, 2 never returned
+  REPEATED       …_31439536_100 ts 1792796026 oi 2285700000000000000000000 at offset 100 row 99 and offset 200 row 0
+  REPEATED       …_30679030_107 ts 1792719943 oi 3638500000000000000000000 at offset 500 row 98 and offset 600 row 0
+  NEVER RETURNED …_31439536_106 ts 1792796026 oi 2726200000000000000000000 (index 199 of the one read)
+  NEVER RETURNED …_30679030_101 ts 1792719943 oi 2059500000000000000000000 (index 598 of the one read)
+2026-10-26T03:33:30.753Z control order_by [{timestamp: desc}, {blockNumber: desc}, {id: desc}]: watermark 33334610, newest row before …_33315207_41 / after …_33315207_41, one read 1000 rows, pages of 100 -> 1000 rows, 1000 unique, 0 repeated, 0 never returned
+
+# 2026-10-26T03:33:30.844Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x76c981a52530cdf9497559140aafcd8cd16836e7, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:33:51.148Z SDK order_by {timestamp: desc}: watermark 33334676, newest row before …_33195496_44 / after …_33195496_44, one read 300 rows, pages of 7 -> 300 rows, 298 unique, 2 repeated, 2 never returned
+  REPEATED       …_31960996_27 ts 1792848190 oi 8386700000000 at offset 259 row 5 and offset 266 row 0
+  REPEATED       …_31960120_74 ts 1792848102 oi 6930200000000 at offset 287 row 6 and offset 294 row 1
+  NEVER RETURNED …_31960996_17 ts 1792848190 oi 8990600000000 (index 264 of the one read)
+  NEVER RETURNED …_31960120_86 ts 1792848102 oi 7545500000000 (index 293 of the one read)
+2026-10-26T03:34:10.811Z control order_by [{timestamp: desc}, {blockNumber: desc}, {id: desc}]: watermark 33334874, newest row before …_33195496_44 / after …_33195496_44, one read 300 rows, pages of 7 -> 300 rows, 300 unique, 0 repeated, 0 never returned
+
+# 2026-10-26T03:34:10.923Z indexer https://hideki-dev.smk.somnia.host/v1/graphql, pool 0x76c981a52530cdf9497559140aafcd8cd16836e7, SDK 0.32.1 OpenInterestHistory query (order_by: {timestamp: desc})
+2026-10-26T03:34:16.098Z SDK order_by {timestamp: desc}: watermark 33335076, newest row before …_33195496_44 / after …_33195496_44, one read 1000 rows, pages of 100 -> 1000 rows, 998 unique, 2 repeated, 2 never returned
+  REPEATED       …_31777970_103 ts 1792829880 oi 5353500000000 at offset 300 row 99 and offset 400 row 0
+  REPEATED       …_30362653_59 ts 1792688287 oi 2198100000000 at offset 800 row 99 and offset 900 row 1
+  NEVER RETURNED …_31777970_115 ts 1792829880 oi 5858200000000 (index 399 of the one read)
+  NEVER RETURNED …_30362653_49 ts 1792688287 oi 3510700000000 (index 899 of the one read)
+

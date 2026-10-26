@@ -1,0 +1,12 @@
+# Order row-count probe (owner only, placedAtTimestamp desc, limit 1, offset N): a returned row means the account has more than N orders. start 2026-10-26T03:31:13Z
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 offset=50000 @03:31:15Z {"data":{"Order":[{"placedAtTimestamp":"1791951453"}]}} __t=2.151052
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d offset=50000 @03:31:18Z {"data":{"Order":[{"placedAtTimestamp":"1791969714"}]}} __t=2.998847
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac offset=50000 @03:31:20Z {"data":{"Order":[{"placedAtTimestamp":"1791975034"}]}} __t=1.930083
+0x4e42d094f9d066a013a98a61b34690c882d1f896 offset=50000 @03:31:23Z {"data":{"Order":[{"placedAtTimestamp":"1791948150"}]}} __t=2.475614
+0xd0e04f285b63b8655678f1fa39923727f1889140 offset=50000 @03:31:25Z {"data":{"Order":[{"placedAtTimestamp":"1791914527"}]}} __t=2.056107
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 offset=50000 @03:31:28Z {"data":{"Order":[{"placedAtTimestamp":"1791857873"}]}} __t=2.778385
+# end 2026-10-26T03:31:28Z
+# same probe, two accounts that still trade and pass the SDK read. start 2026-10-26T03:31:37Z
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff offset=50000 @03:31:40Z {"data":{"Order":[{"placedAtTimestamp":"1792983498"}]}} __t=3.188031
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 offset=50000 @03:31:49Z {"data":{"Order":[{"placedAtTimestamp":"1792947914"}]}} __t=8.780356
+# end 2026-10-26T03:31:49Z

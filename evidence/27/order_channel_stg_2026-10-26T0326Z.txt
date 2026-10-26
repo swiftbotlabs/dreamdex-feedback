@@ -1,0 +1,22 @@
+2026-10-26T03:26:38.084Z Shannon head 524109945 logs 369 orders 136
+  R 977677435906631768126 (0x35000000000185983e) chain: [{"ev":"placed","block":524109708,"tx":"0x7c34bd8f58d9749c599eeb8fbdba00c303e083e2483f586da84153454e1d9604","li":31,"qty":"959400000000000000000","price":"173900000000000000"},{"ev":"rested","block":524109708,"tx":"0x7c34bd8f58d9749c599eeb8fbdba00c303e083e2483f586da84153454e1d9604","li":32},{"ev":"cancelled","block":524109778,"tx":"0x35dd429e6ec00094d95b6b2ff0b1148387f7ecb9e0a0dfa01bf0557905f06506","li":1}]
+  T 627189298506150287425 (0x220000000001859841) chain: [{"ev":"filled(taker)","block":524109873,"tx":"0x268d8e120ddd54f04f1c14e95b06d4b1ef3775f9dada5a7ac41fc7b286dfdf09","li":22,"q":"25000000000000000000","rem":"0"},{"ev":"placed","block":524109873,"tx":"0x268d8e120ddd54f04f1c14e95b06d4b1ef3775f9dada5a7ac41fc7b286dfdf09","li":23,"qty":"25000000000000000000","price":"174300000000000000"}]
+2026-10-26T03:26:39.874Z open wss://stg.api.dreamdex.io/v0/ws/public
+2026-10-26T03:26:39.875Z >> a R docs step 2 {symbol, hex}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x35000000000185983e"}}
+2026-10-26T03:26:40.386Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:26:41.081Z >> b R docs example {hex only}: {"operation":"subscribe","channel":"order","params":{"orderId":"0x35000000000185983e"}}
+2026-10-26T03:26:41.509Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:26:42.291Z >> c R {decimal only}: {"operation":"subscribe","channel":"order","params":{"orderId":"977677435906631768126"}}
+2026-10-26T03:26:42.736Z << {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T03:26:43.493Z >> d R spec shape {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"977677435906631768126"}}
+2026-10-26T03:26:44.022Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"977677435906631768126"}
+2026-10-26T03:26:44.329Z << {"channel":"order","type":"update","orderId":"977677435906631768126","event":"placed","timestamp":1792985171925,"block":524109708,"isBid":true,"price":"173900000000000000","quantity":"959400000000000000000","remaining":"959400000000000000000","expiresAt":1792985201000}
+2026-10-26T03:26:44.330Z << {"channel":"order","type":"update","orderId":"977677435906631768126","event":"rested","timestamp":1792985171925,"block":524109708}
+2026-10-26T03:26:44.330Z << {"channel":"order","type":"update","orderId":"977677435906631768126","event":"cancelled","timestamp":1792985178925,"block":524109778}
+2026-10-26T03:26:44.703Z >> e T spec shape {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"627189298506150287425"}}
+2026-10-26T03:26:45.166Z << {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"627189298506150287425"}
+2026-10-26T03:26:45.328Z << {"channel":"order","type":"update","orderId":"627189298506150287425","event":"filled","timestamp":1792985188424,"block":524109873,"quantity":"25000000000000000000"}
+2026-10-26T03:26:45.329Z << {"channel":"order","type":"update","orderId":"627189298506150287425","event":"placed","timestamp":1792985188424,"block":524109873,"isBid":false,"price":"174300000000000000","quantity":"25000000000000000000","remaining":"0","expiresAt":18446744073709}
+2026-10-26T03:26:53.093Z SUMMARY wss://stg.api.dreamdex.io/v0/ws/public {"orderSnapshotFrames":0,"orderUpdateFrames":5,"framesWithOrderObject":0,"framesWithOrderStatus":0,"events":{"placed":2,"rested":1,"cancelled":1,"filled":1},"perOrderSequence":{"977677435906631768126":["placed","rested","cancelled"],"627189298506150287425":["filled","placed"]}}
+  docs expect: `order:snapshot` first, then `order:update` frames each carrying `order` {id, market, side, price, quantity, filled, status, createdAt, updatedAt}; terminal = order.status filled|cancelled
+  chain order of events: R ["placed","rested","cancelled"] | T ["filled(taker)","placed"]

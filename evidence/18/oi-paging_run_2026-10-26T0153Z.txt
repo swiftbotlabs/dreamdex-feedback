@@ -1,0 +1,68 @@
+# Second run (01:53-01:55 UTC), getOpenInterestHistory offset paging (SDK 0.32.1 dist/gql/graphql.js OpenInterestHistoryDocument, order_by {timestamp: desc}); indexer https://hideki-dev.smk.somnia.host/v1/graphql (chain 50383)
+
+## run_pump_1000x100.txt
+# 2026-10-26T01:53:39.769Z SDK query order_by line: order_by: {timestamp: desc}
+{"at":"2026-10-26T01:53:47.505Z","label":"SDK query (timestamp-only)","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","watermark":33274790,"newestBefore":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","newestAfter":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","oneShotRows":1000,"pagedRows":1000,"uniquePaged":998,"pageSize":100,"duplicates":2,"missing":2}
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 ts=1792829880 oi=5353500000000 at offset 300 row 99 and offset 400 row 0
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_59 ts=1792688287 oi=2198100000000 at offset 800 row 99 and offset 900 row 1
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 ts=1792829880 oi=5858200000000 (index 399 in one-shot read)
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_49 ts=1792688287 oi=3510700000000 (index 899 in one-shot read)
+# control order_by line: order_by: [{timestamp: desc}, {blockNumber: desc}, {id: desc}]
+{"at":"2026-10-26T01:53:51.771Z","label":"control (total order)","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","watermark":33274862,"newestBefore":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","newestAfter":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","oneShotRows":1000,"pagedRows":1000,"uniquePaged":1000,"pageSize":100,"duplicates":0,"missing":0}
+
+## run_pump_1000x100_rerun.txt
+# 2026-10-26T01:55:12.871Z SDK query order_by line: order_by: {timestamp: desc}
+{"at":"2026-10-26T01:55:17.372Z","label":"SDK query (timestamp-only)","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","watermark":33275718,"newestBefore":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","newestAfter":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","oneShotRows":1000,"pagedRows":1000,"uniquePaged":998,"pageSize":100,"duplicates":2,"missing":2}
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 ts=1792829880 oi=5353500000000 at offset 300 row 99 and offset 400 row 0
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_59 ts=1792688287 oi=2198100000000 at offset 800 row 99 and offset 900 row 1
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 ts=1792829880 oi=5858200000000 (index 399 in one-shot read)
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_49 ts=1792688287 oi=3510700000000 (index 899 in one-shot read)
+
+## run_pump_minimal_walk.txt
+# 2026-10-26T01:54:12.048Z pool 0x76c981a52530cdf9497559140aafcd8cd16836e7 ts 1792829880
+offset 300 limit 100 (watermark 33275107, 100 rows, first 0x76c981a52530cdf9497559140aafcd8cd16836e7_31949296_61):
+  row 99 (absolute 399) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 block 31777970 oi 5353500000000
+offset 400 limit 100 (watermark 33275109, 100 rows, first 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103):
+  row 0 (absolute 400) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 block 31777970 oi 5353500000000
+  row 1 (absolute 401) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_109 block 31777970 oi 5826800000000
+offset 0 limit 1000 (watermark 33275111, 1000 rows, first 0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44):
+  row 399 (absolute 399) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 block 31777970 oi 5858200000000
+  row 400 (absolute 400) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_109 block 31777970 oi 5826800000000
+  row 401 (absolute 401) 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 block 31777970 oi 5353500000000
+# all rows with that timestamp (filter on timestamp, ordered by id asc): {"OpenInterestSnapshot":[{"id":"0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103","blockNumber":"31777970","timestamp":"1792829880","openInterest":"5353500000000"},{"id":"0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_109","blockNumber":"31777970","timestamp":"1792829880","openInterest":"5826800000000"},{"id":"0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115","blockNumber":"31777970","timestamp":"1792829880","openInterest":"5858200000000"}]}
+# full walk 2026-10-26T01:54:23.046Z: pages 30, rows returned 2992, unique ids 2990, repeated: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103x2, 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_59x2
+# aggregate count: {"err":"[{\"message\":\"field 'OpenInterestSnapshot_aggregate' not found in type: 'query_root'\",\"extensions\":{\"path\":\"$.selectionSet.OpenInterestSnapshot_aggregate\",\"code\":\"validation-failed\"}}]"}
+# 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 returned by full walk: NEVER
+# 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_49 returned by full walk: NEVER
+# 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 returned by full walk: 2 time(s)
+
+## run_zro_pepe_1000x100.txt
+# 2026-10-26T01:54:33.680Z SDK query order_by line: order_by: {timestamp: desc}
+{"at":"2026-10-26T01:54:39.000Z","label":"SDK query (timestamp-only)","pool":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c","watermark":33275329,"newestBefore":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","newestAfter":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","oneShotRows":1000,"pagedRows":1000,"uniquePaged":998,"pageSize":100,"duplicates":2,"missing":2}
+  REPEATED 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_33 ts=1792827271 oi=13246300000000000000000 at offset 300 row 99 and offset 400 row 0
+  REPEATED 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_30591763_28 ts=1792711211 oi=13021800000000000000000 at offset 600 row 99 and offset 700 row 0
+  NEVER RETURNED 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_27 ts=1792827271 oi=13243000000000000000000 (index 400 in one-shot read)
+  NEVER RETURNED 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_30591763_34 ts=1792711211 oi=13271100000000000000000 (index 699 in one-shot read)
+# control order_by line: order_by: [{timestamp: desc}, {blockNumber: desc}, {id: desc}]
+{"at":"2026-10-26T01:54:43.099Z","label":"control (total order)","pool":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c","watermark":33275373,"newestBefore":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","newestAfter":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","oneShotRows":1000,"pagedRows":1000,"uniquePaged":1000,"pageSize":100,"duplicates":0,"missing":0}
+# 2026-10-26T01:54:43.178Z SDK query order_by line: order_by: {timestamp: desc}
+{"at":"2026-10-26T01:54:47.884Z","label":"SDK query (timestamp-only)","pool":"0xfa9b9e50cc1745113d57893991af200a74c86b6f","watermark":33275422,"newestBefore":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","newestAfter":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","oneShotRows":1000,"pagedRows":1000,"uniquePaged":999,"pageSize":100,"duplicates":1,"missing":1}
+  REPEATED 0xfa9b9e50cc1745113d57893991af200a74c86b6f_30072988_123 ts=1792659301 oi=2424000000000000000000000 at offset 700 row 99 and offset 800 row 1
+  NEVER RETURNED 0xfa9b9e50cc1745113d57893991af200a74c86b6f_30072988_128 ts=1792659301 oi=1968700000000000000000000 (index 800 in one-shot read)
+# control order_by line: order_by: [{timestamp: desc}, {blockNumber: desc}, {id: desc}]
+{"at":"2026-10-26T01:54:51.925Z","label":"control (total order)","pool":"0xfa9b9e50cc1745113d57893991af200a74c86b6f","watermark":33275462,"newestBefore":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","newestAfter":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","oneShotRows":1000,"pagedRows":1000,"uniquePaged":1000,"pageSize":100,"duplicates":0,"missing":0}
+
+## run_pump_300x7.txt
+# 2026-10-26T01:54:56.180Z SDK query order_by line: order_by: {timestamp: desc}
+{"at":"2026-10-26T01:55:12.807Z","label":"SDK query (timestamp-only)","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","watermark":33275554,"newestBefore":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","newestAfter":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","oneShotRows":300,"pagedRows":300,"uniquePaged":298,"pageSize":7,"duplicates":2,"missing":2}
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960996_27 ts=1792848190 oi=8386700000000 at offset 259 row 5 and offset 266 row 0
+  REPEATED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960120_74 ts=1792848102 oi=6930200000000 at offset 287 row 6 and offset 294 row 1
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960996_17 ts=1792848190 oi=8990600000000 (index 264 in one-shot read)
+  NEVER RETURNED 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960120_86 ts=1792848102 oi=7545500000000 (index 293 in one-shot read)
+
+## run_chain_block_31777970.txt
+{"at":"2026-10-26T01:55:29.402Z","chainId":50383,"block":"31777970","blockTimestamp":"1792829880"}
+  logIndex 103 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5353500000000
+  logIndex 109 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5826800000000
+  logIndex 115 tx 0xc7b9615d5f2bd50f6c7c4e6661a234be7699606d9f4cdbdd08bb926eedede08a openInterest 5858200000000
+  getOpenInterest() at end of block 31777970: 5858200000000

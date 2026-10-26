@@ -1,0 +1,10 @@
+
+> perp-maker@0.1.0 start
+> tsx src/index.ts
+
+perp-maker on XRP-PERP | 25 USDso per side at 2x | half-spread 15bps skew 10bps | cap 100 USDso | dry-run true
+[dry-run] would place quote long 19.4 XRP @ 1.284
+[dry-run] would place quote short 19.4 XRP @ 1.2879
+^C
+stopping, finishing the current cycle first. Press Ctrl-C again to exit now.
+quotes pulled, exiting

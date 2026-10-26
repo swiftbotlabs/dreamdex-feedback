@@ -1,0 +1,76 @@
+Swift Bot Labs - evidence for 'Deposits & withdrawals / Activity never load for e-mail logins'
+App: https://app.testnet.dreamdex.io (Somnia Tokyo testnet, chain 50383). All times UTC, 2026-10-26.
+Account: Somnia Account 'Wallet 1' 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817, signed in with e-mail (Privy OTP), no browser wallet.
+The login wallet the app's backend links to this session (returned by /api/accounts/nicknames) is written as <login wallet> in this file.
+
+== 1. Session state (03:41:41) ==
+localStorage privy recent-login-method = "email"; privy:connections = [{connectorType:"embedded", walletClientType:"privy", address:0x2277Eb46b5116da71e15a0085A640c1E29C149c6}]; typeof window.ethereum = "undefined"; header shows 0x0e7E…3817.
+
+== 2. Portfolio > Deposits & withdrawals ==
+03:41:21 reload /portfolio (20 s); 03:41:42 click 'Deposits & withdrawals'; 03:42:02 page text: "Failed to load deposits and withdrawals." -> dw_tab_2026-10-26T0342Z.png (03:42:35)
+Network capture 03:41:21-03:42:02: 377 requests (images/fonts/css excluded); to /api/transfers: 0; to /api/lz-scan: 0.
+App /api/* requests in that window:
+  03:41:23 GET 200 /api/lz/v1/tokens
+  03:41:23 GET 200 /api/lz/v1/chains
+  03:41:23 GET 200 /api/lz/v1/tokens?transferrableFromChainKey=somnia&transferrableFromTokenAddress=0x936A…E9D8
+  03:41:23 GET 200 /api/lz/v1/tokens?transferrableFromChainKey=somnia&transferrableFromTokenAddress=0xC509…D3D2
+  03:41:23 GET 200 /api/lz/v1/tokens?transferrableFromChainKey=somnia&transferrableFromTokenAddress=0x28BE…2A00
+  03:41:23 GET 200 /api/lz/v1/tokens?transferrableFromChainKey=somnia&transferrableFromTokenAddress=0xEeee…EEeE
+  03:41:24 DELETE 204 /api/session
+  03:41:24 GET 200 /api/accounts/nicknames
+  03:41:24 GET 200 /api/accounts/hideki-migration
+  03:41:24 POST 204 /api/session?eoa=none
+  03:41:25 GET 501 /api/compliance/screening
+  03:41:25 GET 200 /api/referral
+  03:41:25 GET 200 /api/preregistration/access
+  03:41:26 GET 200 /api/accounts/trading-keys?account=0x0e7E…3817&chainId=50383
+The tab's chunk 3yc-pcuziojk3.js loaded at 03:41:42 on the click; no /api/transfers or /api/lz-scan request followed.
+Earlier run, same account: 02:18:41 reload + 02:19:06 click -> same text; 411 requests, 0 to /api/transfers, 0 to /api/lz-scan; POST /api/session?eoa=none 204.
+
+== 3. Wallet panel > Overview > Activity ==
+03:44:04 text: "Activity did not load / Your history could not be read just now. Try again in a moment." -> activity_2026-10-26T0344Z.png
+Earlier run: 02:23:36 same text, still there at 02:28:27; 103 requests, 0 to /api/transfers, 0 to /api/lz-scan; GET /api/admin/whoami?eoa=none -> 403 {"status":403,"name":"forbidden","description":"This action requires a staff wallet"}.
+
+== 4. Header Deposit dialog (02:28:40) ==
+"Connect a wallet to deposit / Deposits are paid from your login wallet, and no wallet is connected in this session. Connect one to see your tokens and chains." -> deposit_dialog_2026-10-26T0228Z.png
+
+== 5. Positive control: the data exists (same tab, same-origin GET, 03:43:15-03:43:37) ==
+GET /api/transfers/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?owner=<login wallet> -> 200 in 1747 ms
+  {"movements":[{"amount":"49.25","blockNumber":518460995,"counterparty":"0x67cd0778a719099daf2d346ad0db0d9e6ff6674c","id":"0x32aea480016d80b0b75496ff07b4100be00ba8ea145245dc4aa0cbae19e30d0e:i3","kind":"outflow-native","timestampMs":1792420167000,"tokenAddress":null,"tokenSymbol":"STT","txHash":"0x32aea480016d80b0b75496ff07b4100be00ba8ea145245dc4aa0cbae19e30d0e"},{"amount":"0.1","blockNumber":518460981,"counterparty":"0x2277eb46b5116da71e15a0085a640c1e29c149c6","id":"0x08e4949d78ad0b161b1138844159a7fcd30221890306913f2917163c34b742bd:i3","kind":"outflow-native","timestampMs":1792420166000,"tokenAddress":null,"tokenSymbol":"STT","txHash":"0x08e4949d78ad0b161b1138844159a7fcd30221890306913f2917163c34b742bd"}],"protocolCounterparties":["0x67cd0778a719099daf2d346ad0db0d9e6ff6674c"],"truncated":false}
+GET /api/lz-scan/wallet/<login wallet>?limit=100 -> 200 {"data":[]}
+GET /api/transfers/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?owner=0x2277Eb46b5116da71e15a0085A640c1E29C149c6 -> 200 in 2648 ms, 2 movements: 49.25 STT 0x32aea480, 0.1 STT 0x08e4949d
+GET /api/transfers/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817?owner=0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 -> 200 in 2032 ms, 2 movements: 49.25 STT 0x32aea480, 0.1 STT 0x08e4949d
+(0x2277…49c6 is the embedded wallet in privy:connections; 0x0e7E…3817 is the account itself.)
+Earlier run 02:26:07: owner=<login wallet> -> 200 in 2454 ms, same 2 movements, truncated:false.
+
+== 6. Live bundle (chunks fetched 2026-10-26T03:39:56Z from https://app.testnet.dreamdex.io/_next/static/immutable/chunks/; byte-identical to copies taken 02:24) ==
+/portfolio HTML fetched 03:39:38 references chunks/1j1mgf8g_71p9.js and chunks/2x_aetkz4tpfd.js.
+-- 2x_aetkz4tpfd.js (sha256 7a6f2a4ad27dc096…):
+   "useEoaAddress",0,function(){let{wallets:t}=(0,h.useWallets)(),e=(0,h.getEmbeddedConnectedWallet)(t),a=t.find(t=>t.address!==e?.address);return a?(0,i.getAddress)(a.address):null},"useEoaWalletC
+-- 1j1mgf8g_71p9.js (sha256 f57c09c3ef0624b3…):
+   function k(e,t){return{enabled:!!e&&!!t,queryKey:["transfers","movements",e,t],queryFn:async({signal:r})=>e&&t?(0,o.unwrapOrThrow)(await (0,u.safeFetchWithSchema)(`/api/transfers/${e}?owner=${t}`,v,{signal:r})):{movements:[],prot
+-- 1j1mgf8g_71p9.js (sha256 f57c09c3ef0624b3…):
+   e.s(["useTransferHistory",0,function(e){let n=(0,x.usePortfolioSubjectAddress)(),i=(0,g.useSmartWallet)().isLoading,l=(0,h.useEoaAddress)(),[b,v]=(0,a.useState)(1),[w,S]=(0,a.useSt
+-- 1j1mgf8g_71p9.js (sha256 f57c09c3ef0624b3…):
+   p={restoring:{isPending:!0,isError:!1},unavailable:{isPending:!1,isError:
+-- 1j1mgf8g_71p9.js (sha256 f57c09c3ef0624b3…):
+   if(!e){let e=g?"restoring":"unavailable";return{...f,...p[e]}}l
+-- 1j1mgf8g_71p9.js (sha256 f57c09c3ef0624b3…):
+   isError:j.isError||T.isError
+-- 3yc-pcuziojk3.js (sha256 f56347a59b65af63…):
+   failure:n.isError?{message:"Failed to load deposits and withdrawals."}
+-- 3yc-pcuziojk3.js (sha256 f56347a59b65af63…):
+   state:a||t?a||t&&n.isPending||n.isBridgePending&&0===s.length&&!n.isError?"loading":n.isError&&0===s.length?"failed":"ready":"disconnected"}}};
+-- 2b01iu9z_dsn4.js (sha256 add9668729b61ae4…):
+   t7=(0,L.useTransferHistory)(r.TransferFilter.All)
+-- 2b01iu9z_dsn4.js (sha256 add9668729b61ae4…):
+   t7.isError?{activityState:"failed"}
+-- 3-3anv00s3xre.js (sha256 f4777ac9770d0043…):
+   children:"Activity did not load"
+Context: in 1j1mgf8g_71p9.js the LayerZero-history hook is called with l (= useEoaAddress()); its g ('restoring') is true only while Privy or its wallet list is still loading (!ready || authenticated && !walletsReady), so once loaded a null EOA always maps to p.unavailable = {isPending:!1,isError:!0}.
+In 3yc-pcuziojk3.js: a = useSmartWallet().isLoading, t = usePortfolioSubjectAddress() (the account, set for e-mail users), so the table never reaches "disconnected" and shows "failed".
+
+== 7. Docs (https://app.testnet.dreamdex.io/llms-full.txt fetched 03:40:10, 438,288 bytes) ==
+/docs/welcome/making-your-first-deposit: "What you'll need: an EVM wallet (MetaMask, Brave, or Rabby — or just an email / social login) and a few minutes."
+/docs/security/risks: "Email and social logins get no second owner unless a wallet is linked to the login later."
+No page says that deposit/withdrawal history or wallet Activity needs a connected external wallet (no match for 'Deposits & withdrawals' or 'Deposits and withdrawals'; the only portfolio-tab note tied to login type is "If you logged in with an external wallet and the Mint USDso button appears in the Portfolio header").

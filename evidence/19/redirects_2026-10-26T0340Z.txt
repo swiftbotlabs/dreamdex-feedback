@@ -1,0 +1,8 @@
+# curl -s -o /dev/null -A Mozilla/5.0 -w "%{http_code} %{redirect_url}" https://app.testnet.dreamdex.io<path>   run 2026-10-26T03:40:40Z
+/trade -> 307 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+/perps -> 307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+/trade/spot/SOMI:USDso -> 200 
+/trade/spot/WBTC:USDso -> 200 
+/trade/perps/ETH-PERP -> 307 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+/trade/perps/BTC-PERP -> 307 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+/trade/perps/tokyo/BTC-PERP -> 307 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso

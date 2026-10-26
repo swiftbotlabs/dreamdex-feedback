@@ -1,0 +1,11 @@
+at 2026-10-26T02:00:49Z account 0x420691db9d2b5a79210fda48c177471386b6dfd1
+02:00:49Z  10.55s ERROR database query error  A SDK default listPerpOrderHistory (ended)
+02:01:00Z  10.51s ERROR database query error  B opts.pool=BTC (market_id _eq), ended
+02:01:12Z  10.52s ERROR database query error  C opts.status=[Filled], ended
+02:01:23Z  10.66s ERROR database query error  D owner + status!=Open (no market_id), ended
+02:01:35Z  10.50s ERROR database query error  E owner only, ended
+02:01:46Z  10.50s ERROR database query error  F SDK where, order_by id desc only
+02:01:58Z  10.55s ERROR database query error  G SDK where, no order_by
+02:02:09Z  10.47s ERROR database query error  H SDK opts.orderBy='placed'
+02:02:21Z  10.52s ERROR database query error  I client.getOrders(owner) (Orders doc, placed desc, limit 200)
+02:02:32Z  10.53s ERROR database query error  J owner only, placed sort, offset 100000 (row-count probe)

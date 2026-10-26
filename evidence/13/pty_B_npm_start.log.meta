@@ -1,0 +1,14 @@
+cmd: npm start -w perp-maker  (cwd /w)
+started: 2026-10-26T03:07:12.517Z
+ready marker seen: True at 2026-10-26T03:07:17.230Z
+process tree (session of the pty child) right before Ctrl-C:
+    PID    PGID     SID   TPGID STAT COMMAND
+      3       3       3       3 Ssl+ npm start
+     14       3       3       3 S+   sh -c tsx src/index.ts
+     15       3       3       3 Sl+  node /w/node_modules/.bin/tsx src/index.ts
+     26       3       3       3 Sl+  /usr/bin/node --require /w/node_modules/tsx/dist/preflight.cjs --import file:///w/node_modules/tsx/dist/loader.mjs src/index.ts
+     38       3       3       3 Sl+  /w/node_modules/@esbuild/linux-arm64/bin/esbuild --service=0.28.1 --ping
+Ctrl-C (0x03 written to pty master) at 2026-10-26T03:07:20.251Z
+pty child killed by signal 2 at 2026-10-26T03:07:22.209Z
+processes left in that session afterwards:
+    PID    PGID STAT COMMAND

@@ -1,0 +1,115 @@
+Fetched 2026-10-26 04:33:28 UTC (curl). Docs from https://app.dreamdex.io/docs/<path>.md; specs from https://<host>/.well-known/<name>.json.
+Byte-identical to a fetch made at 04:19 UTC the same day.
+
+======== /docs/developers/websocket-api/real-time-feed.md
+   29: ## Order Lifecycle Tracking
+   30: 
+   31: There is **no account-wide order or fills channel.** The `order` channel is **per-`orderId`** - you subscribe to one specific order and receive its lifecycle events. Subscribing once and waiting for fills across all your orders is not supported; track each order you place.
+   32: 
+   33: The tracking flow for a single order:
+   34: 
+   35: 1. **Prepare and submit** the order (HTTP API or on-chain), then extract its `orderId` from the `OrderPlaced` event / prepared-order response.
+   36: 2. **Subscribe** to the `order` channel with that `orderId`:
+   37:    ```json
+   38:    {"operation": "subscribe", "channel": "order", "params": {"symbol": "SOMI:USDso", "orderId": "0xYourOrderId"}}
+  ...
+   46: Subscribing to an unsupported channel name returns an `unknown_channel` error; valid channel names with bad params return `subscription_failed`. See [Errors](errors.md#protocol-errors).
+  ...
+   60: **Endpoint**:
+   61: 
+   62: | Environment              | Public feed                              |
+   63: | ------------------------ | ---------------------------------------- |
+   64: | Mainnet (Somnia)         | `wss://api.dreamdex.io/v0/ws/public`     |
+   65: | Testnet (Somnia Shannon) | `wss://stg.api.dreamdex.io/v0/ws/public` |
+  ...
+  153: ##### Subscribe to order updates
+  154: 
+  155: ```json
+  156: {
+  157:   "operation": "subscribe",
+  158:   "channel": "order",
+  159:   "params": {
+  160:     "orderId": "0x1234567890abcdef"
+  161:   }
+  162: }
+  ...
+
+======== /docs/welcome/quick-start.md
+  365: ### Option C: Stream via WebSocket
+  366: 
+  367: Connect to the [WebSocket API](../developers/websocket-api/real-time-feed.md) at `wss://api.dreamdex.io/v0/ws/public` (testnet: `wss://stg.api.dreamdex.io/v0/ws/public`) and subscribe to order updates:
+  368: 
+  369: ```json
+  370: {
+  371:   "operation": "subscribe",
+  372:   "channel": "order",
+  373:   "params": { "orderId": "0xYourOrderId" }
+  374: }
+  375: ```
+  376: 
+  377: You will receive a snapshot of the current order state followed by real-time updates as the order fills or is cancelled.
+  ...
+
+======== /docs/developers/websocket-api/errors.md
+   55: | `errorName` | Trigger |
+   56: |-------------|---------|
+   57: | `unknown_channel` | The `channel` is not a recognized channel name (`orderbook`, `ohlcv`, `trades`, `order`). |
+   58: | `subscription_failed` | The channel is valid but params were rejected (missing field, unknown symbol, bad timeframe, malformed `orderId`). |
+  ...
+
+======== https://stg.api.dreamdex.io/.well-known/async.json
+servers: {"production": {"description": "Mainnet (production)", "host": "api.dreamdex.io", "pathname": "/v0/ws", "protocol": "wss"}, "staging": {"description": "Testnet (staging)", "host": "stg.api.dreamdex.io", "pathname": "/v0/ws", "protocol": "wss"}}
+components.schemas.OrderParams: {"properties": {"orderId": {"description": "The order ID to subscribe to", "type": "string"}, "symbol": {"description": "Market symbol the order belongs to (e.g. \"SOM:USD\")", "type": "string"}}, "required": ["symbol", "orderId"], "type": "object"}
+components.messages.Subscribe.examples (channel order): [{"name": "subscribeOrder", "payload": {"channel": "order", "operation": "subscribe", "params": {"orderId": "340282366920938463463374607431768211455", "symbol": "SOM:USD"}}, "summary": "Subscribe to order updates"}]
+
+======== https://api.testnet.dreamdex.io/.well-known/async.json
+servers: {"production": {"host": "api.dreamdex.io", "pathname": "/v0/ws", "protocol": "wss", "description": "Mainnet (production)"}, "testnet": {"host": "api.testnet.dreamdex.io", "pathname": "/v0/ws", "protocol": "wss", "description": "Testnet"}}
+components.schemas.OrderParams: {"type": "object", "properties": {"chainId": {"description": "The chain to subscribe on. Defaults to 50312, the only chain this deployment serves.", "type": "integer", "enum": [50312]}, "kind": {"description": "Which market each symbol names when a spot and a perp market share it. Omitted, spot first, then perp, then event. A market's contract address in place of the symbol needs no kind. Part of the subscription: unsubscribe with the same kind.", "type": "string", "enum": ["spot", "perp", "event"]}, "symbol": {"type": "string", "minLength": 1, "maxLength": 66, "description": "Market symbol the order belongs to (e.g. \"SOM:USD\")"}, "orderId": {"type": "string", "minLength": 1, "description": "The order ID to subscribe to"}}, "required": ["symbol", "orderId"]}
+components.messages.Subscribe.examples (channel order): none
+
+======== https://stg.api.dreamdex.io/.well-known/oapi.json
+components.schemas.OrderId: {"description": "Unique uint128 order identifier, encoded as a decimal string", "example": "340282366920938463463374607431768211455", "pattern": "^[0-9]+$", "type": "string"}
+
+======== https://api.testnet.dreamdex.io/.well-known/oapi.json
+components.schemas.OrderId: {"type": "string", "pattern": "^[0-9]+$"}
+
+======== github.com/somnia-chain/dreamdex-bot-kit @ main = 25798660, examples/05-production-async/src/dreamdex_bot/core/ws_client.py (fetched 04:34 UTC)
+   86:     async def subscribe_order(self, order_id: str, handler: Handler) -> None:
+   87:         """Subscribe to the documented per-order lifecycle channel.
+   88: 
+   89:         dreamDEX does not expose account-wide private order/fill channels. The
+   90:         documented lifecycle path is one dynamic subscription per orderId.
+   91:         """
+   92:         channel = f"order.{order_id}"
+   93:         handlers = self._handlers.setdefault(channel, [])
+   94:         if not any(existing is handler for existing, _ in handlers):
+   95:             handlers.append((handler, False))
+   96:         if self._ws is not None:
+   97:             await self._send({
+   98:                 "operation": "subscribe",
+   99:                 "channel": "order",
+  100:                 "params": {"orderId": str(order_id)},
+  101:             })
+  ...
+  103:     async def unsubscribe_order(self, order_id: str) -> None:
+  104:         """Unsubscribe from a per-order lifecycle channel."""
+  105:         channel = f"order.{order_id}"
+  106:         self._handlers.pop(channel, None)
+  107:         if self._ws is not None:
+  108:             await self._send({
+  109:                 "operation": "unsubscribe",
+  110:                 "channel": "order",
+  111:                 "params": {"orderId": str(order_id)},
+  112:             })
+  ...
+  210:         for order_id in sorted(set(order_ids)):
+  211:             await self._send({
+  212:                 "operation": "subscribe",
+  213:                 "channel": "order",
+  214:                 "params": {"orderId": order_id},
+  215:             })
+  ...
+
+examples/05-production-async/src/dreamdex_bot/config.py (main): line 157: testnet_ws: str = "wss://stg.api.dreamdex.io/v0/ws/public"
+examples/05-production-async/tests/test_ws_client.py (main): test_subscribe_order_sends_documented_order_subscription asserts
+  payload == {"operation": "subscribe", "channel": "order", "params": {"orderId": "123"}}

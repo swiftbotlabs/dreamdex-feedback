@@ -1,0 +1,24 @@
+# Derived from the repro's Chrome DevTools capture of /explore (logged in), first request 2026-10-26T02:18:54.010426Z.
+# GraphQL operations per indexer host (operation name: count), Candles pool ids, and each host's chain_metadata answer.
+== dev.smk.somnia.host  chain_metadata -> {"data":{"chain_metadata":[{"chain_id":50312}]}}
+   Candles: 29
+   LiveBinaryMarkets: 3
+   BinaryMarkets: 3
+   BookTops: 3
+   PoolsByType: 2
+   Liquidations: 2
+   IndexedChains: 1
+   RegistryMarkets: 1
+   EventAssetVolume: 1
+   ?: 1
+   Orders: 1
+   Candles pool ids: 0x11c8d997 0x259fd655 0x3605f28a 0x3892a517 0x440f5a79 0x4d3892d1 0x6a7224a4 0x996d3678 0xd180195d
+== hideki-dev.smk.somnia.host  chain_metadata -> {"data":{"chain_metadata":[{"chain_id":50383}]}}
+   LiveBinaryMarkets: 2
+   BinaryMarkets: 2
+   Liquidations: 2
+   IndexedChains: 1
+   RegistryMarkets: 1
+   TradingKeyCandidates: 1
+== price-feed.dev.oracle.somnia.host  chain_metadata -> 
+   PriceCandles: 4

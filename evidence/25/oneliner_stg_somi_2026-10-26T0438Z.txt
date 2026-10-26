@@ -1,0 +1,6 @@
+2026-10-26T04:38:19.961Z limit=1 {"channel":"trades","type":"subscribed","symbols":["SOMI:USDso"]}
+2026-10-26T04:38:19.964Z limit=1 {"channel":"trades","type":"snapshot","symbol":"SOMI:USDso","trades":null}
+2026-10-26T04:38:19.965Z limit=1 trades: null
+2026-10-26T04:38:23.910Z limit=100 {"channel":"trades","type":"subscribed","symbols":["SOMI:USDso"]}
+2026-10-26T04:38:24.494Z limit=100 {"channel":"trades","type":"snapshot","symbol":"SOMI:USDso","trades":[{"id":"1792989328905-0","price":"0.1757","quantity":"25","side":"sell","timestamp":1792989328731},{"id":"1792989338907-0","price":"0.1756","quantity":"25","side":"sell","timestamp":1792989338733},{"id":"1792989349013-0","price":"0.1757","quantity":"25","side":"sell","timestamp":1792989348832},{"id":"1792989358982-0","price":"0.1758","quantity":"25","side":"sell","timestamp":1792989358833},{"id":"1792989368986-0","price":"0.1757","quantity":"25","side":"sell","timestamp":1792989368832},{"id":"1792989378929-0","price":"0.1757"...(1835 chars)
+2026-10-26T04:38:24.494Z limit=100 trades: 18 items, timestamps 04:35:28.731 04:35:38.733 04:35:48.832 04:35:58.833 04:36:08.832 04:36:18.732 04:36:29.031 04:36:38.731 04:36:48.832 04:36:58.833 04:37:08.731 04:37:18.832 04:37:28.832 04:37:38.731 04:37:48.834 04:37:58.732 04:38:08.731 04:38:18.732

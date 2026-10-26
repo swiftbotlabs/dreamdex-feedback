@@ -1,0 +1,5 @@
+# Minimal pair as written in the report's step 1, account 0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50
+## 2026-10-26T03:33:31Z sort lastUpdatedAtTimestamp desc, id desc
+{"errors":[{"message":"database query error","extensions":{"path":"$","code":"unexpected"}}]} 10.618306s
+## 2026-10-26T03:33:42Z sort placedAtTimestamp desc, id desc
+rows 100, first row {"id":"0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0_7766079255031725464281","status":"Cancelled","lastUpdatedAtTimestamp":"1791984497"} (1791984497 = 2026-10-14T13:28:17Z) 1.291990s

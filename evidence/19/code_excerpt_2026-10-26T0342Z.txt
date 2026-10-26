@@ -1,0 +1,18 @@
+# Live app bundle, fetched 2026-10-26T03:42Z: the script tags of https://app.testnet.dreamdex.io/explore, each chunk downloaded with curl.
+# Fragments quoted with grep -o (minified code).
+
+chunk URL: https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0kjxa_afar1-j.js  sha256 2dc2f1e23c16a944
+chunk URL: https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0p4rb93gq9d0a.js  sha256 075cbb1e21204a21
+
+## Explore page (VenueBoard): rows sorted by lifetime quote volume, top 6, all built for GLOBAL_REGION
+function Q(e){return[...e??[]].sort((e,t)=>((0,y.lifetimeQuoteVolumeOf)(t)??0)-((0,y.lifetimeQuoteVolumeOf)(e)??0))}
+R=(0,s.useMemo)(()=>Q(_).slice(0,6),[_]),D=(0,s.useMemo)(()=>r?Q(O).slice(0,6):[],[O,r])
+F=(0,s.useMemo)(()=>[{markets:U,region:E.GLOBAL_REGION}],[U])
+region:E.GLOBAL_REGION,tickers:B.get(E.GLOBAL_REGION.id)
+
+## Region config
+"MARKETS_INDEXER_URL",0,"https://dev.smk.somnia.host/v1/graphql"
+id:_.GLOBAL_REGION_ID,indexerUrl:l.MARKETS_INDEXER_URL,label:"Global"
+id:"tokyo",indexerUrl:"https://hideki-dev.smk.somnia.host/v1/graphql",label:"DreamDEX"
+U=G.some(e=>e.id===L.id),q=U?L:M
+"GLOBAL_REGION",0,M,"LANDING_REGION",0,q,"REGIONS",0,G,"TOKYO_LISTED",0,U,"TOKYO_TESTNET_REGION",0,L

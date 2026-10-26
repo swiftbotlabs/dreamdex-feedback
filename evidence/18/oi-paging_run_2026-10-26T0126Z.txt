@@ -1,0 +1,74 @@
+# getOpenInterestHistory offset paging repeats/loses rows: run 2026-10-26T01:26:08Z (indexer https://hideki-dev.smk.somnia.host/v1/graphql, chain 50383)
+## SDK 0.32.1 query (src/gql/graphql.ts OpenInterestHistoryDocument), variables {pool, limit (default 100), offset}:
+query OpenInterestHistory($pool: String!, $limit: Int, $offset: Int) {
+  _sdkWatermark: chain_metadata {
+    chain_id
+    latest_processed_block
+  }
+  OpenInterestSnapshot(
+    where: {pool: {_eq: $pool}}
+    order_by: {timestamp: desc}
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    pool
+    openInterest
+    timestamp
+    blockNumber
+  }
+}
+
+## SDK's own comment on timestamp-only ordering (src/perp/history.ts:1041-1047):
+// ORDERED BY A TOTAL KEY, not by `timestamp` alone. Every row a block produces
+// carries that block's timestamp, so a timestamp-only sort leaves ties in an
+// order the server may choose differently per request - and an `offset` page
+// boundary landing inside one block then skips or repeats a row, silently in the
+// skip case. `id` is the primary key, so appending it makes the order total and
+// the paging contract honest; `blockNumber` sits between so rows still group by
+// block when two blocks share a timestamp.
+
+## PUMP 0x76c981a52530cdf9497559140aafcd8cd16836e7 — one read of 1000 rows vs 10 pages of 100 (SDK default limit)
+{"at":"2026-10-26T01:26:15.970Z","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","newestRow":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":2,"missing":2}
+  repeated: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 on pages at offsets 300,400 timestamp 1792829880
+  repeated: 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_59 on pages at offsets 800,900 timestamp 1792688287
+  never returned by any page: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 timestamp 1792829880 openInterest 5858200000000 position in one-shot read 399
+  never returned by any page: 0x76c981a52530cdf9497559140aafcd8cd16836e7_30362653_49 timestamp 1792688287 openInterest 3510700000000 position in one-shot read 899
+{"at":"2026-10-26T01:26:19.106Z","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","newestRow":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":2,"missing":2}
+
+## ZRO 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c — one read of 1000 rows vs 10 pages of 100 (SDK default limit)
+{"at":"2026-10-26T01:26:22.466Z","pool":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c","newestRow":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":2,"missing":2}
+  repeated: 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_33 on pages at offsets 300,400 timestamp 1792827271
+  repeated: 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_30591763_28 on pages at offsets 600,700 timestamp 1792711211
+  never returned by any page: 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_27 timestamp 1792827271 openInterest 13243000000000000000000 position in one-shot read 400
+  never returned by any page: 0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_30591763_34 timestamp 1792711211 openInterest 13271100000000000000000 position in one-shot read 699
+{"at":"2026-10-26T01:26:25.764Z","pool":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c","newestRow":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_33195293_6","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":2,"missing":2}
+
+## 1000PEPE 0xfa9b9e50cc1745113d57893991af200a74c86b6f — one read of 1000 rows vs 10 pages of 100 (SDK default limit)
+{"at":"2026-10-26T01:26:29.549Z","pool":"0xfa9b9e50cc1745113d57893991af200a74c86b6f","newestRow":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":1,"missing":1}
+  repeated: 0xfa9b9e50cc1745113d57893991af200a74c86b6f_30072988_123 on pages at offsets 700,800 timestamp 1792659301
+  never returned by any page: 0xfa9b9e50cc1745113d57893991af200a74c86b6f_30072988_128 timestamp 1792659301 openInterest 1968700000000000000000000 position in one-shot read 800
+{"at":"2026-10-26T01:26:33.956Z","pool":"0xfa9b9e50cc1745113d57893991af200a74c86b6f","newestRow":"0xfa9b9e50cc1745113d57893991af200a74c86b6f_33211569_29","onePageRows":1000,"pagedRows":1000,"pageSize":100,"duplicates":1,"missing":1}
+
+## PUMP — 300 rows vs pages of 7
+{"at":"2026-10-26T01:26:43.898Z","pool":"0x76c981a52530cdf9497559140aafcd8cd16836e7","newestRow":"0x76c981a52530cdf9497559140aafcd8cd16836e7_33195496_44","onePageRows":300,"pagedRows":300,"pageSize":7,"duplicates":2,"missing":2}
+  repeated: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960996_27 on pages at offsets 259,266 timestamp 1792848190
+  repeated: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960120_74 on pages at offsets 287,294 timestamp 1792848102
+  never returned by any page: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960996_17 timestamp 1792848190 openInterest 8990600000000 position in one-shot read 264
+  never returned by any page: 0x76c981a52530cdf9497559140aafcd8cd16836e7_31960120_86 timestamp 1792848102 openInterest 7545500000000 position in one-shot read 293
+
+## The rows involved (all columns), PUMP block 31777970 and ZRO block 31751887:
+{"data":{"OpenInterestSnapshot":[{"id":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_27","timestamp":"1792827271","blockNumber":"31751887","openInterest":"13243000000000000000000"}, {"id":"0x2a1822b02039ddf0e293f3f7243673fc03eaf16c_31751887_33","timestamp":"1792827271","blockNumber":"31751887","openInterest":"13246300000000000000000"}, {"id":"0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103","timestamp":"1792829880","blockNumber":"31777970","openInterest":"5353500000000"}, {"id":"0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115","timestamp":"1792829880","blockNumber":"31777970","openInterest":"5858200000000"}]}}
+
+__time_http 0.666921 200 2026-10-26T01:26:44Z
+
+## Minimal repro, PUMP, rows with timestamp 1792829880 (2026-10-26T01:27:00Z)
+offset 300 limit 100:
+  row 99 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 oi 5353500000000
+offset 400 limit 100:
+  row 0 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 oi 5353500000000
+  row 1 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_109 oi 5826800000000
+offset 0 limit 1000:
+  index 399 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_115 oi 5858200000000
+  index 400 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_109 oi 5826800000000
+  index 401 0x76c981a52530cdf9497559140aafcd8cd16836e7_31777970_103 oi 5353500000000

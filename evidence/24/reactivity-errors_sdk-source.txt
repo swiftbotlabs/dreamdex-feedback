@@ -1,0 +1,132 @@
+Source excerpts, read as text from npm tarballs (npm pack; nothing installed from them with scripts).
+Extracted 2026-10-26T04:33Z.
+@somnia-chain/markets-sdk 0.32.1     sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==  (= npm dist.integrity)
+@somnia-chain/reactivity 0.2.1       sha512-sLv+vN6JGbJ0O3LmsU7R+nGAMNpUJerJQ1v/xfC9nj2OjP3ze5nrmABhdp4TTknTdOAEU0oED0a4Z0Q8cAXP/g==  (= npm dist.integrity)
+@somnia-chain/markets-sdk 0.32.2-canary.38575926931.ge4550933d36d  sha512-tnxIl0Tak0grcRVs1+8yoiWPs6uLLtmp7NHusaioUa4/AKqvLq8L347RhcyWgphVVPAQ9MMgDl4RcAkytjwn+g==  (= npm dist.integrity)
+npm dist-tags at 04:32 UTC: markets-sdk latest 0.32.1, canary 0.32.2-canary.38575926931.ge4550933d36d; reactivity latest 0.2.1. markets-sdk peer: "@somnia-chain/reactivity": "^0.2.1".
+
+=== markets-sdk 0.32.1 docs/REACTIVITY.md 36-39 (export table) ===
+    36	| --------------------------------------- | ------------------------------------------------------------------------------------------------
+    37	| `createReactivity(client, { wallet? })` | builds the reactivity client from the markets client's viem client: reads and receipt waits reus
+    38	| `unwrap(result)`                        | upstream _returns_ `Error` objects; this SDK throws instead, so a failure stops the caller      
+    39	| `SOMNIA_REACTIVITY_PRECOMPILE_ADDRESS`  | not exposed by upstream's published build                                                       
+
+=== markets-sdk 0.32.1 docs/REACTIVITY.md 203-213 ===
+   203	
+   204	Upstream validates the precompile's preconditions before spending gas — a
+   205	non-zero handler, well-formed `bytes32` topics, at least one narrowing filter
+   206	(a match-everything subscription is rejected), `0 < gasLimit <= 200_000_000`,
+   207	`maxFeePerGas >= priorityFeePerGas + 6 gwei` (or `0` to skip that check), and the
+   208	owner holding ≥ 32 SOMI/STT. Note that writes need a **wallet client**: pass one
+   209	to `createReactivity`, or upstream's write silently resolves to `null`.
+   210	Upstream sends each write on the wallet's chain, so the wallet must be on the
+   211	engine's chain. When `wallet.chain` is set to another chain, `createReactivity`
+   212	throws `InvalidInputError`. A wallet with no `chain` is not checked. On a
+   213	multi-chain exchange, pass `exchange.engineFor(chainId)` instead of
+
+=== markets-sdk 0.32.1 docs/REACTIVITY.md 236-248 ===
+   236	## Errors
+   237	
+   238	Upstream methods resolve to `T | Error` instead of throwing. Two ways to live
+   239	with that, both fine:
+   240	
+   241	```ts
+   242	// 1. this SDK's contract — throw (recommended)
+   243	const hash = unwrap(await reactivity.subscribe({ ... }));
+   244	
+   245	// 2. upstream's own idiom — check
+   246	const result = await reactivity.subscribe({ ... });
+   247	if (result instanceof Error) throw result;
+   248	```
+
+=== markets-sdk 0.32.1 src/reactivity/index.ts 227-233, 257-260 (unwrap) ===
+   227	/**
+   228	 *  Turn an upstream result into a value or a throw.
+   229	 *
+   230	 *  Every `@somnia-chain/reactivity` method resolves to `T | Error` rather than
+   231	 *  throwing — a shape a caller can forget to check, then treat a failure as a
+   232	 *  transaction hash. This SDK's contract is that failures throw
+   233	 *  (CONVENTIONS.md), so wrap upstream calls in `unwrap` to get that back.
+   257	export function unwrap<T>(result: T | Error): T {
+   258	  if (result instanceof Error) throw result;
+   259	  return result;
+   260	}
+
+=== 0.32.2-canary: same lines ===
+209:to `createReactivity`, or upstream's write silently resolves to `null`.
+238:Upstream methods resolve to `T | Error` instead of throwing. Two ways to live
+247:if (result instanceof Error) throw result;
+230: *  Every `@somnia-chain/reactivity` method resolves to `T | Error` rather than
+
+=== reactivity 0.2.1 dist/index.d.ts (declared return types) ===
+   176  subscribeRaw(subscription: SubscriptionData): Promise<Hex | Error>;
+   183  subscribe({ handlerContractAddress, filter, options, }: SoliditySubscribeRequest): Promise<Hex | Error>;
+   189  unsubscribe(subscriptionId: bigint): Promise<Hex | Error>;
+   195  scheduleSubscriptionAtTimestamp({ timestampMs, handlerContractAddress, options, }: ScheduleRequest): Promise<Hex | Error>;
+   201  scheduleSubscriptionAtBlock({ blockNumber, handlerContractAddress, options, }: BlockTickSubscriptionRequest): Promise<Hex | Error>;
+   205  scheduleSubscriptionAtEpoch({ epochNumber, handlerContractAddress, options, }: EpochTickSubscriptionRequest): Promise<Hex | Error>;
+   211  getSubscriptionInfo(subscriptionId: bigint): Promise<SoliditySubscriptionInfo | Error>;
+
+=== reactivity 0.2.1 dist/index.js 20-23 (writeContract) ===
+    20	  async writeContract(e, t, r, i = [], n = BigInt(0)) {
+    21	    if (!this.client.wallet)
+    22	      return null;
+    23	    let m = this.client.wallet.account ?? null;
+
+=== reactivity 0.2.1 dist/index.js 54-59 (getBalance) ===
+    54	  async getBalance(e) {
+    55	    let t = e ?? this.client.wallet?.account?.address;
+    56	    if (!t)
+    57	      throw new Error("No address provided and no wallet account available");
+    58	    return this.client.public.getBalance({ address: t });
+    59	  }
+
+=== reactivity 0.2.1 dist/index.js 146, 157-172 (subscribeRaw: balance check is BEFORE the try at 161) ===
+   146	  async subscribeRaw(e) {
+   157	    if (e.maxFeePerGas !== BigInt(0) && e.maxFeePerGas < e.priorityFeePerGas + parseGwei("6"))
+   158	      return new Error("Max fee per gas must be at least 6 gwei higher than priority fee per gas");
+   159	    if (await this.viem.getBalance() < parseEther("32"))
+   160	      return new Error("Owner balance must be at least 32 SOMI to create a subscription");
+   161	    try {
+   162	      let r = await this.viem.writeContract(
+   163	        s,
+   164	        c,
+   165	        "subscribe",
+   166	        [e]
+   167	      );
+   168	      if (!r)
+   169	        throw new Error("Failed to broadcast TX to create on-chain subscription");
+   170	      return r;
+   171	    } catch (r) {
+   172	      return r instanceof Error ? r : new Error(String(r));
+
+=== reactivity 0.2.1 dist/index.js 210-224 (unsubscribe) ===
+   210	  async unsubscribe(e) {
+   211	    try {
+   212	      let t = await this.viem.writeContract(
+   213	        s,
+   214	        c,
+   215	        "unsubscribe",
+   216	        [e]
+   217	      );
+   218	      if (!t)
+   219	        throw new Error("Failed to broadcast TX to cancel on-chain subscription");
+   220	      return t;
+   221	    } catch (t) {
+   222	      return t instanceof Error ? t : new Error(String(t));
+   223	    }
+   224	  }
+
+=== reactivity 0.2.1 dist/index.js 300-311 (getSubscriptionInfo: readContract promise returned without await) ===
+   300	  async getSubscriptionInfo(e) {
+   301	    try {
+   302	      return this.viem.readContract(
+   303	        s,
+   304	        c,
+   305	        "getSubscriptionInfo",
+   306	        [e]
+   307	      );
+   308	    } catch (t) {
+   309	      return t instanceof Error ? t : new Error(String(t));
+   310	    }
+   311	  }

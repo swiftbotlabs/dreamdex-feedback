@@ -1,0 +1,16 @@
+2026-10-26T04:20:00.498Z REST(before) GET https://stg.api.dreamdex.io/v0/markets/WETH%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:19:54.383, oldest 04:01:44.389
+2026-10-26T04:20:00.500Z REST(before) row[0] keys=amount,cost,id,price,side,symbol,timestamp,txHash id=73786976294871000717:295147905179385620103 ts=1792988394383 price=2311.59 qty=0.0016 side=sell
+2026-10-26T04:20:02.158Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":1}}
+2026-10-26T04:20:02.566Z << limit=1: trades is null (not an array). raw: {"channel":"trades","type":"snapshot","symbol":"WETH:USDso","trades":null}  msgs=subscribed,snapshot
+2026-10-26T04:20:05.294Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":3}}
+2026-10-26T04:20:05.736Z << limit=3: 1 trades, order n/a, first 04:20:04.341, last 04:20:04.341, ids[0..1]=1792988404499-0, ids in REST 0/1, same trade by (ts,price,qty,side) in REST 0/1, REST rows older than WS oldest: 100, msgs=subscribed,snapshot
+2026-10-26T04:20:08.636Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":10}}
+2026-10-26T04:20:09.071Z << limit=10: 3 trades, order ASC(oldest first), first 04:19:44.383, last 04:20:04.341, ids[0..1]=1792988384573-0 1792988394579-0, ids in REST 0/3, same trade by (ts,price,qty,side) in REST 2/3, REST rows older than WS oldest: 98, msgs=subscribed,snapshot
+2026-10-26T04:20:12.119Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":100}}
+2026-10-26T04:20:12.697Z << limit=100: 11 trades, order ASC(oldest first), first 04:18:24.383, last 04:20:04.341, ids[0..1]=1792988304610-0 1792988314548-0, ids in REST 0/11, same trade by (ts,price,qty,side) in REST 10/11, REST rows older than WS oldest: 90, msgs=subscribed,snapshot
+2026-10-26T04:20:14.555Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"]}}
+2026-10-26T04:20:15.017Z << limit=undefined: 12 trades, order ASC(oldest first), first 04:18:24.383, last 04:20:14.339, ids[0..1]=1792988304610-0 1792988314548-0, ids in REST 0/12, same trade by (ts,price,qty,side) in REST 10/12, REST rows older than WS oldest: 90, msgs=subscribed,snapshot
+2026-10-26T04:20:18.092Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["WETH:USDso"],"limit":500}}
+2026-10-26T04:20:18.623Z << limit=500: 12 trades, order ASC(oldest first), first 04:18:24.383, last 04:20:14.339, ids[0..1]=1792988304610-0 1792988314548-0, ids in REST 0/12, same trade by (ts,price,qty,side) in REST 10/12, REST rows older than WS oldest: 90, msgs=subscribed,snapshot
+2026-10-26T04:20:20.746Z REST(after) GET https://stg.api.dreamdex.io/v0/markets/WETH%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:20:14.339, oldest 04:02:14.390
+2026-10-26T04:20:20.746Z REST(after) row[0] keys=amount,cost,id,price,side,symbol,timestamp,txHash id=73786976294871000747:276701161105676068521 ts=1792988414339 price=2310.86 qty=0.0017 side=sell

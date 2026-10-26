@@ -1,0 +1,85 @@
+Fetched 2026-10-26T04:32:29Z (real-time-feed.md, stg async.json); llms-full.txt fetched 2026-10-26T04:35:34Z
+
+== https://app.dreamdex.io/docs/developers/websocket-api/real-time-feed.md (HTTP 200, 25975 B; saved as real-time-feed_live.md)
+  18: ## Reconnecting and resuming
+  19: 
+  20: The feed does **not** provide a sequence number or resume cursor. There is no way to replay messages missed while disconnected, and no gapless snapshot-to-live handoff - so treat every reconnect as a cold start:
+  21: 
+  22: 1. Reconnect with **exponential backoff** (a `1001 Going Away` close or a `shutdown` message means the server is cycling - back off and retry).
+  23: 2. **Re-subscribe** to every channel you need. Market-data channels (`orderbook`, `ohlcv`, `trades`) reply with a fresh `snapshot`, so your local state is rebuilt from scratch - discard any pre-disconnect state rather than merging.
+  24: 3. **Re-fetch authoritative state over REST** for anything the stream cannot resnapshot. In particular, after any disconnect re-read open orders and balances via the HTTP API rather than assuming your in-memory view survived.
+  ...
+  60: **Endpoint**:
+  61: 
+  62: | Environment              | Public feed                              |
+  63: | ------------------------ | ---------------------------------------- |
+  64: | Mainnet (Somnia)         | `wss://api.dreamdex.io/v0/ws/public`     |
+  65: | Testnet (Somnia Shannon) | `wss://stg.api.dreamdex.io/v0/ws/public` |
+  ...
+ 138: ##### Subscribe to trades
+ 139: 
+ 140: ```json
+ 141: {
+ 142:   "operation": "subscribe",
+ 143:   "channel": "trades",
+ 144:   "params": {
+ 145:     "symbols": [
+ 146:       "SOMI:USDso"
+ 147:     ],
+ 148:     "limit": 100
+ 149:   }
+ 150: }
+  ...
+ 471: ### `trades:snapshot` - Recent trades history
+ 472: 
+ 473: Sends recent trade history immediately after a client subscribes to the
+ 474: trades channel. Contains the most recent trades up to the requested limit
+ 475: (default 100). Trades are ordered by timestamp descending (newest first).
+ 476: 
+ 477: #### Message Format
+ 478: 
+ 479: | Field | Type | Description | Constraints | Required |
+ 480: |-------|------|-------------|-------------|----------|
+ 481: | `channel` | string | - | `"trades"` | required |
+ 482: | `type` | string | - | `"snapshot"` | required |
+ 483: | `symbol` | string | - | - | required |
+ 484: | `trades` | array<object> | - | - | required |
+ 485: | `trades[].id` | string | - | - | required |
+ 486: | `trades[].price` | string | Trade price as decimal string | pattern: `^[0-9]+(\.[0-9]+)?$` | required |
+ 487: | `trades[].quantity` | string | Trade quantity as decimal string | pattern: `^[0-9]+(\.[0-9]+)?$` | required |
+ 488: | `trades[].side` | string | - | `"buy"`, `"sell"` | required |
+ 489: | `trades[].timestamp` | integer | - | format: int64 | required |
+  ...
+
+== https://app.dreamdex.io/llms-full.txt (HTTP 200, 438288 B)
+3213: | Environment           | Chain ID | REST base URL                     | WebSocket public feed                     |
+3214: | --------------------- | -------- | --------------------------------- | ----------------------------------------- |
+3215: | Mainnet (Somnia)      | `5031`   | `https://api.dreamdex.io/v0`      | `wss://api.dreamdex.io/v0/ws/public`      |
+3216: | Testnet (Somnia Shannon) | `50312`  | `https://stg.api.dreamdex.io/v0`  | `wss://stg.api.dreamdex.io/v0/ws/public`  |
+  ...
+4132: | Environment              | Public feed                              |
+4133: | ------------------------ | ---------------------------------------- |
+4134: | Mainnet (Somnia)         | `wss://api.dreamdex.io/v0/ws/public`     |
+4135: | Testnet (Somnia Shannon) | `wss://stg.api.dreamdex.io/v0/ws/public` |
+  ...
+4541: ### `trades:snapshot` - Recent trades history
+4542: 
+4543: Sends recent trade history immediately after a client subscribes to the
+4544: trades channel. Contains the most recent trades up to the requested limit
+4545: (default 100). Trades are ordered by timestamp descending (newest first).
+4546: 
+4547: #### Message Format
+4548: 
+4549: | Field | Type | Description | Constraints | Required |
+4550: |-------|------|-------------|-------------|----------|
+4551: | `channel` | string | - | `"trades"` | required |
+4552: | `type` | string | - | `"snapshot"` | required |
+4553: | `symbol` | string | - | - | required |
+4554: | `trades` | array<object> | - | - | required |
+  ...
+
+== https://stg.api.dreamdex.io/.well-known/async.json (HTTP 200, 41094 B; saved as stg_async_live.json)
+servers.staging: {"description": "Testnet (staging)", "host": "stg.api.dreamdex.io", "pathname": "/v0/ws", "protocol": "wss"}
+messages.TradesSnapshot.description: "Contains recent trades for the requested symbol, up to the specified limit.\nTrades are sorted by timestamp descending (newest first). Sent immediately\nafter subscribing to the trades channel.\n"
+schemas.TradesSnapshot: {"properties": {"channel": {"const": "trades", "type": "string"}, "symbol": {"type": "string"}, "trades": {"items": {"$ref": "#/components/schemas/Trade"}, "type": "array"}, "type": {"const": "snapshot", "type": "string"}}, "required": ["channel", "type", "symbol", "trades"], "type": "object"}
+schemas.TradesParams: {"properties": {"limit": {"description": "Max number of historical trades (default 100)", "type": "integer"}, "since": {"description": "Unix timestamp (ms) to fetch trades from", "format": "int64", "type": "integer"}, "symbols": {"description": "Market symbols to subscribe to", "items": {"type": "string"}, "type": "array"}}, "required": ["symbols"], "type": "object"}

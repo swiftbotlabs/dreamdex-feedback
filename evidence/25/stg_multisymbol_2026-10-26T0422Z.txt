@@ -1,0 +1,20 @@
+2026-10-26T04:22:04.581Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso","WETH:USDso","WBTC:USDso"],"limit":3}}
+2026-10-26T04:22:05.022Z << SOMI:USDso limit=3: trades=null
+2026-10-26T04:22:05.037Z << WETH:USDso limit=3: 1 trades, 04:22:04.440..04:22:04.440
+2026-10-26T04:22:05.038Z << WBTC:USDso limit=3: trades=null
+2026-10-26T04:22:05.038Z sum over symbols = 1 (limit 3)
+2026-10-26T04:22:08.968Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso","WETH:USDso","WBTC:USDso"],"limit":10}}
+2026-10-26T04:22:09.495Z << SOMI:USDso limit=10: 1 trades, 04:22:08.339..04:22:08.339
+2026-10-26T04:22:09.497Z << WETH:USDso limit=10: 2 trades, 04:21:54.339..04:22:04.440
+2026-10-26T04:22:09.558Z << WBTC:USDso limit=10: 4 trades, 04:21:35.339..04:22:05.339
+2026-10-26T04:22:09.558Z sum over symbols = 7 (limit 10)
+2026-10-26T04:22:13.518Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso","WETH:USDso","WBTC:USDso"],"limit":30}}
+2026-10-26T04:22:14.099Z << SOMI:USDso limit=30: 8 trades, 04:20:48.443..04:22:08.339
+2026-10-26T04:22:14.101Z << WETH:USDso limit=30: 5 trades, 04:21:24.339..04:22:04.440
+2026-10-26T04:22:14.248Z << WBTC:USDso limit=30: 9 trades, 04:20:45.339..04:22:05.339
+2026-10-26T04:22:14.249Z sum over symbols = 22 (limit 30)
+2026-10-26T04:22:18.195Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso","WETH:USDso","WBTC:USDso"],"limit":100}}
+2026-10-26T04:22:18.795Z << SOMI:USDso limit=100: 13 trades, 04:19:48.382..04:22:08.339
+2026-10-26T04:22:18.808Z << WETH:USDso limit=100: 10 trades, 04:20:44.339..04:22:14.341
+2026-10-26T04:22:19.000Z << WBTC:USDso limit=100: 17 trades, 04:19:35.383..04:22:15.339
+2026-10-26T04:22:19.001Z sum over symbols = 40 (limit 100)

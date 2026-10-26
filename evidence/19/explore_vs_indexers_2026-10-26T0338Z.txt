@@ -1,0 +1,73 @@
+# Explore page (logged in, own Chrome tab) read at 2026-10-26T03:38:42Z; both indexers queried right after with
+# query{Market(where:{marketType:{_in:["PERP","SPOT"]}}){marketType baseSymbol lastPrice cumulativeQuoteVolume quoteDecimals}}
+# page url https://app.testnet.dreamdex.io/explore  header shows 0x0e7E…3817  perps card: ['perpetuals', '15 MARKETS']
+
+Explore rows (href, text):
+  /trade/perps/tokyo/BTC-PERP      
+  /trade/perps/tokyo/BTC-PERP      Trade
+  /trade                           spot
+  /trade/spot/WBTC:USDso           BTC Bitcoin 79,612.1 -1.42% 96.04K
+  /trade/spot/SOMI:USDso           STT Somnia 0.1736 -0.06% 36.33K
+  /trade/spot/WETH:USDso           ETH Ethereum 2,305.81 -2.30% 28.17K
+  /perps                           perpetuals
+  /trade/perps/ETH-PERP            ETH Ethereum 20x 2,305.50 -2.28%
+  /trade/perps/SOL-PERP            SOL Solana 20x 100.38 -1.78%
+  /trade/perps/XRP-PERP            XRP XRP 20x 1.2782 -2.38%
+  /trade/perps/BTC-PERP            BTC Bitcoin 20x 79,546.6 -1.45%
+  /trade/perps/ADA-PERP            ADA Cardano 10x 0.2019 -2.84%
+  /trade/perps/BNB-PERP            BNB BNB 10x 736.643 -1.13%
+
+== dev.smk.somnia.host  queried 2026-10-26T03:38:42Z  chain_metadata {'chain_metadata': [{'chain_id': 50312}]}  PERP markets: 24  SPOT: 3
+  PERP ETH       lastPrice 2305.5       cumulativeQuoteVolume      251,279,253
+  PERP SOL       lastPrice 100.38       cumulativeQuoteVolume      250,020,056
+  PERP XRP       lastPrice 1.2782       cumulativeQuoteVolume       47,248,558
+  PERP BTC       lastPrice 79546.6      cumulativeQuoteVolume       25,270,868
+  PERP ADA       lastPrice 0.2019       cumulativeQuoteVolume       19,607,991
+  PERP BNB       lastPrice 736.643      cumulativeQuoteVolume       10,950,934
+  PERP SWDOGE    lastPrice 0.09666      cumulativeQuoteVolume        9,490,740
+  PERP SWBNB     lastPrice 778.03       cumulativeQuoteVolume        9,395,169
+  PERP SWSOL     lastPrice 84.27        cumulativeQuoteVolume        9,281,558
+  PERP SWBTCD    lastPrice 73560.2      cumulativeQuoteVolume        9,089,379
+  PERP SWETH     lastPrice 2727.77      cumulativeQuoteVolume        8,212,472
+  PERP DOGE      lastPrice 0.07612      cumulativeQuoteVolume        6,559,752
+  PERP HYPE      lastPrice 75.39        cumulativeQuoteVolume        6,549,295
+  PERP SUI       lastPrice 0.9031       cumulativeQuoteVolume        6,479,244
+  PERP XLM       lastPrice 0.1671       cumulativeQuoteVolume        6,454,138
+  PERP TAO       lastPrice 248.676      cumulativeQuoteVolume        6,424,230
+  PERP WLD       lastPrice 0.4409       cumulativeQuoteVolume        6,413,860
+  PERP LINK      lastPrice 11.302       cumulativeQuoteVolume        6,386,289
+  PERP AVAX      lastPrice 8.807        cumulativeQuoteVolume        4,324,046
+  PERP NEAR      lastPrice 5.0334       cumulativeQuoteVolume        2,078,402
+  PERP SWBTC     lastPrice 60323.3      cumulativeQuoteVolume          496,669
+  PERP SWBTCA    lastPrice 54664        cumulativeQuoteVolume          235,685
+  PERP SWBTCC    lastPrice 54664        cumulativeQuoteVolume          231,769
+  PERP SWBTCB    lastPrice 54664        cumulativeQuoteVolume          228,155
+  SPOT WBTC      lastPrice 79612.1      cumulativeQuoteVolume        9,119,116
+  SPOT SOMI      lastPrice 0.1736       cumulativeQuoteVolume        3,046,411
+  SPOT WETH      lastPrice 2305.81      cumulativeQuoteVolume        1,491,456
+
+== hideki-dev.smk.somnia.host  queried 2026-10-26T03:38:45Z  chain_metadata {'chain_metadata': [{'chain_id': 50383}]}  PERP markets: 21  SPOT: 3
+  PERP BTC       lastPrice 79751.8      cumulativeQuoteVolume      983,710,581
+  PERP ETH       lastPrice 2304.06      cumulativeQuoteVolume      754,987,441
+  PERP SOL       lastPrice 100.49       cumulativeQuoteVolume      276,632,597
+  PERP HYPE      lastPrice 75.52        cumulativeQuoteVolume      175,196,846
+  PERP NEAR      lastPrice 4.4451       cumulativeQuoteVolume      140,966,880
+  PERP XRP       lastPrice 1.2787       cumulativeQuoteVolume       73,701,642
+  PERP ZEC       lastPrice 1185.09      cumulativeQuoteVolume       54,523,781
+  PERP BNB       lastPrice 737.006      cumulativeQuoteVolume       27,013,474
+  PERP SUI       lastPrice 0.9063       cumulativeQuoteVolume       24,613,099
+  PERP DOGE      lastPrice 0.0762       cumulativeQuoteVolume       16,003,362
+  PERP WLD       lastPrice 0.4435       cumulativeQuoteVolume       12,307,290
+  PERP LIT       lastPrice 3.0946       cumulativeQuoteVolume       10,815,249
+  PERP AVAX      lastPrice 8.794        cumulativeQuoteVolume        8,858,655
+  PERP LINK      lastPrice 11.353       cumulativeQuoteVolume        6,996,434
+  PERP ADA       lastPrice 0.2039       cumulativeQuoteVolume        5,797,809
+  PERP TAO       lastPrice 249.185      cumulativeQuoteVolume        5,644,385
+  PERP VVV       lastPrice 24.402       cumulativeQuoteVolume        5,005,758
+  PERP PUMP      lastPrice 0.004237     cumulativeQuoteVolume        4,193,282
+  PERP 1000PEPE  lastPrice 0.0042604    cumulativeQuoteVolume        3,254,877
+  PERP ZRO       lastPrice 1.7058       cumulativeQuoteVolume        2,789,262
+  PERP XLM       lastPrice 0.1681       cumulativeQuoteVolume        2,263,435
+  SPOT WBTC      lastPrice 79593.6      cumulativeQuoteVolume        1,858,664
+  SPOT WETH      lastPrice 2304.95      cumulativeQuoteVolume          674,094
+  SPOT STT       lastPrice 0.1736       cumulativeQuoteVolume          317,770

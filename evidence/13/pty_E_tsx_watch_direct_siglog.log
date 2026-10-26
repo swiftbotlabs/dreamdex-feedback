@@ -1,0 +1,8 @@
+perp-maker on XRP-PERP | 25 USDso per side at 2x | half-spread 15bps skew 10bps | cap 100 USDso | dry-run true
+[dry-run] would place quote long 19.4 XRP @ 1.2825
+[dry-run] would place quote short 19.4 XRP @ 1.2864
+^C[siglog] bot pid 14 received SIGINT at 2026-10-26T03:08:03.316Z
+
+stopping, finishing the current cycle first. Press Ctrl-C again to exit now.
+[siglog] bot pid 14 received SIGINT at 2026-10-26T03:08:03.319Z
+[siglog] bot pid 14 exit code=1 at 2026-10-26T03:08:03.320Z

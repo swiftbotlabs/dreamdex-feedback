@@ -1,0 +1,7 @@
+=== live tsx (plain, = npm start), pgid=3
+    PID    PGID    PPID COMMAND
+      3       3       2 node /w/node_modules/.bin/tsx strategies/perp-maker/src/index.ts
+     18       3       3 /usr/bin/node --require /w/node_modules/tsx/dist/preflight.cjs --import file:///w/node_modules/tsx/dist/loader.mjs strategies/perp-maker/src/index.ts
+     33       3      18 /w/node_modules/@esbuild/linux-arm64/bin/esbuild --service=0.28.2 --ping
+SIGINT -> process group -3 at 2026-10-26T01:37:43.160Z
+leader exit status: 0 at 2026-10-26T01:37:55.179Z

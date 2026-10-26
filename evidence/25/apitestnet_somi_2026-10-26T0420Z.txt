@@ -1,0 +1,16 @@
+2026-10-26T04:20:21.973Z REST(before) GET https://api.testnet.dreamdex.io/v0/markets/SOMI%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:20:08.000, oldest 04:03:28.000
+2026-10-26T04:20:21.974Z REST(before) row[0] keys=id,timestamp,chainId,symbol,kind,contract,side,price,amount,cost,takerRemaining,makerRemaining,txHash id=524142067_3 ts=1792988408000 price=0.1752 qty=25 side=sell
+2026-10-26T04:20:23.704Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":1}}
+2026-10-26T04:20:24.169Z << limit=1: 1 trades, order n/a, first 04:20:08.000, last 04:20:08.000, ids[0..1]=524142067_3, ids in REST 1/1, same trade by (ts,price,qty,side) in REST 1/1, REST rows older than WS oldest: 99, msgs=subscribed,snapshot
+2026-10-26T04:20:26.882Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":3}}
+2026-10-26T04:20:27.345Z << limit=3: 3 trades, order DESC(newest first), first 04:20:08.000, last 04:19:48.000, ids[0..1]=524142067_3 524141967_5, ids in REST 3/3, same trade by (ts,price,qty,side) in REST 3/3, REST rows older than WS oldest: 97, msgs=subscribed,snapshot
+2026-10-26T04:20:29.259Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":10}}
+2026-10-26T04:20:29.772Z << limit=10: 10 trades, order DESC(newest first), first 04:20:28.000, last 04:18:48.000, ids[0..1]=524142267_5 524142067_3, ids in REST 9/10, same trade by (ts,price,qty,side) in REST 9/10, REST rows older than WS oldest: 91, msgs=subscribed,snapshot
+2026-10-26T04:20:34.045Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":100}}
+2026-10-26T04:20:34.719Z << limit=100: 100 trades, order DESC(newest first), first 04:20:28.000, last 04:03:38.000, ids[0..1]=524142267_5 524142067_3, ids in REST 99/100, same trade by (ts,price,qty,side) in REST 99/100, REST rows older than WS oldest: 1, msgs=subscribed,snapshot
+2026-10-26T04:20:37.820Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"]}}
+2026-10-26T04:20:38.501Z << limit=undefined: 100 trades, order DESC(newest first), first 04:20:28.000, last 04:03:38.000, ids[0..1]=524142267_5 524142067_3, ids in REST 99/100, same trade by (ts,price,qty,side) in REST 99/100, REST rows older than WS oldest: 1, msgs=subscribed,snapshot
+2026-10-26T04:20:41.726Z >> {"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":500}}
+2026-10-26T04:20:42.919Z << limit=500: 500 trades, order DESC(newest first), first 04:20:38.000, last 02:55:28.000, ids[0..1]=524142367_4 524142267_5, ids in REST 100/500, same trade by (ts,price,qty,side) in REST 100/500, REST rows older than WS oldest: 0, msgs=subscribed,snapshot
+2026-10-26T04:20:46.043Z REST(after) GET https://api.testnet.dreamdex.io/v0/markets/SOMI%3AUSDso/trades?limit=100 -> HTTP 200, 100 rows, order DESC(newest first), newest 04:20:38.000, oldest 04:03:48.000
+2026-10-26T04:20:46.043Z REST(after) row[0] keys=id,timestamp,chainId,symbol,kind,contract,side,price,amount,cost,takerRemaining,makerRemaining,txHash id=524142367_4 ts=1792988438000 price=0.1752 qty=25 side=sell

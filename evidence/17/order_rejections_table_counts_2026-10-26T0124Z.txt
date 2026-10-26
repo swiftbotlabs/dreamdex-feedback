@@ -1,0 +1,53 @@
+# E1 listPerpOrderRejections returns AmendRejected rows (isAmend dropped) — run 2026-10-26T01:24:04Z
+## 1. SDK 0.32.1 query text (src/gql/graphql.ts PerpOrderRejectionsDocument):
+query PerpOrderRejections($where: PerpOrderRejection_bool_exp!, $limit: Int, $offset: Int) {
+  _sdkWatermark: chain_metadata {
+    chain_id
+    latest_processed_block
+  }
+  PerpOrderRejection(
+    where: $where
+    order_by: [{blockNumber: desc}, {id: desc}]
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    owner
+    pool
+    reason
+    requestIndex
+    timestamp
+    blockNumber
+    txHash
+  }
+}
+
+## 2. That exact query, owner 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b (what listPerpOrderRejections({owner}) sends):
+{"data":{"_sdkWatermark":[{"chain_id":50383,"latest_processed_block":33257041}],"PerpOrderRejection":[{"id":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","pool":"0xb483ec1fb34996638677c20ab087b16f1896fa53","reason":0,"requestIndex":"0","timestamp":"1792546953","blockNumber":"28950329","txHash":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c"}, {"id":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab_63","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","pool":"0xb483ec1fb34996638677c20ab087b16f1896fa53","reason":3,"requestIndex":"0","timestamp":"1792546953","blockNumber":"28950325","txHash":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab"}]}}
+
+__time_http 0.494327 200 2026-10-26T01:24:05Z
+
+## 3. Same rows with the columns the SDK does not select:
+{"data":{"PerpOrderRejection":[{"id":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c_42","isAmend":true,"oldOrderId":"14941862699704743729270","reason":0,"requestIndex":"0","blockNumber":"28950329","txHash":"0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c"}, {"id":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab_63","isAmend":true,"oldOrderId":"14941862699704743729270","reason":3,"requestIndex":"0","blockNumber":"28950325","txHash":"0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab"}]}}
+
+__time_http 0.500233 200 2026-10-26T01:24:05Z
+
+## 4. Receipts (Hideki RPC): both txs call amendOrders (selector 0xddb300e4) and emit AmendRejected, not OrderRejected
+tx 0xd4ca61aada9f748782097974553b72cf00c5a83624c2a6e3510c8ca8d8382bab block 28950325 status success to 0xb483ec1fb34996638677c20ab087b16f1896fa53 from 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b selector 0xddb300e4 inputLen 420 logs 3
+  log 61 addr 0x478769e1177c0773c43a593dccc4ad15f15f1394 topic0 0x5c87c81b4945a78d177e7c3dfbc9a6eaa971757d39f3b93c514446b47b5a2e1a  topics[1..] 388523907896458278706140059081891457233252729739,1030560305655845795123625437856525893809118575187 data 0x00000000000000000000000000000000000000000000000005ec1edd2de5e000
+  log 62 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 topic0 0x06ff08ed6b6987bb7df963009d8b54dc03988f4e465c009924929bb010fe03e7  topics[1..] 14941862699704743729270 data 0x
+  log 63 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 topic0 0x301df5439616a26556fbd4318a9c8816c072c80c47a991818fcc1e0d5564b0ed AmendRejected(address,uint128,uint8,uint256) topics[1..] 388523907896458278706140059081891457233252729739,14941862699704743729270,3 data 0x0000000000000000000000000000000000000000000000000000000000000000
+tx 0xa1b322ee5a1c8883e08ec196bfa49bc3e06857cf8444d72b5ab83f9d206a887c block 28950329 status success to 0xb483ec1fb34996638677c20ab087b16f1896fa53 from 0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b selector 0xddb300e4 inputLen 420 logs 1
+  log 42 addr 0xb483ec1fb34996638677c20ab087b16f1896fa53 topic0 0x301df5439616a26556fbd4318a9c8816c072c80c47a991818fcc1e0d5564b0ed AmendRejected(address,uint128,uint8,uint256) topics[1..] 388523907896458278706140059081891457233252729739,14941862699704743729270,0 data 0x0000000000000000000000000000000000000000000000000000000000000000
+
+## 5. Order row the amend rejection points at (oldOrderId 14941862699704743729270, SOL pool):
+{"data":{"Order":[{"id":"0xb483ec1fb34996638677c20ab087b16f1896fa53_14941862699704743729270","owner":"0x440e03bb3aadbe65d5bf2ad7f84a64c509ff438b","status":"Cancelled","fullQuantity":"100000000","filledQuantity":"0","placedAtBlock":"28950307","lastUpdatedAtBlock":"28950325"}]}}
+
+__time_http 0.505429 200 2026-10-26T01:24:09Z
+
+## 6. listPerpOrderRejections({owner:0xdba45e5480fc0f365d36e79a2e9eacdb98ac44f9}) newest 50: isAmend split
+[{"isAmend":true,"rows":50}]
+
+## 7. Whole table by isAmend and reason (paged 1000/req, ordered by id):
+{"at":"2026-10-26T01:24:17.007Z","where":"{isAmend:{_eq:true}}","total":16856,"placementByReason":{},"amendByReason":{"0":1,"1":6,"2":2,"3":16847}}
+{"at":"2026-10-26T01:25:17.050Z","where":"{isAmend:{_eq:false}}","total":204024,"placementByReason":{"1":3,"2":186,"3":188554,"4":1,"5":15280},"amendByReason":{}}

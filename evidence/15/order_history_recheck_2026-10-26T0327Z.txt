@@ -1,0 +1,42 @@
+# start 2026-10-26T03:27:55Z
+{"data":{"chain_metadata":[{"chain_id":50383,"latest_processed_block":33331318}]}}
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | min_lastupdated | @03:27:56Z 10.67s HTTP200 ERR:database query error
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | min_placed | @03:28:06Z 0.96s HTTP200 ok rows=100
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | ended | @03:28:07Z 10.72s HTTP200 ERR:database query error
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | placed | @03:28:18Z 1.04s HTTP200 ok rows=100
+0x3024ad2acd22f31ce2c8ea37b7837d530ca46e50 | last | @03:28:19Z 0.84s HTTP200 ok rows=1 last order placed 1791984496 = 2026-10-14T13:28:16Z status Cancelled
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 | ended | @03:28:20Z 10.49s HTTP200 ERR:database query error
+0x72b1b17dcb3655a7872c5fa1b8723bfd1a0054d2 | last | @03:28:31Z 0.92s HTTP200 ok rows=1 last order placed 1791984443 = 2026-10-14T13:27:23Z status Cancelled
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d | ended | @03:28:32Z 10.63s HTTP200 ERR:database query error
+0x44718499bcd05ccf9a9d9fc9c32b5ae4b8013f6d | last | @03:28:42Z 1.85s HTTP200 ok rows=1 last order placed 1791984362 = 2026-10-14T13:26:02Z status Cancelled
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac | ended | @03:28:44Z 10.95s HTTP200 ERR:database query error
+0x79b3372680cc5f7b626947e6e09eef3c646af7ac | last | @03:28:55Z 0.61s HTTP200 ok rows=1 last order placed 1791984356 = 2026-10-14T13:25:56Z status Cancelled
+0x4e42d094f9d066a013a98a61b34690c882d1f896 | ended | @03:28:56Z 10.63s HTTP200 ERR:database query error
+0x4e42d094f9d066a013a98a61b34690c882d1f896 | last | @03:29:06Z 1.77s HTTP200 ok rows=1 last order placed 1791984368 = 2026-10-14T13:26:08Z status Cancelled
+0xd0e04f285b63b8655678f1fa39923727f1889140 | ended | @03:29:08Z 10.63s HTTP200 ERR:database query error
+0xd0e04f285b63b8655678f1fa39923727f1889140 | last | @03:29:19Z 0.68s HTTP200 ok rows=1 last order placed 1791984451 = 2026-10-14T13:27:31Z status Cancelled
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 | ended | @03:29:20Z 10.64s HTTP200 ERR:database query error
+0x3299e48c454a8084ad37011353c6e14f2622d3c5 | last | @03:29:30Z 0.61s HTTP200 ok rows=1 last order placed 1791984423 = 2026-10-14T13:27:03Z status Cancelled
+0x420691db9d2b5a79210fda48c177471386b6dfd1 | ended | @03:29:31Z 10.62s HTTP200 ERR:database query error
+0x420691db9d2b5a79210fda48c177471386b6dfd1 | last | @03:29:42Z 11.96s HTTP200 ERR:database query error
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff | ended | @03:29:54Z 1.23s HTTP200 ok rows=100
+0x47537e3a3ea6e9391f3b26ea45618db6828c8bff | last | @03:29:55Z 0.58s HTTP200 ok rows=1 last order placed 1792985395 = 2026-10-26T03:29:55Z status Open
+0xfa5f80c0bb94e4a5016f883a7e86070ae7e1fb5a | ended | @03:29:56Z 1.40s HTTP200 ok rows=100
+0xfa5f80c0bb94e4a5016f883a7e86070ae7e1fb5a | last | @03:29:57Z 0.82s HTTP200 ok rows=1 last order placed 1792985397 = 2026-10-26T03:29:57Z status Open
+0xab8b612548cc3f5f9f7e723823be37058d0110b2 | ended | @03:29:58Z 2.25s HTTP200 ok rows=100
+0xab8b612548cc3f5f9f7e723823be37058d0110b2 | last | @03:30:00Z 1.18s HTTP200 ok rows=1 last order placed 1792985400 = 2026-10-26T03:30:00Z status Open
+0xe8c0d36d69a10bea8d00fe45a2fde45527eda984 | ended | @03:30:01Z 1.70s HTTP200 ok rows=100
+0xe8c0d36d69a10bea8d00fe45a2fde45527eda984 | last | @03:30:03Z 0.53s HTTP200 ok rows=1 last order placed 1792985403 = 2026-10-26T03:30:03Z status Open
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 | ended | @03:30:04Z 1.12s HTTP200 ok rows=100
+0x6c2986a550dc4212b49a1710d8466553e3761ce4 | last | @03:30:05Z 0.51s HTTP200 ok rows=1 last order placed 1792985403 = 2026-10-26T03:30:03Z status Open
+0x85c6956392aeea8dcec55e6ded069506f248a831 | ended | @03:30:06Z 1.53s HTTP200 ok rows=100
+0x85c6956392aeea8dcec55e6ded069506f248a831 | last | @03:30:07Z 0.86s HTTP200 ok rows=1 last order placed 1792985404 = 2026-10-26T03:30:04Z status Filled
+0x8239544db8718d75111e4aeedc42036742d22e68 | ended | @03:30:08Z 1.59s HTTP200 ok rows=100
+0x8239544db8718d75111e4aeedc42036742d22e68 | last | @03:30:10Z 0.68s HTTP200 ok rows=1 last order placed 1792985410 = 2026-10-26T03:30:10Z status Open
+0x0e7e8df6eac2e14165b4fa4cb2bd4e445d0e3817 | ended | @03:30:10Z 0.98s HTTP200 ok rows=33
+0x0e7e8df6eac2e14165b4fa4cb2bd4e445d0e3817 | last | @03:30:11Z 0.62s HTTP200 ok rows=1 last order placed 1792981121 = 2026-10-26T02:18:41Z status Filled
+0x2a11e7388d1d2f9690f2636846d44b478f61bf08 | ended | @03:30:12Z 0.65s HTTP200 ok rows=5
+0x2a11e7388d1d2f9690f2636846d44b478f61bf08 | last | @03:30:13Z 0.65s HTTP200 ok rows=1 last order placed 1792978660 = 2026-10-26T01:37:40Z status Cancelled
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 | ended | @03:30:13Z 0.65s HTTP200 ok rows=0
+0x567476bd43ff20e6aa44e18abfbdb58280563f45 | last | @03:30:14Z 0.60s HTTP200 ok rows=0
+# end 2026-10-26T03:30:15Z

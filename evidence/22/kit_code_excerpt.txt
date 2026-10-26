@@ -1,0 +1,55 @@
+# Bot kit env loading, somnia-chain/dreamdex-bot-kit @ 25798660bbe4674a6f83a960b202852896e2fed4 (latest on GitHub, git ls-remote HEAD at 2026-10-26T03:49:45Z)
+
+## packages/perp-core/src/config.ts (used by perp:doctor and perp-starter)
+    31	
+    32	let envLoaded = false;
+    33	/** Load the nearest .env walking up from `startDir`, so a strategy in
+    34	 *  strategies/<name> picks up the repo-root .env. Existing vars win. */
+    35	export function loadEnv(startDir = process.cwd()): void {
+    36	  if (envLoaded) return;
+    37	  envLoaded = true;
+    38	  let dir = startDir;
+    39	  for (let i = 0; i < 8; i++) {
+    40	    const candidate = join(dir, ".env");
+    41	    if (existsSync(candidate)) return void dotenv({ path: candidate });
+    42	    const parent = dirname(dir);
+    43	    if (parent === dir) break;
+    44	    dir = parent;
+    45	  }
+    46	  dotenv();
+    47	}
+
+## strategies/perp-starter/src/index.ts
+56:loadEnv();
+
+## scripts/perp-doctor.ts
+47:  const cfg = loadConfig();
+55:  console.log(`wallet   : ${me ?? "(no PRIVATE_KEY — market view only)"}${cfg.owner ? " (trading-key mode: the account)" : ""}`);
+
+## other loaders (all read a file named exactly .env)
+packages/core/src/env.ts:25:    const p = join(dir, ".env");
+scripts/one-ioc.ts:15:dotenv({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env") });
+scripts/doctor.ts:18:dotenv({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env") });
+scripts/ec-doctor.ts:20:dotenv({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env") });
+packages/ec-core/src/config.ts:38:    const candidate = join(dir, ".env");
+scripts/order-history.ts:38:dotenv({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env") });
+scripts/inspect-and-clean.ts:14:dotenv({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env") });
+
+## .gitignore
+     6	# secrets & local state — never commit these
+     7	.env
+     8	.env.*
+     9	!.env.example
+    10	!.env.railway
+    11	*.key
+    12	keystore.json
+
+## README.md (kit's own setup names .env)
+56:npm run quickstart                # 3 questions → writes a safe dry-run .env
+62:the rest. Watch the dry-run logs, then edit `.env` to add your own funded key and
+71:cp .env.example .env              # add your PRIVATE_KEY, keep NETWORK=testnet
+82:do without sending anything. Watch it, then set `DRY_RUN=false` in `.env` to go live:
+102:cp .env.example .env
+
+## grep for env.txt / rename in README.md, docs/, strategies/*/README.md
+(no matches)

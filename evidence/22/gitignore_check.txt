@@ -1,0 +1,10 @@
+# 2026-10-26T03:49:36Z kit 25798660bbe4674a6f83a960b202852896e2fed4, git 2.53.0
+$ git check-ignore -v env.txt; echo exit=$?
+exit=1
+$ git check-ignore -v --no-index .env; echo exit=$?
+.gitignore:7:.env	.env
+exit=0
+$ git status --porcelain
+?? env.txt
+$ git add -n .
+add 'env.txt'

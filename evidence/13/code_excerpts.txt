@@ -1,0 +1,101 @@
+# Code excerpts, somnia-chain/dreamdex-bot-kit @ 25798660bbe4674a6f83a960b202852896e2fed4 (main, 2026-10-12T10:34:21Z), read 2026-10-26 UTC
+
+## packages/perp-core/src/exchange.ts:165-184
+   165	/** Interruptible sleep. Wakes within ~500ms of the stop flag turning true. */
+   166	export async function sleep(ms: number, stopped?: () => boolean): Promise<void> {
+   167	  for (let t = 0; t < ms; t += 500) {
+   168	    if (stopped?.()) return;
+   169	    await new Promise((r) => setTimeout(r, Math.min(500, ms - t)));
+   170	  }
+   171	}
+   172	
+   173	/** Ctrl-C handling shared by the long-running strategies. */
+   174	export function onStop(): () => boolean {
+   175	  let stopped = false;
+   176	  const stop = () => {
+   177	    if (stopped) process.exit(1);
+   178	    stopped = true;
+   179	    console.log("\nstopping, finishing the current cycle first. Press Ctrl-C again to exit now.");
+   180	  };
+   181	  process.on("SIGINT", stop);
+   182	  process.on("SIGTERM", stop);
+   183	  return () => stopped;
+   184	}
+
+## strategies/perp-maker/src/index.ts:189-196 (after the main loop)
+   189	
+   190	  // Leaving quotes on the book after the process exits is how a stopped bot
+   191	  // keeps trading.
+   192	  for (const id of [resting.bid, resting.ask]) {
+   193	    if (id !== undefined) await cancelQuietly(ctx, market, id);
+   194	  }
+   195	  console.log("quotes pulled, exiting");
+   196	  await shutdown(ctx);
+
+## strategies/perp-starter/src/index.ts:233-247 (after the main loop)
+   233	  if (stopped()) {
+   234	    if (!watchedExits) {
+   235	      // Leaving a stop armed after the bot exits would keep SOMI locked and fire
+   236	      // against a position nobody is watching.
+   237	      const stops = await pendingStops(ctx.exchange, market, me);
+   238	      await cancelStops(ctx, market, stops.map((s) => s.orderIdRaw));
+   239	    }
+   240	    if (process.env.PERP_FLATTEN_ON_EXIT === "true") {
+   241	      await closePosition(ctx, market, me, { label: "flatten on exit" });
+   242	    } else if (watchedExits) {
+   243	      console.log("the bot is stopping: its take-profit and stop-loss stop with it, the position stays open.");
+   244	    }
+   245	  }
+   246	
+   247	  console.log(bracket.sent || exited || watchedExits ? "done" : "done (nothing was armed)");
+
+## run commands
+strategies/perp-starter/package.json:7:    "dev": "tsx watch src/index.ts",
+strategies/perp-starter/package.json:8:    "start": "tsx src/index.ts",
+strategies/perp-starter/src/index.ts:25://   npm run dev -w perp-starter
+strategies/perp-starter/README.md:7:npm start -w perp-starter        # DRY_RUN=true by default
+strategies/perp-maker/package.json:7:    "dev": "tsx watch src/index.ts",
+strategies/perp-maker/package.json:8:    "start": "tsx src/index.ts",
+strategies/perp-maker/src/index.ts:21://   npm run dev -w perp-maker
+strategies/perp-maker/README.md:8:npm start -w perp-maker        # DRY_RUN=true by default
+strategies/perp-funding/package.json:7:    "dev": "tsx watch src/index.ts",
+strategies/perp-funding/package.json:8:    "start": "tsx src/index.ts",
+strategies/perp-funding/src/index.ts:21://   npm run dev -w perp-funding
+strategies/perp-funding/README.md:9:npm start -w perp-funding        # DRY_RUN=true by default
+strategies/perp-guard/package.json:7:    "dev": "tsx watch src/index.ts",
+strategies/perp-guard/package.json:8:    "start": "tsx src/index.ts",
+strategies/perp-guard/src/index.ts:26://   npm run dev -w perp-guard
+strategies/perp-guard/README.md:8:npm start -w perp-guard        # DRY_RUN=true by default
+docs/perps.md:46:`STRATEGY` is only read on Railway; locally, run `npm start -w perp-starter`. Read the
+
+## Ctrl-C promises
+strategies/perp-maker/README.md:25:Ctrl-C pulls both quotes before exiting.
+strategies/perp-starter/README.md:26:watching, so Ctrl-C cancels them and reclaims the SOMI. Set
+strategies/perp-starter/README.md-27-`PERP_FLATTEN_ON_EXIT=true` to close the position on the way out as well.
+
+## lockfile
+package-lock.json node_modules/tsx: 4.22.4 sha512-X8EX+XV4QR5xCsrgxaED954zTDfY8KqlDtskKEL0cHhyS/P8b4IFOvGDQpsC9Q1XnLq915wEfwwY/zzskCtmhg==
+
+# tsx 4.22.4 dist/cli.mjs (npm pack tarball, sha512 matches the lockfile integrity; read as text)
+## watch mode: killProcess (default signal SIGTERM, SIGKILL after 5e3 ms)
+const o=a(async(l,p="SIGTERM",C=5e3)=>{let g=!1;const y=new Promise(B=>{l.on("exit",H=>{g=!0,D=!1,B(H)})});return D=!0,l.kill(p),setTimeout(()=>{g||(Oe(me(`Process didn't exit in ${Math.floor(C/1e3)}s. Force killing...`)),l.kill("SIGKILL"))},C),await y},"killProcess")
+
+## watch mode: relaySignal, registered on SIGINT/SIGTERM; forwards the signal to the child unconditionally
+const f=a(l=>{n=!0,s?.exitCode===null?(D&&Oe(me("Previous process hasn't exited yet. Force killing...")),o(s,D?"SIGKILL":l).then(p=>{process.exit(p??0)},()=>{})):process.exit(lt.signals[l])},"relaySignal");process.on("SIGINT",f),process.on("SIGTERM",f);
+
+## non-watch mode (tsx src/index.ts): relaySignalToChild first waits for the child to report the signal (waitForSignalFromChild)
+n=a(async r=>{await s()!==r&&(t.kill(r),await s()!==r&&(t.on("exit",()=>{const o=lt.signals[r];process.exit(128+o)}),t.kill("SIGKILL")))},"relaySignalToChild");process.on("SIGINT",n),process.on("SIGTERM",n)
+
+# Builder chunk https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3lgo1ecy8evdr.js (= builder_chunk_3lgo1ecy8evdr.js; same file on app.dreamdex.io)
+## ["git clone https://github.com/somnia-ch
+["git clone https://github.com/somnia-chain/dreamdex-bot-kit","cd dreamdex-bot-kit","npm install","# save the .env above into this folder, then:",...(l=q(e.strategyId)).kind===D.Perps?["npm run perp:doctor"]:[],`npm run dev -w ${l.workspace}`].join("\n")
+
+## children:"Option B · on your machine (fr
+children:"Option B · on your machine (free)"}),(0,y.jsx)(rG,{className:(0,J.cn)(r$.variable,"[&_pre]:font-mono"),code:s,language:"bash",showWindowBar:!0})
+
+## {env:"PERP_FLATTEN_ON_EXIT"
+{env:"PERP_FLATTEN_ON_EXIT",label:"When you stop the bot",default:"false",type:B.Select,options:["false","true"],optionLabels:{false:"Keep the position",true:"Close the position"},help:"With a linked bot the take-profit and stop-loss only act while it runs, so a stopped bot leaves the position unguarded.",advanced:!0}
+
+## {id:j.PerpStarter
+{id:j.PerpStarter,kind:D.Perps,name:"Perp Starter",description:"One leveraged position, closed at a take-profit or a stop-loss.",tag:"Best first pick",workspace:"perp-starter"
+

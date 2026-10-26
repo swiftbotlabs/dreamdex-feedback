@@ -1,0 +1,105 @@
+Trader page WALLET section vs chain state, checks run 2026-10-26 02:33-02:41 UTC (Swift Bot Labs)
+A = 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (our app wallet, Somnia Account 'Wallet 1')
+B = 0x2d1242b88f6979d93bae5968ec292fae640932d4 (another Perps Arena trader)
+
+1) eth_getBalance, batched [eth_chainId, getBalance A, getBalance B, blockNumber]
+2026-10-26T02:33:07Z
+== https://api.infra.testnet.somnia.network
+[{"jsonrpc":"2.0","id":0,"result":"0xc488"},{"jsonrpc":"2.0","id":1,"result":"0x905438e60010000"},{"jsonrpc":"2.0","id":2,"result":"0x0"},{"jsonrpc":"2.0","id":3,"result":"0x1f3ccb4c"}]
+== https://api.hideki2.infra.testnet.somnia.network
+[{"jsonrpc":"2.0","id":0,"result":"0xc4cf"},{"jsonrpc":"2.0","id":1,"result":"0x25426b13ff6b27000"},{"jsonrpc":"2.0","id":2,"result":"0xd02ab486cedc0000"},{"jsonrpc":"2.0","id":3,"result":"0x1fc183b"}]
+
+   re-run 02:39:57Z [eth_chainId, getBalance A, getBalance B]:
+== https://api.infra.testnet.somnia.network
+[{"jsonrpc":"2.0","id":0,"result":"0xc488"},{"jsonrpc":"2.0","id":1,"result":"0x905438e60010000"},{"jsonrpc":"2.0","id":2,"result":"0x0"}]
+== https://api.hideki2.infra.testnet.somnia.network
+[{"jsonrpc":"2.0","id":0,"result":"0xc4cf"},{"jsonrpc":"2.0","id":1,"result":"0x25426b13ff6b27000"},{"jsonrpc":"2.0","id":2,"result":"0xd02ab486cedc0000"}]
+
+   decoded: 0x905438e60010000 = 0.65 STT; 0x25426b13ff6b27000 = 42.957216984 STT; 0xd02ab486cedc0000 = 15.0 STT; 0x0 = 0
+   0xc488 = 50312 (Shannon); 0xc4cf = 50383 (Tokyo / Hideki)
+
+2) The trader page's asset route (curl -sD -)
+== 2026-10-26T02:35:20Z 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817
+HTTP/2 200 
+age: 0
+cache-control: public
+content-type: application/json
+x-content-type-options: nosniff
+x-dns-prefetch-control: on
+x-frame-options: SAMEORIGIN
+x-matched-path: /api/trader/[address]/assets
+x-vercel-cache: MISS
+x-vercel-id: bom1::iad1::scch7-1792982121211-de6ebde6bea1
+x-xss-protection: 1; mode=block
+{"native":"650000000000000000","tokens":[]}
+
+== 2026-10-26T02:35:21Z 0x2d1242b88f6979d93bae5968ec292fae640932d4
+HTTP/2 200 
+age: 19
+cache-control: public
+content-type: application/json
+x-content-type-options: nosniff
+x-dns-prefetch-control: on
+x-frame-options: SAMEORIGIN
+x-matched-path: /api/trader/[address]/assets
+x-vercel-cache: HIT
+x-vercel-id: bom1::iad1::rmqpm-1792982121720-6deadf83c88a
+x-xss-protection: 1; mode=block
+{"native":"0","tokens":[]}
+
+
+3) Shannon block explorer (curl https://shannon-explorer.somnia.network/api/v2/addresses/<addr>, truncated)
+== 2026-10-26T02:37:14Z shannon-explorer.somnia.network 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817
+{"block_number_balance_updated_at":524078446,"coin_balance":"650000000000000000","creation_status":"success","creation_transaction_hash":"0x171587451a28bc83b15da32bb684aa90bfe04fe4b5ec3f905a8c2c89b06e3c72","creator_address_hash":"0x008D79E4710fCCaD6cb2B581EA87d21c771cbF9b","ens_domain_name":null,"exchange_rate":null,"has_beacon_chain_withdrawals":false,"has_logs":true,"has_token_transfers":false,"
+== 2026-10-26T02:37:17Z shannon-explorer.somnia.network 0x2d1242b88f6979d93bae5968ec292fae640932d4
+{"block_number_balance_updated_at":524078982,"coin_balance":"0","creation_status":"success","creation_transaction_hash":"0x0eb24259766822fce4f3cdae177f580de180d4e76e18b698ef3eabada63ddc52","creator_address_hash":"0x23752FdeCf4428D8181E93B0C78ec0b387dF0520","ens_domain_name":null,"exchange_rate":null,"has_beacon_chain_withdrawals":false,"has_logs":true,"has_token_transfers":false,"has_tokens":false
+
+
+4) Trader page, Balances tab, text read from the DOM
+   /trader/A (02:34:06Z): PERPS MARGIN  USDso · DreamDEX  collateral 1,041.82 USDso, withdrawable 41.82 USDso ... WALLET  ASSET AMOUNT  STT 0.65
+   /trader/B (02:34:34Z, 02:39:37Z, and polled 02:40:47Z / 02:41:03Z / 02:41:18Z): PERPS MARGIN  USDso · DreamDEX  collateral 5,584.44 USDso ...
+     WALLET  ASSET AMOUNT  "Nothing held in the wallet itself. This wallet's funds are likely in its perps margin account above, escrowed in
+     resting orders, or held as outcome tokens: see the Open orders and Positions tabs."
+   SOURCES card: "Trades, positions and orders from the Somnia markets indexer, perps positions and margin from the chain, across every
+     region; assets from the block explorer. Name and badges are what this trader linked or earned."
+   Page subtitle: "One trader's public record: trades, positions, assets and open orders."
+
+5) Same wallet A in the signed-in views (DOM text)
+   /portfolio Balances (02:35:28Z):
+   ASSET	AMOUNT	VALUE	SHARE
+   
+   USDso
+   Voucher · DreamDEX
+   	1,000.00	
+   $1.00K
+   	95.3%
+   
+   USDso
+   Perps · DreamDEX
+   	41.81	
+   $41.82
+   	4.0%
+   
+   STT
+   	42.95	
+   $7.44
+   	0.7%
+   
+   SOMI
+   	0.65	
+   $0.11
+   	0.0%
+   /trade/spot/tokyo/STT:USDso footer (02:36:11Z): Gas: ≈8,038 trades | STT | 42.96
+
+6) Served page code (chunk 27kddaaff2hz-.js as served 2026-10-26 ~02:38 UTC), excerpts
+   async function ew(e,s={}){return(0,ei.safeFetchWithSchema)(`/api/trader/${e}/assets`,ej,{signal:s.signal})}
+   queryKey:["trader-assets",e.toLowerCase()],queryFn:async({signal:s})=>(0,ea.unwrapOrThrow)(await ew(e,{signal:s})),staleTime:3e4}),u=(0,eS.getSomniaChain)().nativeCurrency.symbol,p=v
+   {error:o,onRetry:d}):(0,s.jsx)(h.TradeTableState,{message:l?"Nothing held in the wallet itself. This wallet's funds
+
+7) Leaderboard row for B (GET https://app.testnet.dreamdex.io/api/leaderboard/campaigns/perps-arena?period=week-2, loaded by /competition-hub ~01:31 UTC)
+   {"rank": 3, "address": "0x2d1242b88f6979d93bae5968ec292fae640932d4", "endEquity": 5584.440895166804, "funded": 1000, "private": false, "trades": 91}
+
+8) Docs (https://app.dreamdex.io/llms-full.txt, fetched 2026-10-26 ~02:36 UTC; same lines re-checked 03:46 UTC, see the recheck file)
+   line 6076: 1. **Sign in** at [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps). On testnet your wallets live in DreamDEX, the region the perp markets are in.
+   line 3681: | **Explorer** | [explorer.testnet.somnia.network/tokyo](https://explorer.testnet.somnia.network/tokyo) |
+   line 3682: | **Gas coin** | STT |

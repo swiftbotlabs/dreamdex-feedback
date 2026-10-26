@@ -1,0 +1,12 @@
+fetched https://app.dreamdex.io/llms-full.txt at 2026-10-26T0439Z, bytes 438288, sha256 16238476430800870d7227c8b1b14a6ed41c91492d15d5dd0de7f5e3a5dfa6f4
+matches for 'well-known': 0
+matches for 'async.json': 0
+matches for 'ten minutes': 0
+matches for '10 minutes': 0
+matches for 'replay': 1
+matches for 'order:snapshot': 1
+matches for 'order.status': 3
+matches for '"rested"': 0
+matches for 'snapshot of the current order': 1
+lines with 'replay':
+4090:The feed does **not** provide a sequence number or resume cursor. There is no way to replay messages missed while disconnected, and no gapless snapshot-to-live handoff - so treat every reconnect 

@@ -1,0 +1,22 @@
+2026-10-26T04:31:45.637Z node v22.22.1 | markets-sdk 0.32.1 | reactivity 0.2.1 | viem 2.57.7
+2026-10-26T04:31:45.645Z eth_chainId -> 50383 | head block 33369611
+--- A. no wallet passed to createReactivity ---
+2026-10-26T04:31:46.809Z A1 subscribe(): REJECTED (threw) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:46.810Z A2 subscribeRaw(): REJECTED (threw) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:46.810Z A3 scheduleSubscriptionAtTimestamp(now+60s): REJECTED (threw) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:46.810Z A4 scheduleSubscriptionAtBlock(head+100): REJECTED (threw) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:46.811Z A5 scheduleSubscriptionAtEpoch(7n): REJECTED (threw) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:46.811Z A6 unsubscribe(1n): RESOLVED -> Error object (Error): Failed to broadcast TX to cancel on-chain subscription
+2026-10-26T04:31:46.966Z A7 getSubscriptionInfo(10n**30n) (unknown id): REJECTED (threw) -> ContractFunctionExecutionError: The contract function "getSubscriptionInfo" reverted.
+2026-10-26T04:31:47.237Z A8 getSubscriptionInfo(2n**255n) (unknown id): REJECTED (threw) -> ContractFunctionExecutionError: The contract function "getSubscriptionInfo" reverted.
+2026-10-26T04:31:47.889Z A9 getSubscriptionInfo(1n) (control: existing id?): RESOLVED -> [{"eventTopics":["0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e","0x0000000000000000000000000000000000000000000000000000000000000000","0x00
+--- B. controls on the SAME no-wallet client: validation failures do resolve to Error ---
+2026-10-26T04:31:47.890Z B1 subscribe() gasLimit 0n: RESOLVED -> Error object (Error): Gas limit must be greater than zero
+2026-10-26T04:31:47.890Z B2 scheduleSubscriptionAtTimestamp(now-1s): RESOLVED -> Error object (Error): Invalid timestamp - not in the future
+2026-10-26T04:31:48.047Z B3 scheduleSubscriptionAtBlock(head-1): RESOLVED -> Error object (Error): Block number must be in the future
+--- C. the documented idiom, written literally (docs 'Errors' section, option 2) ---
+2026-10-26T04:31:48.047Z C1 idiom: the await itself THREW before 'if (result instanceof Error)' ran -> Error: No address provided and no wallet account available
+2026-10-26T04:31:48.048Z C2 unwrap idiom: threw (from the await, not from unwrap) -> Error: No address provided and no wallet account available
+2026-10-26T04:31:48.048Z C3 'no wallet -> null' check on unsubscribe: res === null is false; res instanceof Error is true
+--- D. wallet client passed but with no hoisted account (e.g. an injected/JSON-RPC wallet created without `account`) ---
+2026-10-26T04:31:48.051Z D1 subscribe() wallet without account: REJECTED (threw) -> Error: No address provided and no wallet account available

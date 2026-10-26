@@ -1,0 +1,62 @@
+Live docs fetched 2026-10-26T03:33:32Z (see docs_fetch_time.txt for URLs, HTTP codes, sizes)
+
+== matches for AmendSideMismatch / 44a03a20 (case-insensitive)
+docs_app.dreamdex.io_llms-full.txt: 0
+docs_contracts_functions.md: 0
+docs_contracts_errors.md: 0
+docs_contracts_events.md: 0
+
+== any wording that an amend must keep its side (same side|change side|cannot change|side must|keep.*side|isBid.*amend|amend.*isBid)
+docs_app.dreamdex.io_llms-full.txt: 0
+docs_contracts_functions.md: 0
+docs_contracts_errors.md: 0
+(llms-full.txt hits, if any:)
+
+== functions.md amendOrder (lines 215-226)
+#### `amendOrder`
+
+Atomically **cancels `oldOrderId` and places a replacement** in one call, returning a **new** `OrderId`. Cancel-first frees the old order's funds so the replacement reuses them and the two can never self-match. Because the replacement is a fresh order, callers **must** update local tracking to `newOrderId` — [`getOrder(oldOrderId)`](functions.md#getorder) reverts afterward.
+
+The replacement is inserted at the **back** of the price-time queue for its price; this is not a priority-preserving resize. To only shrink quantity while keeping queue priority, use [`reduceOrder`](functions.md#reduceorder) instead.
+
+```solidity
+function amendOrder(AmendOrderRequest calldata request) external returns (OrderId newOrderId);
+```
+
+* **No-gap guarantee.** If the replacement would neither rest nor fill (a crossed PostOnly, unfilled FillOrKill, IOC that took nothing, already-expired order, or CancelTaker self-match), the whole amend reverts with the replacement's own rejection error (see [Order rejection](errors.md#order-rejection)) and, when the cancel ran, the original order is left in place.
+* **Race handling (`alwaysPlace`).** If `oldOrderId` is already filled/cancelled by the time the tx lands, the default (`alwaysPlace = false`) reverts `AmendOldOrderGone` and places nothing — the industry-standard reject, kept distinct from the ownership errors so a maker racing a fill can branch to a re-quote. Set `alwaysPlace = true` to skip the (impossible) cancel and place the replacement anyway (opt-in upsert). `alwaysPlace` never skips an ownership failure (a live order owned by another still reverts `IncorrectSender`) and never relaxes the no-gap check.
+
+== functions.md amendOrders (line 235)
+Atomically cancels and replaces **multiple** orders in one call (re-ladder). All `oldOrderId`s are cancelled first, then all replacements placed, so a replacement never matches a not-yet-cancelled old order. **Fully atomic:** if any cancel or replacement fails (including a replacement that does not rest or fill) the whole batch reverts and no change takes effect — re-laddering never leaves a gap. Replacements are **not** shielded from one another: an overlapping later rung can cross one placed earlier (per that request's `selfMatchingOption`); a re-ladder of non-overlapping rungs never hits this. Per-request `alwaysPlace` applies the same race rule as [`amendOrder`](functions.md#amendorder). Non-payable. Reverts with `EmptyBatch` if `requests` is empty.
+
+== llms-full.txt AmendOrderRequest struct
+### `AmendOrderRequest` (struct)
+
+One amend — the order to cancel plus the replacement to place. Shared by [`amendOrder`](functions.md#amendorder) / [`amendOrderFor`](functions.md#amendorderfor) (one request) and [`amendOrders`](functions.md#amendorders) / [`amendOrdersFor`](functions.md#amendordersfor) (an array of requests).
+
+```solidity
+struct AmendOrderRequest {
+    OrderId oldOrderId;
+    bool alwaysPlace;
+    PlaceOrderRequest newOrder;
+}
+```
+
+| Field         | Type                                                    | Description                                                                                                                                                                                                          |
+| ------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `oldOrderId`  | `OrderId`                                               | The resting order to cancel, then replace                                                                                                                                                                            |
+| `alwaysPlace` | `bool`                                                  | Race handling for an `oldOrderId` already filled/cancelled by the time the tx lands. `false` (default) reverts `AmendOldOrderGone` and places nothing; `true` skips the (impossible) cancel and places `newOrder` anyway (opt-in upsert). |
+| `newOrder`    | [`PlaceOrderRequest`](types.md#placeorderrequest-struct) | The replacement order to place; owned by the amend caller (or the operator-declared `owner` on the `...For` paths)                                                                                                    |
+
+== errors.md Batch and amend section (lines 78-85)
+### Batch and amend
+
+| Selector | Error | Meaning / fix |
+| -------- | ----- | ------------- |
+| `0xc2e5347d` | `EmptyBatch()` | A batch method ([`placeOrders`](functions.md#placeorders), [`cancelOrders`](functions.md#cancelorders), [`reduceOrders`](functions.md#reduceorders), [`amendOrders`](functions.md#amendorders), and the `...For` variants) was called with an empty array. Pass at least one request. |
+| `0x4723981c` | `AmendReplacementRejected(uint256 requestIndex, uint8 reason)` | Emitted by [`amendOrders`](functions.md#amendorders) when a replacement would neither rest nor fill, naming **which** rung died and why (`reason` is an [`OrderRejectionReason`](types.md#orderrejectionreason-enum)). The batch reverts and the cancelled orders are restored - the no-gap guarantee. Singular [`amendOrder`](functions.md#amendorder) reverts with the bare rejection error instead (e.g. `PostOnlyWouldCross`). |
+| `0xb16f4abb` | `AmendOldOrderGone(uint128 oldOrderId)` | The amend's `oldOrderId` was already filled/cancelled by the time the tx landed and the request did not set `alwaysPlace`. Kept distinct from `IncorrectSender` so a maker racing a fill can branch to a re-quote. Set `alwaysPlace = true` to place the replacement anyway. |
+
+
+== errors.md intro (line 3)
+

@@ -1,0 +1,118 @@
+2026-10-26T03:40:40Z https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+Testnet
+Trade
+Portfolio
+Perps Arena
+Lend
+dreamBot
+Support
+Deposit
+0x0e7E…3817
+
+Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.
+
+STT
+-
+USDso
+MID
+$0.1737
+24H CHANGE
++0.00%
+24H HIGH
+$0.1774
+24H LOW
+$0.1680
+24H VOL
+$1.74K
+Hide book
+Order book
+Trades
+0.0001
+STT
+Price
+Size (STT)
+Total (STT)
+0.1738
+250.50
+250.50
+0.1739
+651.30
+901.80
+0.1740
+400.80
+1,302.60
+0.1741
+450.90
+1,753.50
+0.1737
+11.5141 bps
+0.1736
+748.46
+748.46
+0.1735
+1,948.70
+2,697.16
+0.1734
+1,199.20
+3,896.36
+0.1733
+1,349.10
+5,245.46
+Market
+Limit
+Pro
+Buy
+Sell
+Available to trade
+0.00 USDso
+Amount
+Max
+USDso
+%
+Insufficient funds
+You receive
+--
+STT
+Order preview
+Order value
+—
+Est. fill price
+—
+Price impact
+—
+Slippage
+0.5%
+0.1%
+0.5%
+1%
+2%
+Maximum spend
+—
+Fees (maker / taker)
+0.00% / 0.00%
+Balances
+Open orders
+Trade history (0)
+Order history (0)
+Market
+MARKET
+SIDE
+SIZE
+PRICE
+FILLED
+TIME
+TRANSACTION HASH
+
+No open orders
+
+Deposit
+Perps
+Spot
+Account
+Gas: ≈8,038 trades
+STT
+42.96
+© 2026 - DreamDEX, S.A.
+Terms
+Privacy policy
+Support

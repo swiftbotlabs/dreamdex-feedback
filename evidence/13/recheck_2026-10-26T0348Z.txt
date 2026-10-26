@@ -1,0 +1,16 @@
+recheck at 2026-10-26T03:48:46Z
+kit main HEAD 25798660bbe4674a6f83a960b202852896e2fed4 2026-10-12T10:34:21Z
+strategies/perp-maker/package.json:     "dev": "tsx watch src/index.ts",
+strategies/perp-starter/package.json:     "dev": "tsx watch src/index.ts",
+strategies/perp-funding/package.json:     "dev": "tsx watch src/index.ts",
+strategies/perp-guard/package.json:     "dev": "tsx watch src/index.ts",
+app.testnet.dreamdex.io/dreambot-builder references 3lgo1ecy8evdr.js: 3
+  chunk path: /_next/static/immutable/chunks/3lgo1ecy8evdr.js
+  sha256 6c61163b1753e1f916c530fe1d95811f965a06731058954e329c2e47ad27ba87 bytes 173758
+  run line: `npm run dev -w ${l.workspace}`
+  flatten labels: optionLabels:{false:"Keep the position",true:"Close the position"}
+app.dreamdex.io/dreambot-builder references 3lgo1ecy8evdr.js: 3
+  chunk path: /_next/static/immutable/chunks/3lgo1ecy8evdr.js
+  sha256 6c61163b1753e1f916c530fe1d95811f965a06731058954e329c2e47ad27ba87 bytes 173758
+  run line: `npm run dev -w ${l.workspace}`
+  flatten labels: optionLabels:{false:"Keep the position",true:"Close the position"}

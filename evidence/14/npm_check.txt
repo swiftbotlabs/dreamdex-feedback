@@ -1,0 +1,19 @@
+2026-10-26T03:34:17Z
+{
+  "dist-tags": {
+    "rc": "0.32.0-rc.1791380050012",
+    "next-0.31": "0.31.1-rc.1791533467513",
+    "next-0.32": "0.32.1-rc.1791818930433",
+    "latest": "0.32.1",
+    "canary-staging": "0.32.2-canary.38575926931.ge4550933d36d",
+    "canary": "0.32.2-canary.38575926931.ge4550933d36d"
+  },
+  "dist.integrity": "sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og=="
+}
+sha512-tnxIl0Tak0grcRVs1+8yoiWPs6uLLtmp7NHusaioUa4/AKqvLq8L347RhcyWgphVVPAQ9MMgDl4RcAkytjwn+g==
+local tarball sha512:
+somnia-chain-markets-sdk-0.32.1.tgz sha512-RfshQP8X6m/wrE6TocmiOPajbw/Vstmkvn+AP/ztK19QgcrPn1lR7A4Pp8xVm6MuOXOpBwTBrFO0W34neQF0Og==
+somnia-chain-markets-sdk-0.32.2-canary.38575926931.ge4550933d36d.tgz sha512-tnxIl0Tak0grcRVs1+8yoiWPs6uLLtmp7NHusaioUa4/AKqvLq8L347RhcyWgphVVPAQ9MMgDl4RcAkytjwn+g==
+  "modified": "2026-10-14T18:08:33.695Z",
+  "0.32.1": "2026-10-13T09:04:28.229Z",
+  "0.32.2-canary.38575926931.ge4550933d36d": "2026-10-14T18:07:52.982Z"

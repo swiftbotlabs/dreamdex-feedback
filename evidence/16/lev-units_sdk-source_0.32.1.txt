@@ -1,0 +1,89 @@
+SDK source excerpts, read as text (no install, no scripts run), 2026-10-26T03:21:33Z
+tarball somnia-chain-markets-sdk-0.32.1.tgz sha512(base64)=RfshQP8X6m/wrE6TocmiOPaj...
+tarball somnia-chain-markets-sdk-0.32.2-canary.38575926931.ge4550933d36d.tgz sha512(base64)=tnxIl0Tak0grcRVs1+8yoiWP...
+npm dist.integrity 0.32.1: sha512-RfshQP8X6m/wrE6TocmiOPaj...
+npm dist.integrity canary: sha512-tnxIl0Tak0grcRVs1+8yoiWP...
+
+== 0.32.1 docs/reference/units-and-scales.md (lines 64-68)
+    64	| Unit                  | Scale                         | Used by                                                                                                                       |
+    65	| --------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+    66	| Basis points (bps)    | 1 bps = 0.01 %                | Venue fees: `getMaxVenueFeeBps`, `MarketFees`, `getMaxLeverage` limits, `cexRateBps` in portfolio analytics                   |
+    67	| Basis points × 1000   | 1,000 = 1 bps                 | Builder fees: `builderFeeBpsTimes1k` on order placement, `maxFeeBpsTimes1k` on `approveBuilder`, `getMaxBuilderFeeBpsTimes1k` |
+    68	| Leverage in bps of 1× | 10,000 = 1.00×, 200,000 = 20× | Perp leverage: `getPerpLeverage`, `setPerpLeverage`, `getPerpMaxLeverage`                                                     |
+== canary docs/reference/units-and-scales.md (lines 66, 68)
+66:| Basis points (bps)    | 1 bps = 0.01 %                | Venue fees: `getMaxVenueFeeBps`, `MarketFees`, `getMaxLeverage` limits, `cexRateBps` in portfolio analytics                   |
+68:| Leverage in bps of 1× | 10,000 = 1.00×, 200,000 = 20× | Perp leverage: `getPerpLeverage`, `setPerpLeverage`, `getPerpMaxLeverage`                                                     |
+
+== 0.32.1 dist/trade.d.ts (SetPerpLeverageParams.leverageX)
+1275-    /** Max leverage multiplier (e.g. 10 = 10x), bounded by the protocol limit. */
+1276:    leverageX: number;
+
+== 0.32.1 src/perp/margin.ts setPerpLeverage
+1602:export async function setPerpLeverage(w: WriterCtx, p: SetPerpLeverageParams): Promise<TxResult> {
+1603-  const bank = await w.resolveMarginBank(p);
+1604-  return w.execute({
+1605-    address: bank,
+1606-    abi: TradeAbi.marginBankWriteAbi,
+1607-    functionName: "setMaxLeverage",
+1608-    args: [p.pool, p.leverageX],
+1609-    gas: p.gas ?? w.defaultGas,
+1610-  });
+1611-}
+
+== 0.32.1 src/perp/margin.ts getPerpMaxLeverage docblock + body
+  3033	/**
+  3034	 *  One account's own leverage cap for one perp pool, as the MarginBank stores it —
+  3035	 *  the multiplier the account set for itself, before any market or protocol ceiling.
+  3059	export async function getPerpMaxLeverage(
+  3060	  ref: PerpState.PerpPositionRef,
+  3061	  opts: GetPerpMaxLeverageOptions,
+  3062	  client: PublicClient,
+  3063	  ownedFailure: (error: unknown) => boolean = () => false,
+  3064	): Promise<number> {
+  3065	  try {
+  3066	    return await client.readContract({
+  3067	      address: ref.marginBank,
+  3068	      abi: ReadsAbi.marginBankReadAbi,
+  3069	      functionName: "getMaxLeverage",
+  3070	      args: [ref.account, ref.pool],
+  3071	      blockNumber: opts.blockNumber,
+  3072	    });
+  3073	  } catch (err: unknown) {
+  3074	    if (ownedFailure(err)) throw err;
+  3075	    throw nameMarginBankRevert(err);
+
+== ABIs
+src/tradeAbi.ts:183:  "function setMaxLeverage(address perpPool, uint16 leverageX)",
+src/readsAbi.ts:386:  "function getMaxLeverage(address account, address perpPool) view returns (uint16)",
+src/readsAbi.ts:387:  "function getMaxLeverageLimit() view returns (uint16)",
+
+== 0.32.1 dist/perp/margin.d.ts accountMaxLeverageX / protocolMaxLeverageX
+385:    accountMaxLeverageX: number;
+386-    /** Protocol-wide ceiling that clamps the above, integer multiplier. */
+387:    protocolMaxLeverageX: number;
+1177:    accountMaxLeverageX: number;
+1179:    protocolMaxLeverageX: number;
+
+== 0.32.1 docs/PERPS.md (getPerpLeverage table + unit sentence)
+   308	  | `accountMaxLeverageX`  | the account's own per-market cap, `0` when unset (what `setPerpLeverage` writes, finally readable)      |
+   309	  | `protocolMaxLeverageX` | the ceiling that clamps it                                                                              |
+   325	  Every ratio is **bps of 1x** (`10_000` = 1.00x, `200_000` = 20x), matching the
+   326	  protocol's own unit for every margin figure. Position and account leverage are `null`
+
+== src/contractErrorsAbi.ts
+206:  { type: "error", name: "InvalidLeverage", inputs: [] },
+
+== 0.32.1 dist/perp/margin.d.ts lines 375-387 (PerpLeverage)
+   375	    /**
+   376	     *  The account's OWN per-market cap as an integer multiplier, `0` when unset — what
+   377	     *  `trader.setPerpLeverage` writes, read back.
+   378	     *
+   379	     *  A cap STRICTER than the market's effective IMF adds margin on top of the base
+   380	     *  requirement; that surcharge is quoted by
+   381	     *  `PerpOrderMarginPreview.leverageSurcharge`. Being a setting rather than a
+   382	     *  measurement, it can sit far above the position's actual
+   383	     *  {@link positionLeverageBps}.
+   384	     */
+   385	    accountMaxLeverageX: number;
+   386	    /** Protocol-wide ceiling that clamps the above, integer multiplier. */
+   387	    protocolMaxLeverageX: number;

@@ -1,0 +1,11 @@
+# 2026-10-26T04:35:24Z  cast Version: 1.8.5  (eth_call only, nothing sent)
+$ cast chain-id --rpc-url https://api.hideki2.infra.testnet.somnia.network
+50383
+$ cast block-number --rpc-url https://api.hideki2.infra.testnet.somnia.network
+33371800
+$ cast call 0x0000000000000000000000000000000000000100 'getSubscriptionInfo(uint256)' 1 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+(exit 0)
+$ cast call 0x0000000000000000000000000000000000000100 'getSubscriptionInfo(uint256)' 1000000000000000000000000000000 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+Error: server returned an error response: error code 3: execution reverted, data: "0x"
+(exit 1)

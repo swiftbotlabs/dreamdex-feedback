@@ -1,0 +1,21 @@
+# read-only cast calls, run 2026-10-26T03:53:31Z, cast Version: 1.8.5
+$ cast call 0x7058579f3248559963f79adb937c6de9f953e060 "getOrder(uint128)((uint128,bool,address,uint64,uint256,uint256,uint256,uint64))" 664082786653550186447 --block 33264913 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+(664082786653550186447 [6.64e20], true, 0x2A11e7388D1D2F9690f2636846d44b478f61bF08, 0, 1277800000000000000 [1.277e18], 7700000 [7.7e6], 7700000 [7.7e6], 3369778505000000000 [3.369e18])
+
+$ cast call 0x7058579f3248559963f79adb937c6de9f953e060 "getOrder(uint128)((uint128,bool,address,uint64,uint256,uint256,uint256,uint64))" 866996971464355254224 --block 33264913 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+(866996971464355254224 [8.669e20], false, 0x2A11e7388D1D2F9690f2636846d44b478f61bF08, 0, 1303600000000000000 [1.303e18], 7700000 [7.7e6], 7700000 [7.7e6], 3369778505000000000 [3.369e18])
+
+$ cast call 0x7058579f3248559963f79adb937c6de9f953e060 "getOrder(uint128)((uint128,bool,address,uint64,uint256,uint256,uint256,uint64))" 664082786653550186447 --block 33264918 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+Error: execution reverted: IncorrectOrder
+
+Context:
+- server returned an error response: error code 3: execution reverted, data: "0x8080c2ed"
+
+$ cast call 0x7058579f3248559963f79adb937c6de9f953e060 "getOrder(uint128)((uint128,bool,address,uint64,uint256,uint256,uint256,uint64))" 866996971464355254224 --block 33264918 --rpc-url https://api.hideki2.infra.testnet.somnia.network
+Error: execution reverted: IncorrectOrder
+
+Context:
+- server returned an error response: error code 3: execution reverted, data: "0x8080c2ed"
+
+$ cast receipt 0x4c7c770bb2dfa61c0e2f504051c6f77c746c3e62f5f32bfaf8a6d4da615ae36e blockNumber --rpc-url https://api.hideki2.infra.testnet.somnia.network
+33264914

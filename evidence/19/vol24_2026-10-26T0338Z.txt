@@ -1,0 +1,25 @@
+2026-10-26T03:38:57Z since 1792899537
+== dev.smk.somnia.host
+  SPOT WBTC             96,039.06 pool 0x3605f28a candles 24
+  SPOT SOMI             36,331.13 pool 0x259fd655 candles 24
+  SPOT WETH             28,174.46 pool 0xd180195d candles 24
+  PERP ETH           4,356,441.64 pool 0x6a7224a4 candles 24
+  PERP SOL           1,321,529.86 pool 0x4d3892d1 candles 24
+  PERP XRP             249,007.66 pool 0x996d3678 candles 24
+  PERP BTC             187,440.41 pool 0x3892a517 candles 24
+  PERP BNB             167,858.67 pool 0x11c8d997 candles 24
+  PERP ADA             129,692.22 pool 0x440f5a79 candles 24
+  PERP LINK            109,533.09 pool 0xef7ed005 candles 24
+  PERP HYPE            104,590.75 pool 0xa84c863a candles 24
+== hideki-dev.smk.somnia.host
+  SPOT WBTC             93,884.44 pool 0xd61bb202 candles 24
+  SPOT WETH             25,072.21 pool 0xfd87d984 candles 24
+  SPOT STT               1,741.27 pool 0xbe6c45bf candles 24
+  PERP BTC          76,564,511.48 pool 0x4181dd08 candles 24
+  PERP ETH          47,824,611.98 pool 0xd6cb1dd5 candles 24
+  PERP SOL          18,769,132.72 pool 0xb483ec1f candles 24
+  PERP NEAR          7,919,348.05 pool 0x1cd15ae8 candles 24
+  PERP HYPE          6,733,344.40 pool 0x63b47ed4 candles 24
+  PERP XRP           3,593,282.98 pool 0x7058579f candles 24
+  PERP ZEC           2,994,764.48 pool 0x2a73129f candles 24
+  PERP SUI           1,812,433.15 pool 0x1be21287 candles 24

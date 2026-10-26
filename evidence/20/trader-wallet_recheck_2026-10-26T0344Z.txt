@@ -1,0 +1,28 @@
+# Re-check 2026-10-26T03:44:37Z (Swift Bot Labs)
+== https://api.infra.testnet.somnia.network  (eth_chainId, eth_getBalance A, eth_getBalance B, eth_blockNumber)
+[{"jsonrpc":"2.0","id":0,"result":"0xc488"},{"jsonrpc":"2.0","id":1,"result":"0x905438e60010000"},{"jsonrpc":"2.0","id":2,"result":"0x0"},{"jsonrpc":"2.0","id":3,"result":"0x1f3d72c3"}]
+== https://api.hideki2.infra.testnet.somnia.network  (eth_chainId, eth_getBalance A, eth_getBalance B, eth_blockNumber)
+[{"jsonrpc":"2.0","id":0,"result":"0xc4cf"},{"jsonrpc":"2.0","id":1,"result":"0x25426b13ff6b27000"},{"jsonrpc":"2.0","id":2,"result":"0xd02ab486cedc0000"},{"jsonrpc":"2.0","id":3,"result":"0x1fcbfb7"}]
+== 2026-10-26T03:44:43Z GET https://app.testnet.dreamdex.io/api/trader/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817/assets
+HTTP/2 200 
+x-matched-path: /api/trader/[address]/assets
+x-vercel-cache: MISS
+{"native":"650000000000000000","tokens":[]}
+
+== 2026-10-26T03:44:46Z GET https://app.testnet.dreamdex.io/api/trader/0x2d1242b88f6979d93bae5968ec292fae640932d4/assets
+HTTP/2 200 
+x-matched-path: /api/trader/[address]/assets
+x-vercel-cache: MISS
+{"native":"0","tokens":[]}
+
+== 2026-10-26T03:44:52Z GET https://shannon-explorer.somnia.network/api/v2/addresses/0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817 (coin_balance)
+"coin_balance":"650000000000000000"
+== 2026-10-26T03:44:56Z GET https://shannon-explorer.somnia.network/api/v2/addresses/0x2d1242b88f6979d93bae5968ec292fae640932d4 (coin_balance)
+"coin_balance":"0"
+
+== 2026-10-26T03:46:39Z docs re-check: curl -s https://app.dreamdex.io/llms-full.txt (200, 438288 bytes; same bytes from app.testnet.dreamdex.io/llms-full.txt at 03:46:43Z)
+line 3681: | **Explorer** | [explorer.testnet.somnia.network/tokyo](https://explorer.testnet.somnia.network/tokyo) |
+line 6076: 1. **Sign in** at [app.testnet.dreamdex.io](https://app.testnet.dreamdex.io/perps). On testnet your wallets live in DreamDEX, the region the perp markets are in.
+
+decoded: Shannon (0xc488 = 50312) A = 0x905438e60010000 = 0.65 STT, B = 0; Tokyo/Hideki (0xc4cf = 50383) A = 0x25426b13ff6b27000 = 42.957216984 STT, B = 0xd02ab486cedc0000 = 15.0 STT
+A = 0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817, B = 0x2d1242b88f6979d93bae5968ec292fae640932d4

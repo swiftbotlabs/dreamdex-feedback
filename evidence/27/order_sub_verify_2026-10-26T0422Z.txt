@@ -1,0 +1,49 @@
+2026-10-26T04:22:00.556Z head 524143174 OrderRested logs 73; picked order 1254378597012275047539 = 0x44000000000185ac73 (block 524143107, tx 0x3e3ec24fe3c6def280c1d34dd2f8de9823e6609ad6081caa2715f17c0dae35ff)
+2026-10-26T04:22:02.322Z wss://stg.api.dreamdex.io/v0/ws/public >> d0 control {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275047539"}}
+2026-10-26T04:22:02.755Z wss://stg.api.dreamdex.io/v0/ws/public << d0 control {symbol, decimal}: {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1254378597012275047539"}
+2026-10-26T04:22:03.064Z wss://stg.api.dreamdex.io/v0/ws/public << d0 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"placed","timestamp":1792988512442,"block":524143107,"isBid":true,"price":"175000000000000000","quantity":"850400000000000000000","remaining":"850400000000000000000","expiresAt":1792988542000}
+2026-10-26T04:22:03.065Z wss://stg.api.dreamdex.io/v0/ws/public << d0 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"rested","timestamp":1792988512442,"block":524143107}
+2026-10-26T04:22:03.848Z wss://stg.api.dreamdex.io/v0/ws/public << d0 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"cancelled","timestamp":1792988523439,"block":524143217}
+2026-10-26T04:22:07.685Z wss://stg.api.dreamdex.io/v0/ws/public >> a docs step-2 {symbol, hex}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x44000000000185ac73"}}
+2026-10-26T04:22:08.102Z wss://stg.api.dreamdex.io/v0/ws/public << a docs step-2 {symbol, hex}: {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:22:10.940Z wss://stg.api.dreamdex.io/v0/ws/public >> b docs reference/QuickStart {hex only}: {"operation":"subscribe","channel":"order","params":{"orderId":"0x44000000000185ac73"}}
+2026-10-26T04:22:11.445Z wss://stg.api.dreamdex.io/v0/ws/public << b docs reference/QuickStart {hex only}: {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:22:12.208Z wss://stg.api.dreamdex.io/v0/ws/public ws error 
+2026-10-26T04:22:14.217Z wss://stg.api.dreamdex.io/v0/ws/public >> c {decimal only}: {"operation":"subscribe","channel":"order","params":{"orderId":"1254378597012275047539"}}
+2026-10-26T04:22:14.646Z wss://stg.api.dreamdex.io/v0/ws/public << c {decimal only}: {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order"}
+2026-10-26T04:22:17.399Z wss://stg.api.dreamdex.io/v0/ws/public >> d1 control {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275047539"}}
+2026-10-26T04:22:17.824Z wss://stg.api.dreamdex.io/v0/ws/public << d1 control {symbol, decimal}: {"channel":"order","type":"subscribed","symbol":"SOMI:USDso","orderId":"1254378597012275047539"}
+2026-10-26T04:22:17.828Z wss://stg.api.dreamdex.io/v0/ws/public << d1 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"placed","timestamp":1792988512442,"block":524143107,"isBid":true,"price":"175000000000000000","quantity":"850400000000000000000","remaining":"850400000000000000000","expiresAt":1792988542000}
+2026-10-26T04:22:17.829Z wss://stg.api.dreamdex.io/v0/ws/public << d1 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"rested","timestamp":1792988512442,"block":524143107}
+2026-10-26T04:22:17.829Z wss://stg.api.dreamdex.io/v0/ws/public << d1 control {symbol, decimal}: {"channel":"order","type":"update","orderId":"1254378597012275047539","event":"cancelled","timestamp":1792988523439,"block":524143217}
+2026-10-26T04:22:22.877Z wss://api.testnet.dreamdex.io/v0/ws >> d0 control {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275047539"}}
+2026-10-26T04:22:23.310Z wss://api.testnet.dreamdex.io/v0/ws << d0 control {symbol, decimal}: {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1254378597012275047539"}
+2026-10-26T04:22:23.712Z wss://api.testnet.dreamdex.io/v0/ws << d0 control {symbol, decimal}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"placed","timestamp":1792988512000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143107}
+2026-10-26T04:22:23.713Z wss://api.testnet.dreamdex.io/v0/ws << d0 control {symbol, decimal}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"cancelled","timestamp":1792988523000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143217}
+2026-10-26T04:22:28.259Z wss://api.testnet.dreamdex.io/v0/ws >> a docs step-2 {symbol, hex}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"0x44000000000185ac73"}}
+2026-10-26T04:22:28.673Z wss://api.testnet.dreamdex.io/v0/ws << a docs step-2 {symbol, hex}: {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"0x44000000000185ac73"}
+2026-10-26T04:22:28.854Z wss://api.testnet.dreamdex.io/v0/ws << a docs step-2 {symbol, hex}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"placed","timestamp":1792988512000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143107}
+2026-10-26T04:22:28.854Z wss://api.testnet.dreamdex.io/v0/ws << a docs step-2 {symbol, hex}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"cancelled","timestamp":1792988523000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143217}
+2026-10-26T04:22:31.603Z wss://api.testnet.dreamdex.io/v0/ws ws error 
+2026-10-26T04:22:33.610Z wss://api.testnet.dreamdex.io/v0/ws >> b docs reference/QuickStart {hex only}: {"operation":"subscribe","channel":"order","params":{"orderId":"0x44000000000185ac73"}}
+2026-10-26T04:22:34.038Z wss://api.testnet.dreamdex.io/v0/ws << b docs reference/QuickStart {hex only}: {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:22:36.808Z wss://api.testnet.dreamdex.io/v0/ws >> c {decimal only}: {"operation":"subscribe","channel":"order","params":{"orderId":"1254378597012275047539"}}
+2026-10-26T04:22:37.224Z wss://api.testnet.dreamdex.io/v0/ws << c {decimal only}: {"type":"error","errorName":"subscription_failed","message":"subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined"}
+2026-10-26T04:22:37.954Z wss://api.testnet.dreamdex.io/v0/ws ws error 
+2026-10-26T04:22:40.616Z wss://api.testnet.dreamdex.io/v0/ws >> d1 control {symbol, decimal}: {"operation":"subscribe","channel":"order","params":{"symbol":"SOMI:USDso","orderId":"1254378597012275047539"}}
+2026-10-26T04:22:41.077Z wss://api.testnet.dreamdex.io/v0/ws << d1 control {symbol, decimal}: {"type":"subscribed","channel":"order","symbol":"SOMI:USDso","orderId":"1254378597012275047539"}
+2026-10-26T04:22:41.450Z wss://api.testnet.dreamdex.io/v0/ws << d1 control {symbol, decimal}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"placed","timestamp":1792988512000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143107}
+2026-10-26T04:22:41.450Z wss://api.testnet.dreamdex.io/v0/ws << d1 control {symbol, decimal}: {"channel":"order","type":"update","symbol":"SOMI:USDso","kind":"spot","contract":"0x259fd6559214dd5ad3752322426ea9f9fabefff4","orderId":"1254378597012275047539","event":"cancelled","timestamp":1792988523000,"isBid":true,"price":"0.175","quantity":"850.4","remaining":"850.4","expiresAt":1792988542000,"block":524143217}
+2026-10-26T04:22:44.282Z SUMMARY order 1254378597012275047539 0x44000000000185ac73
+wss://stg.api.dreamdex.io/v0/ws/public
+    d0 control {symbol, decimal} => subscribed
+    a docs step-2 {symbol, hex} => ERROR subscription_failed: subscription failed to channel: order
+    b docs reference/QuickStart {hex only} => ERROR subscription_failed: subscription failed to channel: order
+    c {decimal only} => ERROR subscription_failed: subscription failed to channel: order
+    d1 control {symbol, decimal} => subscribed
+wss://api.testnet.dreamdex.io/v0/ws
+    d0 control {symbol, decimal} => subscribed
+    a docs step-2 {symbol, hex} => subscribed
+    b docs reference/QuickStart {hex only} => ERROR subscription_failed: subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined
+    c {decimal only} => ERROR subscription_failed: subscription failed to channel: order: params.symbol: Invalid input: expected string, received undefined
+    d1 control {symbol, decimal} => subscribed
