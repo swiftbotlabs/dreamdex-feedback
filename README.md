@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 25 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
+  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 34 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-25-7c5cff?style=flat-square" alt="reports: 25">
+  <img src="https://img.shields.io/badge/reports-34-7c5cff?style=flat-square" alt="reports: 34">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--25-1f883d?style=flat-square" alt="re-checked: 2026-10-25">
 </p>
 
-Twenty-five issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
-50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs and WebSocket feeds: 4 major and 21 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+Thirty-four issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds: 5 major and 29 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -26,13 +26,18 @@ brand-new account, and #09 with a fresh transaction. Each report has a dated "Re
 testnets, the current docs and SDK 0.32.1 between 00:53 and 04:57 UTC that day, and has a dated "Checked 2026-10-26"
 note under its summary. Their scripts and saved outputs are in `evidence/<number>/` (for example [`evidence/13/`](evidence/13/)).
 
+**Reports 28–36 were added later on 2026-10-26** ([first reported 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e)). Each was reproduced
+read-only (pinned `eth_call`s, receipts, indexer, REST and app reads) against the live testnets, the current docs and SDK 0.32.1
+between 06:08 and 08:27 UTC that day, and has a dated "Checked 2026-10-26" note under its summary. Their scripts and saved
+outputs are in `evidence/<number>/` too (for example [`evidence/28/`](evidence/28/)).
+
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
 [Normal](#normal) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
 
 ## Major
 
-These four stop users or developers today.
+These five stop or mislead users and developers in a core flow today.
 
 ### #10 · Every perps route redirects to the STT-USDso spot market
 ![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`app`
@@ -83,6 +88,14 @@ on 2026-10-20; all have more than 100k rows), the market makers and bots it is m
 
 **Repro:** dry run, no key: in the kit (`2579866`) run `npm run dev -w perp-maker` with `NETWORK=hideki DRY_RUN=true`, press Ctrl-C once → exit without the cleanup lines; `npm start -w perp-maker` → quotes cancelled<br>
 [Report](feedback/13-bot-kit-npm-run-dev-ctrl-c-skips-perp-bot-shutdown-cleanup.md) · [Evidence](evidence/13/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 01:35–03:53 UTC (live run, fresh-clone pty runs, Builder chunk and kit `HEAD` unchanged)
+
+### #28 · A perp TP/SL closes only part of its size, or nothing, when the owner has a resting order on the closing side
+![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`contracts`
+
+**Impact:** when a reduce-only TP/SL fires, the PerpStopOrderRegistry sizes it by `getReducingCapacity(owner).effectiveReducingCapacity` (the position minus every order the owner rests on the closing side, even limits far from the market), not by `min(quantity, |position|)`. The stop then closes only the rest and is reported `success`, or places nothing and is reported `ReduceOnlyBelowMinQty` at 1.05× to 3,240× the pool minimum. Either way it is used up, and no docs page or SDK doc mentions it. All 25 `ReduceOnlyBelowMinQty` drops on record are this case.
+
+**Repro:** `node evidence/28/stop_case.mjs 0x43dbc0706b992846233f66661cb93b116e70ca9c515ca270a0ea3e7468903f02 184467440737095517909` (read-only) → a 4,617.7 NEAR stop-loss placed `2183.6`, `placed == capacity: true`<br>
+[Report](feedback/28-contracts-perp-tpsl-is-cut-to-reducing-capacity-by-resting-orders-on-the-closing-side.md) · [Evidence](evidence/28/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 07:52–08:12 UTC: 7 cases rebuilt; 5 pending stops on 2 accounts would fire short at block 33,501,406
 
 ## Normal
 
@@ -286,6 +299,72 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 **Repro:** `node evidence/27/order_sub_verify.mjs` → examples A/B/C `subscription_failed`; `{symbol, orderId: "<decimal>"}` subscribes<br>
 [Report](feedback/27-docs-websocket-order-subscribe-examples-are-rejected-by-the-feed.md) · [Evidence](evidence/27/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:08–04:33 UTC on both hosts
 
+### #29 · When one leg of a linked TP/SL pair fills only partly, the other leg is still cancelled and the rest of the position keeps no stop-loss
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`contracts`
+
+**Impact:** a MARKET stop fires as an IOC at the mark ± 5 %, so on a thin book it can fill only part of its size. The registry still cancels the linked leg (`LinkedOrderCancelled`, `cancelReason` `LinkedFill`), exactly as after a full fill. On SOL-PERP a take-profit closed 1,044.81 of a 1,896.46 SOL short and the stop-loss was cancelled; the remaining 851.65 SOL short has had no stop-loss for more than 57 hours. `listPerpStopOrders` shows the same two rows as a full close.
+
+**Repro:** `node evidence/29/fired_leg_case.mjs 0x7e128dfa20858595d8221c7b983e2894f900b42918fc5a977ea79ea6256cdff4 2102928824402888886116` (read-only) → `fillRatioPct 55.09`, partner `LinkedOrderCancelled`<br>
+[Report](feedback/29-contracts-linked-tpsl-partial-fill-cancels-the-other-leg-and-leaves-no-stop-loss.md) · [Evidence](evidence/29/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 07:55–08:06 UTC (3 cases)
+
+### #30 · SDK `previewPerpClosePnl` says a position below `minQuantity` cannot be closed, but one order of exactly its size closes it
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** for a position smaller than the market's `minQuantity`, `previewPerpClosePnl` returns `placeable: false`, and its TSDoc says the position "can only leave via liquidation or ADL"; the docs say anything below the minimum "is rejected automatically". The PerpPool accepts a closing order of exactly the position size (15 of 15 on BTC, ETH and WLD); every other size below the minimum reverts `QuantityBelowMinimum`. 63 of 10,856 open positions were below their minimum at 08:08 UTC.
+
+**Repro:** `curl -s -H 'content-type: application/json' --data @evidence/30/req_full_close_sell_2000.json https://api.hideki2.infra.testnet.somnia.network` → `result`; `req_partial_sell_1000.json` → revert `0xeaa68ceb` (`QuantityBelowMinimum`)<br>
+[Report](feedback/30-sdk-preview-perp-close-pnl-says-a-dust-position-cannot-be-closed-but-an-exact-close-works.md) · [Evidence](evidence/30/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 08:06–08:12 UTC at the chain head and at pinned block 33,461,989
+
+### #31 · REST API: funding fields are not "1e18-scaled fractions, exactly as the contract emits them", as the OpenAPI spec says
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`API`
+
+**Impact:** on `api.testnet.dreamdex.io`, `GET /v0/markets/{symbol}/funding` and the `perp` block of `GET /v0/markets` return `fundingRate` as the contract value ÷ 1e18 (`"0.0001"` for `1e14`, all 24 perp markets). `cumulativeFundingPerUnit` is also ÷ 1e18, which leaves it in quote wei per whole base, unlike the USDso prices next to it. The indexer and the SDK return the raw contract value under the same names.
+
+**Repro:** `curl -s 'https://api.testnet.dreamdex.io/v0/markets/ADA:USDso/funding?kind=perp&limit=2'` → `"fundingRate":"0.0001"`; `cast call 0x440f5a79857cd632ae45439410969c3f4049cc41 'getCurrentFundingRate()(int256)' --rpc-url https://dream-rpc.somnia.network` → `100000000000000`<br>
+[Report](feedback/31-api-rest-funding-fields-are-not-1e18-scaled-as-the-openapi-spec-says.md) · [Evidence](evidence/31/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 07:31–07:40 UTC (this host serves Shannon, chain 50312)
+
+### #32 · Indexer: the `PerpPosition.entryFundingIndex` description gives every short the wrong funding sign and leaves out the scale
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`API`
+
+**Impact:** the GraphQL description says unsettled funding is "(getProjectedCumulativeFundingPerUnit() - entryFundingIndex) * size", but `size` is unsigned, so a short that receives funding comes out as paying and vice versa. It also leaves out the ÷ (1e18 × `oneBase`) the MarginBank applies. The data itself is right: 12 of 12 rows match `MarginBank.getPosition`.
+
+**Repro:** `node evidence/32/entryidx_recipe_check.mjs 0xd6cb1dd58580b84d76068ac21594219ce03aeddf 3` → description ÷ chain formula ≈ +1e36 for longs, ≈ −1e36 for shorts<br>
+[Report](feedback/32-indexer-entry-funding-index-recipe-gives-shorts-the-wrong-sign-and-omits-the-scale.md) · [Evidence](evidence/32/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 07:33–07:39 UTC
+
+### #33 · The trading-account address links on Portfolio and the trader page open the explorer's Global view (chain 50312), not Tokyo
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** the Trader card's "account: 0x…" link and the explorer link on `/trader/<address>` go to `explorer.testnet.somnia.network/address/<addr>`, the Global testnet view. It shows the account's Shannon balance and history (ours: 0.65 STT, 3 transactions) instead of Tokyo (42.957 STT, 12 transactions), with no Tokyo hint, unlike tx pages. Separate from #20 (an API route's balance) and archived #11 (tx links).
+
+**Repro:** `curl -s https://app.testnet.dreamdex.io/trader/0x2d1242b88f6979d93bae5968ec292fae640932d4 | grep -o 'href="https://explorer[^"]*"'` → no `/tokyo`; that address is 0 STT / 1 tx in the Global view, 15 STT / 3 txs on `/tokyo`<br>
+[Report](feedback/33-app-trading-account-address-links-open-the-global-explorer-view-not-tokyo.md) · [Evidence](evidence/33/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 in three passes, 06:30–07:57 UTC, logged in and logged out
+
+### #34 · SDK: the `LiquidationEvent.size` TSDoc gives the sign of a liquidation backwards
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** the TSDoc says a `PositionLiquidated` row's sign "is the side being closed". On chain `sizeDelta` is the change to the position, so a liquidated long has a negative `size` and a liquidated short a positive one (105 of 105 rows). `PositionTakenOver` / `PositionTransferred` rows in the same field carry the position's own sign. A builder who follows the TSDoc labels every liquidated long as a short.
+
+**Repro:** `node evidence/34/check_rows.mjs 0x3d5d323c5a051b2ff6f822893483468e1ebf3b2dc8ceed0f6750c98f29b93247` → `size -24010000`, `position at block-1 24010000 (long)`<br>
+[Report](feedback/34-sdk-liquidation-event-size-sign-is-documented-backwards.md) · [Evidence](evidence/34/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 06:08–07:21 UTC
+
+### #35 · Trader page: the Balances tab's "Unrealized PnL" includes funding owed and does not match the Positions tab
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** on `/trader/<address>`, Balances → PERPS MARGIN → UNREALIZED PNL is `equity − unlocked collateral`, so it also subtracts the funding the account owes. The Positions tab's PNL column is price only, as the SDK docs and the app's Portfolio define it. On `0x9ca8…210c` the tabs show −522.25 vs −468.85 USDso; the 53.40 gap is the account's accrued funding on chain. Neither tab shows funding.
+
+**Repro:** `node evidence/35/pnl_gap_check.mjs 0x9ca8dc987deca9a3c94f6cf1b95eb12df5f6210c` (read-only) → `equity - unlockedCollateral` vs Σ price-only uPnL, gap = Σ `accruedFunding`; compare with both tabs of that trader page<br>
+[Report](feedback/35-app-trader-page-balances-unrealized-pnl-includes-funding-and-differs-from-positions-tab.md) · [Evidence](evidence/35/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 in three passes, 06:56–08:12 UTC, on two accounts
+
+### #36 · Phone: the Perps Arena hero card cuts its description off mid-word, and at 360–375 px its title too
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** on `/competition-hub` (signed in) the description paragraph is `w-141 max-w-full`, a fixed 564 px inside an `overflow-clip` card. Below about 590 px every line is cut at the card edge ("…with $15,000 in r") and cannot be scrolled to, so "real rewards", "compete on weekly and season ROI" and "your own trading capital" are lost on every phone width (360–430 px). At 360 px the title reads "dreamDEX Perps Aren".
+
+<img src="evidence/36/arena_hero_phone_390x844_2026-10-26T0735Z.png" width="230" alt="Perps Arena hero card at 390 px: each description line is cut off at the card's right edge">
+
+**Repro:** manual: sign in, Chrome device mode 390 × 844, open `/competition-hub` → description lines end "in r", "comp", "risking y"; console snippet in report step 5 → `['564px', 591, 384, 'clip', 390]`<br>
+[Report](feedback/36-app-phone-perps-arena-hero-card-cuts-off-its-description-and-title.md) · [Evidence](evidence/36/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 in three runs, 06:09–07:40 UTC
+
 ## Archived
 
 Kept for the record in [`archive/`](archive) and **not part of the submission**. Please do not count them.
@@ -327,6 +406,15 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#25 WebSocket**: send the `trades` snapshot newest-first, apply `limit` per symbol from the same history as REST, and send `[]` instead of `null`.
 - [ ] **#26 docs**: rewrite `order:snapshot` / `order:update` and Order Lifecycle Tracking to the `event` frames the hosts send, the replay window, and which events end an order; or send a snapshot on subscribe.
 - [ ] **#27 docs**: change the `order` subscribe examples to `{symbol, orderId: "<decimal>"}` and say that `orderId` is the uint128 as a decimal string.
+- [ ] **#28 contracts/docs**: size a firing reduce-only TP/SL by `min(quantity, |position|)` in the PerpStopOrderRegistry, not by `effectiveReducingCapacity`; if the current sizing is intended, give it its own drop reason, put requested and placed sizes in `PendingOrderTriggered`, and say on the perps Orders page that resting closing-side orders shrink or cancel a TP/SL.
+- [ ] **#29 contracts/docs**: after a linked leg's IOC fills only part of its size, keep the partner live (`PendingOrderUnlinked`, as on a zero fill) instead of `LinkedOrderCancelled`; add the filled quantity to `PendingOrderTriggered` / `StopOrder`; or document the rule on the pair/link params and the Orders page.
+- [ ] **#30 SDK/docs**: compute `placeable` as `closedQuantity >= minQuantity || closedQuantity === |size|` in `previewPerpClosePnl`, fix its TSDoc, and add the exact-size exemption to the FAQ, the developer page, Order Types and the `QuantityBelowMinimum` row of the Errors page.
+- [ ] **#31 REST API**: pick one unit for `fundingRate` and `cumulativeFundingPerUnit` and document it per field in `FundingSnapshot`, `FundingHistoryPoint` and `PerpParams`; for decimals divide the cumulative by 1e18 × 10^`quoteDecimals` and fix the route description.
+- [ ] **#32 indexer**: change the `PerpPosition.entryFundingIndex` description to `ceil(signedSize × (projected − entryFundingIndex) / (1e18 × oneBase))` with `signedSize = isLong ? size : −size`; describe `isLong`.
+- [ ] **#33 app**: pass the active region to `AddressExplorerLink` and the Portfolio Trader-card link (`getExplorerAddressUrl(address, region)`), so DreamDEX accounts link to `explorer.testnet.somnia.network/tokyo/address/<addr>`.
+- [ ] **#34 SDK**: rewrite the `LiquidationEvent.size` TSDoc (`src/perp/history.ts:249–252`) and `src/perp/plane.ts:37` with the per-kind sign rule (`PositionLiquidated` = `sizeDelta`, negative for a long; takeover/transfer rows = the position's own sign); consider a derived `closedSide`.
+- [ ] **#35 app**: on the trader page, take Balances' Unrealized PnL from the Positions rows (Σ `pnl`) and show "Funding owed" separately, or rename the column "net of funding"; add the Funding column to the trader page's Positions table.
+- [ ] **#36 app**: on the Perps Arena hero paragraph replace `w-141 max-w-full` with `max-w-141` (or `w-full max-w-141`); give the title block `min-w-0`.
 
 ## Index
 
@@ -357,10 +445,19 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 25 | normal | API | [WebSocket: the `trades` snapshot sends `null`, is oldest-first and holds only the last 1–3 minutes](feedback/25-websocket-trades-snapshot-null-oldest-first-and-only-minutes-deep.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
 | 26 | normal | docs | [Docs: the WebSocket `order` channel sends no `order:snapshot` and no `order.status`](feedback/26-docs-websocket-order-channel-sends-no-snapshot-and-no-order-status.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
 | 27 | normal | docs | [Docs: all three `order` subscribe examples are rejected by the testnet feed](feedback/27-docs-websocket-order-subscribe-examples-are-rejected-by-the-feed.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 28 | major | contracts | [A perp TP/SL closes only part of its size, or nothing, when the owner has a resting order on the closing side](feedback/28-contracts-perp-tpsl-is-cut-to-reducing-capacity-by-resting-orders-on-the-closing-side.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 29 | normal | contracts | [When one leg of a linked TP/SL pair fills only partly, the other leg is still cancelled and the rest of the position keeps no stop-loss](feedback/29-contracts-linked-tpsl-partial-fill-cancels-the-other-leg-and-leaves-no-stop-loss.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 30 | normal | SDK | [SDK `previewPerpClosePnl` says a position below `minQuantity` cannot be closed, but one order of exactly its size closes it](feedback/30-sdk-preview-perp-close-pnl-says-a-dust-position-cannot-be-closed-but-an-exact-close-works.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 31 | normal | API | [REST API: funding fields are not "1e18-scaled fractions, exactly as the contract emits them", as the OpenAPI spec says](feedback/31-api-rest-funding-fields-are-not-1e18-scaled-as-the-openapi-spec-says.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 32 | normal | API | [Indexer: the `PerpPosition.entryFundingIndex` description gives every short the wrong funding sign and leaves out the scale](feedback/32-indexer-entry-funding-index-recipe-gives-shorts-the-wrong-sign-and-omits-the-scale.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 33 | normal | app | [The trading-account address links on Portfolio and the trader page open the explorer's Global view (chain 50312), not Tokyo](feedback/33-app-trading-account-address-links-open-the-global-explorer-view-not-tokyo.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 34 | normal | SDK | [SDK: the `LiquidationEvent.size` TSDoc gives the sign of a liquidation backwards](feedback/34-sdk-liquidation-event-size-sign-is-documented-backwards.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 35 | normal | app | [Trader page: the Balances tab's "Unrealized PnL" includes funding owed and does not match the Positions tab](feedback/35-app-trader-page-balances-unrealized-pnl-includes-funding-and-differs-from-positions-tab.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 36 | normal | app | [Phone: the Perps Arena hero card cuts its description off mid-word, and at 360–375 px its title too](feedback/36-app-phone-perps-arena-hero-card-cuts-off-its-description-and-title.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
-00:53 and 04:57 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
@@ -393,6 +490,8 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 | Indexer (GraphQL) | `https://hideki-dev.smk.somnia.host/v1/graphql` |
 | App | `https://app.testnet.dreamdex.io` |
 | WebSocket / REST (#25–#27) | `wss://stg.api.dreamdex.io/v0/ws/public` + `https://stg.api.dreamdex.io/v0` (the docs' testnet feed), and `wss://api.testnet.dreamdex.io/v0/ws` |
+| REST API (#31) | `https://api.testnet.dreamdex.io/v0` (serves Shannon, chain 50312; its RPC is `https://dream-rpc.somnia.network`) |
+| Explorer (#33) | `https://explorer.testnet.somnia.network` (Global view, 50312) and `…/tokyo` (Tokyo view, 50383) |
 | Bot kit (#13, #22) | `https://github.com/somnia-chain/dreamdex-bot-kit` at `2579866` |
 
 **Evidence naming:** `evidence/<topic>_<YYYY-MM-DD>[T<HHMM>Z].txt|json` is script output, with UTC time.
@@ -423,7 +522,7 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 
 Reports 08 and 10 are app behaviour. Their steps are in each report, and 10 has a `curl` check (see its card above).
 
-Reports 13–27 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
+Reports 13–36 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
 gives the exact command. All of them are read-only except the live run in #13 (optional, a funded key of your own).
 </details>
 
