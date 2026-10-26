@@ -1,0 +1,28 @@
+client.accountOrders is unavailable for every account on Hideki (chain 50383), SDK 0.32.1.
+Run: 2026-10-26T13:21:01Z
+
+--- Docs the read is pointed at ---
+docs/how-to/follow-an-account.md:3  -> This guide shows you how to show one account's complete open orders and pending stops, and how to keep them current. It also shows how to tell a complete view from an empty or out-of-date one. It uses `client.accountOrders`, which reads the indexer's account view. It assumes a configured `SomniaMarkets` instance with an absolute `indexerUrl`.
+docs/how-to/follow-an-account.md:190 -> Resting perp orders are on `client.accountPositions`, in `data.orders`, and pending stops (TP/SL) are on `client.accountOrders`.
+docs/how-to/follow-an-account.md:10 -> const snapshot = await exchange.client.accountOrders.getSnapshot(account);
+
+--- accountOrders.getSnapshot vs accountPositions.getSnapshot, 3 busy accounts, lower + checksummed (acct1.mjs) ---
+orders lower 0xa343fd unavailable capabilityUnavailable
+positions lower ready n=1 [ 'getSnapshot', 'subscribe' ]
+orders checksum 0xa343fd unavailable capabilityUnavailable
+positions checksum ready n=1 [ 'getSnapshot', 'subscribe' ]
+orders lower 0x5173f3 unavailable capabilityUnavailable
+positions lower ready n=6 [ 'getSnapshot', 'subscribe' ]
+orders checksum 0x5173F3 unavailable capabilityUnavailable
+positions checksum ready n=6 [ 'getSnapshot', 'subscribe' ]
+orders lower 0x38f4d1 unavailable capabilityUnavailable
+positions lower ready n=6 [ 'getSnapshot', 'subscribe' ]
+orders checksum 0x38F4D1 unavailable capabilityUnavailable
+positions checksum ready n=6 [ 'getSnapshot', 'subscribe' ]
+
+--- Raw accountOrders snapshot object + indexer capability rows (acct2.mjs) ---
+{"chainId":50383,"account":"0x5173f33900000000000000000000000000000000","revision":1,"status":"unavailable","reason":"capabilityUnavailable","detail":"spot_unindexed_and_public_role_limits_unproved"}
+{"data":{"AccountCapability":[{"id":"50383:orders"}],"AccountOrderChange":[],"AccountPositionCapability":[{"id":"50383:positions"}]}}
+
+--- Indexer AccountCapability / AccountPositionCapability readiness ---
+{"data":{"AccountCapability":[{"id":"50383:orders","readiness":"UNAVAILABLE"}],"AccountPositionCapability":[{"id":"50383:positions","readiness":"UNAVAILABLE"}]}}

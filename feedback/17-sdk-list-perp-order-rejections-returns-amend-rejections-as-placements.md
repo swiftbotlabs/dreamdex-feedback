@@ -15,6 +15,8 @@ Area: SDK
 > `isAmend`. Step 2 below, re-run at 04:48 UTC, still returns both `0x440e…438b` rows with `isAmend: true`. Evidence: `evidence/17/recheck_2026-10-26T0327Z.txt`, `evidence/17/order_rejections_curl_2026-10-26T0329Z.txt`,
 > `evidence/17/docs_sdk_check_2026-10-26T0327Z.txt`.
 
+**Overlaps / first-seen:** a252937166 `feedback/003-amend-rejection-history.md` reports the same defect (the SDK dropping `isAmend`/`oldOrderId` from `listPerpOrderRejections`). Ours was filed first — 2026-10-26 05:30 UTC (commit `326d56c`) vs their 05:41 UTC — and adds the decoded on-chain `AmendRejected` logs and the whole-table counts.
+
 `client.listPerpOrderRejections({ owner, pool, reason, limit, offset })` sends this query (`src/perp/history.ts:1189–1195`,
 same select in `dist/perp/history.js:434`):
 

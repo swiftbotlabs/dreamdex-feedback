@@ -28,6 +28,8 @@ Area: contracts
 >   would place nothing.
 > - The registry and PerpPool implementations at head are the ones that ran 6 of the 7 cases.
 
+**Distinct from Samuel1505 `feedback/10` (critical, `SelfMatchCancelTaker`):** there the stop's IOC crosses one of the owner's orders on the *other* side of the book and the whole fire reverts; here the resting orders are on the *same* (closing) side, nothing reverts, and the registry silently cuts the stop to `effectiveReducingCapacity` before placing it. Different side, different outcome (silent partial close vs revert), different fix.
+
 **Worked example (case 1, NEAR-PERP, 2026-10-25).** Owner `0x0c56a63043be6943eb4c7be73ad44afe75bb44f2` is long 4,617.7
 NEAR.
 - 17:42:55 UTC: the owner arms a stop-loss, sell 4,617.7 when mark ≤ 4.60 (MARKET, reduce-only).

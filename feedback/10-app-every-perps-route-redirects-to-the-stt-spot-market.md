@@ -1,99 +1,84 @@
-# App: every perps trading route, including the Perps Arena's "Start trading" and "Start Trading Now" buttons, redirects to the STT-USDso spot market, so the perps trading view cannot be opened
-Severity: major
+# App: the documented and in-app perps entry points (`/perps`, per-market deep links, the Perps Arena "Start trading" button) 307-redirect to the STT-USDso spot market
+Severity: normal
 Area: app
 
-> **Summary.** Every perps route in the app answers with a server-side `307` that ends on the STT-USDso spot market, from
-> 38 check-host nodes in 25 countries, logged in or out, while the app's own flags say perps are on and the default landing.
+> **Summary.** On `app.testnet.dreamdex.io`, the perps entry points a user is pointed at all answer with a
+> server-side `307` that ends on the STT-USDso spot market: the docs' `/perps` link, every per-market deep link
+> `/trade/perps/<region>/<MARKET>-PERP` (regions `tokyo`, `dreamdex`, `hideki`, `somnia`), and the Perps Arena's
+> **Start trading** button (`href="/trade/perps/tokyo/BTC-PERP"`). The user lands on `/trade/spot/tokyo/STT:USDso`
+> with no notice, while the app's own feature flags in that page say perps are enabled and the default landing.
 
-> **Re-verified 2026-10-25, 22:45–22:48 UTC, logged out and logged in.** It still reproduces, more than six days after we first saw it (2026-10-19 ~19:10 UTC). `/trade/perps/tokyo/BTC-PERP` now redirects in one hop (`307 → /trade/spot/tokyo/STT:USDso`). `/perps`, the link in the docs, goes to `/trade/perps/tokyo/BTC-PERP` and then to spot. The `/trade/perps/dreamdex/<market>` form also ends on spot. `/trade/perps/tokyo` answers 200 but shows the app's "Page not found". Logged in as our Perps Arena wallet, the Arena page's **Start trading** button (href `/trade/perps/tokyo/BTC-PERP`) lands on STT-USDso spot. Evidence: `evidence/perps_redirect_2026-10-25T2245Z.txt`, `evidence/perps-redirect-start-trading-2026-10-25.png`.
+> **Scope correction (see "Corrections" below).** This is about the *entry points*, not a claim that the perps
+> trading view is gone. The perps view is reachable in other states: a public competitor repo shows a trader placing
+> BTC-PERP orders and arming TP/SL through this same app on 2026-10-22, and the perps home `/trade/perps/tokyo` has
+> returned a page at other times (it is a `404` right now). The reproducible defect is that the links the docs and
+> the app advertise send the user to spot.
 
-Why major: the core perps UI cannot be opened by anyone, from any entry point, while the Perps Arena is running, and the
-Arena's call to action (and its onboarding quests: a resting limit order, a TP/SL trigger order, trading 3 markets) leads
-nowhere. It has lasted more than 8 hours (first seen ~19:10 UTC Oct 19, still present 03:36 UTC Oct 20). Funds are not at
-risk, and developers can still trade through the SDK or the bot kit, so it is not critical.
-
-Every entry point in the app that should open a perps market goes to `/trade/perps/tokyo/<MARKET>-PERP`: the
-top-nav **Trade** link, the logo, the Perps Arena hero button **Start trading** (`/competition`), the competition
-hub's **Start Trading Now** (`/competition-hub`) and the perp rows of the market selector. That route answers with a
-server-side `307` to `/trade`, which redirects (`307`) to `/trade/spot/tokyo/STT:USDso`. The user lands on the
-STT-USDso spot market with no message. In the market selector, clicking a perp row closes the selector and nothing
-else changes. We first saw this on 2026-10-19 between about 19:10 and 19:20 UTC while trading in the Arena, and
-reproduced it again between 19:27 and 19:41 UTC.
+> **Re-verified 2026-10-26, 13:12 UTC, logged out.** Still reproduces, as it has since 2026-10-19 ~19:10 UTC.
+> Evidence: `evidence/10/perps_entrypoints_2026-10-26T1312Z.txt`.
 
 ## Steps to reproduce
-1. Open https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP (any perp market, e.g. `ETH-PERP`, `SOL-PERP`),
-   logged out or logged in. Check the address bar or `location.href` after the page loads.
-2. Logged in, open https://app.testnet.dreamdex.io/competition and click **Start trading**, or open
-   https://app.testnet.dreamdex.io/competition-hub and click **Start Trading Now**. Both are
-   `<a href="/trade/perps/tokyo/BTC-PERP">`.
-3. On any spot page, open the market selector (**STT - USDso**) and click the **BTC 20x** row (or any perp row).
-4. Optional, without a browser: `curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP`, then
-   `curl -sI https://app.testnet.dreamdex.io/trade`.
+1. `curl -sS -o /dev/null -w '%{http_code} %{redirect_url}\n' https://app.testnet.dreamdex.io/perps` and follow each
+   `location` by hand (or in a browser, logged out or logged in). Repeat for
+   `/trade/perps/tokyo/BTC-PERP`, `/trade/perps/dreamdex/BTC-PERP`, `/trade/perps/hideki/BTC-PERP`,
+   `/trade/perps/somnia/BTC-PERP`.
+2. Logged in, open https://app.testnet.dreamdex.io/competition and click **Start trading** (an
+   `<a href="/trade/perps/tokyo/BTC-PERP">`), or open `/competition-hub` and click **Start Trading Now**.
+3. On any spot page, open the market selector (**STT - USDso**) and click a perp row (e.g. **BTC 20x**).
 
 ## Expected
-The BTC-PERP perps trading view (perp chart, order form with leverage, positions) at
-`/trade/perps/tokyo/BTC-PERP`, as every perps link in the app and the Arena's call to action assume.
+Following `/perps`, a per-market deep link, or the Arena's **Start trading** opens a BTC-PERP perps trading view
+(perp chart, leveraged order form, positions), as the docs and the Arena's call to action assume.
 
 ## Actual
-- Step 1: `GET /trade/perps/tokyo/BTC-PERP` → `307 location: /trade` → `GET /trade` → `307 location:
-  /trade/spot/tokyo/STT:USDso` → `200`. Final `location.href` =
-  `https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso`, title `0.1866 | STT-USDso | dreamDEX`. The same
-  happens logged out (fresh browser context, 19:31:51 UTC, screenshot `evidence/perps-redirect-direct-url-logged-out.png`)
-  and logged in (`ETH-PERP`, 19:31:51 UTC).
-- Step 2: the click makes the Next.js router fetch `/trade/perps/tokyo/BTC-PERP?_rsc=…`, which gets the same
-  `307` → `/trade` → `307` → `/trade/spot/tokyo/STT:USDso`, and the page ends on the STT-USDso spot market
-  ("Start trading" clicked 19:39:22 UTC; "Start Trading Now" clicked 19:31:27 UTC, screenshot
-  `evidence/perps-redirect-start-trading-now.png`).
-- Step 3: the selector closes, the router requests `/trade/perps/tokyo/BTC-PERP?_rsc=…`, gets the same two
-  redirects, and the URL stays `https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso` (19:40 UTC).
-- Step 4 (19:39:52 UTC): `/trade/perps/tokyo/BTC-PERP`, `/ETH-PERP` and `/SOL-PERP` → `307 location: /trade`;
-  `/trade` → `307 location: /trade/spot/tokyo/STT:USDso`; `/perps` → `307 location: /trade/perps/tokyo/BTC-PERP`
-  (so it ends on spot too); `/trade/perps` → `307 location: /trade/spot/perps`.
-- Not regional: the same `307` from India (Vercel edge `bom1`) and from check-host.net nodes in France, Iran,
-  Japan, Austria, Indonesia and the UK (reports linked in the evidence file).
+Run 2026-10-26 13:12 UTC (`evidence/10/perps_entrypoints_2026-10-26T1312Z.txt`):
 
-### Added 2026-10-20: still present, worldwide, and not a switch-off by flag
-- **Still present** at 03:11 UTC and 03:36 UTC on Oct 20, more than 8 hours after we first saw it: `/trade/perps/tokyo/BTC-PERP`,
-  `/ETH-PERP` and `/SOL-PERP` → `307 location: /trade`, `/trade` → `307 location: /trade/spot/tokyo/STT:USDso`
-  (`evidence/perps_redirect_2026-10-20T0330Z.txt`).
-- **Worldwide:** check-host.net report https://check-host.net/check-report/52235b86k326 (run 2026-10-20 03:11 UTC) for
-  `/trade/perps/tokyo/BTC-PERP`: **307 from 38 of 40 nodes in 25 countries** (Australia, Austria, Brazil, Bulgaria, France,
-  Germany, Hong Kong, Hungary, India, Iran, Japan, Kazakhstan, Moldova, Netherlands, Poland, Portugal, Russia, Slovenia,
-  Spain, Sweden, Switzerland, Turkey, UK, USA, Ukraine). The other two: Singapore got `403`, one Dallas node timed out.
-- **The app's own feature flags say perps are on**, in the server-rendered payload of the spot page it redirects to:
-  `"gate-perps":false`, `"perp-markets-listed":true`, `"perps-default-landing":true`, `"dreambot-perps":true`. So the
-  redirect contradicts the app's own configuration rather than following a deliberate switch-off. The same payload has
-  `"geoBypass":false`; since 38 nodes in 25 countries get the same `307`, a geo-gate does not explain it either.
+```
+/perps                              307 -> /trade/perps/tokyo/BTC-PERP 307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/tokyo/BTC-PERP         307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/tokyo/ETH-PERP         307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/dreamdex/BTC-PERP      307 -> /trade/perps/dreamdex 307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/hideki/BTC-PERP        307 -> /trade/perps/hideki   307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/somnia/BTC-PERP        307 -> /trade/perps/somnia   307 -> /trade/spot/tokyo/STT:USDso 200
+/trade/perps/tokyo                  404
+```
+
+- **Step 2:** the click makes the Next.js router fetch the same `/trade/perps/tokyo/BTC-PERP?_rsc=…`, gets the same
+  `307`s and ends on STT-USDso spot (first seen 2026-10-19 19:39 UTC, screenshot
+  `evidence/perps-redirect-start-trading-now.png`).
+- **Step 3:** the selector closes, the router requests the perp route, gets the same redirects, URL stays on spot.
+- **The app's own flags say perps are on**, in the SSR payload of the spot page it lands on: `"gate-perps":false`,
+  `"perp-markets-listed":true`, `"perps-default-landing":true`, `"dreambot-perps":true`. So the redirect contradicts
+  the app's configuration rather than following a deliberate switch-off.
+- **Server-side, not regional.** On 2026-10-20 a check-host.net run got the `307` from 38 of 40 nodes in 25
+  countries for `/trade/perps/tokyo/BTC-PERP` (report in `evidence/perps_redirect_2026-10-20T0330Z.txt`).
 
 ## Evidence
-- `evidence/perps_redirect_2026-10-20T0330Z.txt`: the 2026-10-20 re-check (curl headers, the parsed check-host report,
-  the feature flags).
-- `evidence/perps_redirect_2026-10-19.txt`: curl response headers, the check-host results, and the Chrome DevTools
-  network log (document requests, redirect responses with their `location` header, RSC fetches,
-  `location.href` after load) for each entry point above.
-- `evidence/perps-redirect-direct-url-logged-out.png`: what a logged-out visitor sees after requesting
-  `/trade/perps/tokyo/BTC-PERP` (STT-USDso spot).
-- `evidence/perps-redirect-start-trading-now.png`: the page reached from the competition hub's **Start Trading Now**,
-  logged in (STT-USDso spot).
+- `evidence/10/perps_entrypoints_2026-10-26T1312Z.txt`: today's hop-by-hop chains for every entry point above and the
+  four feature flags.
+- `evidence/perps_redirect_2026-10-20T0330Z.txt`, `evidence/perps_redirect_2026-10-19.txt`: the curl headers, the
+  check-host 38/40 report and the Chrome DevTools network log (document requests, redirect `location`s, RSC fetches)
+  for each entry point, logged out and logged in.
+- `evidence/perps-redirect-start-trading-now.png`, `evidence/perps-redirect-direct-url-logged-out.png`: the spot page
+  a user reaches from the competition hub's **Start Trading Now** and from a direct perp URL.
 
 ## Suggested fix
-Remove whatever rule now sends `/trade/perps/*` to `/trade`. It is a server-side redirect, so a Next.js
-middleware or `redirects()` entry is the likely place. If the perps view is turned off on purpose, show a notice
-on the spot page and stop pointing the Arena buttons and the nav at it, because the Arena's onboarding quests (a
-resting limit order, a TP/SL trigger order, trading 3 markets) need it.
+Point `/perps`, the per-market deep links and the Arena's **Start trading** button at whatever route actually serves
+the perps trading view (the one reachable in the working state), or, if perps are intentionally paused for a region,
+show a notice on the spot page instead of a silent redirect and update the Arena CTAs, because the Arena onboarding
+quests (a resting limit order, a TP/SL trigger order, trading 3 markets) depend on this view.
 
 ## Environment
-- App: app.testnet.dreamdex.io as served 2026-10-19 19:27–19:41 UTC (first seen ~19:10–19:20 UTC) and re-checked
-  2026-10-20 03:11–03:36 UTC; network Tokyo /
-  Hideki (chain 50383); responses from `server: Vercel`
-- Browser: Chrome 155 on Linux, 1440×900; logged in = Privy e-mail login, Somnia Account wallet
-  `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817`; logged out = fresh browser context with no cookies
-- curl 8.18.0
+- App: `app.testnet.dreamdex.io`, served 2026-10-26 13:12 UTC (first seen ~19:10 UTC 2026-10-19; re-checked 10-20,
+  10-25, 10-26); network Tokyo / Hideki (chain 50383); responses `server: Vercel`
+- Browser steps: Chrome 155 on Linux, logged in = Privy e-mail login, Somnia Account wallet
+  `0x0e7E…3817`; logged out = fresh context. curl 8.18.0
 - `@somnia-chain/markets-sdk`: not involved
-- Re-verified 2026-10-25 UTC on Somnia Tokyo testnet (see the note under the summary)
 
 ## Corrections
-- **Corrected 2026-10-20.** Severity normal → major: the core perps trading UI has been unreachable for everyone for
-  more than 8 hours and the Arena's call to action is dead. Added the 2026-10-20 evidence (still present at 03:11 and
-  03:36 UTC; check-host: 307 from 38 nodes in 25 countries; the app's own flags say perps are enabled) and the summary.
-  The original observations are unchanged.
+- **Rescoped 2026-10-26 (severity major → normal).** The earlier version claimed "the perps trading view cannot be
+  opened by anyone, from any entry point." That over-claims: the trading view is reachable in other states (a public
+  competitor traded BTC-PERP and armed TP/SL through this app on 2026-10-22, and the perps home has loaded at other
+  times), so a reviewer who can open perps could read the old claim as "not reproducible." The accurate, reproducible
+  defect is the entry-point redirect, and the severity now matches a broken-navigation / UX issue. First seen and
+  filed 2026-10-19 19:42 UTC, earlier than the other perps-route-redirect reports we are aware of.

@@ -1,0 +1,33 @@
+Price-feed reads on the Hideki (chain 50383) perps client, SDK 0.32.1.
+Run: 2026-10-26T13:21:42.922Z
+
+(a) default client (no priceFeed) -> price-feed reads throw:
+  fetchPrice('BTC'): THROW NotConfiguredError — @somnia-chain/markets-sdk: this price-feed read — needs config.priceFeed = { url } — the price-feed indexer's GraphQL endpoint
+  fetchPriceOHLCV('BTC','1m'): THROW NotConfiguredError — @somnia-chain/markets-sdk: this price-feed read — needs config.priceFeed = { url } — the price-feed indexer's GraphQL endpoint
+  listPriceFeeds(): THROW TypeError — noFeed.listPriceFeeds is not a function
+
+(b) shipped feed constants (the only two the SDK exports):
+  SOMNIA_TESTNET_PRICE_FEED = {"url":"https://price-feed.dev.oracle.somnia.host/v1/graphql","quote":"USDC"}
+  SOMNIA_MAINNET_PRICE_FEED = {"url":"https://price-feed.prd.oracle.somnia.host/v1/graphql","quote":"USDC"}
+
+(c) pointing the Hideki client at SOMNIA_TESTNET_PRICE_FEED and reading BTC, vs the Hideki on-chain BTC perp mark:
+  dev-feed fetchPrice('BTC') = 80019.07500000001 at 2026-10-26T13:21:43.000Z
+  Hideki on-chain BTC perp markPrice (getPerpLeverage) = 79975.91 raw 79975912887589482000000n
+  diff: 0.054%
+
+--- Docs: the only two price-feed endpoints listed (reference/networks-and-endpoints.md) ---
+93:| Somnia mainnet  | `https://price-feed.prd.oracle.somnia.host/v1/graphql`, quote `USDC` | `SOMNIA_MAINNET_PRICE_FEED` |
+94:| Shannon testnet | `https://price-feed.dev.oracle.somnia.host/v1/graphql`, quote `USDC` | `SOMNIA_TESTNET_PRICE_FEED` |
+107:`0x1998C88D54a240b8C671493f27f58eC416b81D7F` on mainnet and on Hideki. It holds
+--- PRICES.md config snippet ---
+import { SomniaMarkets, SOMNIA_TESTNET_PRICE_FEED } from "@somnia-chain/markets-sdk";
+
+const exchange = new SomniaMarkets({
+  indexerUrl,
+  chain,
+  wsRpcUrl,
+  priceFeed: SOMNIA_TESTNET_PRICE_FEED, // { url, quote } - the deployed dev feed, all assets
+  // or your own: priceFeed: { url: "https://…/v1/graphql", quote: "USDC" }
+--- SDK exports both feed constants, no Hideki one (index.d.ts) ---
+SOMNIA_MAINNET_PRICE_FEED
+SOMNIA_TESTNET_PRICE_FEED

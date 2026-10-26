@@ -21,6 +21,8 @@ not being shown to the user who placed it: this report is about what the registr
 stop's IOC sized below the position because the owner has resting reduce orders (reducing capacity): in all three cases
 the owner had no resting orders, and `effectiveReducingCapacity` equalled the full position.
 
+**Distinct from DmitriyTopka `feedback/019` and `020`:** `019` is the app's "Entire" dialog storing a fixed size at creation, and `020` is the linked sibling's fee being credited rather than refunded. This report is about neither the dialog nor the fee: it is the registry cancelling the still-needed stop-loss leg (`LinkedFill`) after the take-profit leg fills only *part* of the position, leaving the remainder with no stop.
+
 ## What happens
 
 The SDK documents the pair rule in two halves, and neither covers a partial fill:

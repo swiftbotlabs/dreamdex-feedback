@@ -1,0 +1,39 @@
+Re-check of perps entry-point redirects, app.testnet.dreamdex.io
+Run: 2026-10-26T13:12:19Z  (curl 8.18.0)
+
+CHAIN: https://app.testnet.dreamdex.io/perps
+  307 https://app.testnet.dreamdex.io/perps
+  307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/tokyo/ETH-PERP
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/dreamdex/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/dreamdex/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/dreamdex
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/hideki/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/hideki/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/hideki
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/somnia/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/somnia/BTC-PERP
+  307 https://app.testnet.dreamdex.io/trade/perps/somnia
+  200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+
+CHAIN: https://app.testnet.dreamdex.io/trade/perps/tokyo
+  404 https://app.testnet.dreamdex.io/trade/perps/tokyo
+
+== Feature flags in the SSR payload of the spot page it lands on ==
+dreambot-perps":true
+gate-perps":false
+perp-markets-listed":true
+perps-default-landing":true

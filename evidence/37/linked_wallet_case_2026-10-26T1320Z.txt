@@ -1,0 +1,22 @@
+Linked-wallet derived reads are case-sensitive. Somnia Tokyo testnet (Hideki, chain 50383), SDK 0.32.1.
+Run: 2026-10-26T13:20:47Z
+MarginBank 0x478769E1177C0773c43A593DCCc4Ad15F15F1394  Registry 0x5b3C5Bf1F7AdA852e8AA783f6299932E32073aFb
+main  0x93B72Eac8f4C06D8ADFCCD2fa47e1b5a93D5A31e   child 0x19E7E376E7C213B7E7e7e46cc70A5dD086DAff2A
+
+--- getPerpWalletLinkage(REG, addr) + quotePerpFundingPayer(MB, addr), per address form (link2.mjs) ---
+main lowercase     isMain false isChild true | payer {"funded":false,"reason":"unlinked"}
+main checksummed   isMain true isChild false | payer {"funded":false,"reason":"isMain"}
+child lowercase    isMain false isChild true | payer {"funded":true,"payer":"0x93B72Eac8f4C06D8ADFCCD2fa47e1b5a93D5A31e"}
+child checksummed  isMain false isChild true | payer {"funded":true,"payer":"0x93B72Eac8f4C06D8ADFCCD2fa47e1b5a93D5A31e"}
+
+--- SDK dist/perp/linkedWallet.js: raw-case compares vs .toLowerCase() on the query paths ---
+97:    return { funded: false, reason: main === account ? "isMain" : "unlinked" };
+159:        isChild: linked && main !== wallet,
+160:        isMain: linked && main === wallet && linkage.members.length > 1,
+273: *   (r.main === main && r.child === me) || (r.main === me && r.child === main);
+284:        where.main = { _eq: opts.main.toLowerCase() };
+286:        where.child = { _eq: opts.child.toLowerCase() };
+321:        where.account = { _eq: opts.account.toLowerCase() };
+323:        where.pool = { _eq: opts.pool.toLowerCase() };
+364:        where.account = { _eq: opts.account.toLowerCase() };
+366:        where.payer = { _eq: opts.payer.toLowerCase() };

@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 34 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
+  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 37 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-34-7c5cff?style=flat-square" alt="reports: 34">
+  <img src="https://img.shields.io/badge/reports-37-7c5cff?style=flat-square" alt="reports: 37">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
-  <img src="https://img.shields.io/badge/re--checked-2026--10--25-1f883d?style=flat-square" alt="re-checked: 2026-10-25">
+  <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Thirty-four issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
-50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds: 5 major and 29 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+Thirty-seven issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds: 4 major and 33 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -31,30 +31,20 @@ read-only (pinned `eth_call`s, receipts, indexer, REST and app reads) against th
 between 06:08 and 08:27 UTC that day, and has a dated "Checked 2026-10-26" note under its summary. Their scripts and saved
 outputs are in `evidence/<number>/` too (for example [`evidence/28/`](evidence/28/)).
 
+**Reports 37–39 were added on 2026-10-26, ~13:20 UTC** — three SDK issues no other public repo touches: linked-wallet reads
+are case-sensitive (#37), the account-order view the "follow an account" guide points at is unavailable on Hideki (#38),
+and there is no Hideki price-feed constant (#39). Each was reproduced read-only with SDK 0.32.1; scripts and output are in
+`evidence/37`–`39`. On the same day **report #10 was rescoped from major to normal**: its earlier headline ("the perps view
+cannot be opened by anyone") over-claimed — the view is reachable in other states — so it now states only the reproducible
+defect, that the documented and in-app perps entry points `307`-redirect to spot (see its "Corrections").
+
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
 [Normal](#normal) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
 
 ## Major
 
-These five stop or mislead users and developers in a core flow today.
-
-### #10 · Every perps route redirects to the STT-USDso spot market
-![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`app`
-
-**Impact:** nobody can open the perps trading view in the app while the Perps Arena is running. The nav, the logo, the
-Arena's **Start trading** / **Start Trading Now** buttons and the market selector's perp rows all end on STT-USDso spot,
-whether the user is logged in or not, from 38 check-host nodes in 25 countries (2026-10-20). On 2026-10-20 the app's own
-flags said perps were on (`gate-perps: false`, `perps-default-landing: true`).
-
-<img src="assets/shot-10-perps-redirect.png" width="600" alt="Requesting /trade/perps/tokyo/BTC-PERP while logged out lands on the STT-USDso spot market">
-
-**Repro:** `curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP | grep -i location` → `location: /trade/spot/tokyo/STT:USDso`<br>
-[Report](feedback/10-app-every-perps-route-redirects-to-the-stt-spot-market.md) ·
-[Evidence](evidence/perps_redirect_2026-10-25T2245Z.txt) · First reported
-[2026-10-19 19:42 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/f5cef3d) · Re-checked 2026-10-25 22:45–22:48 UTC:
-still `307` to STT-USDso spot, logged out and logged in; the Arena's **Start trading** lands on spot
-([screenshot](evidence/perps-redirect-start-trading-2026-10-25.png))
+These four stop or mislead users and developers in a core flow today.
 
 ### #01 · The developer page's only paper-USDso route, `claimPerpVoucher`, reverts with `SelfClaimDisabled()`
 ![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`docs`
@@ -98,6 +88,23 @@ on 2026-10-20; all have more than 100k rows), the market makers and bots it is m
 [Report](feedback/28-contracts-perp-tpsl-is-cut-to-reducing-capacity-by-resting-orders-on-the-closing-side.md) · [Evidence](evidence/28/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 07:52–08:12 UTC: 7 cases rebuilt; 5 pending stops on 2 accounts would fire short at block 33,501,406
 
 ## Normal
+
+### #10 · The documented and in-app perps entry points `307`-redirect to the STT-USDso spot market
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** the perps links a user is pointed at all end on STT-USDso spot — the docs' `/perps`, every per-market deep
+link `/trade/perps/<region>/<MARKET>-PERP`, and the Perps Arena's **Start trading** button — so following them never
+reaches a perps view, while the spot page's own flags say perps are on (`perps-default-landing: true`). The perps view
+itself is reachable in other states (a competitor traded BTC-PERP through the app on 2026-10-22), so this is about the
+entry points, not a claim that the view is gone. Rescoped from major on 2026-10-26 (see the report's "Corrections").
+
+<img src="assets/shot-10-perps-redirect.png" width="600" alt="Requesting /trade/perps/tokyo/BTC-PERP while logged out lands on the STT-USDso spot market">
+
+**Repro:** `curl -sI https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP | grep -i location` → `location: /trade/spot/tokyo/STT:USDso`<br>
+[Report](feedback/10-app-every-perps-route-redirects-to-the-stt-spot-market.md) ·
+[Evidence](evidence/10/perps_entrypoints_2026-10-26T1312Z.txt) · First reported
+[2026-10-19 19:42 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/f5cef3d) · Re-verified 2026-10-26 13:12 UTC:
+every entry point above still `307`s to spot
 
 ### #02 · SDK says `eligible: true` while `claim()` reverts, and the error is missing from `contractErrorsAbi`
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
@@ -365,6 +372,30 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 **Repro:** manual: sign in, Chrome device mode 390 × 844, open `/competition-hub` → description lines end "in r", "comp", "risking y"; console snippet in report step 5 → `['564px', 591, 384, 'clip', 390]`<br>
 [Report](feedback/36-app-phone-perps-arena-hero-card-cuts-off-its-description-and-title.md) · [Evidence](evidence/36/) · First reported [2026-10-26 08:35 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) · Checked 2026-10-26 in three runs, 06:09–07:40 UTC
 
+### #37 · SDK linked-wallet reads compare addresses case-sensitively, so a lowercase `main` reads as "unlinked"
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** `getPerpWalletLinkage` and `quotePerpFundingPayer` compare the caller's address against the chain's checksummed value with a raw `===`/`!==`. Pass a `main` wallet in lowercase (the form `PerpWalletLinkEvent.main` returns) and it reads `isMain: false`, `isChild: true`, and the funding payer comes back `{funded: false, reason: "unlinked"}`; the checksummed form is correct. The same file `.toLowerCase()`s addresses for its own indexer queries, so the normalization is applied on one path and skipped on the derived reads. No other repo touches the linked-wallet module.
+
+**Repro:** `node evidence/37/link2.mjs` → `main lowercase: isMain false … reason "unlinked"`; `main checksummed: isMain true … reason "isMain"`<br>
+[Report](feedback/37-sdk-linked-wallet-reads-are-case-sensitive-lowercase-main-reads-as-unlinked.md) · [Evidence](evidence/37/) · First reported 2026-10-26 ~13:20 UTC · `dist/perp/linkedWallet.js:97,159,160`
+
+### #38 · `client.accountOrders`, where the "follow an account" guide says pending perp TP/SL live, is unavailable for every account on Hideki
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** the how-to `follow-an-account.md:190` says pending perp TP/SL are on `client.accountOrders`. On Hideki, `accountOrders.getSnapshot(account)` returns `{status: "unavailable", reason: "capabilityUnavailable"}` for every account tried, while `accountPositions.getSnapshot` is `ready` (it reads the chain). The indexer's `AccountCapability` row `50383:orders` has `readiness: UNAVAILABLE`. A developer following the guide to read pending stops gets nothing, with no error.
+
+**Repro:** `node evidence/38/acct1.mjs` → `orders … unavailable capabilityUnavailable` / `positions … ready` for every account<br>
+[Report](feedback/38-sdk-account-orders-view-is-unavailable-for-every-account-on-hideki.md) · [Evidence](evidence/38/) · First reported 2026-10-26 ~13:21 UTC
+
+### #39 · There is no Hideki price-feed constant: the SDK's price reads throw `NotConfiguredError`, and the only testnet feed is labelled "Shannon"
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`docs`
+
+**Impact:** on a Hideki client `fetchPrice` / `fetchPriceOHLCV` throw `NotConfiguredError` unless the caller sets `priceFeed` by hand. The SDK ships only `SOMNIA_TESTNET_PRICE_FEED` and `SOMNIA_MAINNET_PRICE_FEED`; the reference's endpoint table maps the testnet one to "Shannon testnet", and there is no Hideki feed constant or endpoint, though the docs say Hideki runs its own `PriceFeedScheduler`. Pointed at the dev feed it works (BTC 80,019 vs the Hideki on-chain mark 79,976, 0.054% apart), but nothing documents that for Hideki.
+
+**Repro:** `node evidence/39/cap39.mjs` → default client: `fetchPrice('BTC')` throws `NotConfiguredError`; with `SOMNIA_TESTNET_PRICE_FEED`: BTC 80,019<br>
+[Report](feedback/39-sdk-docs-no-hideki-price-feed-constant-price-reads-throw-notconfigured.md) · [Evidence](evidence/39/) · First reported 2026-10-26 ~13:21 UTC
+
 ## Archived
 
 Kept for the record in [`archive/`](archive) and **not part of the submission**. Please do not count them.
@@ -415,6 +446,9 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#34 SDK**: rewrite the `LiquidationEvent.size` TSDoc (`src/perp/history.ts:249–252`) and `src/perp/plane.ts:37` with the per-kind sign rule (`PositionLiquidated` = `sizeDelta`, negative for a long; takeover/transfer rows = the position's own sign); consider a derived `closedSide`.
 - [ ] **#35 app**: on the trader page, take Balances' Unrealized PnL from the Positions rows (Σ `pnl`) and show "Funding owed" separately, or rename the column "net of funding"; add the Funding column to the trader page's Positions table.
 - [ ] **#36 app**: on the Perps Arena hero paragraph replace `w-141 max-w-full` with `max-w-141` (or `w-full max-w-141`); give the title block `min-w-0`.
+- [ ] **#37 SDK**: normalize both operands (`getAddress`/`.toLowerCase()`) before the address comparisons in `dist/perp/linkedWallet.js:97,159,160` and anywhere `main`/`wallet`/`account` are compared, as the query builders in the same file already do.
+- [ ] **#38 SDK/docs**: make the account-order view available on Hideki (`50383:orders` is `UNAVAILABLE`), or say in `follow-an-account.md` that it is unavailable on the perps testnet and that pending perp stops are read with `getPerpStopOrders`/`listPerpStopOrders`; have `getSnapshot` document the `unavailable` status.
+- [ ] **#39 SDK/docs**: add a Hideki price-feed entry (a `SOMNIA_HIDEKI_TESTNET_PRICE_FEED` constant or a `hidekiTestnet` default) and a Hideki row in `networks-and-endpoints.md`; say which feed serves Hideki's `PriceFeedScheduler` and that the perps-testnet guide needs `priceFeed` set for `fetchPrice`.
 
 ## Index
 
@@ -428,7 +462,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 06 | normal | docs | [The Errors page lacks the perp errors](feedback/06-errors-page-lacks-perp-errors-and-wrong-scale-message-differs.md) | [2026-10-19 09:41](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) |
 | 08 | normal | app | [Link a bot, the docs' "simplest route" to bot gas, is blocked for a new account and names no STT source](feedback/08-app-link-a-bot-blocked-for-new-accounts-no-stt-source.md) | [2026-10-19 10:58](https://github.com/swiftbotlab/dreamdex-feedback/commit/f2a1e30) |
 | 09 | normal | docs | [Documented perp gas cost is the discounted price; a new bot pays about 10×](feedback/09-docs-perp-gas-cost-range-is-10x-below-what-a-new-sender-pays.md) | [2026-10-19 15:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/b69748b) |
-| 10 | major | app | [Every perps route, including the Arena's "Start trading", redirects to the STT-USDso spot market](feedback/10-app-every-perps-route-redirects-to-the-stt-spot-market.md) | [2026-10-19 19:42](https://github.com/swiftbotlab/dreamdex-feedback/commit/f5cef3d) |
+| 10 | normal | app | [The documented and in-app perps entry points 307-redirect to the STT-USDso spot market](feedback/10-app-every-perps-route-redirects-to-the-stt-spot-market.md) | [2026-10-19 19:42](https://github.com/swiftbotlab/dreamdex-feedback/commit/f5cef3d) |
 | 12 | normal | API | [Indexer `MarginEvent` rows have no block number](feedback/12-indexer-margin-events-have-no-block-number.md) | [2026-10-20 03:44](https://github.com/swiftbotlab/dreamdex-feedback/commit/efb7bb4) |
 | 13 | major | SDK | [The Builder's run command for perps bots (`npm run dev`, i.e. `tsx watch`) turns one Ctrl-C into two, so the bots skip their shutdown cleanup](feedback/13-bot-kit-npm-run-dev-ctrl-c-skips-perp-bot-shutdown-cleanup.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
 | 14 | normal | SDK | [A perp amend that changes side reverts with `0x44a03a20` since the 2026-10-21 upgrade; the SDK cannot decode it and the docs never mention it](feedback/14-sdk-perp-amend-side-change-reverts-0x44a03a20-undecoded-and-undocumented.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
@@ -454,10 +488,14 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 34 | normal | SDK | [SDK: the `LiquidationEvent.size` TSDoc gives the sign of a liquidation backwards](feedback/34-sdk-liquidation-event-size-sign-is-documented-backwards.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
 | 35 | normal | app | [Trader page: the Balances tab's "Unrealized PnL" includes funding owed and does not match the Positions tab](feedback/35-app-trader-page-balances-unrealized-pnl-includes-funding-and-differs-from-positions-tab.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
 | 36 | normal | app | [Phone: the Perps Arena hero card cuts its description off mid-word, and at 360–375 px its title too](feedback/36-app-phone-perps-arena-hero-card-cuts-off-its-description-and-title.md) | [2026-10-26 08:35](https://github.com/swiftbotlab/dreamdex-feedback/commit/bc9147e) |
+| 37 | normal | SDK | [Linked-wallet reads compare addresses case-sensitively, so a lowercase `main` reads as "unlinked"](feedback/37-sdk-linked-wallet-reads-are-case-sensitive-lowercase-main-reads-as-unlinked.md) | 2026-10-26 ~13:20 |
+| 38 | normal | SDK | [`client.accountOrders` (the documented home of pending perp TP/SL) is unavailable for every account on Hideki](feedback/38-sdk-account-orders-view-is-unavailable-for-every-account-on-hideki.md) | 2026-10-26 ~13:21 |
+| 39 | normal | docs | [No Hideki price-feed constant: price reads throw `NotConfiguredError`, and the only testnet feed is labelled "Shannon"](feedback/39-sdk-docs-no-hideki-price-feed-constant-price-reads-throw-notconfigured.md) | 2026-10-26 ~13:21 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
-00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Reports 37–39 were added, and #10 rescoped, on
+2026-10-26 between 13:12 and 13:21 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
@@ -522,8 +560,10 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 
 Reports 08 and 10 are app behaviour. Their steps are in each report, and 10 has a `curl` check (see its card above).
 
-Reports 13–36 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
+Reports 13–39 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
 gives the exact command. All of them are read-only except the live run in #13 (optional, a funded key of your own).
+Reports 37–39 run SDK 0.32.1 read-only (install `@somnia-chain/markets-sdk@0.32.1`, `@somnia-chain/reactivity@0.2.1`
+and `viem@2.57.7`; see `evidence/37`–`39`).
 </details>
 
 <details>
