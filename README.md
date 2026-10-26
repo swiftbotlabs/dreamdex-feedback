@@ -1,26 +1,30 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 10 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
+  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 25 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-10-7c5cff?style=flat-square" alt="reports: 10">
+  <img src="https://img.shields.io/badge/reports-25-7c5cff?style=flat-square" alt="reports: 25">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--25-1f883d?style=flat-square" alt="re-checked: 2026-10-25">
 </p>
 
-Ten issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
-50383; the docs and the SDK call it "Hideki"): 3 major and 7 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+Twenty-five issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs and WebSocket feeds: 4 major and 21 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
 
 **Re-verified 2026-10-25, 22:37–23:04 UTC**, against SDK 0.32.1 (still npm `latest`), the current docs (app.dreamdex.io/docs)
-and the live testnet: all ten still reproduce, and #04 is worse (13 of 13 busy accounts now fail). #08 was re-run with a
+and the live testnet: all ten reports filed by then still reproduce, and #04 is worse (13 of 13 busy accounts now fail). #08 was re-run with a
 brand-new account, and #09 with a fresh transaction. Each report has a dated "Re-verified 2026-10-25" note under its summary
 ([re-check log](evidence/recheck_2026-10-25T2239Z.txt)). Two earlier reports are [archived](#archived): 07 was withdrawn on
 2026-10-20, and 11 no longer reproduces as filed, because the explorer now points users to the right network.
+
+**Reports 13–27 were added on 2026-10-26** ([first reported 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c)). Each was reproduced against the live
+testnets, the current docs and SDK 0.32.1 between 00:53 and 04:57 UTC that day, and has a dated "Checked 2026-10-26"
+note under its summary. Their scripts and saved outputs are in `evidence/<number>/` (for example [`evidence/13/`](evidence/13/)).
 
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
@@ -28,7 +32,7 @@ brand-new account, and #09 with a fresh transaction. Each report has a dated "Re
 
 ## Major
 
-These three stop users or developers today, ranked by impact.
+These four stop users or developers today.
 
 ### #10 · Every perps route redirects to the STT-USDso spot market
 ![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`app`
@@ -71,6 +75,14 @@ on 2026-10-20; all have more than 100k rows), the market makers and bots it is m
 [Evidence](evidence/indexer_accounts_2026-10-25T2240Z.txt) · First reported
 [2026-10-19 09:41 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/66e8188) · Re-checked 2026-10-25 22:40–23:04 UTC:
 13 of 13 busy accounts fail (6 of 13 on 2026-10-20)
+
+### #13 · The Builder's run command for perps bots (`npm run dev`, i.e. `tsx watch`) turns one Ctrl-C into two, so the bots skip their shutdown cleanup
+![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`SDK`
+
+**Impact:** for every perps strategy the dreamBot Builder prints `npm run dev -w <perp workspace>`. Under `tsx watch` one Ctrl-C reaches the bot as two SIGINTs about 3 ms apart; the kit's `onStop()` takes the second as "press again to exit now" and calls `process.exit(1)`. In a live run on Tokyo, perp-maker left both quotes on the book at full size until we cancelled them by hand. The same Ctrl-C under `npm start` pulls both quotes, as the README promises.
+
+**Repro:** dry run, no key: in the kit (`2579866`) run `npm run dev -w perp-maker` with `NETWORK=hideki DRY_RUN=true`, press Ctrl-C once → exit without the cleanup lines; `npm start -w perp-maker` → quotes cancelled<br>
+[Report](feedback/13-bot-kit-npm-run-dev-ctrl-c-skips-perp-bot-shutdown-cleanup.md) · [Evidence](evidence/13/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 01:35–03:53 UTC (live run, fresh-clone pty runs, Builder chunk and kit `HEAD` unchanged)
 
 ## Normal
 
@@ -162,6 +174,118 @@ key pays the full 6 gwei: one minimal resting order costs 0.0141 STT, 4.7× the 
 [2026-10-19 15:23 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/b69748b) · Re-checked 2026-10-25 22:50 UTC:
 fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figure unchanged
 
+### #14 · A perp amend that changes side reverts with `0x44a03a20` since the 2026-10-21 upgrade; the SDK cannot decode it and the docs never mention it
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** since the PerpPool upgrade at block 29,293,077, `amendOrder` / `amendOrders` with the other side reverts with `0x44a03a20` on all 21 pools. The selector is not in the SDK's `contractErrorsAbi` (0.32.1 or canary), so `errorName` is `undefined`, and no docs page states the rule or lists the error.
+
+**Repro:** `curl -s -H 'content-type: application/json' --data @evidence/14/req_flip_to_ask.json https://api.hideki2.infra.testnet.somnia.network` → revert `0x44a03a20…`; `req_same_side_control.json` → success<br>
+[Report](feedback/14-sdk-perp-amend-side-change-reverts-0x44a03a20-undecoded-and-undocumented.md) · [Evidence](evidence/14/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:33–03:41 and 04:50–04:57 UTC: 8 of 8 side changes revert, 4 of 4 same-side controls pass
+
+### #15 · Indexer: `listPerpOrderHistory` fails after ~10.5 s for high-volume accounts that stopped trading
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`API`
+
+**Impact:** the Perps guide's read for finished orders fails with `database query error` after about 10.5 s for 7 of 7 high-volume accounts that have stopped trading. The same filter sorted by `placedAtTimestamp` answers in 0.2–2.1 s. Separate from #04 (different entity, different index).
+
+**Repro:** `curl -s -H 'content-type: application/json' https://hideki-dev.smk.somnia.host/v1/graphql --data @evidence/15/sdk_body_ended_0x3024.json` → `database query error` after ~10.5 s; `sdk_body_placed_0x3024.json` → 100 rows<br>
+[Report](feedback/15-indexer-list-perp-order-history-fails-for-idle-high-volume-accounts.md) · [Evidence](evidence/15/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 00:53–03:33 UTC (6 passes) and 04:48 UTC
+
+### #16 · SDK docs give perp leverage in bps of 1× (10,000 = 1×), but the SDK and the chain use whole multipliers
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`docs`
+
+**Impact:** the "Units and scales" page lists `setPerpLeverage` / `getPerpMaxLeverage` as "10,000 = 1.00×, 200,000 = 20×". The SDK types and the MarginBank take a whole multiplier (`10` = 10×, uint16, limit `20`), so the table's own values revert `InvalidLeverage()` (10,000) or cannot be encoded (200,000).
+
+**Repro:** `cast call --from 0x2A11e7388D1D2F9690f2636846d44b478f61bF08 0x478769E1177C0773c43A593DCCc4Ad15F15F1394 'setMaxLeverage(address,uint16)' 0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0 10000 --rpc-url https://api.hideki2.infra.testnet.somnia.network` → `InvalidLeverage`; `20` → ok<br>
+[Report](feedback/16-sdk-docs-perp-leverage-documented-in-bps-but-is-a-whole-multiplier.md) · [Evidence](evidence/16/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:20–03:22 UTC (0.32.1 and canary, both hosted copies) and 04:51 UTC
+
+### #17 · SDK `listPerpOrderRejections` returns amend rejections as if they were batch-placement refusals
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** the indexer marks `amendOrders` refusals with `isAmend = true` and an `oldOrderId`. SDK 0.32.1 selects neither column, so amend rows come back as "orders refused inside a batch placement", which its TSDoc says is all the read holds. For an owner who re-quotes with `amendOrders`, every row returned is an amend row.
+
+**Repro:** `bash evidence/17/order_rejections_curl.sh` → the SDK's query returns the rows; the same rows have `isAmend: true`<br>
+[Report](feedback/17-sdk-list-perp-order-rejections-returns-amend-rejections-as-placements.md) · [Evidence](evidence/17/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 01:24–03:29 UTC and 04:48 UTC
+
+### #18 · SDK `getOpenInterestHistory` paging repeats some rows and never returns others
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** the read is documented as "newest first — paginated" but sorts by `timestamp` only. Snapshots from one block tie, and the indexer orders ties differently per page: paging PUMP's history in default pages of 100 returned 2,992 rows but only 2,990 distinct. Two came back twice, two never, one of them the block's final open interest.
+
+**Repro:** `node evidence/18/oi-paging_check.mjs 0x76c981a52530cdf9497559140aafcd8cd16836e7 walk` → repeated and missing ids<br>
+[Report](feedback/18-sdk-open-interest-history-paging-repeats-and-skips-rows.md) · [Evidence](evidence/18/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 01:26–03:35 UTC and 04:49 UTC
+
+### #19 · The Markets page shows the Global region (Shannon), not DreamDEX, where testnet perps run
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** every row on `/explore` comes from the Global region (indexer `dev.smk.somnia.host`, chain 50312). The perps card says "15 MARKETS" with Shannon prices and ranking; six of the 21 documented markets (ZEC, LIT, VVV, 1000PEPE, PUMP, ZRO) never appear. The spot card's STT row shows Global SOMI's 24h volume, about 21× DreamDEX STT's.
+
+**Repro:** open `https://app.testnet.dreamdex.io/explore` and compare with `Market` on `dev.smk.somnia.host` and `hideki-dev.smk.somnia.host` (report step 2) → the page matches the Shannon indexer<br>
+[Report](feedback/19-app-markets-page-shows-the-shannon-region-not-dreamdex.md) · [Evidence](evidence/19/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 02:16–02:30 and 03:37–03:47 UTC, logged in and logged out
+
+### #20 · The public trader page's Wallet section shows the Shannon balance instead of Tokyo
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** `/trader/<address>` → Balances reads the wallet from `/api/trader/<address>/assets`, which returns the Shannon (50312) balance. A Perps Arena trader holding 15 STT on Tokyo is shown "Nothing held in the wallet itself"; our wallet (42.96 STT on Tokyo) shows "STT 0.65".
+
+**Repro:** `curl -s https://app.testnet.dreamdex.io/api/trader/0x2d1242b88f6979d93bae5968ec292fae640932d4/assets` → no STT; `eth_getBalance` on the Hideki RPC → 15 STT<br>
+[Report](feedback/20-app-trader-page-wallet-shows-shannon-balance-not-tokyo.md) · [Evidence](evidence/20/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 02:33–02:41 and 03:44–03:46 UTC; route and balances again 04:51 UTC
+
+### #21 · For e-mail logins, deposit/withdrawal history and Activity always fail to load, because the app never requests them
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** signed in with e-mail (Privy embedded wallet), Portfolio → Deposits & withdrawals always says "Failed to load deposits and withdrawals." and the wallet panel's Activity says "Try again in a moment". No request is ever sent; the same session's `/api/transfers` call returns the account's movements.
+
+**Repro:** manual: e-mail login → Portfolio → Deposits & withdrawals → "Failed to load…"; DevTools shows no `/api/transfers` request<br>
+[Report](feedback/21-app-email-login-deposit-withdrawal-and-activity-history-always-fail-to-load.md) · [Evidence](evidence/21/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 02:18–02:29 and 03:39–03:44 UTC
+
+### #22 · The dreamBot Builder's Download saves the config as `env.txt`, which the kit never reads and `.gitignore` does not cover
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** in Chrome the Builder's "Your config (.env)" Download is saved as `env.txt`. The kit loads only `.env`, so the key and every Tune value are dropped without a warning (`perp:doctor`: "no PRIVATE_KEY — market view only"), and `git add .` stages the file that holds the bot's private key.
+
+**Repro:** Builder → Get my bot → Download → `env.txt`; in the kit `npm run perp:doctor` → `(no PRIVATE_KEY — market view only)`; `git check-ignore -v env.txt` → not ignored<br>
+[Report](feedback/22-app-dreambot-builder-download-saves-env-txt-which-the-kit-never-reads.md) · [Evidence](evidence/22/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:11–03:17 UTC and 03:49 UTC (bundle unchanged)
+
+### #23 · The SDK's hosted reference still documents 0.31.0: `SOMNIA_HIDEKI_TESTNET_ADDRESSES` is a 404
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`docs`
+
+**Impact:** npm `latest` 0.32.1 sends readers to prd.smk.somnia.host/docs/typescript, which still matches 0.31.0. The address constant the perps developer page uses is a 404, and the voucher and account-equity methods it and the Perps guide use are missing.
+
+**Repro:** `curl -s -o /dev/null -w '%{http_code}\n' https://prd.smk.somnia.host/docs/typescript/api/index/variables/SOMNIA_HIDEKI_TESTNET_ADDRESSES` → `404`<br>
+[Report](feedback/23-sdk-docs-hosted-reference-still-documents-0.31.0.md) · [Evidence](evidence/23/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:27 UTC and 04:51 UTC
+
+### #24 · SDK reactivity methods throw, although the docs promise `T | Error` and a silent `null` without a wallet
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`SDK`
+
+**Impact:** `getSubscriptionInfo` rejects for an id that does not exist (a `return` without `await` inside `try`). Without a wallet, `subscribe` and `scheduleSubscriptionAt*` reject and `unsubscribe` resolves to an Error; none resolves to `null`. Code written to the docs' `instanceof Error` idiom crashes.
+
+**Repro:** `await createReactivity(ex.client).getSubscriptionInfo(10n ** 30n)` → rejects with `ContractFunctionExecutionError` (report step 2)<br>
+[Report](feedback/24-sdk-reactivity-methods-throw-despite-documented-t-or-error-contract.md) · [Evidence](evidence/24/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 04:31–04:35 UTC
+
+### #25 · WebSocket: the `trades` snapshot sends `null`, is oldest-first and holds only the last 1–3 minutes
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`API`
+
+**Impact:** on the documented testnet feed `wss://stg.api.dreamdex.io/v0/ws/public`, the snapshot clients rebuild from after a reconnect sends `"trades": null` for small limits, is oldest-first, and holds 7–20 trades for `limit` 100 or 500, while REST returns 100 rows covering ~17 minutes.
+
+**Repro:** subscribe `{"operation":"subscribe","channel":"trades","params":{"symbols":["SOMI:USDso"],"limit":1}}` → `"trades":null`<br>
+[Report](feedback/25-websocket-trades-snapshot-null-oldest-first-and-only-minutes-deep.md) · [Evidence](evidence/25/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:10–04:38 UTC (stg and api.testnet)
+
+### #26 · Docs: the WebSocket `order` channel sends no `order:snapshot` and no `order.status`
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`docs`
+
+**Impact:** the docs' tracking flow waits for an `order:snapshot` and a terminal `order.status`. Both testnet hosts send flat `event` frames (`placed`, `rested`, `filled`, `cancelled`) with no snapshot, no `order` object and no `status`, and replay only recent events, so an older open order gets no frame at all.
+
+**Repro:** `node evidence/26/vr_order.mjs wss://stg.api.dreamdex.io/v0/ws/public 20 fresh` → `SUMMARY` with 0 snapshot frames and 0 frames with `order` or `status`<br>
+[Report](feedback/26-docs-websocket-order-channel-sends-no-snapshot-and-no-order-status.md) · [Evidence](evidence/26/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:09–04:40 UTC on both hosts
+
+### #27 · Docs: all three `order` subscribe examples are rejected by the testnet feed
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`docs`
+
+**Impact:** the Real-Time Feed page and Quick Start give three `order` subscribe frames; the feed they name answers each with `subscription_failed`. Two leave out the required `symbol`, and all three pass a hex `orderId` where stg's spec wants a decimal string.
+
+**Repro:** `node evidence/27/order_sub_verify.mjs` → examples A/B/C `subscription_failed`; `{symbol, orderId: "<decimal>"}` subscribes<br>
+[Report](feedback/27-docs-websocket-order-subscribe-examples-are-rejected-by-the-feed.md) · [Evidence](evidence/27/) · First reported [2026-10-26 05:30 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) · Checked 2026-10-26 03:08–04:33 UTC on both hosts
+
 ## Archived
 
 Kept for the record in [`archive/`](archive) and **not part of the submission**. Please do not count them.
@@ -188,6 +312,21 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#06 docs**: `/docs/developers/contracts/errors`: add a Perps table (MarginBank, PerpPool, VoucherDistributor, including `0x3e31dcc2`).
 - [ ] **#08 app/docs**: the relayer should pay for the operator grant, or the Link a bot red message and "Get test funds" should name the STT source (faucet, pays on Shannon, the app moves it to Tokyo).
 - [ ] **#09 docs**: the gas-cost sentence on `/docs/developers/perps-testnet` should quote costs at the undiscounted 6 gwei (about 0.01–0.015 STT per resting order) and mention the sustained-use discount. Resize "Send it 5 STT" to match.
+- [ ] **#13 SDK (bot kit)**: print `npm start -w <workspace>` in the Builder's Option B and the four perp header comments (or make the perp `dev` scripts plain `tsx src/index.ts`); have `onStop()` ignore a repeat signal within ~1 s.
+- [ ] **#14 SDK/docs**: add `0x44a03a20` (one `uint128` argument) to `contractErrorsAbi.ts` via `errors:gen`; state on the amend functions and `AmendOrderRequest` that `newOrder.isBid` must keep the resting side; add it to the Errors page.
+- [ ] **#15 indexer**: index `Order (owner, lastUpdatedAtTimestamp DESC, id DESC)` for the SDK's default read; return "statement timeout" instead of `database query error`.
+- [ ] **#16 docs**: "Units and scales": keep bps-of-1× only for `getPerpLeverage` fields; add a "leverage multiplier (`10` = 10×)" row for `setPerpLeverage`, `getPerpMaxLeverage` and the MarginBank leverage reads.
+- [ ] **#17 SDK**: select `isAmend` and `oldOrderId` in `PerpOrderRejectionsQuery`, add an `isAmend` option, and fix the TSDoc that says amend rows cannot appear.
+- [ ] **#18 SDK**: order `OpenInterestHistoryQuery` by `[{timestamp: desc}, {blockNumber: desc}, {id: desc}]`, as `LiquidationsQuery` does.
+- [ ] **#19 app**: build `/explore` for the landing region (DreamDEX on testnet), not `GLOBAL_REGION`, and link rows to the region routes; or label the cards with their region.
+- [ ] **#20 app**: `/api/trader/[address]/assets` should read balances on the chain the perps run on (Tokyo on testnet), or return one labelled row per region.
+- [ ] **#21 app**: in `useTransferHistory` use the embedded wallet as owner when there is no external wallet; show "connect a wallet" instead of a retry error if one is required.
+- [ ] **#22 app/bot kit**: download the config under a name that keeps working (or tell users to rename `env.txt` to `.env`); add `env.txt` and `*.env` to the kit's `.gitignore`; have `perp:doctor` say when no `.env` was found.
+- [ ] **#23 docs**: rebuild prd.smk.somnia.host/docs/typescript from 0.32.1, redeploy it on every npm release, and show the version in the site header.
+- [ ] **#24 SDK**: `return await` in `getSubscriptionInfo`; return an Error (not a rejection) when no wallet account is set; or document the real behaviour.
+- [ ] **#25 WebSocket**: send the `trades` snapshot newest-first, apply `limit` per symbol from the same history as REST, and send `[]` instead of `null`.
+- [ ] **#26 docs**: rewrite `order:snapshot` / `order:update` and Order Lifecycle Tracking to the `event` frames the hosts send, the replay window, and which events end an order; or send a snapshot on subscribe.
+- [ ] **#27 docs**: change the `order` subscribe examples to `{symbol, orderId: "<decimal>"}` and say that `orderId` is the uint128 as a decimal string.
 
 ## Index
 
@@ -203,9 +342,25 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 09 | normal | docs | [Documented perp gas cost is the discounted price; a new bot pays about 10×](feedback/09-docs-perp-gas-cost-range-is-10x-below-what-a-new-sender-pays.md) | [2026-10-19 15:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/b69748b) |
 | 10 | major | app | [Every perps route, including the Arena's "Start trading", redirects to the STT-USDso spot market](feedback/10-app-every-perps-route-redirects-to-the-stt-spot-market.md) | [2026-10-19 19:42](https://github.com/swiftbotlab/dreamdex-feedback/commit/f5cef3d) |
 | 12 | normal | API | [Indexer `MarginEvent` rows have no block number](feedback/12-indexer-margin-events-have-no-block-number.md) | [2026-10-20 03:44](https://github.com/swiftbotlab/dreamdex-feedback/commit/efb7bb4) |
+| 13 | major | SDK | [The Builder's run command for perps bots (`npm run dev`, i.e. `tsx watch`) turns one Ctrl-C into two, so the bots skip their shutdown cleanup](feedback/13-bot-kit-npm-run-dev-ctrl-c-skips-perp-bot-shutdown-cleanup.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 14 | normal | SDK | [A perp amend that changes side reverts with `0x44a03a20` since the 2026-10-21 upgrade; the SDK cannot decode it and the docs never mention it](feedback/14-sdk-perp-amend-side-change-reverts-0x44a03a20-undecoded-and-undocumented.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 15 | normal | API | [Indexer: `listPerpOrderHistory` fails after ~10.5 s for high-volume accounts that stopped trading](feedback/15-indexer-list-perp-order-history-fails-for-idle-high-volume-accounts.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 16 | normal | docs | [SDK docs give perp leverage in bps of 1× (10,000 = 1×), but the SDK and the chain use whole multipliers](feedback/16-sdk-docs-perp-leverage-documented-in-bps-but-is-a-whole-multiplier.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 17 | normal | SDK | [SDK `listPerpOrderRejections` returns amend rejections as if they were batch-placement refusals](feedback/17-sdk-list-perp-order-rejections-returns-amend-rejections-as-placements.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 18 | normal | SDK | [SDK `getOpenInterestHistory` paging repeats some rows and never returns others](feedback/18-sdk-open-interest-history-paging-repeats-and-skips-rows.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 19 | normal | app | [The Markets page shows the Global region (Shannon), not DreamDEX, where testnet perps run](feedback/19-app-markets-page-shows-the-shannon-region-not-dreamdex.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 20 | normal | app | [The public trader page's Wallet section shows the Shannon balance instead of Tokyo](feedback/20-app-trader-page-wallet-shows-shannon-balance-not-tokyo.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 21 | normal | app | [For e-mail logins, deposit/withdrawal history and Activity always fail to load, because the app never requests them](feedback/21-app-email-login-deposit-withdrawal-and-activity-history-always-fail-to-load.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 22 | normal | app | [The dreamBot Builder's Download saves the config as `env.txt`, which the kit never reads and `.gitignore` does not cover](feedback/22-app-dreambot-builder-download-saves-env-txt-which-the-kit-never-reads.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 23 | normal | docs | [The SDK's hosted reference still documents 0.31.0: `SOMNIA_HIDEKI_TESTNET_ADDRESSES` is a 404](feedback/23-sdk-docs-hosted-reference-still-documents-0.31.0.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 24 | normal | SDK | [SDK reactivity methods throw, although the docs promise `T \| Error` and a silent `null` without a wallet](feedback/24-sdk-reactivity-methods-throw-despite-documented-t-or-error-contract.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 25 | normal | API | [WebSocket: the `trades` snapshot sends `null`, is oldest-first and holds only the last 1–3 minutes](feedback/25-websocket-trades-snapshot-null-oldest-first-and-only-minutes-deep.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 26 | normal | docs | [Docs: the WebSocket `order` channel sends no `order:snapshot` and no `order.status`](feedback/26-docs-websocket-order-channel-sends-no-snapshot-and-no-order-status.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
+| 27 | normal | docs | [Docs: all three `order` subscribe examples are rejected by the testnet feed](feedback/27-docs-websocket-order-subscribe-examples-are-rejected-by-the-feed.md) | [2026-10-26 05:30](https://github.com/swiftbotlab/dreamdex-feedback/commit/326d56c) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
-Every active report was re-verified on 2026-10-25 between 22:37 and 23:04 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
+00:53 and 04:57 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
@@ -227,7 +382,7 @@ node scripts/sim_orders.mjs package/src/contractErrorsAbi.ts 0x567476bd43ff20e6a
 node scripts/sim_orders.mjs package/src/contractErrorsAbi.ts             # #06, BTC-PERP order errors
 ```
 
-Tested on Node 22.22.1. The scripts are plain `viem`; the SDK is never executed (ABIs are copied from its `readsAbi.ts` /
+Tested on Node 22.22.1. The scripts in `scripts/` are plain `viem`; the SDK is never executed (ABIs are copied from its `readsAbi.ts` /
 `tradeAbi.ts`). Everything is read-only (`eth_call`, GraphQL, HTTP) **except `fee_floor_test.mjs`**, which sends three
 self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 
@@ -237,6 +392,8 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 | RPC | `https://api.hideki2.infra.testnet.somnia.network` (hard-coded; `survey.mjs` also honours `RPC=`) |
 | Indexer (GraphQL) | `https://hideki-dev.smk.somnia.host/v1/graphql` |
 | App | `https://app.testnet.dreamdex.io` |
+| WebSocket / REST (#25–#27) | `wss://stg.api.dreamdex.io/v0/ws/public` + `https://stg.api.dreamdex.io/v0` (the docs' testnet feed), and `wss://api.testnet.dreamdex.io/v0/ws` |
+| Bot kit (#13, #22) | `https://github.com/somnia-chain/dreamdex-bot-kit` at `2579866` |
 
 **Evidence naming:** `evidence/<topic>_<YYYY-MM-DD>[T<HHMM>Z].txt|json` is script output, with UTC time.
 `evidence/<what-it-shows>.png` is a screenshot. Every real transaction is in
@@ -265,6 +422,9 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 | [`rpccap.mjs`](scripts/rpccap.mjs) | (support) | `node scripts/rpccap.mjs`: RPC capability probe |
 
 Reports 08 and 10 are app behaviour. Their steps are in each report, and 10 has a `curl` check (see its card above).
+
+Reports 13–27 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
+gives the exact command. All of them are read-only except the live run in #13 (optional, a funded key of your own).
 </details>
 
 <details>
@@ -272,11 +432,13 @@ Reports 08 and 10 are app behaviour. Their steps are in each report, and 10 has 
 
 - Each report was reproduced against the live testnet with plain JSON-RPC / GraphQL requests or a minimal viem script. The
   requests and responses are quoted inside the report.
-- `@somnia-chain/markets-sdk` 0.32.1 (source read from the npm tarball, never executed); RPC
+- `@somnia-chain/markets-sdk` 0.32.1 (source read from the npm tarball, never executed, except in #24, which runs it
+  read-only with `@somnia-chain/reactivity` 0.2.1); RPC
   `https://api.hideki2.infra.testnet.somnia.network`; indexer `https://hideki-dev.smk.somnia.host/v1/graphql`.
 - Some reports are also backed by real testnet transactions. They were sent from a throwaway key
   (`0x2A11e7388D1D2F9690f2636846d44b478f61bF08`) that got its gas through the app's Link a bot flow, and they are listed
   with status, gas and fee in [`evidence/onchain_txs_2026-10-19.txt`](evidence/onchain_txs_2026-10-19.txt).
+  The live run in #13 (2026-10-26, same key) is in [`evidence/13/onchain_txs_2026-10-26.txt`](evidence/13/onchain_txs_2026-10-26.txt).
 - App reports (08, 10): app.testnet.dreamdex.io in Chrome 155 on Linux, Privy e-mail login, Somnia Account wallet
   `0x0e7E8DF6Eac2E14165b4fA4CB2BD4e445d0E3817` (08 on 2026-10-25: a new account, `0xa05d5619146FF3Dd30435662B7f5E1D002761d24`).
 </details>
