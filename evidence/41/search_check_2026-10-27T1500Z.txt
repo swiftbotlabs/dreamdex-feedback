@@ -1,0 +1,30 @@
+== 2026-10-27T15:00:09Z GET https://new.explorer.somnia.network/api/v2/search?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 (x-api-backend: native)
+   items: 0  types: []
+== 2026-10-27T15:00:13Z GET https://explorer.somnia.network/api/v2/search?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 (x-api-backend: none)
+   items: 1  types: ['transaction']
+== 2026-10-27T15:00:15Z GET https://new.explorer.somnia.network/api/v2/search?q=449561818 (x-api-backend: native)
+   items: 0  types: []
+== 2026-10-27T15:00:18Z GET https://explorer.somnia.network/api/v2/search?q=449561818 (x-api-backend: none)
+   items: 1  types: ['block']
+== 2026-10-27T15:00:19Z GET https://new.explorer.somnia.network/api/v2/search?q=0x00000022dA000002656c64D9eA6011ea952D008A (x-api-backend: native)
+   items: 0  types: []
+== 2026-10-27T15:00:34Z GET https://explorer.somnia.network/api/v2/search?q=0x00000022dA000002656c64D9eA6011ea952D008A (x-api-backend: none)
+   items: 2  types: ['token', 'address']
+== 2026-10-27T15:00:40Z GET https://new.explorer.somnia.network/api/v2/search?q=USDso (x-api-backend: native)
+   items: 7  types: ['token', 'token', 'token', 'token', 'token', 'token', 'token']
+== 2026-10-27T15:00:42Z GET https://explorer.somnia.network/api/v2/search?q=USDso (x-api-backend: none)
+   items: 7  types: ['token', 'token', 'token', 'token', 'token', 'token', 'token']
+== 2026-10-27T15:00:43Z for comparison, the new explorer's own redirect helper and search page:
+   GET /api/v2/search/check-redirect?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 -> {"type":"transaction","parameter":"0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510","redirect":true}
+   GET /search-results?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 -> 307 location: https://new.explorer.somnia.network/tx/0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510
+   GET /api/v2/search/check-redirect?q=449561818 -> {"type":"block","parameter":"449561818","redirect":true}
+   GET /search-results?q=449561818 -> 307 location: https://new.explorer.somnia.network/block/449561818
+   GET /api/v2/search/check-redirect?q=0x00000022dA000002656c64D9eA6011ea952D008A -> {"type":"address","parameter":"0x00000022dA000002656c64D9eA6011ea952D008A","redirect":true}
+   GET /search-results?q=0x00000022dA000002656c64D9eA6011ea952D008A -> 307 location: https://new.explorer.somnia.network/address/0x00000022dA000002656c64D9eA6011ea952D008A
+== 2026-10-27T15:00:55Z quick search (the endpoint Blockscout front-ends use for the search drop-down):
+   https://new.explorer.somnia.network/api/v2/search/quick?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 -> 0 items []
+   https://explorer.somnia.network/api/v2/search/quick?q=0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510 -> 1 items ['transaction']
+   https://new.explorer.somnia.network/api/v2/search/quick?q=449561818 -> 0 items []
+   https://explorer.somnia.network/api/v2/search/quick?q=449561818 -> 1 items ['block']
+   https://new.explorer.somnia.network/api/v2/search/quick?q=0x00000022dA000002656c64D9eA6011ea952D008A -> 0 items []
+   https://explorer.somnia.network/api/v2/search/quick?q=0x00000022dA000002656c64D9eA6011ea952D008A -> 2 items ['token', 'address']

@@ -1,0 +1,22 @@
+Rendered page text (Chrome 155, desktop, document.querySelector('main').innerText, newlines shown as " | "),
+https://new.explorer.somnia.network/address/0xBe367d410D96E1cAeF68C0632251072CDf1b8250
+
+== 2026-10-27T14:44:36Z default tab (first 1,200 chars)
+BLOCKCHAIN / GLOBAL / ADDRESS | Contract | 0xBe367d410D96E1cAeF68C0632251072CDf1b8250 | Copy | Transactions (54,772) | Token transfers | Internal calls | Tokens | Contract | Read contract | Balance | 152,863,491.644814 SOMI | Transactions sent | 1 | Type | Contract · 109 bytes of code | TRANSACTION	METHOD	BLOCK	AGE	FROM		TO	VALUE	FEE | 0xa0fbba…8f06 | 	delegateStake	449,529,689	1 h ago	 | 0x653273…B4AA | 	IN	This address	728 SOMI	0.001648 | 0x5d23cd…7722 | 	undelegateStake	449,326,516	7 h ago	 | 0x42D2E3…ceC9 | 	IN	This address	0 SOMI	0.005853 | 0x041a56…a26b | 	undelegateStake	449,324,720	7 h ago	 | 0x42D2E3…ceC9 | 	IN	This address	0 SOMI	0.017853 | 0x8afbdc…ecca | 	claimDelegatorRewards	449,324,647	7 h ago	 | 0x42D2E3…ceC9 | 	IN	This address	0 SOMI	0.012391 | 0xc23a14…0baf | 	claimValidatorsRewards	447,321,050	2 d ago	 | 0xDA4e45…325B | 	IN	This address	0 SOMI	0.00034 | ...
+
+== 2026-10-27T14:44:47Z ?tab=read_contract
+BLOCKCHAIN / GLOBAL / ADDRESS | Contract | 0xBe367d410D96E1cAeF68C0632251072CDf1b8250 | Copy | Transactions (54,772) | Token transfers | Internal calls | Tokens | Contract | Read contract | Balance | 152,863,491.661914 SOMI | Transactions sent | 1 | Type | Contract · 109 bytes of code | Bytecode | NOT VERIFIED | No verified source for this contract. | Copy | 0x6080604052600a600c565b005b60186014601a565b6050565b565b5f604b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc546001600160a01b031690565b905090565b365f5f375f5f365f845af43d5f5f3e8080156069573d5ff35b3d5ffd
+
+== 2026-10-27T14:44:53Z ?tab=contract
+BLOCKCHAIN / GLOBAL / ADDRESS | Contract | 0xBe367d410D96E1cAeF68C0632251072CDf1b8250 | Copy | Transactions (54,772) | Token transfers | Internal calls | Tokens | Contract | Read contract | Balance | 152,863,491.667314 SOMI | Transactions sent | 1 | Type | Contract · 109 bytes of code | Bytecode | NOT VERIFIED | No verified source for this contract. | Copy | 0x6080604052600a600c565b005b60186014601a565b6050565b565b5f604b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc546001600160a01b031690565b905090565b365f5f375f5f365f845af43d5f5f3e8080156069573d5ff35b3d5ffd
+
+Note: 360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc in the bytecode (PUSH32 ... SLOAD ... DELEGATECALL)
+is the EIP-1967 implementation slot; the page shows no proxy or implementation.
+
+== 2026-10-27T14:44:58Z-14:45:05Z implementations' verification status (GET /api/v2/addresses/<impl>)
+new.explorer  0x7Ec3F6d243718325dFF8a7C6b8e74b699095f44E: is_verified False
+explorer      0x7Ec3F6d243718325dFF8a7C6b8e74b699095f44E: is_verified False
+new.explorer  0x6Db581818894D8479D3970725088C864e19D6ee5: is_verified False
+explorer      0x6Db581818894D8479D3970725088C864e19D6ee5: is_verified False
+(0xaeD4e84AB8C24D7a1ba716A69f9a56f9E2C07E98, the pools' implementation: /api/v2/smart-contracts on both explorers
+returned bytecode only, no source, at 14:33:05-14:33:08Z)

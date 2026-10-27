@@ -1,0 +1,14 @@
+== 2026-10-27T15:02:04Z block 449,589,472 (x-api-backend: native); RPC baseFeePerGas 6 gwei, gasUsed 14,404,329
+   tx 0xc2b77f267dbb… gas_used 14,329,950  gas_price  0.6 gwei (receipt effectiveGasPrice 0.6)  fee 0.008597970 SOMI (receipt 0.008597970 SOMI)  transaction_burnt_fee 0.008597970 SOMI = 100% of fee
+   tx 0xf4a1b57c98fe… gas_used    74,379  gas_price   16 gwei (receipt effectiveGasPrice 16)  fee 0.001190064 SOMI (receipt 0.001190064 SOMI)  transaction_burnt_fee 0.000446274 SOMI = 38% of fee
+   block burnt_fees 0.086425974 SOMI = gas_used 14,404,329 x base_fee_per_gas 6 gwei
+   sum of tx fees 0.009788034 SOMI (receipts 0.009788034 SOMI); sum of tx transaction_burnt_fee 0.009044244 SOMI
+   -> block burnt_fees is 8.83x the fees its transactions paid; documented burn (5% of fees) would be 0.000489402 SOMI
+   for comparison, explorer.somnia.network (Blockscout): block burnt_fees 0.086425974 SOMI (burnt_fees_percentage 882.9758253802551), tx 0xc2b77f267dbb… transaction_burnt_fee None
+== 2026-10-27T15:02:12Z block 449,589,471 (x-api-backend: native); RPC baseFeePerGas 6 gwei, gasUsed 1,778,972
+   tx 0x8741db1c27ba… gas_used   424,389  gas_price  1.8 gwei (receipt effectiveGasPrice 1.8)  fee 0.000763900 SOMI (receipt 0.000763900 SOMI)  transaction_burnt_fee 0.000763900 SOMI = 100% of fee
+   tx 0x6bc71c10a84c… gas_used 1,354,583  gas_price  0.6 gwei (receipt effectiveGasPrice 0.6)  fee 0.000812750 SOMI (receipt 0.000812750 SOMI)  transaction_burnt_fee 0.000812750 SOMI = 100% of fee
+   block burnt_fees 0.010673832 SOMI = gas_used 1,778,972 x base_fee_per_gas 6 gwei
+   sum of tx fees 0.001576650 SOMI (receipts 0.001576650 SOMI); sum of tx transaction_burnt_fee 0.001576650 SOMI
+   -> block burnt_fees is 6.77x the fees its transactions paid; documented burn (5% of fees) would be 0.000078833 SOMI
+   for comparison, explorer.somnia.network (Blockscout): block burnt_fees 0.010673832 SOMI (burnt_fees_percentage 676.9943868328418), tx 0x8741db1c27ba… transaction_burnt_fee None

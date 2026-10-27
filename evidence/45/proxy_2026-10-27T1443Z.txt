@@ -1,0 +1,20 @@
+== 2026-10-27T14:43:51Z 0xBe367d410D96E1cAeF68C0632251072CDf1b8250
+   RPC  EIP-1967 implementation slot: 0x7ec3f6d243718325dff8a7c6b8e74b699095f44e   beacon slot: None
+   new.explorer (x-api-backend: native): is_contract=True is_verified=False proxy_type=None implementations=[]
+   explorer.somnia.network (Blockscout): is_verified=False proxy_type=eip1967 implementations=['0x7Ec3F6d243718325dFF8a7C6b8e74b699095f44E']
+== 2026-10-27T14:43:56Z 0x5E5205CF39E766118C01636bED000A54D93163E6
+   RPC  EIP-1967 implementation slot: 0x6db581818894d8479d3970725088c864e19d6ee5   beacon slot: None
+   new.explorer (x-api-backend: native): is_contract=True is_verified=False proxy_type=None implementations=[]
+   explorer.somnia.network (Blockscout): is_verified=False proxy_type=eip1967 implementations=['0x6Db581818894D8479D3970725088C864e19D6ee5']
+== 2026-10-27T14:44:02Z 0xa936da11B57b50A344e1293AAaE5232885ea2bDE
+   RPC  EIP-1967 implementation slot: None   beacon slot: 0x55790554c0d6914edb90f8d05b2f0bbc85605026 -> beacon.implementation() = 0xaed4e84ab8c24d7a1ba716a69f9a56f9e2c07e98
+   new.explorer (x-api-backend: native): is_contract=True is_verified=False proxy_type=None implementations=[]
+   explorer.somnia.network (Blockscout): is_verified=False proxy_type=eip1967_beacon implementations=['0xaeD4e84AB8C24D7a1ba716A69f9a56f9E2C07E98']
+== 2026-10-27T14:44:08Z 0x035De7403eac6872787779CCA7CCF1b4CDb61379
+   RPC  EIP-1967 implementation slot: None   beacon slot: 0x55790554c0d6914edb90f8d05b2f0bbc85605026 -> beacon.implementation() = 0xaed4e84ab8c24d7a1ba716a69f9a56f9e2c07e98
+   new.explorer (x-api-backend: native): is_contract=True is_verified=False proxy_type=None implementations=[]
+   explorer.somnia.network (Blockscout): is_verified=False proxy_type=eip1967_beacon implementations=['0xaeD4e84AB8C24D7a1ba716A69f9a56f9E2C07E98']
+== 2026-10-27T14:44:16Z 0x00000022dA000002656c64D9eA6011ea952D008A
+   RPC  EIP-1967 implementation slot: 0x155384be16fa171e6d97e4136643a9ac31678d04   beacon slot: None
+   new.explorer (x-api-backend: native): is_contract=True is_verified=True proxy_type=eip1967 implementations=['0x155384be16fA171E6d97e4136643A9ac31678d04']
+   explorer.somnia.network (Blockscout): is_verified=True proxy_type=eip1967 implementations=['0x155384be16fA171E6d97e4136643A9ac31678d04']

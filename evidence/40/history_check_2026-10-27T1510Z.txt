@@ -1,0 +1,12 @@
+== 2026-10-27T15:10:15Z address 0xa2842ED9149047AB152b2102553c4c45F76547cD
+   RPC https://api.infra.mainnet.somnia.network/: head block 449,594,441, eth_getTransactionCount (txs sent) 922,699
+   GET /api/v2/addresses/0xa2842ED9…/transactions  (x-api-backend: native) newest row: block 449,587,140 2026-10-27T14:58:04.000000Z nonce 922,190 0xbe713fdb46…  -> 7,301 blocks behind head
+   GET /api?module=account&action=txlist&sort=desc  (x-api-backend: native) newest row: block 449,587,140 14:58:04Z nonce 922,190  -> 7,301 blocks behind head
+   GET /api/v2/addresses/0xa2842ED9…/counters  (x-api-backend: native) transactions_count 922817
+   GET /api/v2/addresses/0xa2842ED9…/transactions/csv?from_period=2026-10-27&to_period=2026-10-27  (x-api-backend: None) 10,000 rows, newest: block 449,594,461 2026-10-27 15:10:16.000000Z  -> -20 blocks behind head
+== 2026-10-27T15:10:28Z address 0x1DCE9E1F3843572020ADdEF2c5A7B1F1b0A56c0c
+   RPC https://api.infra.mainnet.somnia.network/: head block 449,594,575, eth_getTransactionCount (txs sent) 2,880,411
+   GET /api/v2/addresses/0x1DCE9E1F…/transactions  (x-api-backend: native) newest row: block 449,587,140 2026-10-27T14:58:04.000000Z nonce 2,880,124 0xcd7155f3c2…  -> 7,435 blocks behind head
+   GET /api?module=account&action=txlist&sort=desc  (x-api-backend: native) newest row: block 449,578,103 14:43:00Z nonce 2,879,770  -> 16,472 blocks behind head
+   GET /api/v2/addresses/0x1DCE9E1F…/counters  (x-api-backend: native) transactions_count 2879777
+   GET /api/v2/addresses/0x1DCE9E1F…/transactions/csv?from_period=2026-10-27&to_period=2026-10-27  (x-api-backend: None) 10,000 rows, newest: block 449,594,559 2026-10-27 15:10:26.000000Z  -> 16 blocks behind head

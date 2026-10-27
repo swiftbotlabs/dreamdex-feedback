@@ -1,0 +1,19 @@
+Rendered address pages (Chrome 155, desktop; document.querySelector('main').innerText, chars 150-520, newlines as " | ").
+Each line: UTC time of the read, address, seconds after navigation.
+
+15:05:20 0x601b691a3C6372d6D7345df4f7E5D30d51535aCd +2s: " | Balance | 367,247.421395 SOMI | Transactions sent | 61,537,761 | Type | Externally owned account | TRANSACTION	METHOD	BLOCK	AGE	FROM		TO	VALUE	FEE | 0x85a215…0968 | 	0x80054449	449,591,434	3 s ago	This address	OUT	 | 0xa936da…2bDE | WETH/USDso | 	0 SOMI	0.000727 | 0x2c2767…53c4 | FAILED | 	0xe37b444b	449,591,434	3 s ago	This address	OUT	 | 0xa936da…2bDE | WETH/USDs"
+15:05:33 0xa2842ED9149047AB152b2102553c4c45F76547cD +2s: "s | Tokens | Balance | 222.636012 SOMI | Transactions sent | 922,552 | Type | Externally owned account | TRANSACTION	METHOD	BLOCK	AGE	FROM		TO	VALUE	FEE | 0xccbad8…4b23 | 	0xf0744e4a	449,569,192	37 min ago	This address	OUT	 | 0x33131f…Db5c | 	0 SOMI	0.001302 | 0xdb5e03…c3ba | 	0xf0744e4a	449,569,192	37 min ago	This address	OUT	 | 0xc827FC…2B90 | 	0 SOMI	0.001302 | 0x0"
+15:05:41 0xa2842ED9149047AB152b2102553c4c45F76547cD +8s: (same as above: newest row block 449,569,192, "37 min ago")
+15:05:47 0x1DCE9E1F3843572020ADdEF2c5A7B1F1b0A56c0c +2s: "lls | Tokens | Balance | 239.238618 SOMI | Transactions sent | 2,880,295 | Type | Externally owned account | TRANSACTION	METHOD	BLOCK	AGE	FROM		TO	VALUE	FEE | 0xcd7155…103f | 	0x5dae1f1c	449,587,140	7 min ago	This address	OUT	 | 0x5E5205…63E6 | AgentRequester | 	0 SOMI	0.000904 | 0xda0fec…1c8b | 	0x5dae1f1c	449,587,129	7 min ago	This address	OUT	 | 0x5E5205…63E6 | Age"
+
+Reload of 0xa2842ED9… (screenshot address_page_0xa2842ED9_2026-10-27T1506Z.png):
+2026-10-27T15:06:14.127Z :: header head #449,592,025 :: "s | Tokens | Balance | 222.614177 SOMI | Transactions sent | 922,565 | Type | Externally owned account | TRANSACTION	METHOD	BLOCK	AGE	FROM		TO	VALUE	FEE | 0xbe713f…ec24 | 	0xf0744e4a	449,587,140	8 min ago	This address	OUT	 | 0x8f06d0…b123 | 	0 SOMI	0.001691 | 0x5b34a5…0"
+
+For comparison, GET /api/v2/addresses/0xa2842ED9…/transactions:
+  15:04:54Z (lag_monitor.py, x-api-backend: native): newest block 449,587,140
+  15:06:16Z (curl; age: 0, cache-control: public, max-age=0, must-revalidate, x-vercel-cache: MISS, x-api-backend: native): newest block 449,587,140, 2026-10-27T14:58:04Z
+So at 15:05:33 the page showed an older history (newest row 14:28:09, 37 min old) than the API had returned 39 s earlier.
+
+0x601b691a… (61.5M transactions sent) is served current: its newest row was 3 s old. For this address
+GET /api?module=account&action=txlist returns {"message":"Not available: the explorer cannot answer this request right now","result":null,"status":"0"}
+and /counters returns transactions_count null (history_check_2026-10-27T1449Z.txt).

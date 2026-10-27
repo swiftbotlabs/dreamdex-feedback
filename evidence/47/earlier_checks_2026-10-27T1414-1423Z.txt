@@ -1,0 +1,13 @@
+First reads of GET https://new.explorer.somnia.network/api/v2/stats (curl 8.18.0, full bodies as returned, truncated where marked)
+
+== 2026-10-27T14:14:05Z HTTP/2 200, content-type application/json, x-matched-path /api/[[...path]]
+{"total_blocks":"449560761","total_transactions":null,"total_addresses":null,"transactions_today":"874162","gas_used_today":"676445656190","total_gas_used":null,"average_block_time":100,"gas_prices":{"slow":6,"average":6,"fast":6},"gas_prices_update_in":0,"gas_price_updated_at":"2026-10-27T14:14:05.000000Z","static_gas_price":null,"network_utilization_percentage":0,"coin_price":null,"coin_price_change_percentage":null,"coin_image":null,"secondary_coin_price":null,"secondary_coin_image":null,"market_cap":null,"tvl":null,"beacon_deposits_count":null,"celo_election_rewards_count":null}
+
+== 2026-10-27T14:15:38.991Z HTTP 200 0.710114s 589B x-api-backend=native
+{"total_blocks":"449561697","total_transactions":null,"total_addresses":null,"transactions_today":"874162","gas_used_today":"676445656190","total_gas_used":null,"average_block_time":100,"gas_prices":{"slow":6,"average":6,"fast":6},"gas_prices_update_in":0,"gas_price_updated_at":"2026-10-27T14:15:39.000000Z","static_gas_price":null,"network_utilization_percentage":0,"coin_price":null,"coin_price_change_percentage":null,"coin_image":null,"secondary_coin_price":null,"secondary_coin_image":null,"market_cap":null,"tvl":null,"beacon_deposits_count":null,"celo_election_rewards_count":null}
+
+== 2026-10-27T14:23:19.904Z HTTP 200 0.698555s 589B x-api-backend=native (first 300 bytes)
+{"total_blocks":"449566305","total_transactions":null,"total_addresses":null,"transactions_today":"872793","gas_used_today":"673833836356","total_gas_used":null,"average_block_time":100,"gas_prices":{"slow":6,"average":6,"fast":6},"gas_prices_update_in":0,"gas_price_updated_at":"2026-10-27T14:23:20.
+
+== 2026-10-27T14:23:08.879Z for comparison, GET https://explorer.somnia.network/api/v2/stats (Blockscout v10.2.6)
+{"average_block_time":101.0,"coin_image":null,"coin_price":null,"coin_price_change_percentage":null,"gas_price_updated_at":"2026-10-27T14:22:52.166965Z","gas_prices":{"slow":5.26,"average":5.26,"fast":5.26},"gas_prices_update_in":13564,"gas_used_today":"747892240722","market_cap":"0","network_utilization_percentage":0.0057551372,"secondary_coin_image":null,"secondary_coin_price":null,"static_gas_price":null,"total_addresses":"6937833","total_blocks":"449564574","total_gas_used":"0","total_transactions":"1916408466","transactions_today":"945477","tvl":null}

@@ -1,17 +1,18 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 37 reproducible reports on Somnia Tokyo testnet, by Swift Bot Labs">
+  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 45 reproducible reports on Somnia Tokyo testnet and the new Somnia explorer, by Swift Bot Labs">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-37-7c5cff?style=flat-square" alt="reports: 37">
+  <img src="https://img.shields.io/badge/reports-45-7c5cff?style=flat-square" alt="reports: 45">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Thirty-seven issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
-50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds: 4 major and 33 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+Forty-five issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, and on the
+**new Somnia explorer** (new.explorer.somnia.network): 4 major and 41 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -38,9 +39,19 @@ and there is no Hideki price-feed constant (#39). Each was reproduced read-only 
 cannot be opened by anyone") over-claimed — the view is reachable in other states — so it now states only the reproducible
 defect, that the documented and in-app perps entry points `307`-redirect to spot (see its "Corrections").
 
+**Reports 40–47 were added on 2026-10-27, ~15:16 UTC**, after the dreamDEX/Somnia team asked bounty developers for feedback on
+the new explorer (14:06 UTC that day). new.explorer.somnia.network shows Somnia **mainnet** (Global, chain 5031). For the
+testnets, including Tokyo, its chain picker links out to explorer.testnet.somnia.network, so these eight reports are about mainnet.
+Each was reproduced read-only between 14:14 and 15:15 UTC against the chain's own RPC (`api.infra.mainnet.somnia.network`)
+and, where the API claims Blockscout compatibility, against explorer.somnia.network (Blockscout v10.2.6) on the same chain.
+They cover address history that lags the head by tens of minutes (#40), a search API that finds no hash, block or address
+(#41), logs never decoded by the API (#42), the USDso holder ranking (#43), burnt-fee fields that contradict the
+documented 5% burn (#44), proxy detection (#45), the phone overview (#46) and null chain totals in `/api/v2/stats` (#47).
+Scripts and outputs are in [`evidence/40/`](evidence/40/) to [`evidence/47/`](evidence/47/).
+
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
-[Normal](#normal) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
+[Normal](#normal) · [Explorer](#explorer) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
 
 ## Major
 
@@ -396,6 +407,102 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 **Repro:** `node evidence/39/cap39.mjs` → default client: `fetchPrice('BTC')` throws `NotConfiguredError`; with `SOMNIA_TESTNET_PRICE_FEED`: BTC 80,019<br>
 [Report](feedback/39-sdk-docs-no-hideki-price-feed-constant-price-reads-throw-notconfigured.md) · [Evidence](evidence/39/) · First reported 2026-10-26 ~13:21 UTC
 
+## Explorer
+
+Reports 40–47 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
+the team asked bounty developers for feedback on 2026-10-27. Each compares the explorer with the chain's own RPC and, where
+the explorer's `llms.txt` promises Blockscout compatibility ("Each API is Blockscout's or Etherscan's, so tools and code written for those work here unchanged"), with
+explorer.somnia.network (Blockscout v10.2.6) on the same chain. The `llms.txt` we quote is saved as
+[`evidence/explorer_llms_2026-10-27T1415Z.txt`](evidence/explorer_llms_2026-10-27T1415Z.txt).
+
+### #40 · An address's transaction history lags the chain by up to half an hour and moves forward in jumps, with no notice
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** for active accounts, the Transactions tab, `/api/v2/addresses/<a>/transactions` and Etherscan `txlist` stand
+still, then jump about 9,000 blocks (15 minutes of chain) at a time. They were up to 16,472 blocks (27 min) behind
+the RPC head in the API, and the page showed the newest row as "37 min ago". The page shows the live head and
+"Transactions sent", and the CSV export of the same address is current, but nothing says the history is behind. A user
+who has just sent a transaction cannot find it in their own history.
+
+<img src="evidence/40/address_page_0xa2842ED9_2026-10-27T1446Z.png" width="600" alt="Address page: header head #449,580,420, newest history row block 449,569,192, 18 min ago">
+
+**Repro:** `python3 evidence/40/history_check.py 0xa2842ED9149047AB152b2102553c4c45F76547cD` → `/transactions` newest row thousands of blocks behind the RPC head; CSV newest row at the head<br>
+[Report](feedback/40-explorer-address-transaction-history-lags-the-chain-by-tens-of-minutes-with-no-notice.md) · [Evidence](evidence/40/) · First reported 2026-10-27 ~15:16 UTC
+
+### #41 · `/api/v2/search` returns nothing for a transaction hash, a block number or an address
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `llms.txt` lists `/api/v2/search?q=` as Blockscout's search, but for a real tx hash, block number and token
+address it returns `{"items":[]}`. Blockscout on the same chain returns a `transaction`, a `block` and a `token`+`address`
+item. Only name search works. The site's own search box works through a different helper (`check-redirect`), so the gap
+hits API users only: wallets, bots and agents are told that the hash does not exist.
+
+**Repro:** `bash evidence/41/search_check.sh` → new explorer `items: 0` ×3, Blockscout `transaction` / `block` / `token, address`<br>
+[Report](feedback/41-explorer-api-search-returns-nothing-for-a-tx-hash-block-number-or-address.md) · [Evidence](evidence/41/) · First reported 2026-10-27 ~15:16 UTC
+
+### #42 · The logs API never decodes a log, even when the contract is verified on the explorer
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `/api/v2/transactions/<hash>/logs` returns `decoded: null` for every log, including WSOMI's `Withdrawal` and
+USDso's `Transfer`, whose contracts the same explorer lists as verified. The transaction's input *is* decoded, and the
+Logs tab in the browser shows the event decoded. On a 38-log transaction Blockscout decodes 12 logs and the new API decodes 0.
+
+**Repro:** `python3 evidence/42/logs_decoded_check.py 0xd25170f770052bd24b96d0c6459ed2f4b2c3b5a78c5f1a8573129666dd09d41b` → `new.explorer … 0 with "decoded"`, `Blockscout … 'Withdrawal(address indexed src, uint256 wad)'`<br>
+[Report](feedback/42-explorer-api-logs-are-never-decoded-even-for-verified-contracts.md) · [Evidence](evidence/42/) · First reported 2026-10-27 ~15:16 UTC
+
+### #43 · The USDso Holders tab is not sorted by the balance it shows, and at times lists zero-balance holders in the top 50
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** each row's value matches `balanceOf()` at the head, but the ranking does not. Every capture (five in 50 minutes) had 6–10
+places on page 1 where a holder ranks above a larger one (#14 with 228.79 USDso above #15 with 2,200.60), and four
+listed 5–9 holders with 0 USDso, from rank 17 down. Ranks and shares on the page are wrong for the middle of the list. Blockscout's list for the same token is strictly descending.
+
+**Repro:** `python3 evidence/43/holders_check.py` → `ranks where the next holder has MORE than this one: [(17, …), …]` on the new explorer, `none` on Blockscout<br>
+[Report](feedback/43-explorer-usdso-holders-list-is-not-sorted-by-balance-and-lists-zero-balance-holders.md) · [Evidence](evidence/43/) · First reported 2026-10-27 ~15:16 UTC
+
+### #44 · Burnt-fee fields contradict the receipts and the documented 5% burn
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** every transaction's `transaction_burnt_fee` is 100% of its fee, and a block's `burnt_fees` is `gas_used × 6 gwei`.
+That is up to 6.5× what its transactions paid, because discounted accounts pay 0.6–1.8 gwei. Somnia's docs say 5% of
+mainnet fees are burned, once per epoch. A burn tracker reading these fields overstates the burn 20× (transactions) to about 130× (blocks).
+
+**Repro:** `python3 evidence/44/burnt_fees_check.py 449561818` → `block burnt_fees is 6.53x the fees its transactions paid`<br>
+[Report](feedback/44-explorer-api-burnt-fee-fields-contradict-the-receipts-and-the-documented-5-percent-burn.md) · [Evidence](evidence/44/) · First reported 2026-10-27 ~15:16 UTC
+
+### #45 · Unverified EIP-1967 and beacon proxies are not recognised
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `proxy_type` and `implementations` are filled only when the proxy's own source is verified. The staking
+contract (152.86M SOMI), the most-called contract of the day ("AgentRequester") and the WETH/USDso and SOMI/USDso order-book
+pools show `proxy_type: null` (the staking contract also a bare "NOT VERIFIED" page), although their EIP-1967
+implementation or beacon slots are set.
+Blockscout identifies all four.
+
+**Repro:** `python3 evidence/45/proxy_check.py 0xBe367d410D96E1cAeF68C0632251072CDf1b8250` → RPC slot `0x7ec3…f44e`; new explorer `proxy_type=None`; Blockscout `eip1967`<br>
+[Report](feedback/45-explorer-unverified-eip1967-and-beacon-proxies-are-not-recognised.md) · [Evidence](evidence/45/) · First reported 2026-10-27 ~15:16 UTC
+
+### #46 · Phone: the overview's HEAD BLOCK tile cuts the block number to "449,579,…"
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** at 360–430 px, the 28 px `truncate` value gets a 123–158 px box but needs 160 px, so the last digits (the
+ones that change every block) end in an ellipsis, with no `title`. Two tile captions are cut the same way. Desktop shows the full number.
+
+<img src="evidence/46/overview_390x844_2026-10-27T1445Z.png" width="230" alt="Explorer overview at 390 px: HEAD BLOCK reads 449,579,… cut off">
+
+**Repro:** Chrome device mode 390 × 844, open https://new.explorer.somnia.network/ → HEAD BLOCK "449,579,…"; `clientWidth 138` vs `scrollWidth 160`<br>
+[Report](feedback/46-explorer-phone-overview-cuts-off-the-head-block-number.md) · [Evidence](evidence/46/) · First reported 2026-10-27 ~15:16 UTC
+
+### #47 · `/api/v2/stats` returns `null` for total transactions, addresses and gas
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `total_transactions`, `total_addresses` and `total_gas_used` are `null` in a 200 response, every time we read
+it. Blockscout returns 1,916,432,551 transactions and 6,937,910 addresses for the same chain. `llms.txt` promises "a 501 that
+says so" for what the explorer cannot answer.
+
+**Repro:** `bash evidence/47/stats_check.sh` → `total_transactions None` (new) vs `'1916432551'` (Blockscout)<br>
+[Report](feedback/47-explorer-api-stats-returns-null-total-transactions-addresses-and-gas.md) · [Evidence](evidence/47/) · First reported 2026-10-27 ~15:16 UTC
+
 ## Archived
 
 Kept for the record in [`archive/`](archive) and **not part of the submission**. Please do not count them.
@@ -449,6 +556,14 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#37 SDK**: normalize both operands (`getAddress`/`.toLowerCase()`) before the address comparisons in `dist/perp/linkedWallet.js:97,159,160` and anywhere `main`/`wallet`/`account` are compared, as the query builders in the same file already do.
 - [ ] **#38 SDK/docs**: make the account-order view available on Hideki (`50383:orders` is `UNAVAILABLE`), or say in `follow-an-account.md` that it is unavailable on the perps testnet and that pending perp stops are read with `getPerpStopOrders`/`listPerpStopOrders`; have `getSnapshot` document the `unavailable` status.
 - [ ] **#39 SDK/docs**: add a Hideki price-feed entry (a `SOMNIA_HIDEKI_TESTNET_PRICE_FEED` constant or a `hidekiTestnet` default) and a Hideki row in `networks-and-endpoints.md`; say which feed serves Hideki's `PriceFeedScheduler` and that the perps-testnet guide needs `priceFeed` set for `fetchPrice`.
+- [ ] **#40 explorer**: keep the address-history index (Transactions / Token transfers / Internal calls, `/api/v2/addresses/<a>/transactions`, `txlist`) within a few blocks of the head, or fill the gap from the live path the CSV export uses; until then show "indexed up to block N · X min ago" and return that block in the API.
+- [ ] **#41 explorer API**: make `/api/v2/search` and `/api/v2/search/quick` resolve exact tx hashes, block numbers/hashes and addresses (as `check-redirect` already does) and return Blockscout's `transaction` / `block` / `address` / `token` items.
+- [ ] **#42 explorer API**: fill `decoded` in `/api/v2/transactions/<hash>/logs` from the verified ABI (or the EIP-1967 implementation's), the same source as `decoded_input` and the Logs tab.
+- [ ] **#43 explorer**: rank token holders by the balance that is shown, drop zero balances from the list and from `holders_count`, and page by `(value DESC, address)`.
+- [ ] **#44 explorer API**: compute `burnt_fees` / `transaction_burnt_fee` from the documented burn share (5% on mainnet, at epoch end) of the fee actually paid, or return `null`; never `gas_used × baseFeePerGas` when accounts pay a discounted `effectiveGasPrice`.
+- [ ] **#45 explorer**: detect proxies from the EIP-1967 implementation/beacon slots (and EIP-1822/1167) for every contract, verified or not; fill `proxy_type` / `implementations` and show "Proxy of 0x…" on the Contract tab.
+- [ ] **#46 explorer (phone)**: on the overview stat tiles use a smaller size below `sm` (e.g. `text-[20px] sm:text-[28px]`) or one column below ~440 px; add `title` to the head block value; let the captions wrap.
+- [ ] **#47 explorer API**: fill `total_transactions`, `total_addresses` and `total_gas_used` in `/api/v2/stats`, or omit them / answer 501 as `llms.txt` promises, instead of `null` in a 200.
 
 ## Index
 
@@ -491,11 +606,20 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 37 | normal | SDK | [Linked-wallet reads compare addresses case-sensitively, so a lowercase `main` reads as "unlinked"](feedback/37-sdk-linked-wallet-reads-are-case-sensitive-lowercase-main-reads-as-unlinked.md) | 2026-10-26 ~13:20 |
 | 38 | normal | SDK | [`client.accountOrders` (the documented home of pending perp TP/SL) is unavailable for every account on Hideki](feedback/38-sdk-account-orders-view-is-unavailable-for-every-account-on-hideki.md) | 2026-10-26 ~13:21 |
 | 39 | normal | docs | [No Hideki price-feed constant: price reads throw `NotConfiguredError`, and the only testnet feed is labelled "Shannon"](feedback/39-sdk-docs-no-hideki-price-feed-constant-price-reads-throw-notconfigured.md) | 2026-10-26 ~13:21 |
+| 40 | normal | explorer | [An address's transaction history lags the chain by up to half an hour and moves forward in jumps, with no notice](feedback/40-explorer-address-transaction-history-lags-the-chain-by-tens-of-minutes-with-no-notice.md) | 2026-10-27 ~15:16 |
+| 41 | normal | explorer | [`/api/v2/search` returns nothing for a tx hash, a block number or an address](feedback/41-explorer-api-search-returns-nothing-for-a-tx-hash-block-number-or-address.md) | 2026-10-27 ~15:16 |
+| 42 | normal | explorer | [The logs API never decodes a log, even when the contract is verified on the explorer](feedback/42-explorer-api-logs-are-never-decoded-even-for-verified-contracts.md) | 2026-10-27 ~15:16 |
+| 43 | normal | explorer | [The USDso Holders tab is not sorted by the balance it shows, and at times lists zero-balance holders](feedback/43-explorer-usdso-holders-list-is-not-sorted-by-balance-and-lists-zero-balance-holders.md) | 2026-10-27 ~15:16 |
+| 44 | normal | explorer | [Burnt-fee fields contradict the receipts and the documented 5% burn](feedback/44-explorer-api-burnt-fee-fields-contradict-the-receipts-and-the-documented-5-percent-burn.md) | 2026-10-27 ~15:16 |
+| 45 | normal | explorer | [Unverified EIP-1967 and beacon proxies are not recognised](feedback/45-explorer-unverified-eip1967-and-beacon-proxies-are-not-recognised.md) | 2026-10-27 ~15:16 |
+| 46 | normal | explorer | [Phone: the overview's HEAD BLOCK tile cuts the block number off](feedback/46-explorer-phone-overview-cuts-off-the-head-block-number.md) | 2026-10-27 ~15:16 |
+| 47 | normal | explorer | [`/api/v2/stats` returns `null` for total transactions, addresses and gas](feedback/47-explorer-api-stats-returns-null-total-transactions-addresses-and-gas.md) | 2026-10-27 ~15:16 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
 00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Reports 37–39 were added, and #10 rescoped, on
-2026-10-26 between 13:12 and 13:21 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+2026-10-26 between 13:12 and 13:21 UTC. Reports 40–47 (the new Somnia explorer, mainnet) were checked on 2026-10-27
+between 14:14 and 15:15 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
@@ -530,6 +654,7 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 | WebSocket / REST (#25–#27) | `wss://stg.api.dreamdex.io/v0/ws/public` + `https://stg.api.dreamdex.io/v0` (the docs' testnet feed), and `wss://api.testnet.dreamdex.io/v0/ws` |
 | REST API (#31) | `https://api.testnet.dreamdex.io/v0` (serves Shannon, chain 50312; its RPC is `https://dream-rpc.somnia.network`) |
 | Explorer (#33) | `https://explorer.testnet.somnia.network` (Global view, 50312) and `…/tokyo` (Tokyo view, 50383) |
+| New explorer (#40–#47) | `https://new.explorer.somnia.network` (Somnia mainnet, chain 5031), compared with RPC `https://api.infra.mainnet.somnia.network/` and with `https://explorer.somnia.network` (Blockscout v10.2.6, same chain) |
 | Bot kit (#13, #22) | `https://github.com/somnia-chain/dreamdex-bot-kit` at `2579866` |
 
 **Evidence naming:** `evidence/<topic>_<YYYY-MM-DD>[T<HHMM>Z].txt|json` is script output, with UTC time.
@@ -560,10 +685,11 @@ self-transfers and needs `PRIVATE_KEY` of a throwaway testnet key.
 
 Reports 08 and 10 are app behaviour. Their steps are in each report, and 10 has a `curl` check (see its card above).
 
-Reports 13–39 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
+Reports 13–47 keep their scripts next to their saved outputs in `evidence/<number>/`; each report's "Steps to reproduce"
 gives the exact command. All of them are read-only except the live run in #13 (optional, a funded key of your own).
 Reports 37–39 run SDK 0.32.1 read-only (install `@somnia-chain/markets-sdk@0.32.1`, `@somnia-chain/reactivity@0.2.1`
-and `viem@2.57.7`; see `evidence/37`–`39`).
+and `viem@2.57.7`; see `evidence/37`–`39`). Reports 40–47 need only curl, Python 3 (standard library) and, for #46,
+a Chrome with remote debugging plus `websocket-client`.
 </details>
 
 <details>

@@ -1,0 +1,19 @@
+== 2026-10-27T15:01:11Z tx 0xd25170f770052bd24b96d0c6459ed2f4b2c3b5a78c5f1a8573129666dd09d41b
+   new.explorer  /logs (x-api-backend: native): 1 logs, 0 with "decoded"
+   explorer      /logs (Blockscout):          1 logs, 1 with "decoded"
+   log #38 0x046EDe9564A72571df6F5e44d0405360c0f4dCab: new.explorer decoded=None   | Blockscout decoded='Withdrawal(address indexed src, uint256 wad)'
+      new.explorer /api/v2/smart-contracts/0x046EDe95…: name='WETH9' verified_at='2026-10-12T13:43:42Z'; /addresses: is_verified=True implementations=[]
+== 2026-10-27T15:01:18Z tx 0x376f59f12e294b1ebf596c80bb6f1c7d0e7e26f895d01e18ebf69ec231fa4510
+   new.explorer  /logs (x-api-backend: native): 38 logs, 0 with "decoded"
+   explorer      /logs (Blockscout):          38 logs, 12 with "decoded"
+   log #1 0x00000022dA000002656c64D9eA6011ea952D008A: new.explorer decoded=None   | Blockscout decoded='Transfer(address indexed from, address indexed to, uint256 value)'
+      new.explorer /api/v2/smart-contracts/0x00000022…: name='TransparentUpgradeableProxy' verified_at='2026-10-12T13:18:28Z'; /addresses: is_verified=True implementations=['0x155384be16fA171E6d97e4136643A9ac31678d04']
+   log #3 0xB52c5934113Af5c0Bb20eb3C72290C8215f755b9: new.explorer decoded=None   | Blockscout decoded='Transfer(address caller, address indexed sender, address indexed receiver, uint256 indexed id, uint256 amount)'
+      new.explorer /api/v2/smart-contracts/0xB52c5934…: name=None verified_at=None; /addresses: is_verified=False implementations=[]
+== 2026-10-27T15:01:39Z tx 0xabe1173c2b04204775ca231ead46cf930a76e061d54562b729338c34f62cad78
+   new.explorer  /logs (x-api-backend: native): 38 logs, 0 with "decoded"
+   explorer      /logs (Blockscout):          38 logs, 12 with "decoded"
+   log #1 0x00000022dA000002656c64D9eA6011ea952D008A: new.explorer decoded=None   | Blockscout decoded='Transfer(address indexed from, address indexed to, uint256 value)'
+      new.explorer /api/v2/smart-contracts/0x00000022…: name='TransparentUpgradeableProxy' verified_at='2026-10-12T13:18:28Z'; /addresses: is_verified=True implementations=['0x155384be16fA171E6d97e4136643A9ac31678d04']
+   log #3 0xB52c5934113Af5c0Bb20eb3C72290C8215f755b9: new.explorer decoded=None   | Blockscout decoded='Transfer(address caller, address indexed sender, address indexed receiver, uint256 indexed id, uint256 amount)'
+      new.explorer /api/v2/smart-contracts/0xB52c5934…: name=None verified_at=None; /addresses: is_verified=False implementations=[]

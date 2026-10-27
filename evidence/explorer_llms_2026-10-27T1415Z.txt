@@ -1,0 +1,33 @@
+# Somnia Explorer (mainnet)
+
+> The block explorer and console for Somnia: blocks, transactions, addresses, tokens and contracts on the Somnia mainnet, plus the platform's products (markets, oracle, agents, smart accounts). Everything here is readable by agents, and every API answers JSON without a key.
+
+Testnet: https://explorer.testnet.somnia.network/llms.txt
+Docs for agents: https://new.docs.somnia.network/llms.txt (every page is also Markdown: append .md to its URL)
+
+## Pages
+
+- Transaction: https://new.explorer.somnia.network/tx/<hash>
+- Address: https://new.explorer.somnia.network/address/<address>, with its transactions, token transfers and balances
+- Block: https://new.explorer.somnia.network/block/<number or hash>
+- Token: https://new.explorer.somnia.network/token/<address>, with holders and transfers
+- Search: https://new.explorer.somnia.network/search-results?q=<address, hash, block, token or name>
+- [Charts](https://new.explorer.somnia.network/charts), [Top accounts](https://new.explorer.somnia.network/top-accounts), [Verified contracts](https://new.explorer.somnia.network/verified-contracts), [Tokens](https://new.explorer.somnia.network/tokens), [Validators](https://new.explorer.somnia.network/validators)
+- Products: [Markets](https://new.explorer.somnia.network/markets), [Oracle](https://new.explorer.somnia.network/oracle), [Agents](https://new.explorer.somnia.network/agents), [Smart accounts](https://new.explorer.somnia.network/smart-accounts)
+- The Tokyo subchain: put /tokyo first, e.g. https://new.explorer.somnia.network/tokyo/tx/<hash>
+
+## APIs
+
+Each API is Blockscout's or Etherscan's, so tools and code written for those work here unchanged. No key, CORS open.
+
+- REST: https://new.explorer.somnia.network/api/v2/… , Blockscout's API (spec: https://github.com/blockscout/swaggers). E.g. `GET https://new.explorer.somnia.network/api/v2/addresses/<address>`, `/api/v2/transactions/<hash>`, `/api/v2/blocks/<number>`, `/api/v2/tokens/<address>/holders`, `/api/v2/search?q=<query>`, `/api/v2/stats`
+- Etherscan-compatible: `GET https://new.explorer.somnia.network/api?module=account&action=balance&address=<address>` (also txlist, tokentx, getsourcecode, getabi, getcontractcreation, getblocknobytime, gettxreceiptstatus and more)
+- JSON-RPC: `POST https://new.explorer.somnia.network/api/eth-rpc` with a JSON-RPC 2.0 request or a batch of up to 100 (reads, eth_call, eth_estimateGas, eth_sendRawTransaction)
+- Contract verification: `hardhat verify` and `forge verify-contract` against https://new.explorer.somnia.network/api, Etherscan-style; see https://new.docs.somnia.network/developer/development-frameworks/verifying-via-explorer.md
+- CSV: `GET https://new.explorer.somnia.network/api/v2/addresses/<address>/transactions/csv?from_period=YYYY-MM-DD&to_period=YYYY-MM-DD`
+- The Tokyo subchain's API: https://new.explorer.somnia.network/tokyo/api/…
+- An answer's `x-api-backend` header says whether the explorer answered it or Blockscout did. What no source can answer is a 501 that says so, never made-up data.
+
+## Feedback
+
+Found something wrong or missing? `POST https://new.explorer.somnia.network/api/feedback` with JSON `{"message": "…", "context": "what you were doing and what happened", "page": "<url>"}` or a plain-text body. `GET https://new.explorer.somnia.network/api/feedback` gives the JSON Schema. The team reads every one.

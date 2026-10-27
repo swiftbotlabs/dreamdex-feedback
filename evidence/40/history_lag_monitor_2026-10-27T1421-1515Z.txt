@@ -1,0 +1,147 @@
+Output of two runs of lag_monitor.py (an earlier copy of the script in this folder), merged in time order:
+run 1 = 6 rounds about 2 minutes apart from 14:21 UTC; run 2 = rounds about 5.5 minutes apart from 14:31 UTC.
+Each round: the RPC head (eth_blockNumber on https://api.infra.mainnet.somnia.network/), then the newest row of each list
+on https://new.explorer.somnia.network and how far it is behind that head (negative = the explorer's row is newer than
+the head our RPC call returned a moment earlier). Requests are 1.2 s apart.
+NOTE: in these two runs the "x-api-backend=None" column is a bug in the script's header lookup (case-sensitive dict);
+curl shows "x-api-backend: native" on these endpoints (see history_check_*.txt). The script in this folder is fixed.
+ERROR lines are client-side 30 s timeouts.
+
+== 2026-10-27T14:21:37Z RPC head 449565274
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by   5095 blocks  (0.8s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by   5092 blocks  (0.5s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449562703  behind head by   2571 blocks  (0.5s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by   5092 blocks  (0.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449565355  behind head by    -81 blocks  (1.7s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449565383  behind head by   -109 blocks  (0.8s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449565404  behind head by   -130 blocks  (0.8s, x-api-backend=None)
+== 2026-10-27T14:23:42Z RPC head 449566523
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by   6344 blocks  (0.9s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by   6341 blocks  (0.6s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449562703  behind head by   3820 blocks  (0.6s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by   6341 blocks  (0.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449566604  behind head by    -81 blocks  (1.8s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449566635  behind head by   -112 blocks  (5.1s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449566704  behind head by   -181 blocks  (1.2s, x-api-backend=None)
+== 2026-10-27T14:25:52Z RPC head 449567823
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by   7644 blocks  (0.6s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by   7641 blocks  (1.0s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449562703  behind head by   5120 blocks  (0.9s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by   7641 blocks  (0.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449567908  behind head by    -85 blocks  (2.3s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449567945  behind head by   -122 blocks  (0.8s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449567966  behind head by   -143 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:28:00Z RPC head 449569099
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by   8920 blocks  (3.8s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by   8917 blocks  (0.5s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449562703  behind head by   6396 blocks  (0.5s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by   8917 blocks  (0.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449569206  behind head by   -107 blocks  (2.2s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449569251  behind head by   -152 blocks  (1.9s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449569287  behind head by   -188 blocks  (2.0s, x-api-backend=None)
+== 2026-10-27T14:30:10Z RPC head 449570405
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by  10226 blocks  (1.7s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by  10223 blocks  (0.8s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449562703  behind head by   7702 blocks  (1.5s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by  10223 blocks  (1.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449570516  behind head by   -111 blocks  (1.9s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449570546  behind head by   -141 blocks  (0.9s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449570568  behind head by   -163 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:31:59Z RPC head 449571489
+   addr 0x1DCE9E1F /transactions              ERROR The read operation timed out
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by  11307 blocks  (0.6s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449571748  behind head by   -259 blocks  (0.6s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449571864  behind head by   -375 blocks  (2.2s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449571908  behind head by   -419 blocks  (2.0s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by  11307 blocks  (0.6s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449571969  behind head by   -480 blocks  (2.6s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449572009  behind head by   -520 blocks  (0.9s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449572030  behind head by   -541 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:32:20Z RPC head 449571699
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by  11520 blocks  (2.5s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by  11517 blocks  (1.7s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449570403  behind head by   1296 blocks  (0.6s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by  11517 blocks  (0.9s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449571812  behind head by   -113 blocks  (2.6s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449571848  behind head by   -149 blocks  (0.8s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449571870  behind head by   -171 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:37:40Z RPC head 449574897
+   addr 0x1DCE9E1F /transactions              newest block 449560179  behind head by  14718 blocks  (0.9s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449560182  behind head by  14715 blocks  (0.5s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449571748  behind head by   3149 blocks  (0.5s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449574939  behind head by    -42 blocks  (2.2s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449574976  behind head by    -79 blocks  (1.6s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449560182  behind head by  14715 blocks  (0.7s, x-api-backend=None)
+   /api/v2/transactions (global list)         ERROR The read operation timed out
+   /api/v2/blocks                             newest block 449575368  behind head by   -471 blocks  (0.9s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449575389  behind head by   -492 blocks  (0.6s, x-api-backend=None)
+== 2026-10-27T14:43:16Z RPC head 449578256
+   addr 0x1DCE9E1F /transactions              newest block 449569196  behind head by   9060 blocks  (1.0s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449569192  behind head by   9064 blocks  (0.8s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449574557  behind head by   3699 blocks  (4.0s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449578292  behind head by    -36 blocks  (3.5s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449578395  behind head by   -139 blocks  (1.7s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449569192  behind head by   9064 blocks  (0.8s, x-api-backend=None)
+   /api/v2/transactions (global list)         ERROR Remote end closed connection without response
+   /api/v2/blocks                             newest block 449578532  behind head by   -276 blocks  (0.8s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449578553  behind head by   -297 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:48:32Z RPC head 449581419
+   addr 0x1DCE9E1F /transactions              newest block 449578103  behind head by   3316 blocks  (0.7s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449569192  behind head by  12227 blocks  (0.7s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449578096  behind head by   3323 blocks  (0.8s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449581476  behind head by    -57 blocks  (2.0s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449581515  behind head by    -96 blocks  (1.7s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449569192  behind head by  12227 blocks  (0.8s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449581565  behind head by   -146 blocks  (2.0s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449581597  behind head by   -178 blocks  (0.9s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449581620  behind head by   -201 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T14:53:41Z RPC head 449584503
+   addr 0x1DCE9E1F /transactions              newest block 449578103  behind head by   6400 blocks  (2.0s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449578147  behind head by   6356 blocks  (1.6s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449579329  behind head by   5174 blocks  (2.1s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449584547  behind head by    -44 blocks  (2.7s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449584632  behind head by   -129 blocks  (1.8s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449578147  behind head by   6356 blocks  (1.2s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449584701  behind head by   -198 blocks  (4.8s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449584758  behind head by   -255 blocks  (1.5s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449584864  behind head by   -361 blocks  (9.0s, x-api-backend=None)
+== 2026-10-27T14:59:04Z RPC head 449587733
+   addr 0x1DCE9E1F /transactions              newest block 449578103  behind head by   9630 blocks  (0.7s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449578147  behind head by   9586 blocks  (0.5s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449584537  behind head by   3196 blocks  (0.5s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449587782  behind head by    -49 blocks  (1.7s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449587817  behind head by    -84 blocks  (1.6s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449578147  behind head by   9586 blocks  (0.8s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449587870  behind head by   -137 blocks  (1.6s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449587899  behind head by   -166 blocks  (1.2s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449587923  behind head by   -190 blocks  (0.8s, x-api-backend=None)
+== 2026-10-27T15:04:09Z RPC head 449590790
+   addr 0x1DCE9E1F /transactions              newest block 449578103  behind head by  12687 blocks  (0.5s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449578147  behind head by  12643 blocks  (0.5s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449586583  behind head by   4207 blocks  (0.5s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449590731  behind head by     59 blocks  (1.8s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      ERROR The read operation timed out
+   etherscan txlist 0xa2842ED9                newest block 449578147  behind head by  12643 blocks  (0.8s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449591225  behind head by   -435 blocks  (1.3s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449591250  behind head by   -460 blocks  (1.0s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449591274  behind head by   -484 blocks  (0.9s, x-api-backend=None)
+== 2026-10-27T15:09:45Z RPC head 449594141
+   addr 0x1DCE9E1F /transactions              newest block 449587140  behind head by   7001 blocks  (1.2s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449587140  behind head by   7001 blocks  (0.9s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449591125  behind head by   3016 blocks  (2.6s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449594214  behind head by    -73 blocks  (1.8s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449594231  behind head by    -90 blocks  (1.8s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449587140  behind head by   7001 blocks  (1.0s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449594313  behind head by   -172 blocks  (1.6s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449594342  behind head by   -201 blocks  (0.8s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449594363  behind head by   -222 blocks  (0.7s, x-api-backend=None)
+== 2026-10-27T15:14:54Z RPC head 449597230
+   addr 0x1DCE9E1F /transactions              newest block 449587140  behind head by  10090 blocks  (0.6s, x-api-backend=None)
+   addr 0xa2842ED9 /transactions              newest block 449587140  behind head by  10090 blocks  (0.6s, x-api-backend=None)
+   addr 0x12cc1960 /token-transfers           newest block 449594160  behind head by   3070 blocks  (0.5s, x-api-backend=None)
+   addr 0x601b691a /transactions              newest block 449597236  behind head by     -6 blocks  (1.8s, x-api-backend=None)
+   /api/v2/token-transfers (global list)      newest block 449597314  behind head by    -84 blocks  (2.0s, x-api-backend=None)
+   etherscan txlist 0xa2842ED9                newest block 449587140  behind head by  10090 blocks  (0.8s, x-api-backend=None)
+   /api/v2/transactions (global list)         newest block 449597374  behind head by   -144 blocks  (1.5s, x-api-backend=None)
+   /api/v2/blocks                             newest block 449597402  behind head by   -172 blocks  (1.1s, x-api-backend=None)
+   /api/v2/stats total_blocks                 newest block 449597425  behind head by   -195 blocks  (0.8s, x-api-backend=None)

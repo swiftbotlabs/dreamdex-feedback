@@ -1,0 +1,22 @@
+== 2026-10-27T14:42:20Z GET https://new.explorer.somnia.network/api/v2/tokens/0x00000022dA000002656c64D9eA6011ea952D008A/holders (x-api-backend: native); balanceOf batch at block 449,577,724 (2026-10-27T14:42:22Z)
+   50 holders on page 1; listed value == on-chain balanceOf for 48 of 50
+   zero-balance holders listed at rank: none
+   ranks where the next holder has MORE than this one (rank, value, next value): [(17, 1019.29, 1030.445), (20, 911.15, 983.67791), (25, 669.92, 756.02305), (31, 332.5675, 543.385251), (33, 422.715901, 580.08), (38, 331.688215, 358.95736), (43, 213.227974, 230.71)]
+      #17  0xff681d445DD8b4413648C9AA914333a87c24E6D4  listed     1,019.290000  balanceOf     1,019.290000
+      #18  0xb569Fb9005b55eD9FCb9dd1CB936dfcEa1c21227  listed     1,030.445000  balanceOf     1,030.445000
+      #20  0x8ea7640d720d10eeD48979a590161f770770d404  listed       911.150000  balanceOf       911.150000
+      #21  0x84C5DF29fE409Ea0cA785551cd429D6d001a31B8  listed       983.677910  balanceOf       983.677910
+      #25  0xB9EAa4b23DFC4C7b3B5e92cD354f93Ec226C294B  listed       669.920000  balanceOf       669.920000
+      #26  0xdead5Da2c941f6f717c65D7b31e8481F85cedcE2  listed       756.023050  balanceOf       756.023050
+      #31  0x12cc1960eF5d0927cFF8Cfbbe831620e58FaAbF0  listed       332.567500  balanceOf       345.932500
+      #32  0x6c666543ac14AD46063b869Ec8154C8152F301eE  listed       543.385251  balanceOf       543.385251
+      #33  0x4528E1A91c4e745fb7128a699E098A87e8eF73E5  listed       422.715901  balanceOf       422.715901
+      #34  0xfa8CceDbE758aC4C88ee5db6FC668C227a0c06AC  listed       580.080000  balanceOf       580.080000
+      #38  0xC758B40a827C039EF7428b9De29Cec017D572B92  listed       331.688215  balanceOf       331.688215
+      #39  0xd841aabBAA35afe871954ec1EDf113aAeF4e301a  listed       358.957360  balanceOf       358.957360
+      #43  0x9007B531F2127a2B9e38cAAD8c92531767723c33  listed       213.227974  balanceOf       213.227974
+      #44  0xa2a0764c89f4888204e5600400ac0F9308BeD0a9  listed       230.710000  balanceOf       230.710000
+== 2026-10-27T14:42:22Z GET https://explorer.somnia.network/api/v2/tokens/0x00000022dA000002656c64D9eA6011ea952D008A/holders (x-api-backend: none); balanceOf batch at block 449,577,753 (2026-10-27T14:42:25Z)
+   50 holders on page 1; listed value == on-chain balanceOf for 39 of 50
+   zero-balance holders listed at rank: none
+   ranks where the next holder has MORE than this one (rank, value, next value): none

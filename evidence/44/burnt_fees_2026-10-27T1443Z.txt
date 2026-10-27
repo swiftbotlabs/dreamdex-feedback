@@ -1,0 +1,14 @@
+== 2026-10-27T14:43:10Z block 449,561,818 (x-api-backend: native); RPC baseFeePerGas 6 gwei, gasUsed 3,129,435
+   tx 0x376f59f12e29… gas_used 2,819,662  gas_price  0.6 gwei (receipt effectiveGasPrice 0.6)  fee 0.001691797 SOMI (receipt 0.001691797 SOMI)  transaction_burnt_fee 0.001691797 SOMI = 100% of fee
+   tx 0x130170fff06e… gas_used   160,909  gas_price  1.8 gwei (receipt effectiveGasPrice 1.8)  fee 0.000289636 SOMI (receipt 0.000289636 SOMI)  transaction_burnt_fee 0.000289636 SOMI = 100% of fee
+   tx 0xfdba2c5d9e5b… gas_used   148,864  gas_price    6 gwei (receipt effectiveGasPrice 6)  fee 0.000893184 SOMI (receipt 0.000893184 SOMI)  transaction_burnt_fee 0.000893184 SOMI = 100% of fee
+   block burnt_fees 0.018776610 SOMI = gas_used 3,129,435 x base_fee_per_gas 6 gwei
+   sum of tx fees 0.002874617 SOMI (receipts 0.002874617 SOMI); sum of tx transaction_burnt_fee 0.002874617 SOMI
+   -> block burnt_fees is 6.53x the fees its transactions paid; documented burn (5% of fees) would be 0.000143731 SOMI
+== 2026-10-27T14:43:14Z block 449,561,865 (x-api-backend: native); RPC baseFeePerGas 6 gwei, gasUsed 800,342
+   tx 0x0a053913470c… gas_used    37,799  gas_price    6 gwei (receipt effectiveGasPrice 6)  fee 0.000226794 SOMI (receipt 0.000226794 SOMI)  transaction_burnt_fee 0.000226794 SOMI = 100% of fee
+   tx 0x00779633cc33… gas_used   762,543  gas_price  1.8 gwei (receipt effectiveGasPrice 1.8)  fee 0.001372577 SOMI (receipt 0.001372577 SOMI)  transaction_burnt_fee 0.001372577 SOMI = 100% of fee
+   tx 0x45d49e2ac03b… gas_used         0  gas_price  1.8 gwei (receipt effectiveGasPrice 1.8)  fee 0.000000000 SOMI (receipt 0.000000000 SOMI)  transaction_burnt_fee 0.000000000 SOMI = 0% of fee
+   block burnt_fees 0.004802052 SOMI = gas_used 800,342 x base_fee_per_gas 6 gwei
+   sum of tx fees 0.001599371 SOMI (receipts 0.001599371 SOMI); sum of tx transaction_burnt_fee 0.001599371 SOMI
+   -> block burnt_fees is 3.00x the fees its transactions paid; documented burn (5% of fees) would be 0.000079969 SOMI

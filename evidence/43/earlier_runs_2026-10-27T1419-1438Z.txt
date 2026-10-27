@@ -1,0 +1,28 @@
+Earlier captures of the same check (bin/holders.py, same method: holders page 1 from the API, then one JSON-RPC
+batch of balanceOf() at the latest block). Raw API responses: holders_page1_2026-10-27T1419Z.json and
+holders_page1_2026-10-27T1438Z.json in this folder.
+
+== 2026-10-27T14:19:02Z GET https://new.explorer.somnia.network/api/v2/tokens/0x00000022dA000002656c64D9eA6011ea952D008A/holders
+   balanceOf batch at block 449,563,880 (14:19:17Z)
+   zero-balance holders listed at rank (1-based): 17, 18, 30, 32, 48, 49, 50
+   ranks where the next holder has more: 18 (0 -> 996.071675), 23 (805.45 -> 850), 30 (0 -> 543.385251), 32 (0 -> 422.715901), 33 (422.715901 -> 443.065), 37 (375 -> 444.55)
+   rows checked against balanceOf (first 25):
+      #17 0x12cc1960eF5d0927cFF8Cfbbe831620e58FaAbF0  listed 0  balanceOf 0
+      #18 0x8ea7640d720d10eeD48979a590161f770770d404  listed 0  balanceOf 0
+      #16 0xD23Aa0Dbb9e4073C9f15e5740087985787B1CEbf  listed 1,390.994138  (rank 16, above the two zeros)
+      #19 0x5d111714C457624FbaEdB31BeECe5248FdCBFD5D  listed 996.071675     (rank 19, below the two zeros)
+
+== 2026-10-27T14:38:43Z GET https://new.explorer.somnia.network/api/v2/tokens/0x00000022dA000002656c64D9eA6011ea952D008A/holders
+   balanceOf batch at block 449,575,554 (14:38:45Z)
+   zero-balance holders listed at rank: 17, 32, 48, 49, 50 (all five read 0 from balanceOf too):
+      0x12cc1960eF5d0927cFF8Cfbbe831620e58FaAbF0, 0x2089002820525Fd2B24a60184EA38c3703556386,
+      0x20166B16b76271D283a50A6DdE2EA260b7AA87a1, 0x427F71DBd6a7B74C5fc9E89f00a2c60DaCA82eDE,
+      0xCE183238d2289EFAEF1191538eF39E998cA49434
+   ranks where the next holder has more: 17 (0 -> 883.925), 18 (883.925 -> 996.071675), 22 (900 -> 996.785), 24 (850 -> 1,022.525),
+      29 (602.110224 -> 765.125), 32 (0 -> 422.715901), 34 (227.475 -> 390.489154), 38 (253.215 -> 331.688215)
+
+== 2026-10-27T14:38:36Z UI https://new.explorer.somnia.network/token/0x00000022dA000002656c64D9eA6011ea952D008A?tab=holders (desktop, rendered)
+   ... | 16 | 0xD23Aa0…CEbf | Account | 1,390.994138 USDso | 0.04% | 17 | 0xff681d…E6D4 | Contract | 1,009.655 USDso | 0.03% |
+   18 | 0xb569Fb…1227 | Contract | 1,032.92 USDso | 0.03% | 19 | 0x5d1117…FD5D | Account | 996.071675 USDso | 0.03% |
+   20 | 0x8ea764…d404 | Contract | 890.095 USDso | 0.03% | 21 | 0x84C5DF…31B8 | Account | 983.67791 USDso | 0.03% | ...
+   (rank 18 holds more than rank 17; rank 21 more than rank 20)

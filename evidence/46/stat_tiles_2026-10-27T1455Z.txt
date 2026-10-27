@@ -1,0 +1,52 @@
+2026-10-27T14:55:33Z viewport 390 grid 178.5px 178.5px
+    ok    138/138  'Head block' eyebrow text-[11.5px] title= None
+    CUT   138/160  '449,585,627' display tabular truncate text-[28px] leading-none text-fg title= None
+    ok    138/138  '20:25:33' truncate text-[12.5px] text-fg-3 title= None
+    ok    138/138  'Block time' eyebrow text-[11.5px] title= None
+    ok      0/0    'ms' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    138/138  '10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    138/138  'Transactions' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    CUT   138/172  'All transactions, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    138/138  'Events' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    CUT   138/158  'Logs emitted, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+2026-10-27T14:55:46Z viewport 360 grid 163.5px 163.5px
+    ok    123/123  'Head block' eyebrow text-[11.5px] title= None
+    CUT   123/160  '449,585,752' display tabular truncate text-[28px] leading-none text-fg title= None
+    ok    123/123  '20:25:45' truncate text-[12.5px] text-fg-3 title= None
+    ok    123/123  'Block time' eyebrow text-[11.5px] title= None
+    ok      0/0    'ms' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    123/123  '10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    123/123  'Transactions' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    CUT   123/172  'All transactions, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    123/123  'Events' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    CUT   123/158  'Logs emitted, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+2026-10-27T14:55:58Z viewport 430 grid 198.5px 198.5px
+    ok    158/158  'Head block' eyebrow text-[11.5px] title= None
+    CUT   158/160  '449,585,878' display tabular truncate text-[28px] leading-none text-fg title= None
+    ok    158/158  '20:25:58' truncate text-[12.5px] text-fg-3 title= None
+    ok    158/158  'Block time' eyebrow text-[11.5px] title= None
+    ok      0/0    'ms' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    158/158  '10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    158/158  'Transactions' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    CUT   158/172  'All transactions, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    158/158  'Events' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    158/158  'Logs emitted, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+2026-10-27T14:56:11Z viewport 1280 grid 234px 234px 234px 234px
+    ok    193/193  'Head block' eyebrow text-[11.5px] title= None
+    ok    193/193  '449,586,006' display tabular truncate text-[28px] leading-none text-fg title= None
+    ok    193/193  '20:26:11' truncate text-[12.5px] text-fg-3 title= None
+    ok    193/193  'Block time' eyebrow text-[11.5px] title= None
+    ok      0/0    'ms' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    193/193  '10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    193/193  'Transactions' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    193/193  'All transactions, 10 s average' truncate text-[12.5px] text-fg-3 title= None
+    ok    193/193  'Events' eyebrow text-[11.5px] title= None
+    ok      0/0    '/ s' ml-1 font-mono text-[12px] text-fg-3 tracking-normal title= None
+    ok    193/193  'Logs emitted, 10 s average' truncate text-[12.5px] text-fg-3 title= None

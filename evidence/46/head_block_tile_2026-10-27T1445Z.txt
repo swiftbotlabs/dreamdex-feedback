@@ -1,0 +1,5 @@
+2026-10-27T14:45:26Z viewport 390 [{"text": "449,579,561", "clientWidth": 138, "scrollWidth": 160, "clipped": true, "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "nowrap", "title": null, "fontSize": "28px"}]
+saved products/dreamdex/tmp_explorer/ev/46/overview_390x844.png
+2026-10-27T14:45:39Z viewport 360 [{"text": "449,579,678", "clientWidth": 123, "scrollWidth": 160, "clipped": true, "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "nowrap", "title": null, "fontSize": "28px"}]
+2026-10-27T14:45:52Z viewport 430 [{"text": "449,579,817", "clientWidth": 158, "scrollWidth": 160, "clipped": true, "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "nowrap", "title": null, "fontSize": "28px"}]
+2026-10-27T14:46:04Z viewport 1280 [{"text": "449,579,943", "clientWidth": 193, "scrollWidth": 193, "clipped": false, "textOverflow": "ellipsis", "overflow": "hidden", "whiteSpace": "nowrap", "title": null, "fontSize": "28px"}]

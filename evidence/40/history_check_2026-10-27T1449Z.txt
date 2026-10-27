@@ -1,0 +1,22 @@
+== 2026-10-27T14:49:16Z address 0xa2842ED9149047AB152b2102553c4c45F76547cD
+   RPC https://api.infra.mainnet.somnia.network/: head block 449,581,858, eth_getTransactionCount (txs sent) 921,804
+   GET /api/v2/addresses/0xa2842ED9…/transactions  (x-api-backend: native) newest row: block 449,569,192 2026-10-27T14:28:09.000000Z nonce 920,992 0xccbad85925…  -> 12,666 blocks behind head
+   GET /api?module=account&action=txlist&sort=desc  (x-api-backend: native) newest row: block 449,578,147 14:43:04Z nonce 921,598  -> 3,711 blocks behind head
+   GET /api/v2/addresses/0xa2842ED9…/counters  (x-api-backend: native) transactions_count 922211
+   GET /api/v2/addresses/0xa2842ED9…/transactions/csv?from_period=2026-10-27&to_period=2026-10-27  (x-api-backend: None) 10,000 rows, newest: block 449,581,902 2026-10-27 14:49:20.000000Z  -> -44 blocks behind head
+== 2026-10-27T14:49:35Z address 0x1DCE9E1F3843572020ADdEF2c5A7B1F1b0A56c0c
+   RPC https://api.infra.mainnet.somnia.network/: head block 449,582,046, eth_getTransactionCount (txs sent) 2,879,924
+   GET /api/v2/addresses/0x1DCE9E1F…/transactions  (x-api-backend: native) newest row: block 449,578,103 2026-10-27T14:43:00.000000Z nonce 2,879,770 0xb1d8a861fe…  -> 3,943 blocks behind head
+   GET /api?module=account&action=txlist&sort=desc  (x-api-backend: native) newest row: block 449,578,103 14:43:00Z nonce 2,879,770  -> 3,943 blocks behind head
+   GET /api/v2/addresses/0x1DCE9E1F…/counters  (x-api-backend: native) transactions_count 2879777
+   GET /api/v2/addresses/0x1DCE9E1F…/transactions/csv?from_period=2026-10-27&to_period=2026-10-27  (x-api-backend: None) 10,000 rows, newest: block 449,582,062 2026-10-27 14:49:36.000000Z  -> -16 blocks behind head
+== 2026-10-27T14:49:54Z address 0x601b691a3C6372d6D7345df4f7E5D30d51535aCd
+   RPC https://api.infra.mainnet.somnia.network/: head block 449,582,236, eth_getTransactionCount (txs sent) 61,536,340
+   GET /api/v2/addresses/0x601b691a…/transactions  (x-api-backend: native) newest row: block 449,582,118 2026-10-27T14:49:42.000000Z nonce None 0xe9746241bc…  -> 118 blocks behind head
+   GET /api?module=account&action=txlist&sort=desc  (x-api-backend: native) -> {"message": "Not available: the explorer cannot answer this request right now", "result": null, "status": "0"}
+   GET /api/v2/addresses/0x601b691a…/counters  (x-api-backend: native) transactions_count None
+   GET /api/v2/addresses/0x601b691a…/transactions/csv?from_period=2026-10-27&to_period=2026-10-27  (x-api-backend: None) 10,000 rows, newest: block 449,582,301 2026-10-27 14:50:00.000000Z  -> -65 blocks behind head
+== 2026-10-27T14:50:15Z tx 0xfdba2c5d9e5b8808415222751ba52f5558cf35404515c6495fa7c4045a0d9a6a (0x1DCE9E1F…, block 449,561,818, 14:15:51 UTC) by hash and in txlist for its block:
+   /api/v2/transactions/<hash>: block 449561818 2026-10-27T14:15:51.000000Z status ok
+   txlist startblock=endblock=449561818: [('0xfdba2c5d9e5b', '2879164')]
+   (not in the address list at 14:21-14:37 UTC: the list's newest row was block 449,560,179 then, see the monitor log)
