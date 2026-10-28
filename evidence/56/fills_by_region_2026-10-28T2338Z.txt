@@ -1,0 +1,106 @@
+{
+ "at": "2026-10-28T23:38:50Z",
+ "account": "0x2a11e7388d1d2f9690f2636846d44b478f61bf08",
+ "Tokyo / DreamDEX region, chain 50383 (hideki-dev indexer)": {
+  "SPOT": {
+   "latest_up_to_3": [
+    {
+     "tx": "0x0563f193cca70f1c1d39ead2bafd83cff7f63e1c87316e0114939096340ba198",
+     "utc": "2026-10-19 14:50:12",
+     "market_id": "0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d"
+    }
+   ]
+  },
+  "PERP": {
+   "latest_up_to_3": []
+  },
+  "BINARY": {
+   "latest_up_to_3": []
+  }
+ },
+ "Global region, Shannon chain 50312 (dev indexer, the one the page's Spot/Event trades and Open orders tabs query)": {
+  "SPOT": {
+   "latest_up_to_3": []
+  },
+  "PERP": {
+   "latest_up_to_3": []
+  },
+  "BINARY": {
+   "latest_up_to_3": []
+  }
+ }
+}
+{
+ "at": "2026-10-28T23:38:59Z",
+ "account": "0x4ddd63006de9d9b8bcbb1d3862dd83039fc4ac40",
+ "Tokyo / DreamDEX region, chain 50383 (hideki-dev indexer)": {
+  "SPOT": {
+   "latest_up_to_3": [
+    {
+     "tx": "0xdafac941088f0392ce054c38fd2a40d43a71dbbd6947091bc069c96274f67a9e",
+     "utc": "2026-10-28 16:04:29",
+     "market_id": "0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d"
+    },
+    {
+     "tx": "0xf136511a8bc70e73e4008bd33daa4daa584750ece06608d943594b16ad5348ba",
+     "utc": "2026-10-28 16:04:18",
+     "market_id": "0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d"
+    },
+    {
+     "tx": "0x9453566243ed89486d8ea7c96964825af07270510052112c39428f462556e5e2",
+     "utc": "2026-10-28 16:04:06",
+     "market_id": "0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d"
+    }
+   ]
+  },
+  "PERP": {
+   "latest_up_to_3": [
+    {
+     "tx": "0xa1980abc74957e497f35499740be1d457ea00dd1080065adb74e7414050f2648",
+     "utc": "2026-10-28 16:03:02",
+     "market_id": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0"
+    },
+    {
+     "tx": "0xa1980abc74957e497f35499740be1d457ea00dd1080065adb74e7414050f2648",
+     "utc": "2026-10-28 16:03:02",
+     "market_id": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0"
+    },
+    {
+     "tx": "0x2a35678a3aa23eac5ffd8b3159c4df9dcc47e0bb2f156bfc0b2efaffb9c55cc2",
+     "utc": "2026-10-28 16:02:49",
+     "market_id": "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0"
+    }
+   ]
+  },
+  "BINARY": {
+   "latest_up_to_3": [
+    {
+     "tx": "0x9c6f1c69f0aab3d1f5dd10e744d1aedc100642e78d5397ed44ea67225c160209",
+     "utc": "2026-10-28 12:42:57",
+     "market_id": "0x00000000000000000000000000000000000000000000000000000000000058f2"
+    },
+    {
+     "tx": "0x9f161b1bd42b5139cad40f38e6fa08533b98a89d7e533baff6eef6872d347994",
+     "utc": "2026-10-28 12:42:44",
+     "market_id": "0x00000000000000000000000000000000000000000000000000000000000058f2"
+    },
+    {
+     "tx": "0xd14104fcc559441c92e2411a594ed575d4a3b66070bffd9033703c8d8cbc2a4c",
+     "utc": "2026-10-28 12:42:32",
+     "market_id": "0x00000000000000000000000000000000000000000000000000000000000058f2"
+    }
+   ]
+  }
+ },
+ "Global region, Shannon chain 50312 (dev indexer, the one the page's Spot/Event trades and Open orders tabs query)": {
+  "SPOT": {
+   "latest_up_to_3": []
+  },
+  "PERP": {
+   "latest_up_to_3": []
+  },
+  "BINARY": {
+   "latest_up_to_3": []
+  }
+ }
+}

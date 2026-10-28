@@ -1,0 +1,40 @@
+GraphQL requests the trader page sent, by host and operation (from the *.net.txt captures, logged out, fresh browser context).
+dev.smk.somnia.host = Global region (Shannon, 50312); hideki-dev.smk.somnia.host = Tokyo / DreamDEX region (50383).
+
+== ui_ptrades_tab_0x4ddd_2026-10-28T2339Z.net.txt
+      2     https://dev.smk.somnia.host/v1/graphql FillDataset_by_pk
+      1     https://dev.smk.somnia.host/v1/graphql LiquidationEvent
+      1     https://dev.smk.somnia.host/v1/graphql Market
+      1     https://dev.smk.somnia.host/v1/graphql PerpFeeRecord
+      1     https://dev.smk.somnia.host/v1/graphql chain_metadata
+      1     https://hideki-dev.smk.somnia.host/v1/graphql FillDataset_by_pk
+      1     https://hideki-dev.smk.somnia.host/v1/graphql LiquidationEvent
+      1     https://hideki-dev.smk.somnia.host/v1/graphql Market
+      1     https://hideki-dev.smk.somnia.host/v1/graphql PerpFeeRecord
+      1     https://hideki-dev.smk.somnia.host/v1/graphql PerpPositionChange
+      1     https://hideki-dev.smk.somnia.host/v1/graphql chain_metadata
+
+== ui_strades_tab_0x4ddd_2026-10-28T2339Z.net.txt
+      1     https://dev.smk.somnia.host/v1/graphql FillDataset_by_pk
+      1     https://dev.smk.somnia.host/v1/graphql Market
+      1     https://dev.smk.somnia.host/v1/graphql chain_metadata
+      1     https://hideki-dev.smk.somnia.host/v1/graphql Market
+      1     https://hideki-dev.smk.somnia.host/v1/graphql chain_metadata
+
+== ui_etrades_tab_0x4ddd_2026-10-28T2339Z.net.txt
+      1     https://dev.smk.somnia.host/v1/graphql FillDataset_by_pk
+      5     https://dev.smk.somnia.host/v1/graphql Market
+      1     https://dev.smk.somnia.host/v1/graphql OutcomeBalance
+      1     https://dev.smk.somnia.host/v1/graphql RouterActionRecord
+      1     https://dev.smk.somnia.host/v1/graphql chain_metadata
+      1     https://hideki-dev.smk.somnia.host/v1/graphql Market
+      1     https://hideki-dev.smk.somnia.host/v1/graphql chain_metadata
+
+== ui_open_orders_tab_0xd764_2026-10-28T2333Z.net.txt
+      1     https://dev.smk.somnia.host/v1/graphql FillDataset_by_pk
+      1     https://dev.smk.somnia.host/v1/graphql Market
+      1     https://dev.smk.somnia.host/v1/graphql Order
+      1     https://dev.smk.somnia.host/v1/graphql chain_metadata
+      1     https://hideki-dev.smk.somnia.host/v1/graphql Market
+      1     https://hideki-dev.smk.somnia.host/v1/graphql chain_metadata
+

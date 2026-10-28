@@ -1,0 +1,333 @@
+URL: https://app.testnet.dreamdex.io/trader/0xab8b612548cc3f5f9f7e723823be37058d0110b2
+TITLE: Trader | dreamDEX
+CAPTURED: 2026-10-28 23:46:15 UTC
+
+Testnet
+Trade
+Events
+Perps Arena
+Lend
+dreamBot
+Support
+Connect
+
+Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.
+
+Trader
+
+One trader's public record: trades, positions, assets and open orders.
+
+TRADER
+0xab8b…10b2
+BADGES
+—
+SOURCES
+Trades, positions and orders from the Somnia markets indexer, perps positions and margin from the chain, across every region; assets from the block explorer. Name and badges are what this trader linked or earned.
+Spot trades
+Perps trades
+Event trades
+Positions
+Balances
+Open orders
+TIME
+PAIR
+SIDE
+PRICE
+SIZE
+TOTAL
+Oct 12, 13:19:48
+ETH/USDso:USDso
+Sell
+2,560.87
+0.0047
+12.04 USDso
+Oct 12, 13:19:32
+ETH/USDso:USDso
+Buy
+2,561.24
+0.0047
+12.04 USDso
+Sep 15, 13:38:06
+BTC/USDso:USDso
+Buy
+76,743.90
+0.001
+76.74 USDso
+Sep 15, 13:26:02
+BTC/USDso:USDso
+Buy
+76,850.90
+0.001
+76.85 USDso
+Sep 15, 12:38:11
+ETH/USDso:USDso
+Buy
+2,476.94
+0.01
+24.77 USDso
+Sep 15, 12:23:31
+BTC/USDso:USDso
+Buy
+77,173.40
+0.001
+77.17 USDso
+Sep 15, 01:53:30
+ETH/USDso:USDso
+Sell
+2,602.81
+0.01
+26.03 USDso
+Sep 15, 01:49:48
+ETH/USDso:USDso
+Sell
+2,591.39
+0.01
+25.91 USDso
+Sep 15, 01:48:51
+BTC/USDso:USDso
+Sell
+79,377.60
+0.001
+79.38 USDso
+Sep 15, 01:46:33
+ETH/USDso:USDso
+Sell
+2,576.26
+0.01
+25.76 USDso
+Sep 15, 01:42:49
+ETH/USDso:USDso
+Sell
+2,561.14
+0.01
+25.61 USDso
+Sep 15, 00:54:09
+ETH/USDso:USDso
+Sell
+2,542.40
+0.01
+25.42 USDso
+Sep 14, 23:53:33
+BTC/USDso:USDso
+Sell
+79,200.30
+0.00008
+6.34 USDso
+Sep 14, 23:53:31
+BTC/USDso:USDso
+Sell
+79,200.30
+0.00092
+72.86 USDso
+Sep 14, 22:47:30
+BTC/USDso:USDso
+Sell
+78,852.60
+0.001
+78.85 USDso
+Sep 14, 21:48:07
+BTC/USDso:USDso
+Sell
+78,661.10
+0.001
+78.66 USDso
+Sep 14, 18:36:28
+ETH/USDso:USDso
+Buy
+2,492.04
+0.01
+24.92 USDso
+Sep 14, 15:25:28
+DOGE/USDso:USDso
+Sell
+0.08
+500
+42.35 USDso
+Sep 14, 05:56:43
+DOGE/USDso:USDso
+Buy
+0.08
+500
+41.05 USDso
+Sep 14, 03:58:08
+DOGE/USDso:USDso
+Buy
+0.08
+500
+41.15 USDso
+Sep 14, 03:46:08
+DOGE/USDso:USDso
+Buy
+0.08
+500
+41.25 USDso
+Sep 14, 03:45:23
+DOGE/USDso:USDso
+Buy
+0.08
+500
+41.45 USDso
+Sep 11, 18:00:08
+DOGE/USDso:USDso
+Buy
+0.08
+500
+41.35 USDso
+Sep 10, 21:48:49
+ETH/USDso:USDso
+Sell
+2,428.60
+0.01
+24.29 USDso
+Sep 10, 21:42:46
+ETH/USDso:USDso
+Buy
+2,437.12
+0.01
+24.37 USDso
+Sep 10, 19:53:28
+ETH/USDso:USDso
+Buy
+2,436.28
+0.02
+48.73 USDso
+Sep 09, 23:33:42
+ETH/USDso:USDso
+Sell
+2,490.05
+0.02
+49.80 USDso
+Sep 09, 19:21:32
+ETH/USDso:USDso
+Sell
+2,506.91
+0.01
+25.07 USDso
+Sep 09, 19:21:32
+AVAX/USDso:USDso
+Sell
+7.96
+1.4
+11.15 USDso
+Sep 09, 19:19:03
+AVAX/USDso:USDso
+Buy
+7.98
+1.4
+11.17 USDso
+Sep 09, 16:13:40
+ETH/USDso:USDso
+Sell
+2,486.95
+0.01
+24.87 USDso
+Sep 09, 16:13:08
+ETH/USDso:USDso
+Buy
+2,492.10
+0.01
+24.92 USDso
+Sep 08, 19:04:37
+WETH/USDso
+Buy
+2,457.11
+0.0568
+139.56 USDso
+Sep 08, 18:52:12
+WBTC/USDso
+Buy
+78,301.00
+0.00153
+119.80 USDso
+Sep 03, 14:44:00
+ETH/USDso:USDso
+Buy
+2,405.05
+0.01
+24.05 USDso
+Sep 02, 14:49:32
+AVAX/USDso:USDso
+Sell
+7.14
+0.2
+1.43 USDso
+Sep 02, 14:49:31
+AVAX/USDso:USDso
+Buy
+7.15
+0.1
+0.72 USDso
+Sep 02, 14:47:08
+AVAX/USDso:USDso
+Buy
+7.14
+0.1
+0.71 USDso
+Sep 02, 13:55:36
+AVAX/USDso:USDso
+Sell
+7.19
+0.1
+0.72 USDso
+Sep 02, 13:55:35
+AVAX/USDso:USDso
+Buy
+7.20
+0.1
+0.72 USDso
+Sep 01, 20:57:35
+AVAX/USDso:USDso
+Sell
+7.27
+0.1
+0.73 USDso
+Sep 01, 20:57:34
+AVAX/USDso:USDso
+Buy
+7.29
+0.1
+0.73 USDso
+Sep 01, 18:11:33
+WBTC/USDso
+Buy
+77,811.40
+0.001
+77.81 USDso
+Aug 28, 18:47:16
+BTC/USDso:USDso
+Sell
+79,233.60
+0.001
+79.23 USDso
+Aug 28, 18:47:15
+BTC/USDso:USDso
+Buy
+79,392.30
+0.001
+79.39 USDso
+© 2026 - DreamDEX, S.A.
+Terms
+Privacy policy
+Support
+
+THE ENDGAME DEX
+
+Welcome to
+DreamDex
+
+A fully onchain central limit order book for perps, spot and event contracts.
+
+CEX-grade execution
+
+Ultra-low latency, built for fast, precise execution.
+
+0% maker. 0% taker.
+
+Zero trading fees.
+
+No hidden rules
+
+Every trade. Every rule. Fully transparent.
+
+Skip
+Show me how

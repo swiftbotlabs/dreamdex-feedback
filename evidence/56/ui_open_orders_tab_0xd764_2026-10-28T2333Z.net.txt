@@ -1,0 +1,257 @@
+GET https://app.testnet.dreamdex.io/trader/0xd76470c7303eab00ba54d92452de8f4329ec2994
+  <- 200 https://app.testnet.dreamdex.io/trader/0xd76470c7303eab00ba54d92452de8f4329ec2994
+GET https://app.testnet.dreamdex.io/_next/static/immutable/media/caa3a2e1cccd8315-s.p.0zr6hhvz-h9nw.woff2
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/44r3g9dvdvpv8.css
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1os480-3tj6sv.css
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20kw7u0porjkj.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1-8w0kem74i-a.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0974-snn-6p5m.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/35c4kwgjynjwr.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/turbopack-3mzvd_6ht-47h.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1a873g36l_gmn.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1u13kx490nhij.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/01w_6m8hb-lf0.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0h-ls9zyd7mfk.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/42warm91rl4_b.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2j9rp9e2_hl1n.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1ri4gcylfz2fq.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2cybpgvr1747j.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/38kta1x8tpaws.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/33v3p1znmiviw.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/07hqaidb5pa6i.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0o5exicltx_8i.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1aamjew218jwf.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3-m645urrcz5i.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18l-mhgnij1hv.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2x_aetkz4tpfd.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2mwg682wkatv1.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/03u_q4415550w.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2n8qe4lkfgofg.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3j381kcmwoenq.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/329d6-pvf3jf6.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2equiaw50rein.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18e73-j-7612i.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1srgxumia-zst.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0gjpn44uo8qql.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/04nhweuvbgxuy.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0u3z1nz9b7s66.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/345p95bos7-0q.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2awt6t9vz4h79.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0c6jlvk-rd1h1.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3q_--5-xfnwnj.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2scqvj8azgw63.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sfra74og9hp6.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0p4rb93gq9d0a.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3vv-4tus06euh.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18zibi-ej7hns.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3uy23clymbzty.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0o2o945z_h0_l.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sy0fuq5wekri.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3jz-u4d8b58cq.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2eg0hxfuw8vji.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1yc6uejqi_h-p.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1mh04ys3txjq5.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/23y-12yclvw-d.css
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3nbbzrkl4u3gz.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1os480-3tj6sv.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/media/caa3a2e1cccd8315-s.p.0zr6hhvz-h9nw.woff2
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3nbbzrkl4u3gz.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/44r3g9dvdvpv8.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/23y-12yclvw-d.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20kw7u0porjkj.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1-8w0kem74i-a.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1u13kx490nhij.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/turbopack-3mzvd_6ht-47h.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0h-ls9zyd7mfk.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1ri4gcylfz2fq.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/38kta1x8tpaws.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2mwg682wkatv1.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/01w_6m8hb-lf0.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/03u_q4415550w.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3-m645urrcz5i.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/42warm91rl4_b.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0o5exicltx_8i.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2x_aetkz4tpfd.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3j381kcmwoenq.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/07hqaidb5pa6i.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1a873g36l_gmn.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2j9rp9e2_hl1n.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2cybpgvr1747j.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/33v3p1znmiviw.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1aamjew218jwf.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2awt6t9vz4h79.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/329d6-pvf3jf6.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/35c4kwgjynjwr.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18e73-j-7612i.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sfra74og9hp6.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3vv-4tus06euh.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0gjpn44uo8qql.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18zibi-ej7hns.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/345p95bos7-0q.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0p4rb93gq9d0a.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0c6jlvk-rd1h1.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3q_--5-xfnwnj.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0u3z1nz9b7s66.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3jz-u4d8b58cq.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sy0fuq5wekri.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/04nhweuvbgxuy.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2scqvj8azgw63.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2n8qe4lkfgofg.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1yc6uejqi_h-p.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2eg0hxfuw8vji.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3uy23clymbzty.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2equiaw50rein.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1mh04ys3txjq5.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/18l-mhgnij1hv.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0o2o945z_h0_l.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1srgxumia-zst.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0974-snn-6p5m.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2xo4qt8je0wmt.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/44qto3m0vq5r6.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/44qto3m0vq5r6.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2xo4qt8je0wmt.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/237i2newtrhuo.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0mpvqeggtc66g.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20f8yzzin-05x.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3-5sn40yny_sa.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/15umvn5vkzhv2.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/27kddaaff2hz-.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1bnza9_svq32x.js
+GET https://app.testnet.dreamdex.io/api/lz/v1/tokens
+GET https://app.testnet.dreamdex.io/docs/support
+OPTIONS https://dev.smk.somnia.host/v1/graphql
+OPTIONS https://dev.smk.somnia.host/v1/graphql
+POST https://dev.smk.somnia.host/v1/graphql
+    gql: query  chain_metadata
+POST https://dev.smk.somnia.host/v1/graphql
+    gql: query  Market
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1lacq-_kg09fa.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2pl5zxhls-hrp.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/237i2newtrhuo.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3-5sn40yny_sa.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/15umvn5vkzhv2.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20f8yzzin-05x.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/27kddaaff2hz-.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0mpvqeggtc66g.js
+GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+GET https://app.testnet.dreamdex.io/event-contracts/tokyo/WBTC:USDso/15m
+GET https://app.testnet.dreamdex.io/competition-hub
+  <- 200 https://app.testnet.dreamdex.io/api/lz/v1/tokens
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1bnza9_svq32x.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1lacq-_kg09fa.js
+  <- 200 https://app.testnet.dreamdex.io/docs/support
+GET https://app.testnet.dreamdex.io/lend
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2pl5zxhls-hrp.js
+GET https://app.testnet.dreamdex.io/icon.png
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/01f9msaa5t3pz.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2eopisnvum_iq.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0cl-qjqjy5xnz.js
+  <- 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+GET https://app.testnet.dreamdex.io/dreambot-builder
+  <- 200 https://app.testnet.dreamdex.io/competition-hub
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3s4csih-b-ra5.css
+GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  <- 200 https://app.testnet.dreamdex.io/event-contracts/tokyo/WBTC:USDso/15m
+GET https://app.testnet.dreamdex.io/event-contracts/tokyo/WBTC:USDso/15m
+  <- 200 https://app.testnet.dreamdex.io/icon.png
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/01f9msaa5t3pz.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0cl-qjqjy5xnz.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2eopisnvum_iq.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3s4csih-b-ra5.css
+  <- 200 https://app.testnet.dreamdex.io/event-contracts/tokyo/WBTC:USDso/15m
+  <- 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+GET https://app.testnet.dreamdex.io/_next/static/immutable/media/797e433ab948586e-s.1v5bejj26fx9h.woff2
+GET https://app.testnet.dreamdex.io/_next/image
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/media/797e433ab948586e-s.1v5bejj26fx9h.woff2
+  <- 200 https://app.testnet.dreamdex.io/_next/image
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0pp8qrw6oexdo.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/37o7d6-x6aemm.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/23xi5-rtmil8i.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1e45npc95qh-5.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20fshdtvbit18.css
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1uppcr-h21duw.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0et5gv394zwtx.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0pp8qrw6oexdo.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/20fshdtvbit18.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/23xi5-rtmil8i.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/37o7d6-x6aemm.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0et5gv394zwtx.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1uppcr-h21duw.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1e45npc95qh-5.js
+GET https://app.testnet.dreamdex.io/trade/perps/tokyo/BTC-PERP
+  <- 200 https://app.testnet.dreamdex.io/lend
+GET https://app.testnet.dreamdex.io/competition-hub
+  <- 200 https://app.testnet.dreamdex.io/dreambot-builder
+GET https://app.testnet.dreamdex.io/_next/static/immutable/media/c9e42e3eae6237c2-s.p.04s-z9uhm_0n2.woff2
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2av597y07ywiw.css
+GET https://app.testnet.dreamdex.io/lend
+GET https://app.testnet.dreamdex.io/dreambot-builder
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2av597y07ywiw.css
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/media/c9e42e3eae6237c2-s.p.04s-z9uhm_0n2.woff2
+  <- 200 https://app.testnet.dreamdex.io/competition-hub
+  <- 200 https://app.testnet.dreamdex.io/lend
+  <- 200 https://app.testnet.dreamdex.io/dreambot-builder
+OPTIONS https://hideki-dev.smk.somnia.host/v1/graphql
+OPTIONS https://hideki-dev.smk.somnia.host/v1/graphql
+POST https://hideki-dev.smk.somnia.host/v1/graphql
+    gql: query  chain_metadata
+POST https://hideki-dev.smk.somnia.host/v1/graphql
+    gql: query  Market
+GET https://app.testnet.dreamdex.io/images/launch/dreamdex-logo.svg
+GET https://app.testnet.dreamdex.io/images/launch/close.svg
+GET https://app.testnet.dreamdex.io/_next/image
+GET https://app.testnet.dreamdex.io/images/launch/arrow-right-small.svg
+GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  <- 200 https://app.testnet.dreamdex.io/images/launch/close.svg
+  <- 200 https://app.testnet.dreamdex.io/images/launch/dreamdex-logo.svg
+  <- 200 https://app.testnet.dreamdex.io/_next/image
+  <- 200 https://app.testnet.dreamdex.io/images/launch/arrow-right-small.svg
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0l4-wujf3-_90.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1j5dy_pl4nrd-.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/218evw0w6er2j.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3_saruu9gnnvl.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1rhe-8kilto9p.js
+GET https://app.testnet.dreamdex.io/docs/support
+  <- 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/40l2hxfyk94l4.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3am395aaoeb1s.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/32h8slri1_eyf.js
+GET https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2c6j2bowte1tc.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/15kkzi8ncgb_p.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sz-gfpgjy0gl.js
+GET https://app.testnet.dreamdex.io/_next/static/immutable/chunks/36wxbzkika9-r.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0l4-wujf3-_90.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1j5dy_pl4nrd-.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/1rhe-8kilto9p.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3_saruu9gnnvl.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/32h8slri1_eyf.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/3am395aaoeb1s.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/40l2hxfyk94l4.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/2c6j2bowte1tc.js
+  <- 200 https://app.testnet.dreamdex.io/docs/support
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/0sz-gfpgjy0gl.js
+  <- 200 https://app.testnet.dreamdex.io/trade/spot/tokyo/STT:USDso
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/36wxbzkika9-r.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/218evw0w6er2j.js
+  <- 200 https://app.testnet.dreamdex.io/_next/static/immutable/chunks/15kkzi8ncgb_p.js
+  <- 204 https://hideki-dev.smk.somnia.host/v1/graphql
+  <- 204 https://hideki-dev.smk.somnia.host/v1/graphql
+  <- 200 https://hideki-dev.smk.somnia.host/v1/graphql
+  <- 200 https://hideki-dev.smk.somnia.host/v1/graphql
+  <- 204 https://dev.smk.somnia.host/v1/graphql
+  <- 204 https://dev.smk.somnia.host/v1/graphql
+  <- 200 https://dev.smk.somnia.host/v1/graphql
+  <- 200 https://dev.smk.somnia.host/v1/graphql
+OPTIONS https://dev.smk.somnia.host/v1/graphql
+POST https://dev.smk.somnia.host/v1/graphql
+    gql: query  FillDataset_by_pk
+  <- 204 https://dev.smk.somnia.host/v1/graphql
+  <- 200 https://dev.smk.somnia.host/v1/graphql
+POST https://dev.smk.somnia.host/v1/graphql
+    gql: query  Order
+GET https://app.testnet.dreamdex.io/icon.png
+OPTIONS https://dev.smk.somnia.host/v1/graphql
+  <- 200 https://app.testnet.dreamdex.io/icon.png
+  <- 204 https://dev.smk.somnia.host/v1/graphql
+  <- 200 https://dev.smk.somnia.host/v1/graphql

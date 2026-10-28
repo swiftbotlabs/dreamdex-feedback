@@ -1,0 +1,105 @@
+{
+ "at": "2026-10-28T23:42:52.657Z",
+ "account": "0xd76470c7303eab00ba54d92452de8f4329ec2994",
+ "chain_tokyo_50383": {
+  "block": "35777778",
+  "restingOrders": 4,
+  "perMarket": {
+   "BTC-PERP": 1,
+   "ETH-PERP": 1,
+   "SOL-PERP": 1,
+   "HYPE-PERP": 1
+  }
+ },
+ "indexer_tokyo_hideki_dev": {
+  "open": 4,
+  "byMarketId": {
+   "0x63b47ed4a7de0fde659b0d82441dd74828b7297a": 1,
+   "0xb483ec1fb34996638677c20ab087b16f1896fa53": 1,
+   "0xd6cb1dd58580b84d76068ac21594219ce03aeddf": 1,
+   "0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0": 1
+  },
+  "ms": 494
+ },
+ "indexer_global_dev_shannon": {
+  "open": 0,
+  "byMarketId": {},
+  "ms": 1770
+ }
+}
+{
+ "at": "2026-10-28T23:43:07.102Z",
+ "account": "0xab8b612548cc3f5f9f7e723823be37058d0110b2",
+ "chain_tokyo_50383": {
+  "block": "35777837",
+  "restingOrders": 149,
+  "perMarket": {
+   "BTC-PERP": 9,
+   "ETH-PERP": 10,
+   "SOL-PERP": 10,
+   "HYPE-PERP": 10,
+   "XRP-PERP": 10,
+   "DOGE-PERP": 10,
+   "BNB-PERP": 10,
+   "ADA-PERP": 10,
+   "SUI-PERP": 10,
+   "LINK-PERP": 10,
+   "AVAX-PERP": 10,
+   "XLM-PERP": 10,
+   "NEAR-PERP": 10,
+   "WLD-PERP": 10,
+   "TAO-PERP": 10
+  }
+ },
+ "indexer_tokyo_hideki_dev": {
+  "error": "database query error",
+  "ms": 10481
+ },
+ "indexer_global_dev_shannon": {
+  "open": 15,
+  "byMarketId": {
+   "0xb56876c67f589b0e0c544d07be5dc7cc727095f2": 15
+  },
+  "ms": 618
+ }
+}
+{
+ "at": "2026-10-28T23:43:22.438Z",
+ "account": "0x47537e3a3ea6e9391f3b26ea45618db6828c8bff",
+ "chain_tokyo_50383": {
+  "block": "35777985",
+  "restingOrders": 181,
+  "perMarket": {
+   "BTC-PERP": 20,
+   "ETH-PERP": 10,
+   "SOL-PERP": 10,
+   "HYPE-PERP": 8,
+   "XRP-PERP": 8,
+   "DOGE-PERP": 8,
+   "BNB-PERP": 8,
+   "ADA-PERP": 8,
+   "SUI-PERP": 8,
+   "LINK-PERP": 8,
+   "AVAX-PERP": 8,
+   "XLM-PERP": 8,
+   "NEAR-PERP": 8,
+   "WLD-PERP": 7,
+   "TAO-PERP": 8,
+   "ZEC-PERP": 8,
+   "PUMP-PERP": 8,
+   "1000PEPE-PERP": 8,
+   "VVV-PERP": 8,
+   "LIT-PERP": 7,
+   "ZRO-PERP": 7
+  }
+ },
+ "indexer_tokyo_hideki_dev": {
+  "error": "database query error",
+  "ms": 10653
+ },
+ "indexer_global_dev_shannon": {
+  "open": 0,
+  "byMarketId": {},
+  "ms": 623
+ }
+}

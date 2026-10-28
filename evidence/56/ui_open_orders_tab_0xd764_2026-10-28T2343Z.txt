@@ -1,0 +1,67 @@
+URL: https://app.testnet.dreamdex.io/trader/0xd76470c7303eab00ba54d92452de8f4329ec2994
+TITLE: Trader | dreamDEX
+CAPTURED: 2026-10-28 23:43:59 UTC
+
+Testnet
+Trade
+Events
+Perps Arena
+Lend
+dreamBot
+Support
+Connect
+
+Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.
+
+Trader
+
+One trader's public record: trades, positions, assets and open orders.
+
+TRADER
+@AlexAncient1
+0xd764…2994
+BADGES
+—
+SOURCES
+Trades, positions and orders from the Somnia markets indexer, perps positions and margin from the chain, across every region; assets from the block explorer. Name and badges are what this trader linked or earned.
+Spot trades
+Perps trades
+Event trades
+Positions
+Balances
+Open orders
+TIME
+PAIR
+SIDE
+PRICE
+SIZE
+TOTAL
+
+No spot trades — this wallet has not traded on the order book.
+
+© 2026 - DreamDEX, S.A.
+Terms
+Privacy policy
+Support
+
+THE ENDGAME DEX
+
+Welcome to
+DreamDex
+
+A fully onchain central limit order book for perps, spot and event contracts.
+
+CEX-grade execution
+
+Ultra-low latency, built for fast, precise execution.
+
+0% maker. 0% taker.
+
+Zero trading fees.
+
+No hidden rules
+
+Every trade. Every rule. Fully transparent.
+
+Skip
+Show me how
