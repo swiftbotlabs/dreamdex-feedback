@@ -1,0 +1,20 @@
+captured 2026-10-28T09:13:12Z url=https://explorer.testnet.somnia.network/tokyo/tx/0x926e6a27368788edab0e8fb506f3445a626fb1580b48564803328116ae8888d7?tab=logs viewport=1440x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/tokyo/tx/0x926e6a27368788edab0e8fb506f3445a626fb1580b48564803328116ae8888d7?tab=logs","title":"Transaction 0x926e6a…88d7 · Somnia Explorer (Testnet)","sw":1425,"cw":1425}
+--- product-labelled rows in the Logs tab of a SOL-PERP (9-decimal) liquidation (label, value):
+TRADE	STT/USDso · 1.14 @ 0.1849
+FUNDING	0x1028…3919 · -43.7655 USDso
+POSITION	0x1028…3919 · size -0
+POSITION	0x4753…8bfF · size -0.000003
+TRADE	SOL-PERP · 0 @ 103.39
+POSITION	0x1028…3919 · size -0
+POSITION	0x4753…8bfF · size -0.000003
+TRADE	SOL-PERP · 0 @ 103.39
+POSITION	0x1028…3919 · size -0
+POSITION	0x4753…8bfF · size -0.000003
+TRADE	SOL-PERP · 0 @ 103.42
+POSITION	0x1028…3919 · size 0
+POSITION	0x4753…8bfF · size -0.000003
+TRADE	SOL-PERP · 0 @ 103.45
+LIQUIDATION	0x1028…3919 · 0 @ 103.2515
+LIQUIDATION	0x1028…3919 · 1 positions
+TRADE	STT/USDso · 1.14 @ 0.1849

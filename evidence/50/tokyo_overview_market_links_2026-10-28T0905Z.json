@@ -1,0 +1,16 @@
+{
+ "sidebar": [
+  "Venues -> /venues",
+  "Markets -> /markets"
+ ],
+ "feed": [
+  "14:34:58 #35,251,310 ORDER SOL-PERP · Sell 0 @ 100.42 0xafb8…34eb -> /markets?pool=0xb483ec1fb34996638677c20ab087b16f1896fa53",
+  "14:34:58 #35,251,310 TRADE SOL-PERP · 0 @ 102.63 0xafb8…34eb -> /markets/perps?pool=0xb483ec1fb34996638677c20ab087b16f1896fa53",
+  "14:34:58 #35,251,310 ORDER 0x3526…6409 · Buy 0.44 @ 24.272 0x4799…f071 -> /markets?pool=0x352636ab146039851ef06d6367a106d5fb4e6409",
+  "14:34:58 #35,251,310 TRADE 0x3526…6409 · 0.44 @ 23.813 0x4799…f071 -> /markets/binary?pool=0x352636ab146039851ef06d6367a106d5fb4e6409",
+  "14:34:58 #35,251,310 ORDER 0xde97…45c7 · Buy 1.4 @ 9.182 0x9d76…63f0 -> /markets?pool=0xde9762b6b441133d1314c68864ae4e63a6ee45c7",
+  "14:34:58 #35,251,310 TRADE 0xde97…45c7 · 1.4 @ 9.008 0x9d76…63f0 -> /markets/binary?pool=0xde9762b6b441133d1314c68864ae4e63a6ee45c7",
+  "14:34:58 #35,251,310 ORDER 0xf71b…43b5 · Sell 0.9 @ 11.538 0x79ff…db7f -> /markets?pool=0xf71b619450bafe953f47b9b556416a3a67b443b5",
+  "14:34:58 #35,251,310 TRADE 0xf71b…43b5 · 0.9 @ 11.764 0x79ff…db7f -> /markets/binary?pool=0xf71b619450bafe953f47b9b556416a3a67b443b5"
+ ]
+}

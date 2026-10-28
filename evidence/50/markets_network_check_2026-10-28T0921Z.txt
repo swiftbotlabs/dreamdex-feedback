@@ -1,0 +1,24 @@
+run 2026-10-28T09:21:56Z
+
+== 1. Server-rendered footer of the testnet explorer's Markets pages (which chain they are bound to)
+  /markets  ->  footer: "somnia explorer · global · chain 5031"
+  /markets/perps  ->  footer: "somnia explorer · global · chain 5031"
+  /markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050  ->  footer: "somnia explorer · global · chain 5031"
+  /markets/pools/0xdcb0ad226727b2ce92857f0af5751389d42b2a3f  ->  footer: "somnia explorer · global · chain 5031"
+  /tokyo  ->  footer: "somnia explorer · global testnet · chain 50312"
+  (the Tokyo overview /tokyo hydrates to 'tokyo testnet · chain 50383'; the Markets pages are server-rendered as chain 5031)
+
+== 2. The indexer the Markets pages query in the browser (prd.smk.somnia.host) vs the Tokyo indexer
+  https://prd.smk.somnia.host/v1/graphql
+    {"data":{"chain_metadata":[{"chain_id":5031,"latest_processed_block":450249313}],"Market":[{"marketType":"SPOT","baseSymbol":"WETH","quoteSymbol":"USDso","poolAddress":"0xa936da11b57b50a344e1293aaae5232885ea2bde"}],"perps":{"aggregate" : {"count" : 0}}}}
+  https://hideki-dev.smk.somnia.host/v1/graphql
+    {"data":{"chain_metadata":[{"chain_id":50383,"latest_processed_block":35261559}],"Market":[{"marketType":"PERP","baseSymbol":"ZEC","quoteSymbol":"USDso","poolAddress":"0x2a73129f26917124bd2a47a9b355c395c537f050"}, {"marketType":"PERP","baseSymbol":"LIT","quoteSymbol":"USDso","poolAddress":"0xdcb0ad226727b2ce92857f0af5751389d42b2a3f"}],"perps":{"aggregate" : {"count" : 21}}}}
+
+== 3. Where the pools live: bytes of code at each address on each chain's RPC
+  pool                                         mainnet    shannon    tokyo     
+  0xa936da11b57b50a344e1293aaae5232885ea2bde 283        0          0         
+  0x25bff6b7b5e2243424f38e75de7ab03c0522a5ea 283        0          0         
+  0x440f5a79857cd632ae45439410969c3f4049cc41 0          321        0         
+  0x2a73129f26917124bd2a47a9b355c395c537f050 0          0          321       
+  0xdcb0ad226727b2ce92857f0af5751389d42b2a3f 0          0          321       
+  (0xa936… WETH/USDso and 0x25bf… WBTC/USDso are the pairs the testnet /markets page lists; 0x440f… is a dreamDEX ADA perp on Shannon)

@@ -1,0 +1,49 @@
+run 2026-10-28T09:21:33.872Z  rpc https://api.hideki2.infra.testnet.somnia.network
+
+0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec  block 35210700  pool 0xdcb0ad226727b2ce92857f0af5751389d42b2a3f  base LIT (18 decimals)
+  chain  OrderFilled quantityFilled raw 15000000000000000000 = 15 LIT @ 3.0162  (same raw value read as 18 decimals: 15)
+  chain  PositionUpdated 0xA43C17c299148fb394c95572211b88c2365954dC newSize raw 15000000000000000000 = 15 LIT  (as 18 decimals: 15)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -8085900000000000000000 = -8085.9 LIT  (as 18 decimals: -8085.9)
+  page   HTTP 200: What this transaction did | Trade | 0xdcb0…2a3f · 15 @ 3.0162 | Open in | Markets | → | Touches | Markets |
+
+0x025abb3d590c7698c1aacec6b7c4d175ef06a8312c15d3973fc0f80294dc2d0f  block 35248497  pool 0xd6cb1dd58580b84d76068ac21594219ce03aeddf  base ETH (18 decimals)
+  chain  OrderFilled quantityFilled raw 4000000000000000 = 0.004 ETH @ 2369.8  (same raw value read as 18 decimals: 0.004)
+  chain  PositionUpdated 0x712ABa05eE5171Be0E0D9711Ff3A72452903d280 newSize raw 12000000000000000 = 0.012 ETH  (as 18 decimals: 0.012)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -83487700000000000000 = -83.4877 ETH  (as 18 decimals: -83.4877)
+  page   HTTP 200: What this transaction did | Trade | ETH-PERP · 0.004 @ 2,369.8 | Open in | Markets | → | Touches | Markets |
+
+0x35c9709d9b5a0e951c18cad9ffc49ffcf53f715739fac3e1173f94001ba99619  block 35248441  pool 0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0  base BTC (8 decimals)
+  chain  OrderFilled quantityFilled raw 8438000 = 0.08438 BTC @ 81596.9  (same raw value read as 18 decimals: 0.000000000008438)
+  chain  PositionUpdated 0x8239544DB8718D75111e4AEedc42036742D22E68 newSize raw -4713227000 = -47.13227 BTC  (as 18 decimals: -0.000000004713227)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -9974352000 = -99.74352 BTC  (as 18 decimals: -0.000000009974352)
+  page   HTTP 200: What this transaction did | Trade | BTC-PERP · 0 @ 81,596.9 | Open in | Markets | → | Touches | Markets |
+
+0xbb13acd817ddfe0f807e7e6190a874b9a967a4e753db1b3a1286d93d719f77b6  block 35248449  pool 0xc410012e39765cd5f772e84bacb19554aec040df  base DOGE (8 decimals)
+  chain  OrderFilled quantityFilled raw 12000000000 = 120 DOGE @ 0.08004  (same raw value read as 18 decimals: 0.000000012)
+  chain  PositionUpdated 0x3f88a277e2B962704037A7b1b384B56b4e84D80b newSize raw 12000000000 = 120 DOGE  (as 18 decimals: 0.000000012)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -1031000000000 = -10310 DOGE  (as 18 decimals: -0.000001031)
+  page   HTTP 200: What this transaction did | Trade | 0xc410…40df · 0 @ 0.08004 | Open in | Markets | → | Touches | Markets |
+
+0xd16c3031f5c50a698e6393a22e882adcbaf18d75f4c65f83c0d218de863cc6ca  block 35248458  pool 0x2a73129f26917124bd2a47a9b355c395c537f050  base ZEC (8 decimals)
+  chain  OrderFilled quantityFilled raw 900000 = 0.009 ZEC @ 1313.506  (same raw value read as 18 decimals: 0.0000000000009)
+  chain  PositionUpdated 0xD91dc2FA546c05fd69c7F1cC4682F8813f3d4CA2 newSize raw 2700000 = 0.027 ZEC  (as 18 decimals: 0.0000000000027)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -4718800000 = -47.188 ZEC  (as 18 decimals: -0.0000000047188)
+  page   HTTP 200: What this transaction did | Trade | 0x2a73…f050 · 0 @ 1,313.51 | Open in | Markets | → | Touches | Markets |
+
+0x7c1176f7736cbf3cd1bf69ee6416289c0179c36ebd83312031928f372332244f  block 35248468  pool 0xb483ec1fb34996638677c20ab087b16f1896fa53  base SOL (9 decimals)
+  chain  OrderFilled quantityFilled raw 100000000 = 0.1 SOL @ 102.68  (same raw value read as 18 decimals: 0.0000000001)
+  chain  PositionUpdated 0x0c5bb7469ED4b382Cf86Be355E74A570b2b1e85C newSize raw 300000000 = 0.3 SOL  (as 18 decimals: 0.0000000003)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -3011250000000 = -3011.25 SOL  (as 18 decimals: -0.00000301125)
+  page   HTTP 200: What this transaction did | Trade | SOL-PERP · 0 @ 102.68 | Open in | Markets | → | Touches | Markets |
+
+0x23c584bd9046331339aeeb60bf3c0a081876309e2bf360edbb0a69f501430eb4  block 35248478  pool 0x34fa62909f77699a7a6278d992f72ff31c7a619d  base ADA (6 decimals)
+  chain  OrderFilled quantityFilled raw 46000000 = 46 ADA @ 0.2065  (same raw value read as 18 decimals: 0.000000000046)
+  chain  PositionUpdated 0x3753d98959470018005d257c01e3a059a8dB7A39 newSize raw 138000000 = 138 ADA  (as 18 decimals: 0.000000000138)
+  chain  PositionUpdated 0xAb8B612548cc3F5F9f7e723823Be37058d0110b2 newSize raw 39959000000 = 39959 ADA  (as 18 decimals: 0.000000039959)
+  page   HTTP 200: What this transaction did | Trade | 0x34fa…619d · 0 @ 0.2065 | Open in | Markets | → | Touches | Markets |
+
+0x2441c500227410e25a047f06e964e9d2dc3cb85f5e0055f9a384f11530ec360b  block 35248488  pool 0x1cd15ae8bff0fe0a7f49233be8b90734775ba454  base NEAR (24 decimals)
+  chain  OrderFilled quantityFilled raw 5100000000000000000000000 = 5.1 NEAR @ 4.7375  (same raw value read as 18 decimals: 5100000)
+  chain  PositionUpdated 0xC0A016CB1a16d76A02Ab3CD29AC51b5Db07b683b newSize raw -10200000000000000000000000 = -10.2 NEAR  (as 18 decimals: -10200000)
+  chain  PositionUpdated 0x47537E3A3ea6e9391F3B26Ea45618db6828c8bfF newSize raw -38573300000000000000000000000 = -38573.3 NEAR  (as 18 decimals: -38573300000)
+  page   HTTP 200: What this transaction did | Trade | 0x1cd1…a454 · 5,100,000 @ 4.7375 | Open in | Markets | → | Touches | Markets |

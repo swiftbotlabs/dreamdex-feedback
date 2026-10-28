@@ -1,0 +1,139 @@
+captured 2026-10-28T09:05:14Z url=https://explorer.testnet.somnia.network/markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050 viewport=1280x760 mobile=False
+{"href":"https://explorer.testnet.somnia.network/markets/spot/0x2a73129f26917124bd2a47a9b355c395c537f050","title":"Spot market · Markets · Somnia Markets · Somnia Explorer","sw":1280,"cw":1280}
+MARKETS / SOMNIA MARKETS
+
+Somnia Markets
+LIVE
+
+Order books, matching and settlement that run as smart contracts, shared by every venue. Spot, perpetual and event markets share one engine, one liquidity root and one SDK.
+
+0 BPS PROTOCOL FEE
+Search
+Docs
+Spot
+Perps
+Binary
+Series
+Blocks
+Portfolio
+System
+All spot markets
+
+Spot market not indexed yet
+
+0x2a73129F26917124bd2A47a9B355C395C537F050 has no indexed spot market on Global (the indexer may still be syncing, or the pool isn't in the indexer's spot config).
+
+// somnia explorer · global · chain 5031
+© 2026 Somniacaptured 2026-10-28T09:05:53Z url=https://explorer.testnet.somnia.network/markets/binary?pool=0x352636ab146039851ef06d6367a106d5fb4e6409 viewport=1280x760 mobile=False
+{"href":"https://explorer.testnet.somnia.network/markets/binary?pool=0x352636ab146039851ef06d6367a106d5fb4e6409","title":"Event contracts · Markets · Somnia Markets · Somnia Explorer","sw":1265,"cw":1265}
+MARKETS / SOMNIA MARKETS
+
+Somnia Markets
+LIVE
+
+Order books, matching and settlement that run as smart contracts, shared by every venue. Spot, perpetual and event markets share one engine, one liquidity root and one SDK.
+
+0 BPS PROTOCOL FEE
+Search
+Docs
+Spot
+Perps
+Binary
+Series
+Blocks
+Portfolio
+System
+
+No market for that pool
+
+The indexer has no market for pool 0x3526…6409 on this network.
+EVENT CONTRACTS
+55,226
+On Global
+LIVE NOW
+6
+Trading or awaiting expiry
+PAST
+55,220
+Resolved, voided or expired
+ASSETS
+2
+Underlyings with a contract
+
+Yes/no contracts on a price outcome — trade the probability, redeem at resolution. Each contract is minted by a series and resolved by the Somnia Oracle.
+
+SEARCH
+ASSET
+All assets
+BTC
+ETH
+CADENCE
+All
+1m
+5m
+captured 2026-10-28T09:05:30Z url=https://explorer.testnet.somnia.network/markets/perps viewport=1280x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/markets/perps","title":"Perps · Markets · Somnia Markets · Somnia Explorer","sw":1280,"cw":1280}
+MARKETS / SOMNIA MARKETS
+
+Somnia Markets
+LIVE
+
+Order books, matching and settlement that run as smart contracts, shared by every venue. Spot, perpetual and event markets share one engine, one liquidity root and one SDK.
+
+0 BPS PROTOCOL FEE
+Search
+Docs
+Spot
+Perps
+Binary
+Series
+Blocks
+Portfolio
+System
+PERPS
+Perpetual futures
+
+Perpetual futures — leverage and funding over the same central limit order book · Somnia mainnet
+
+0 MARKETS
+
+No perp markets yet
+
+Perp markets are indexed once PerpPools are configured and synced.
+
+MATCHING
+Same on-chain CLOB as spot
+FUNDING
+Periodic, from Somnia Price Feeds
+MARGIN
+Cross-margin in USDso
+LIQUIDATION
+On-chain, mark-price triggered
+// somnia explorer · global · chain 5031
+© 2026 Somniacaptured 2026-10-28T09:06:09Z url=https://explorer.testnet.somnia.network/markets/perps?pool=0xb483ec1fb34996638677c20ab087b16f1896fa53 viewport=1440x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/markets/perps/0xb483ec1fb34996638677c20ab087b16f1896fa53","title":"Perp market · Markets · Somnia Markets · Somnia Explorer","sw":1440,"cw":1440}
+MARKETS / SOMNIA MARKETS
+
+Somnia Markets
+LIVE
+
+Order books, matching and settlement that run as smart contracts, shared by every venue. Spot, perpetual and event markets share one engine, one liquidity root and one SDK.
+
+0 BPS PROTOCOL FEE
+Search
+Docs
+Spot
+Perps
+Binary
+Series
+Blocks
+Portfolio
+System
+All perp markets
+
+Perp market not indexed yet
+
+0xB483ec1fb34996638677c20ab087b16F1896FA53 has no indexed perp market on Global (the indexer may still be syncing, or the pool isn't in the indexer's perps config).
+
+// somnia explorer · global · chain 5031
+© 2026 Somnia

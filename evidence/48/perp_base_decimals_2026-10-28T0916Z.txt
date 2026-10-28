@@ -1,0 +1,23 @@
+run 2026-10-28T09:16:52.053Z  factory 0xE631fAEE547baeE07353E290f0562ea67d856560  pools 21
+0x4181dd08E73BbCdd1Ba3E615A18f6abD941b94C0  BTC       decimals  8  open   <- not 18
+0xD6Cb1DD58580B84D76068aC21594219ce03aeddf  ETH       decimals 18  open
+0xB483ec1fb34996638677c20ab087b16F1896FA53  SOL       decimals  9  open   <- not 18
+0x63B47eD4A7DE0FdE659b0d82441dD74828b7297A  HYPE      decimals  6  open   <- not 18
+0x7058579F3248559963f79AdB937c6De9f953E060  XRP       decimals  6  open   <- not 18
+0xC410012e39765Cd5f772e84BAcB19554AEC040Df  DOGE      decimals  8  open   <- not 18
+0x3D2A99fE1e2BdEaA25024515A2D2202DAF9531aD  BNB       decimals 18  open
+0x34fa62909f77699a7a6278D992F72Ff31c7a619D  ADA       decimals  6  open   <- not 18
+0x1Be21287cfB865a7c462Ff3c4f275E70BcccefE4  SUI       decimals  9  open   <- not 18
+0xf71b619450baFe953F47b9b556416A3A67b443b5  LINK      decimals 18  open
+0xde9762B6b441133D1314C68864ae4e63A6eE45C7  AVAX      decimals 18  open
+0x74b05B9B8c8F180b53b7891018F3B254B3E658C9  XLM       decimals  7  open   <- not 18
+0x1cD15ae8bFf0FE0a7F49233BE8b90734775bA454  NEAR      decimals 24  open   <- not 18
+0x0F464d57c1FD839E4d87A408BBcCDAb8f77E6394  WLD       decimals 18  open
+0xD9b6A347A3Ae9FD6BA21179D3343F2c8A922F697  TAO       decimals  9  open   <- not 18
+0x2a73129F26917124bd2A47a9B355C395C537F050  ZEC       decimals  8  open   <- not 18
+0x76c981a52530cdF9497559140aAfCd8CD16836E7  PUMP      decimals  6  open   <- not 18
+0xfA9B9e50CC1745113d57893991aF200a74c86B6f  1000PEPE  decimals 18  open
+0x352636aB146039851Ef06D6367A106d5FB4E6409  VVV       decimals 18  open
+0xDCb0Ad226727b2cE92857F0aF5751389d42B2A3f  LIT       decimals 18  open
+0x2a1822b02039DDf0e293F3F7243673fc03EAF16c  ZRO       decimals 18  open
+open perp pools: 21, of which base token is not 18 decimals: 12

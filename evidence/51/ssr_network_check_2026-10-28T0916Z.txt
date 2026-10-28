@@ -1,0 +1,41 @@
+run 2026-10-28T09:16:52Z
+
+/tokyo  HTTP 200
+  network chip : Global testnet 50312
+  footer       : global testnet · chain 50312
+  breadcrumb   : (none)
+  meta desc    : The operating view of Somnia: the chain, markets, oracle, agents, price feeds and accounts, on one dashboard.
+  sidebar links: /blocks -> /blocks, /txs -> /txs, /tokens -> /tokens, /top-accounts -> /top-accounts, /verified-contracts -> /verified-contracts, /charts -> /charts
+  Chain id     : 50312 Currency STT RPC
+  RPC          : https://api.infra.testnet.somnia.network/ Copy WebSocket wss://api.infra.testnet.somnia.network/ws
+  WebSocket    : wss://api.infra.testnet.somnia.network/ws Copy Block explorer
+  Live from    : Global testnet Latest blocks
+  Connecting to: Global testnet over WebSocket.
+
+/tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec  HTTP 200
+  network chip : Global testnet 50312
+  footer       : global testnet · chain 50312
+  breadcrumb   : Tokyo testnet
+  meta desc    : 0x05fa91ea29…7984e2ec on Somnia Tokyo testnet · Status: Success · Value: 0 STT · Block: 35,210,700
+  sidebar links: /blocks -> /blocks, /txs -> /txs, /tokens -> /tokens, /top-accounts -> /top-accounts, /verified-contracts -> /verified-contracts, /charts -> /charts
+
+/tokyo/tx/0x35c9709d9b5a0e951c18cad9ffc49ffcf53f715739fac3e1173f94001ba99619  HTTP 200
+  network chip : Global testnet 50312
+  footer       : global testnet · chain 50312
+  breadcrumb   : Tokyo testnet
+  meta desc    : 0x35c9709d9b…1ba99619 on Somnia Tokyo testnet · Status: Success · Value: 0 STT · Block: 35,248,441
+  sidebar links: /blocks -> /blocks, /txs -> /txs, /tokens -> /tokens, /top-accounts -> /top-accounts, /verified-contracts -> /verified-contracts, /charts -> /charts
+
+/tokyo/address/0x4181dd08e73bbcdd1ba3e615a18f6abd941b94c0  HTTP 200
+  network chip : Global testnet 50312
+  footer       : global testnet · chain 50312
+  breadcrumb   : Tokyo testnet
+  meta desc    : BTC-PERP on Somnia Tokyo testnet · Type: Contract · Balance: 0 STT
+  sidebar links: /blocks -> /blocks, /txs -> /txs, /tokens -> /tokens, /top-accounts -> /top-accounts, /verified-contracts -> /verified-contracts, /charts -> /charts
+
+/tokyo/block/35210700  HTTP 200
+  network chip : Global testnet 50312
+  footer       : global testnet · chain 50312
+  breadcrumb   : Tokyo testnet
+  meta desc    : Block 35,210,700 on Somnia Tokyo testnet · Transactions: 5 · Time: 28 Oct 2026, 07:57:16 UTC
+  sidebar links: /blocks -> /blocks, /txs -> /txs, /tokens -> /tokens, /top-accounts -> /top-accounts, /verified-contracts -> /verified-contracts, /charts -> /charts

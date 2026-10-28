@@ -1,0 +1,34 @@
+run 2026-10-28T09:11:26.733Z  rpc https://api.hideki2.infra.testnet.somnia.network
+
+0x80dae6c6915f713ff7d00ff31e6b98f3d028a3fb356aeadd81ecbb9665941046  block 35233818  logs 71
+  chain  PositionLiquidated account 0xF3ed3F5b90A13b39f30759E9800ec638711008F8 pool 0xD6Cb1DD58580B84D76068aC21594219ce03aeddf (ETH-PERP) sizeDelta 80.2601 ETH at mark 2379.206801510552
+  chain  LiquidationFeeCharged fillNotional 191193.756493 USDso, fee 1911.93756493 USDso
+  chain  LiquidationKeeperRewardPaid keeper 0x03CA1F61c5A475951F69F51BD16523075Fdfb1cc 0.07 USDso
+  chain  AccountLiquidated 0xF3ed3F5b90A13b39f30759E9800ec638711008F8 positionsProcessed 1 marginStatus 2 -> 0
+  chain  13 OrderFilled on 0xd6cb1dd58580b84d76068ac21594219ce03aeddf (ETH-PERP): total 80.2601 ETH; first fill 0.4207 @ 2378.16
+  page   HTTP 200: What this transaction did | Trade | ETH-PERP · 0.4207 @ 2,378.16 | Open in | Markets | → | Touches | Markets | USDso |
+
+0x926e6a27368788edab0e8fb506f3445a626fb1580b48564803328116ae8888d7  block 35234014  logs 35
+  chain  PositionLiquidated account 0x1028b73C72aA7f5095772C069Fa58e75C7e43919 pool 0xB483ec1fb34996638677c20ab087b16F1896FA53 (SOL-PERP) sizeDelta 202.59 SOL at mark 103.251504285074
+  chain  LiquidationFeeCharged fillNotional 20954.1585 USDso, fee 209.541585 USDso
+  chain  LiquidationKeeperRewardPaid keeper 0x03CA1F61c5A475951F69F51BD16523075Fdfb1cc 0.07 USDso
+  chain  AccountLiquidated 0x1028b73C72aA7f5095772C069Fa58e75C7e43919 positionsProcessed 1 marginStatus 2 -> 0
+  chain  4 OrderFilled on 0xb483ec1fb34996638677c20ab087b16f1896fa53 (SOL-PERP): total 202.59 SOL; first fill 9.68 @ 103.39
+  chain  1 OrderFilled on 0xbe6c45bf96e1b4e5ec4655bdae0f23c0410db35d (not a perp pool): total 1140000000000000000 raw; first fill 1.14 @ 0.1849
+  page   HTTP 200: What this transaction did | Trade | STT/USDso · 1.14 @ 0.1849 | Open in | Markets | → | Touches | Markets | USDso |
+
+0xee3c3c8f2dc1250ca15f94b68d9fef5ea020d5a5b9e894a2c979b2ed23ea0862  block 35233724  logs 29
+  chain  PositionLiquidated account 0x90d916C5a7C78565EfbA2f67E0CE906604d6Dc7A pool 0xD6Cb1DD58580B84D76068aC21594219ce03aeddf (ETH-PERP) sizeDelta 10.832 ETH at mark 2377.8050601871075
+  chain  LiquidationFeeCharged fillNotional 25743.057559 USDso, fee 257.43057559 USDso
+  chain  LiquidationKeeperRewardPaid keeper 0x03CA1F61c5A475951F69F51BD16523075Fdfb1cc 0.07 USDso
+  chain  AccountLiquidated 0x90d916C5a7C78565EfbA2f67E0CE906604d6Dc7A positionsProcessed 1 marginStatus 2 -> 0
+  chain  4 OrderFilled on 0xd6cb1dd58580b84d76068ac21594219ce03aeddf (ETH-PERP): total 10.832 ETH; first fill 0.409 @ 2376.26
+  page   HTTP 200: What this transaction did | Trade | ETH-PERP · 0.409 @ 2,376.26 | Open in | Markets | → | Touches | Markets | USDso |
+
+0x81ab856eb82bd56c75e731d780c2f8dba1497bf90e799add98dbfb92c6fe1dd1  block 35233808  logs 34
+  chain  PositionLiquidated account 0xBa5253aAE6135d312Fe1675D1Ff33F59707E5b15 pool 0xB483ec1fb34996638677c20ab087b16F1896FA53 (SOL-PERP) sizeDelta 304.07 SOL at mark 103.1715421849395
+  chain  LiquidationFeeCharged fillNotional 31429.6755 USDso, fee 314.296755 USDso
+  chain  LiquidationKeeperRewardPaid keeper 0x03CA1F61c5A475951F69F51BD16523075Fdfb1cc 0.07 USDso
+  chain  AccountLiquidated 0xBa5253aAE6135d312Fe1675D1Ff33F59707E5b15 positionsProcessed 1 marginStatus 2 -> 0
+  chain  5 OrderFilled on 0xb483ec1fb34996638677c20ab087b16f1896fa53 (SOL-PERP): total 304.07 SOL; first fill 9.49 @ 103.34
+  page   HTTP 200: What this transaction did | Trade | SOL-PERP · 0 @ 103.34 | Open in | Markets | → | Touches | Markets | USDso |

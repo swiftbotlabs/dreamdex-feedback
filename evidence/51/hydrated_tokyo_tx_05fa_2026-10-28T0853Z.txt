@@ -1,0 +1,29 @@
+captured 2026-10-28T08:53:10Z url=https://explorer.testnet.somnia.network/tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec viewport=1440x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec","title":"Transaction 0x05fa91…e2ec · Somnia Explorer (Testnet)","sw":1425,"cw":1425}
+
+--- footer (hydrated):
+// somnia explorer · tokyo testnet · chain 50383
+--- links after hydration (text -> href):
+ -> /tokyo
+Explorer -> /tokyo
+Overview -> /tokyo
+Blocks -> /tokyo/blocks
+Transactions -> /tokyo/txs
+Tokens -> /tokyo/tokens
+Accounts -> /tokyo/top-accounts
+Contracts -> /tokyo/verified-contracts
+Charts -> /tokyo/charts
+Networks -> /tokyo/networks
+Faucet -> /tokyo/faucet
+Validators -> /tokyo/validators
+RPCs -> /tokyo/rpcs
+Markets -> /markets
+Details -> /tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec
+Token transfers -> /tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec?tab=token_transfers
+Internal calls -> /tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec?tab=internal
+Logs (9) -> /tokyo/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec?tab=logs
+Open in Markets → -> /tokyo/markets/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec
+Markets -> /tokyo/markets/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec
+35,210,700 -> /tokyo/block/35210700
+0x4166060d459d2713d4a55ed4fa0f516e60ff80 -> /tokyo/address/0x4166060d459d2713d4a55ed4fa0f516e60ff803c
+0xdcb0ad226727b2ce92857f0af5751389d42b2a -> /tokyo/address/0xdcb0ad226727b2ce92857f0af5751389d42b2a3f

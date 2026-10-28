@@ -1,0 +1,21 @@
+Control: a SPOT order on Tokyo with an 8-decimal base (WBTC/USDso spot pool 0xd61bb202984e4c02dd6dbf51489a7ec6144e7aa0) is scaled correctly in the same feed.
+Live feed on https://explorer.testnet.somnia.network/tokyo, captured 2026-10-28T08:58:46Z (rows: text -> link; the row clock is the browser's local time, IST = UTC+5:30, so 14:28:33 = 08:58:33 UTC):
+  14:28:33 #35,247,457 ORDER 0x2a73…f050 · Sell 0 @ 1,315.31 0xcd3b…a654 -> /markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050
+  14:28:33 #35,247,457 ORDER 0x2a73…f050 · Buy 0 @ 1,314.41 0xcd3b…a654 -> /markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050
+  14:28:33 #35,247,457 ORDER 0x2a73…f050 · Sell 0 @ 1,315.29 0xd775…e121 -> /markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050
+  14:28:33 #35,247,457 ORDER 0x2a73…f050 · Buy 0 @ 1,314.58 0xd775…e121 -> /markets?pool=0x2a73129f26917124bd2a47a9b355c395c537f050
+  14:28:33 #35,247,456 ORDER WBTC/USDso · Buy 0.00227 @ 81,266.6 0xaaa5…7402 -> /markets?pool=0xd61bb202984e4c02dd6dbf51489a7ec6144e7aa0
+  14:28:33 #35,247,456 ORDER WBTC/USDso · Buy 0.00201 @ 81,307.3 0xaaa5…7402 -> /markets?pool=0xd61bb202984e4c02dd6dbf51489a7ec6144e7aa0
+  14:28:33 #35,247,456 ORDER WBTC/USDso · Sell 0.00225 @ 81,527.3 0xaaa5…7402 -> /markets?pool=0xd61bb202984e4c02dd6dbf51489a7ec6144e7aa0
+  14:28:33 #35,247,456 ORDER WBTC/USDso · Buy 0.00175 @ 81,348 0xaaa5…7402 -> /markets?pool=0xd61bb202984e4c02dd6dbf51489a7ec6144e7aa0
+
+Chain (Hideki RPC, decoded with the dreamDEX event ABI):
+  tx 0xaaa5c2cc9772b75926863bdef890bd53185fc716edd6b135aa5e33b1012d7402 (WBTC/USDso spot, base 8 decimals):
+    log 17 OrderPlaced isBid=True price=81348000000000000000000 fullQuantity=175000
+    log 19 OrderPlaced isBid=False price=81527300000000000000000 fullQuantity=225000
+    log 21 OrderPlaced isBid=True price=81307300000000000000000 fullQuantity=201000
+    log 23 OrderPlaced isBid=True price=81266600000000000000000 fullQuantity=227000
+  tx 0xcd3b880db1e51c1444ac5616f5612d222a4f396b4229a74eadea9cd770b4a654 (ZEC/USDso perp, base 8 decimals):
+    log 14 OrderPlaced isBid=True price=1314414000000000000000 fullQuantity=532500000
+    log 17 OrderPlaced isBid=False price=1315309000000000000000 fullQuantity=532500000
+Spot: 175000 / 1e8 = 0.00175 WBTC, shown 'Buy 0.00175' (right). Perp: 532500000 / 1e8 = 5.325 ZEC, shown 'Buy 0' / 'Sell 0' (5.325e-10 when read as 18 decimals).

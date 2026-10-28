@@ -1,0 +1,33 @@
+captured 2026-10-28T08:52:37Z url=https://explorer.testnet.somnia.network/tokyo viewport=1440x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/tokyo","title":"Somnia Explorer (Testnet)","sw":1425,"cw":1425}
+
+--- network chip (top of the hydrated page):
+EXPLORER
+Tokyo testnet
+50383 · 893 ms
+
+--- Connect card and footer (hydrated):
+CONNECT
+Somnia Tokyo testnet
+
+Asia-Pacific · Tokyo · testnet
+
+CHAIN ID
+50383
+CURRENCY
+STT
+RPC
+https://api.hideki.infra.testnet.somnia.network/
+Copy
+WEBSOCKET
+wss://api.hideki.infra.testnet.somnia.network/ws
+Copy
+BLOCK EXPLORER
+explorer.testnet.somnia.network/tokyo
+FAUCET
+explorer.testnet.somnia.network/tokyo/faucet
+Add to wallet
+Compare networks
+// somnia explorer · tokyo testnet · chain 50383
+© 2026 Somnia
+Feedback

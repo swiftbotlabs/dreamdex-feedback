@@ -1,0 +1,28 @@
+captured 2026-10-28T08:57:13Z url=https://explorer.testnet.somnia.network/markets/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec viewport=1440x900 mobile=False
+{"href":"https://explorer.testnet.somnia.network/markets/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec","title":"Transaction 0x05fa91ea… · Somnia Markets · Somnia Explorer","sw":1440,"cw":1440}
+MARKETS / SOMNIA MARKETS
+
+Somnia Markets
+LIVE
+
+Order books, matching and settlement that run as smart contracts, shared by every venue. Spot, perpetual and event markets share one engine, one liquidity root and one SDK.
+
+0 BPS PROTOCOL FEE
+Search
+Docs
+Spot
+Perps
+Binary
+Series
+Blocks
+Portfolio
+System
+Reading the transaction…
+// somnia explorer · global · chain 5031
+© 2026 Somnia
+network requests (no bodies):
+      1 - ? WebSocket wss://api.infra.mainnet.somnia.network/ws
+      1 GET 200 Document https://explorer.testnet.somnia.network/markets/tx/0x05fa91ea29f12038f7369f38c01babc604cfc1a6061f5ef1b8c3c1c87984e2ec
+      9 OPTIONS 204 Preflight https://prd.smk.somnia.host/v1/graphql
+      8 POST 200 Fetch https://prd.smk.somnia.host/v1/graphql
+      2 POST ? - https://prd.smk.somnia.host/v1/graphql
