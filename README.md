@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-53-7c5cff?style=flat-square" alt="reports: 53">
+  <img src="https://img.shields.io/badge/reports-54-7c5cff?style=flat-square" alt="reports: 54">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Fifty-three issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Fifty-four issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-7 major and 46 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+7 major and 47 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -65,6 +65,12 @@ reproduced read-only between 10:15 and 10:49 UTC, by script twice, against the m
 internal transfers (#52), address lists that return empty pages with a "next" cursor (#53), Etherscan `txlist` refused for
 the busiest accounts (#54) and contract creators that are never shown (#55). Scripts and outputs are in
 [`evidence/52/`](evidence/52/) to [`evidence/55/`](evidence/55/).
+
+**Report 56 was added on 2026-10-28, ~23:47 UTC** ([commit](https://github.com/swiftbotlab/dreamdex-feedback/commit/b4065c4)), on the **testnet app's public trader page**
+(`/trader/<address>`). It was reproduced read-only twice, between 23:31 and 23:47 UTC, logged out in a fresh browser
+context, against the Tokyo RPC (`getOwnOpenOrders()` per pool as an `eth_call`) and both testnet indexers. The page's
+Open orders, Spot trades and Event trades tabs read only the Global (Shannon) indexer, so Tokyo orders and trades never
+show (#56). Scripts and outputs are in [`evidence/56/`](evidence/56/).
 
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
@@ -424,6 +430,16 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 **Repro:** `node evidence/39/cap39.mjs` → default client: `fetchPrice('BTC')` throws `NotConfiguredError`; with `SOMNIA_TESTNET_PRICE_FEED`: BTC 80,019<br>
 [Report](feedback/39-sdk-docs-no-hideki-price-feed-constant-price-reads-throw-notconfigured.md) · [Evidence](evidence/39/) · First reported 2026-10-26 ~13:21 UTC
 
+### #56 · Trader page: the Open orders, Spot trades and Event trades tabs read only the Global (Shannon) indexer, so Tokyo orders and trades never show
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`app`
+
+**Impact:** the page says it shows "trades, positions and orders … across every region", and its Positions and Perps trades tabs do. The Open orders, Spot trades and Event trades tabs query only `dev.smk.somnia.host`. A wallet with 4 perp orders resting on Tokyo (on chain and in the Tokyo indexer) is shown "No resting orders — this wallet has nothing open on the book right now". A market maker with 149 resting Tokyo orders is shown 15 unlabelled Shannon DOGE orders. A Tokyo spot and event trader is shown "No spot trades — this wallet has not traded on the order book" and "No activity yet", while its Perps trades tab lists its Tokyo trades.
+
+<img src="evidence/56/ui_open_orders_tab_0xd764_2026-10-28T2333Z.png" width="600" alt="Trader page, Open orders tab: No resting orders, for a wallet with 4 resting Tokyo orders">
+
+**Repro:** `node evidence/56/open_orders_check.mjs 0xd76470c7303eab00ba54d92452de8f4329ec2994` → `restingOrders: 4` on chain, Tokyo indexer `open: 4`, Global indexer `open: 0`; open `/trader/0xd76470c7303eab00ba54d92452de8f4329ec2994` → Open orders → "No resting orders"<br>
+[Report](feedback/56-app-trader-page-open-orders-spot-and-event-trades-tabs-read-only-the-global-region-so-tokyo-orders-and-trades-never-show.md) · [Evidence](evidence/56/) · First reported [2026-10-28 23:46 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/b4065c4) · Checked 2026-10-28 23:31–23:41 and 23:42–23:47 UTC, logged out
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -685,6 +701,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#53 explorer API**: page address lists (`filter=to`, `/logs`) by items, not by fixed time/block windows; return `next_page_params: null` at the end and never an empty page with a cursor.
 - [ ] **#54 explorer API**: serve Etherscan `txlist` for busy accounts from the same path as `/api/v2/addresses/<a>/transactions` (or a default block window); a permanent limit is not "right now".
 - [ ] **#55 explorer**: record creator and creation tx for every contract, including internal `create`/`create2`; fill the v2 fields, show them on the page, serve `getcontractcreation` from them; label the nonce "Nonce" on contract pages.
+- [ ] **#56 app**: on `/trader/<address>`, run the Open orders, Spot trades and Event trades queries once per region (Tokyo / DreamDEX and Global), as the Positions and Perps trades tabs do, and label each section; read Tokyo open orders on chain (`getOpenOrdersOnchain`) where the indexer fails; scope the empty-state texts to the region read.
 
 ## Index
 
@@ -743,6 +760,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 53 | normal | explorer | [Address lists return empty pages with a "next" cursor: 29 before an account's first incoming transfer](feedback/53-explorer-api-address-lists-return-empty-pages-with-a-next-cursor-29-for-incoming-transactions.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
 | 54 | normal | explorer | [Etherscan `txlist` is "Not available" for accounts with more than ~2.5M transactions, even for 5 rows](feedback/54-explorer-api-etherscan-txlist-is-not-available-for-the-busiest-accounts-even-for-five-rows.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
 | 55 | normal | explorer | [Contract creator and creation transaction are never shown; `getcontractcreation` fails for CREATE2 and factory deployments](feedback/55-explorer-contract-creator-and-creation-transaction-are-missing-and-getcontractcreation-fails-for-create2-deployments.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
+| 56 | normal | app | [Trader page: Open orders, Spot trades and Event trades read only the Global (Shannon) indexer, so Tokyo orders and trades never show](feedback/56-app-trader-page-open-orders-spot-and-event-trades-tabs-read-only-the-global-region-so-tokyo-orders-and-trades-never-show.md) | [2026-10-28 23:46](https://github.com/swiftbotlab/dreamdex-feedback/commit/b4065c4) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
@@ -750,7 +768,8 @@ Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; repo
 2026-10-26 between 13:12 and 13:21 UTC. Reports 40–47 (the new Somnia explorer, mainnet) were checked on 2026-10-27
 between 14:14 and 15:15 UTC. Reports 48–51 (the Tokyo testnet view of the explorer) were checked on 2026-10-28 between
 08:49 and 09:22 UTC. Reports 52–55 (the new Somnia explorer, mainnet) were checked on 2026-10-28 between
-10:15 and 10:49 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+10:15 and 10:49 UTC. Report 56 (the testnet app's trader page) was checked on 2026-10-28 between 23:31 and
+23:47 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
