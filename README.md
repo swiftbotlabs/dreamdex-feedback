@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 49 reproducible reports on Somnia Tokyo testnet and the new Somnia explorer, by Swift Bot Labs">
+  <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 53 reproducible reports on Somnia Tokyo testnet and the new Somnia explorer, by Swift Bot Labs">
 </p>
 
 <p align="center">
