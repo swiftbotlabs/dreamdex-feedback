@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-49-7c5cff?style=flat-square" alt="reports: 49">
+  <img src="https://img.shields.io/badge/reports-53-7c5cff?style=flat-square" alt="reports: 53">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Forty-nine issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Fifty-three issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-6 major and 43 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+7 major and 46 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -57,6 +57,14 @@ the Tokyo RPC, the PerpPoolFactory and the Tokyo indexer. They cover perp sizes 
 markets (#48), liquidations summarised as one small trade (#49), Markets links that open the mainnet Markets section (#50)
 and Tokyo pages server-rendered as Global testnet 50312 (#51). Scripts and outputs are in [`evidence/48/`](evidence/48/)
 to [`evidence/51/`](evidence/51/).
+
+**Reports 52–55 were added on 2026-10-28, ~10:51 UTC** ([commit](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47)), again on the
+**new Somnia explorer** (mainnet, chain 5031), after the team's second request for explorer feedback that morning. Each was
+reproduced read-only between 10:15 and 10:49 UTC, by script twice, against the mainnet RPC and explorer.somnia.network
+(Blockscout) on the same chain. They cover a Top accounts list and `ethsupply` that leave out every account funded only by
+internal transfers (#52), address lists that return empty pages with a "next" cursor (#53), Etherscan `txlist` refused for
+the busiest accounts (#54) and contract creators that are never shown (#55). Scripts and outputs are in
+[`evidence/52/`](evidence/52/) to [`evidence/55/`](evidence/55/).
 
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
@@ -418,7 +426,7 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 
 ## Explorer
 
-Reports 40–47 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
+Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
 the team asked bounty developers for feedback on 2026-10-27. Each compares the explorer with the chain's own RPC and, where
 the explorer's `llms.txt` promises Blockscout compatibility ("Each API is Blockscout's or Etherscan's, so tools and code written for those work here unchanged"), with
 explorer.somnia.network (Blockscout v10.2.6) on the same chain. The `llms.txt` we quote is saved as
@@ -511,6 +519,49 @@ says so" for what the explorer cannot answer.
 
 **Repro:** `bash evidence/47/stats_check.sh` → `total_transactions None` (new) vs `'1916432551'` (Blockscout)<br>
 [Report](feedback/47-explorer-api-stats-returns-null-total-transactions-addresses-and-gas.md) · [Evidence](evidence/47/) · First reported 2026-10-27 ~15:16 UTC
+
+### #52 · Top accounts leaves out every account funded only by internal transfers (18 accounts, 149.7M SOMI), and `ethsupply` reports 837.5M of a fixed 1B SOMI
+![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`explorer`
+
+**Impact:** a 40,000,000 SOMI account that should be #6 and 17 `VestingSchedule` contracts (3.16M–9.31M SOMI each) are not
+on the list at all, so every rank from #6 down is wrong. Their own address pages show the right balance, and the explorer
+has the internal transfers that funded them. Etherscan `ethsupply` returns 837,505,966 SOMI; the docs give a fixed supply of
+1,000,000,000. The list's TRANSACTIONS column is "—" on every row.
+
+<img src="evidence/52/ui_top_accounts_2026-10-28T1023Z.png" width="600" alt="Top accounts: #6 is 0x59459F… with 37.07M SOMI; the 40M SOMI account is missing">
+
+**Repro:** `python3 evidence/52/top_accounts_check.py` → `absent from its first 150 rows: 18, together 149,665,898.85 SOMI`; `ethsupply -> 837,505,966.02 SOMI`<br>
+[Report](feedback/52-explorer-top-accounts-leaves-out-accounts-funded-only-by-internal-transfers-and-ethsupply-reports-837m-of-1b-somi.md) · [Evidence](evidence/52/) · First reported 2026-10-28 ~10:51 UTC
+
+### #53 · Address lists page through fixed time or block windows: `transactions?filter=to` returns 29 empty pages with a "next" cursor before the first item
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `/api/v2/addresses/<a>/transactions?filter=to` moves back 4 days per page, and `/api/v2/addresses/<contract>/logs`
+moves back 10,000 blocks per page, so sparse lists start with empty pages that still carry a cursor. A Blockscout client that
+stops at an empty page reports "no incoming transactions" or "no logs". Blockscout returns the same rows on page 1.
+
+**Repro:** `python3 evidence/53/empty_pages_check.py --pages 40` → `29 empty page(s) with a cursor before the first item`; Blockscout page 1: `items 2`<br>
+[Report](feedback/53-explorer-api-address-lists-return-empty-pages-with-a-next-cursor-29-for-incoming-transactions.md) · [Evidence](evidence/53/) · First reported 2026-10-28 ~10:51 UTC
+
+### #54 · Etherscan `txlist` answers "Not available … right now" for every account with more than ~2.5M transactions, even for 5 rows
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** the most-called contract on the chain (AgentRequester, 19M transactions) and four other busy accounts
+(2.64M–61.6M) get `status 0` within about a second, in both runs. Accounts with up to 2.46M transactions work. The REST list
+and Blockscout answer the same request, and adding `startblock` makes it work, so the data is there.
+
+**Repro:** `python3 evidence/54/txlist_busy_accounts_check.py` → busy accounts `status 0 'Not available: the explorer cannot answer this request right now'`, controls `status 1 'OK' rows 5`<br>
+[Report](feedback/54-explorer-api-etherscan-txlist-is-not-available-for-the-busiest-accounts-even-for-five-rows.md) · [Evidence](evidence/54/) · First reported 2026-10-28 ~10:51 UTC
+
+### #55 · Contract pages never show who created a contract; `getcontractcreation` fails for CREATE2 and factory deployments
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** `creator_address_hash` and `creation_transaction_hash` are `null` for 9 of 9 contracts (WSOMI included), and the
+page has no creator row. `getcontractcreation` answers "Not available … right now" for 7 of 9, including 5 of the first 6
+verified contracts. Blockscout returns all 9. Contract pages also label the nonce "Transactions sent 1".
+
+**Repro:** `python3 evidence/55/contract_creator_check.py` → `NEW /api/v2/addresses: creator_address_hash None`, `NEW getcontractcreation: 0 'Not available …'`; Blockscout `OK creator … tx …`<br>
+[Report](feedback/55-explorer-contract-creator-and-creation-transaction-are-missing-and-getcontractcreation-fails-for-create2-deployments.md) · [Evidence](evidence/55/) · First reported 2026-10-28 ~10:51 UTC
 
 ## Explorer (Tokyo testnet)
 
@@ -630,6 +681,10 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#49 explorer (Tokyo)**: when a transaction has LiquidationEngine events, summarise it as a LIQUIDATION (account, market, size closed, mark price, fee) and total multi-fill trades instead of showing the first `OrderFilled`; decode `LiquidationFeeCharged` / `LiquidationKeeperRewardPaid`.
 - [ ] **#50 explorer (testnet)**: give Tokyo its own markets routes backed by the Tokyo indexer, or hide the Markets links on `/tokyo` pages; never route a perp pool to the spot (`/markets?pool=`) or binary view, or a testnet row to mainnet data.
 - [ ] **#51 explorer (Tokyo)**: resolve the network from the `[network]` route on the server, so `/tokyo/...` HTML carries Tokyo's chip, footer, Connect card (chain id 50383, Tokyo RPC) and `/tokyo` links.
+- [ ] **#52 explorer**: build the balance table (Top accounts, `ethsupply`) from every address with a native balance change, including internal-call recipients, `created_contract` and genesis allocations; back-fill; fill `transactions_count`.
+- [ ] **#53 explorer API**: page address lists (`filter=to`, `/logs`) by items, not by fixed time/block windows; return `next_page_params: null` at the end and never an empty page with a cursor.
+- [ ] **#54 explorer API**: serve Etherscan `txlist` for busy accounts from the same path as `/api/v2/addresses/<a>/transactions` (or a default block window); a permanent limit is not "right now".
+- [ ] **#55 explorer**: record creator and creation tx for every contract, including internal `create`/`create2`; fill the v2 fields, show them on the page, serve `getcontractcreation` from them; label the nonce "Nonce" on contract pages.
 
 ## Index
 
@@ -684,13 +739,18 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 49 | major | explorer | [Tokyo: a liquidation is summarised as its first small fill, sometimes an unrelated spot fill, and never called a liquidation](feedback/49-explorer-tokyo-liquidation-transactions-are-summarised-as-one-small-trade-and-never-called-a-liquidation.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
 | 50 | normal | explorer | [Tokyo: every Markets link opens the testnet explorer's Markets section, which is bound to mainnet (chain 5031)](feedback/50-explorer-tokyo-markets-links-open-the-mainnet-markets-section-where-no-tokyo-perp-market-pool-or-trade-exists.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
 | 51 | normal | explorer | [Tokyo: every `/tokyo/...` page is server-rendered as "Global testnet · chain 50312", with Shannon's chain id, RPC and links](feedback/51-explorer-tokyo-pages-are-server-rendered-as-global-testnet-50312-with-shannon-chain-id-and-rpc.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
+| 52 | major | explorer | [Top accounts leaves out every account funded only by internal transfers (18 accounts, 149.7M SOMI); `ethsupply` reports 837.5M of 1B SOMI](feedback/52-explorer-top-accounts-leaves-out-accounts-funded-only-by-internal-transfers-and-ethsupply-reports-837m-of-1b-somi.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
+| 53 | normal | explorer | [Address lists return empty pages with a "next" cursor: 29 before an account's first incoming transfer](feedback/53-explorer-api-address-lists-return-empty-pages-with-a-next-cursor-29-for-incoming-transactions.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
+| 54 | normal | explorer | [Etherscan `txlist` is "Not available" for accounts with more than ~2.5M transactions, even for 5 rows](feedback/54-explorer-api-etherscan-txlist-is-not-available-for-the-busiest-accounts-even-for-five-rows.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
+| 55 | normal | explorer | [Contract creator and creation transaction are never shown; `getcontractcreation` fails for CREATE2 and factory deployments](feedback/55-explorer-contract-creator-and-creation-transaction-are-missing-and-getcontractcreation-fails-for-create2-deployments.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
 00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Reports 37–39 were added, and #10 rescoped, on
 2026-10-26 between 13:12 and 13:21 UTC. Reports 40–47 (the new Somnia explorer, mainnet) were checked on 2026-10-27
 between 14:14 and 15:15 UTC. Reports 48–51 (the Tokyo testnet view of the explorer) were checked on 2026-10-28 between
-08:49 and 09:22 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+08:49 and 09:22 UTC. Reports 52–55 (the new Somnia explorer, mainnet) were checked on 2026-10-28 between
+10:15 and 10:49 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
