@@ -3,16 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-45-7c5cff?style=flat-square" alt="reports: 45">
+  <img src="https://img.shields.io/badge/reports-49-7c5cff?style=flat-square" alt="reports: 49">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Forty-five issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
-50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, and on the
-**new Somnia explorer** (new.explorer.somnia.network): 4 major and 41 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+Forty-nine issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
+**new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
+6 major and 43 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -49,9 +50,17 @@ They cover address history that lags the head by tens of minutes (#40), a search
 documented 5% burn (#44), proxy detection (#45), the phone overview (#46) and null chain totals in `/api/v2/stats` (#47).
 Scripts and outputs are in [`evidence/40/`](evidence/40/) to [`evidence/47/`](evidence/47/).
 
+**Reports 48–51 were added on 2026-10-28, ~09:23 UTC** ([commit](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e)), on the
+**Tokyo testnet view of the explorer** (explorer.testnet.somnia.network/tokyo, chain 50383), where dreamDEX perps trade.
+Each was reproduced read-only between 08:49 and 09:22 UTC, by script three times and in a fresh browser context, against
+the Tokyo RPC, the PerpPoolFactory and the Tokyo indexer. They cover perp sizes read as 18-decimal numbers on 12 of 21
+markets (#48), liquidations summarised as one small trade (#49), Markets links that open the mainnet Markets section (#50)
+and Tokyo pages server-rendered as Global testnet 50312 (#51). Scripts and outputs are in [`evidence/48/`](evidence/48/)
+to [`evidence/51/`](evidence/51/).
+
 **Severity** (the bounty's scale: critical | major | normal): ![major](https://img.shields.io/badge/major-d73a49?style=flat-square)
 ![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) · Jump to: [Major](#major) ·
-[Normal](#normal) · [Explorer](#explorer) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
+[Normal](#normal) · [Explorer](#explorer) · [Explorer (Tokyo)](#explorer-tokyo-testnet) · [Archived](#archived) · [Fix checklist](#fix-checklist) · [Index](#index) · [Quick start](#quick-start)
 
 ## Major
 
@@ -503,6 +512,59 @@ says so" for what the explorer cannot answer.
 **Repro:** `bash evidence/47/stats_check.sh` → `total_transactions None` (new) vs `'1916432551'` (Blockscout)<br>
 [Report](feedback/47-explorer-api-stats-returns-null-total-transactions-addresses-and-gas.md) · [Evidence](evidence/47/) · First reported 2026-10-27 ~15:16 UTC
 
+## Explorer (Tokyo testnet)
+
+Reports 48–51 are about the **Tokyo testnet view of the Somnia explorer**, https://explorer.testnet.somnia.network/tokyo/
+(Hideki, chain 50383), where dreamDEX perps trade. Each compares what the explorer shows for dreamDEX trades, orders,
+positions and liquidations with the chain's own receipts (`api.hideki2.infra.testnet.somnia.network`), the PerpPoolFactory
+and the Tokyo indexer. They are not duplicates of the two Tokyo explorer issues already reported publicly (the
+"Open in Markets →" 404 and the pool address shown instead of the market name); each report says why.
+
+### #48 · Perp trade, order, position and liquidation sizes are divided by 1e18 whatever the base token's decimals: 12 of 21 perp markets show wrong sizes
+![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`explorer`
+
+**Impact:** a 0.08438 BTC fill reads "BTC-PERP · 0 @ 81,596.9", a 202.59 SOL liquidation "LIQUIDATION … · 0 @ 103.2515",
+a 5.1 NEAR fill "5,100,000 @ 4.7375". Every market whose base token is not 18-decimal (BTC, DOGE, ZEC, SOL, SUI, TAO, XLM,
+ADA, HYPE, XRP, PUMP, NEAR) is affected in the transaction card, the live feed and the Logs tab. 18-decimal perps and spot
+markets (WBTC/USDso spot, 8 decimals) are scaled correctly, and named markets are wrong too.
+
+<img src="evidence/48/ui_tokyo_tx_btc_perp_trade_card_2026-10-28T0902Z.png" width="600" alt="Tokyo transaction page: TRADE BTC-PERP · 0 @ 81,596.9 for a 0.08438 BTC fill">
+
+**Repro:** `node evidence/48/trade_size_check.mjs` → `chain OrderFilled … = 0.08438 BTC` / `page Trade | BTC-PERP · 0 @ 81,596.9`; `node evidence/48/perp_base_decimals.mjs` → 12 of 21 not 18-decimal<br>
+[Report](feedback/48-explorer-tokyo-perp-trade-and-position-sizes-are-read-as-18-decimals-btc-shows-0-near-shows-1000000x.md) · [Evidence](evidence/48/) · First reported 2026-10-28 ~09:23 UTC
+
+### #49 · A liquidation is summarised as its first small fill, sometimes as an unrelated STT/USDso spot fill, and the Details tab never says "liquidation"
+![major](https://img.shields.io/badge/major-d73a49?style=flat-square) &nbsp;`explorer`
+
+**Impact:** an 80.26 ETH liquidation (191,194 USDso notional, 1,911.94 USDso fee, 13 fills) reads "Trade · ETH-PERP · 0.4207 @
+2,378.16"; a 202.59 SOL liquidation reads "Trade · STT/USDso · 1.14 @ 0.1849". The Logs tab decodes `PositionLiquidated`
+("LIQUIDATION … · 80.2601 @ 2,379.21"), but the summary never uses it, and the fee and keeper-reward events are not decoded.
+
+**Repro:** `node evidence/49/liquidation_card_check.mjs` → per liquidation: `PositionLiquidated … sizeDelta 80.2601 ETH`, `13 OrderFilled … total 80.2601 ETH` / `page Trade | ETH-PERP · 0.4207 @ 2,378.16`<br>
+[Report](feedback/49-explorer-tokyo-liquidation-transactions-are-summarised-as-one-small-trade-and-never-called-a-liquidation.md) · [Evidence](evidence/49/) · First reported 2026-10-28 ~09:23 UTC
+
+### #50 · Every Markets link on the Tokyo pages opens the testnet explorer's Markets section, which is bound to Somnia mainnet (chain 5031)
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** the sidebar's Markets entry and every ORDER/TRADE row of the `/tokyo` feed link to `/markets…`, which switches
+the network to "Global 5031", reads the mainnet indexer, and answers "Spot market not indexed yet … on Global" for a Tokyo
+ZEC perp, "No market for that pool" (the binary view) for unnamed perp pools, and "0 MARKETS" on its Perps tab.
+`/tokyo/markets…` routes are 404, so no Tokyo perp market can be opened anywhere in the explorer.
+
+**Repro:** `bash evidence/50/markets_network_check.sh` → Markets pages' footer `global · chain 5031`; `prd.smk.somnia.host` `chain_id 5031`, perps `0`; the listed pools have code only on mainnet<br>
+[Report](feedback/50-explorer-tokyo-markets-links-open-the-mainnet-markets-section-where-no-tokyo-perp-market-pool-or-trade-exists.md) · [Evidence](evidence/50/) · First reported 2026-10-28 ~09:23 UTC
+
+### #51 · Every `/tokyo/...` page is server-rendered as "Global testnet · chain 50312", with Shannon's chain id, RPC and links
+![normal](https://img.shields.io/badge/normal-d29922?style=flat-square) &nbsp;`explorer`
+
+**Impact:** over plain HTTP (curl, crawlers, the agents `llms.txt` invites), the Tokyo overview's Connect card gives chain id
+50312 and `https://api.infra.testnet.somnia.network/` (Shannon), and Tokyo transaction, address and block pages carry a
+"Global testnet 50312" chip and footer next to a "Tokyo testnet" breadcrumb, with sidebar links to Shannon's lists. The
+browser shows Tokyo (50383) only after hydration.
+
+**Repro:** `python3 -I evidence/51/ssr_network_check.py` → `/tokyo  network chip : Global testnet 50312`, `Chain id : 50312`, `RPC : https://api.infra.testnet.somnia.network/`<br>
+[Report](feedback/51-explorer-tokyo-pages-are-server-rendered-as-global-testnet-50312-with-shannon-chain-id-and-rpc.md) · [Evidence](evidence/51/) · First reported 2026-10-28 ~09:23 UTC
+
 ## Archived
 
 Kept for the record in [`archive/`](archive) and **not part of the submission**. Please do not count them.
@@ -564,6 +626,10 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 - [ ] **#45 explorer**: detect proxies from the EIP-1967 implementation/beacon slots (and EIP-1822/1167) for every contract, verified or not; fill `proxy_type` / `implementations` and show "Proxy of 0x…" on the Contract tab.
 - [ ] **#46 explorer (phone)**: on the overview stat tiles use a smaller size below `sm` (e.g. `text-[20px] sm:text-[28px]`) or one column below ~440 px; add `title` to the head block value; let the captions wrap.
 - [ ] **#47 explorer API**: fill `total_transactions`, `total_addresses` and `total_gas_used` in `/api/v2/stats`, or omit them / answer 501 as `llms.txt` promises, instead of `null` in a 200.
+- [ ] **#48 explorer (Tokyo)**: scale perp sizes (`OrderFilled.quantityFilled`, `OrderPlaced.fullQuantity`, `PositionUpdated.newSize`, `PositionLiquidated.sizeDelta`) by the pool's base decimals (`PerpPoolFactory.getBaseTokenForPool` → `decimals()`), not 1e18.
+- [ ] **#49 explorer (Tokyo)**: when a transaction has LiquidationEngine events, summarise it as a LIQUIDATION (account, market, size closed, mark price, fee) and total multi-fill trades instead of showing the first `OrderFilled`; decode `LiquidationFeeCharged` / `LiquidationKeeperRewardPaid`.
+- [ ] **#50 explorer (testnet)**: give Tokyo its own markets routes backed by the Tokyo indexer, or hide the Markets links on `/tokyo` pages; never route a perp pool to the spot (`/markets?pool=`) or binary view, or a testnet row to mainnet data.
+- [ ] **#51 explorer (Tokyo)**: resolve the network from the `[network]` route on the server, so `/tokyo/...` HTML carries Tokyo's chip, footer, Connect card (chain id 50383, Tokyo RPC) and `/tokyo` links.
 
 ## Index
 
@@ -614,12 +680,17 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 45 | normal | explorer | [Unverified EIP-1967 and beacon proxies are not recognised](feedback/45-explorer-unverified-eip1967-and-beacon-proxies-are-not-recognised.md) | 2026-10-27 ~15:16 |
 | 46 | normal | explorer | [Phone: the overview's HEAD BLOCK tile cuts the block number off](feedback/46-explorer-phone-overview-cuts-off-the-head-block-number.md) | 2026-10-27 ~15:16 |
 | 47 | normal | explorer | [`/api/v2/stats` returns `null` for total transactions, addresses and gas](feedback/47-explorer-api-stats-returns-null-total-transactions-addresses-and-gas.md) | 2026-10-27 ~15:16 |
+| 48 | major | explorer | [Tokyo: perp trade, order, position and liquidation sizes are divided by 1e18 whatever the base decimals; 12 of 21 perp markets show wrong sizes](feedback/48-explorer-tokyo-perp-trade-and-position-sizes-are-read-as-18-decimals-btc-shows-0-near-shows-1000000x.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
+| 49 | major | explorer | [Tokyo: a liquidation is summarised as its first small fill, sometimes an unrelated spot fill, and never called a liquidation](feedback/49-explorer-tokyo-liquidation-transactions-are-summarised-as-one-small-trade-and-never-called-a-liquidation.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
+| 50 | normal | explorer | [Tokyo: every Markets link opens the testnet explorer's Markets section, which is bound to mainnet (chain 5031)](feedback/50-explorer-tokyo-markets-links-open-the-mainnet-markets-section-where-no-tokyo-perp-market-pool-or-trade-exists.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
+| 51 | normal | explorer | [Tokyo: every `/tokyo/...` page is server-rendered as "Global testnet · chain 50312", with Shannon's chain id, RPC and links](feedback/51-explorer-tokyo-pages-are-server-rendered-as-global-testnet-50312-with-shannon-chain-id-and-rpc.md) | [2026-10-28 09:23](https://github.com/swiftbotlab/dreamdex-feedback/commit/3c8b61e) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
 00:53 and 04:57 UTC, and reports 28–36 between 06:08 and 08:27 UTC. Reports 37–39 were added, and #10 rescoped, on
 2026-10-26 between 13:12 and 13:21 UTC. Reports 40–47 (the new Somnia explorer, mainnet) were checked on 2026-10-27
-between 14:14 and 15:15 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
+between 14:14 and 15:15 UTC. Reports 48–51 (the Tokyo testnet view of the explorer) were checked on 2026-10-28 between
+08:49 and 09:22 UTC. Archived: 07 (withdrawn) and 11 (changed), see [Archived](#archived).
 
 ## Quick start
 
@@ -689,7 +760,8 @@ Reports 13–47 keep their scripts next to their saved outputs in `evidence/<num
 gives the exact command. All of them are read-only except the live run in #13 (optional, a funded key of your own).
 Reports 37–39 run SDK 0.32.1 read-only (install `@somnia-chain/markets-sdk@0.32.1`, `@somnia-chain/reactivity@0.2.1`
 and `viem@2.57.7`; see `evidence/37`–`39`). Reports 40–47 need only curl, Python 3 (standard library) and, for #46,
-a Chrome with remote debugging plus `websocket-client`.
+a Chrome with remote debugging plus `websocket-client`. Reports 48–51 need Node 18+ with `viem` (this repo's `package.json`),
+curl and Python 3; the browser captures of #50 used `evidence/50/cap.py` against a Chrome with remote debugging.
 </details>
 
 <details>
