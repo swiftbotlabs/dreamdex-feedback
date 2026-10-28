@@ -1,0 +1,42 @@
+
+### incoming transactions of an active trading account
+    /api/v2/addresses/0x601b691a3C6372d6D7345df4f7E5D30d51535aCd/transactions  {'filter': 'to'}
+  2026-10-28T10:44:25Z NEW page  1: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkyODM4NjYyfQ', 'items_count': 50} cursor decodes to {'u': 1792838662, 'u_as_time': '2026-10-24 10:44Z'}
+  2026-10-28T10:44:29Z NEW page  2: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkyNDkzMDYyfQ', 'items_count': 50} cursor decodes to {'u': 1792493062, 'u_as_time': '2026-10-20 10:44Z'}
+  2026-10-28T10:44:33Z NEW page  3: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkyMTQ3NDYyfQ', 'items_count': 50} cursor decodes to {'u': 1792147462, 'u_as_time': '2026-10-16 10:44Z'}
+  2026-10-28T10:44:37Z NEW page  4: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkxODAxODYyfQ', 'items_count': 50} cursor decodes to {'u': 1791801862, 'u_as_time': '2026-10-12 10:44Z'}
+  2026-10-28T10:44:41Z NEW page  5: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkxNDU2MjYyfQ', 'items_count': 50} cursor decodes to {'u': 1791456262, 'u_as_time': '2026-10-08 10:44Z'}
+  2026-10-28T10:44:46Z NEW page  6: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkxMTEwNjYyfQ', 'items_count': 50} cursor decodes to {'u': 1791110662, 'u_as_time': '2026-10-04 10:44Z'}
+  2026-10-28T10:44:50Z NEW page  7: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkwNzY1MDYyfQ', 'items_count': 50} cursor decodes to {'u': 1790765062, 'u_as_time': '2026-09-30 10:44Z'}
+  2026-10-28T10:44:54Z NEW page  8: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkwNDE5NDYyfQ', 'items_count': 50} cursor decodes to {'u': 1790419462, 'u_as_time': '2026-09-26 10:44Z'}
+  2026-10-28T10:44:58Z NEW page  9: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzkwMDczODYyfQ', 'items_count': 50} cursor decodes to {'u': 1790073862, 'u_as_time': '2026-09-22 10:44Z'}
+  2026-10-28T10:45:02Z NEW page 10: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg5NzI4MjYyfQ', 'items_count': 50} cursor decodes to {'u': 1789728262, 'u_as_time': '2026-09-18 10:44Z'}
+  2026-10-28T10:45:07Z NEW page 11: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg5MzgyNjYyfQ', 'items_count': 50} cursor decodes to {'u': 1789382662, 'u_as_time': '2026-09-14 10:44Z'}
+  2026-10-28T10:45:11Z NEW page 12: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg5MDM3MDYyfQ', 'items_count': 50} cursor decodes to {'u': 1789037062, 'u_as_time': '2026-09-10 10:44Z'}
+  2026-10-28T10:45:15Z NEW page 13: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg4NjkxNDYyfQ', 'items_count': 50} cursor decodes to {'u': 1788691462, 'u_as_time': '2026-09-06 10:44Z'}
+  2026-10-28T10:45:20Z NEW page 14: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg4MzQ1ODYyfQ', 'items_count': 50} cursor decodes to {'u': 1788345862, 'u_as_time': '2026-09-02 10:44Z'}
+  2026-10-28T10:45:24Z NEW page 15: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg4MDAwMjYyfQ', 'items_count': 50} cursor decodes to {'u': 1788000262, 'u_as_time': '2026-08-29 10:44Z'}
+  2026-10-28T10:45:28Z NEW page 16: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg3NjU0NjYyfQ', 'items_count': 50} cursor decodes to {'u': 1787654662, 'u_as_time': '2026-08-25 10:44Z'}
+  2026-10-28T10:45:32Z NEW page 17: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg3MzA5MDYyfQ', 'items_count': 50} cursor decodes to {'u': 1787309062, 'u_as_time': '2026-08-21 10:44Z'}
+  2026-10-28T10:45:36Z NEW page 18: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg2OTYzNDYyfQ', 'items_count': 50} cursor decodes to {'u': 1786963462, 'u_as_time': '2026-08-17 10:44Z'}
+  2026-10-28T10:45:40Z NEW page 19: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg2NjE3ODYyfQ', 'items_count': 50} cursor decodes to {'u': 1786617862, 'u_as_time': '2026-08-13 10:44Z'}
+  2026-10-28T10:45:44Z NEW page 20: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg2MjcyMjYyfQ', 'items_count': 50} cursor decodes to {'u': 1786272262, 'u_as_time': '2026-08-09 10:44Z'}
+  2026-10-28T10:45:49Z NEW page 21: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg1OTI2NjYyfQ', 'items_count': 50} cursor decodes to {'u': 1785926662, 'u_as_time': '2026-08-05 10:44Z'}
+  2026-10-28T10:45:55Z NEW page 22: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg1NTgxMDYyfQ', 'items_count': 50} cursor decodes to {'u': 1785581062, 'u_as_time': '2026-08-01 10:44Z'}
+  2026-10-28T10:45:59Z NEW page 23: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg1MjM1NDYyfQ', 'items_count': 50} cursor decodes to {'u': 1785235462, 'u_as_time': '2026-07-28 10:44Z'}
+  2026-10-28T10:46:03Z NEW page 24: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg0ODg5ODYyfQ', 'items_count': 50} cursor decodes to {'u': 1784889862, 'u_as_time': '2026-07-24 10:44Z'}
+  2026-10-28T10:46:08Z NEW page 25: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg0NTQ0MjYyfQ', 'items_count': 50} cursor decodes to {'u': 1784544262, 'u_as_time': '2026-07-20 10:44Z'}
+  2026-10-28T10:46:12Z NEW page 26: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzg0MTk4NjYyfQ', 'items_count': 50} cursor decodes to {'u': 1784198662, 'u_as_time': '2026-07-16 10:44Z'}
+  2026-10-28T10:46:16Z NEW page 27: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzgzODUzMDYyfQ', 'items_count': 50} cursor decodes to {'u': 1783853062, 'u_as_time': '2026-07-12 10:44Z'}
+  2026-10-28T10:46:20Z NEW page 28: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzgzNTA3NDYyfQ', 'items_count': 50} cursor decodes to {'u': 1783507462, 'u_as_time': '2026-07-08 10:44Z'}
+  2026-10-28T10:46:24Z NEW page 29: HTTP 200 [native] items  0  next_page_params {'cursor': 'eyJ1IjoxNzgzMTYxODYyfQ', 'items_count': 50} cursor decodes to {'u': 1783161862, 'u_as_time': '2026-07-04 10:44Z'}
+  2026-10-28T10:46:27Z NEW page 30: HTTP 200 [native] items  1  next_page_params {'cursor': 'eyJiIjozNDg1NzcxNjIsImkiOjAsInUiOjE3ODI5ODkwNjJ9', 'items_count': 50} cursor decodes to {'b': 348577162, 'i': 0, 'u': 1782989062, 'u_as_time': '2026-07-02 10:44Z'}  first item (348577162, '0xa9070a5aec', '2026-07-02T11:15:26.000000Z')
+  -> 29 empty page(s) with a cursor before the first item
+  2026-10-28T10:46:30Z Blockscout page 1: HTTP 200 items 2  first (348577162, '0xa9070a5aec', '2026-07-02T11:15:26.000000Z')  last (340130077, '0x8e4e385614', '2026-06-22T15:07:58.000000Z')
+
+### event logs of the WSOMI contract (verified, WETH9)
+    /api/v2/addresses/0x046EDe9564A72571df6F5e44d0405360c0f4dCab/logs  
+  2026-10-28T10:46:32Z NEW page  1: HTTP 200 [native] items  0  next_page_params {'block_number': 450289998, 'items_count': 50}
+  2026-10-28T10:46:35Z NEW page  2: HTTP 200 [native] items  3  next_page_params {'block_number': 450279998, 'items_count': 50}  first item (450289363, '0x80d317b959', '')
+  -> 1 empty page(s) with a cursor before the first item
+  2026-10-28T10:46:38Z Blockscout page 1: HTTP 200 items 50  first (450289363, '0x80d317b959', '')  last (450047832, '0x0daf7ac62f', '')

@@ -1,0 +1,40 @@
+Top accounts
+
+The addresses holding the most of the selected chain's native currency.
+
+Overview
+Blocks
+Transactions
+Tokens
+Accounts
+Contracts
+Charts
+#	ADDRESS	TYPE	BALANCE	TRANSACTIONS
+1	
+0xBe367d…8250
+	Contract	152,864,640.538568 SOMI	—
+2	
+0x571A6b…aC65
+	Account	109,999,998.997234 SOMI	—
+3	
+0x6A1AC4…a20D
+	Account	94,570,584.996684 SOMI	—
+4	
+0xFC816b…E111
+	Account	77,584,998.942676 SOMI	—
+5	
+0xFeE1f2…a7bF
+	Account	40,852,843.415077 SOMI	—
+6	
+0x59459F…4ddc
+	Account	37,071,537.222366 SOMI	—
+7	
+0x62B860…c1A8
+	Account	36,899,984.951486 SOMI	—
+8	
+0xC3D4E9…bbC3
+	Contract	36,459,471.667873 SOMI	—
+9	
+0x306450…1F61
+	Account	29,999,899.998351 SOMI	—
+10	

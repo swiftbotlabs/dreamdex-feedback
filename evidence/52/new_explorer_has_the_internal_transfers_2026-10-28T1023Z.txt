@@ -1,0 +1,6 @@
+== 2026-10-28T10:23:09Z the new explorer's own internal-transactions for the funding transactions
+   GET /api/v2/transactions/0xfa6c0b71ec55e68a5b71eb1e3b89b23b5c284434013aa19ae6765ede570913ed/internal-transactions -> HTTP 200 (native), 3 items; rows for 0x7143d400Fa22f0899755acc11dFC2654c2195025:
+      index 3 type call from 0xBB296E1401d6e4c769Adc865198D1844d8cC5a13 value 39,999,999.00 SOMI created_contract None
+   GET /api/v2/transactions/0x8e9a4bf90443c39eac3334c6fd0f3c08c0f03990503729df5d5753695fa31d9a/internal-transactions -> HTTP 200 (native), 12 items; rows for 0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4:
+      index 5 type create from 0xc6E735db5418624d9ccB35f0FEB6fcD619313612 value 0.00 SOMI created_contract 0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4
+      index 7 type call from 0xc6E735db5418624d9ccB35f0FEB6fcD619313612 value 9,289,166.00 SOMI created_contract None

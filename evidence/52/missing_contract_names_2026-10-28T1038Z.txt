@@ -1,0 +1,19 @@
+== 2026-10-28T10:38:05Z names the new explorer gives the 17 missing contracts (GET /api/v2/addresses/<a>)
+   0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4  VestingSchedule8       is_contract True  coin_balance 9,307,172.66 SOMI
+   0xeFfEe0db234422820249Cb1Fad3De735A6016Fc7  VestingSchedule12      is_contract True  coin_balance 9,304,578.50 SOMI
+   0xf6205bB2b18F6F0607E99B9b16605546f85F9EEc  VestingSchedule4       is_contract True  coin_balance 9,303,806.96 SOMI
+   0x4268BBee503771dDFe1d003218a25246bbA76280  VestingSchedule6       is_contract True  coin_balance 9,301,158.11 SOMI
+   0xf8a5892064e25e047b46F91165942e09DC8FA899  VestingSchedule2       is_contract True  coin_balance 9,289,166.37 SOMI
+   0x1B3172EF87262fe07Ad988D4f7913e1af9646d55  VestingSchedule0       is_contract True  coin_balance 6,011,391.45 SOMI
+   0x4a508Ea9C2C69f5825287346E6E19A96DAE6d664  VestingSchedule14      is_contract True  coin_balance 6,010,986.21 SOMI
+   0x653101d97Ce7347813cDBf545fB18A950d40B0Fb  VestingSchedule13      is_contract True  coin_balance 6,010,333.09 SOMI
+   0x38B49DDd828d5D4e9a4f84d2d5Dc0e6537539dD4  VestingSchedule11      is_contract True  coin_balance 6,008,025.14 SOMI
+   0x72f3FB1b834D21cF4C5C4BdEeb78Ed93F9CeE881  VestingSchedule17      is_contract True  coin_balance 6,006,439.04 SOMI
+   0x59E8715e150392058E92B4aE51D0C3323e7C0647  VestingSchedule21      is_contract True  coin_balance 5,392,664.67 SOMI
+   0x3a8b33d7d68a3b41Ef5830D13dF76FCd48D5fF00  VestingSchedule20      is_contract True  coin_balance 5,392,657.31 SOMI
+   0xbA059a3cc1afE643EC136B46dFAcAa86cb1fb46C  VestingSchedule7       is_contract True  coin_balance 5,300,098.77 SOMI
+   0x286efaDE92c1EC968af7df5A931672614f9f0065  VestingSchedule10      is_contract True  coin_balance 5,299,192.78 SOMI
+   0x8099EF15D3a31d158285a028c84d003d9b895025  VestingSchedule22      is_contract True  coin_balance 5,289,166.00 SOMI
+   0x1067f6A5e6e3a6016086C4B1aE0393bacE862a6B  VestingSchedule16      is_contract True  coin_balance 3,275,357.86 SOMI
+   0xf6105DCf05b22f36AD51426bf68c4f4670f3F5Ac  VestingSchedule15      is_contract True  coin_balance 3,163,703.95 SOMI
+   total 109,665,898.85 SOMI

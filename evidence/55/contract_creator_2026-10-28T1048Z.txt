@@ -1,0 +1,64 @@
+== 2026-10-28T10:48:38Z
+
+0x6eB8CcbC42a2A8C5Eb0371f2ff2bc3626d96f35F  'Permit2Proxy'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x4Ce8A861B043391F56807F39b0b7Fc41F5ed0288  creation_transaction_hash 0x50f482b509a04caf030e0dbc02d01ff879631562c10cabcf2222eea1b0696de2
+  BS  getcontractcreation: OK creator 0xb05e63458a51731aad26bdcd6e12246330e6095f tx 0x50f482b509a04caf030e0dbc02d01ff879631562c10cabcf2222eea1b0696de2
+  RPC: tx 0x50f482b509… exists (block 449,414,633), to 0xe2cb61f7e383270c9153563c6e5a18e5a7a43397 (created inside the call)
+
+0xcefA9C7FD4c9151D15019e7e3AEf1eB341e22b13  'RemoteHopV201'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x4e59b44847b379578588920cA78FbF26c0B4956C  creation_transaction_hash 0xd4ca05c9d168c295b403f21f7ae3303467af68162e7c84a979703f5380576851
+  BS  getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0xd4ca05c9d168c295b403f21f7ae3303467af68162e7c84a979703f5380576851
+  RPC: tx 0xd4ca05c9d1… exists (block 448,389,575), to 0x4e59b44847b379578588920ca78fbf26c0b4956c (created inside the call)
+
+0x7eA2F53bbD489EBc0195f3EDB99AC4a87083FF55  'EIP712Lib'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x4e59b44847b379578588920cA78FbF26c0B4956C  creation_transaction_hash 0xb3280c309711df2c9aa8da84e1112254b4824198fad62cbb1f1f5f06170ead96
+  BS  getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0xb3280c309711df2c9aa8da84e1112254b4824198fad62cbb1f1f5f06170ead96
+  RPC: tx 0xb3280c3097… exists (block 448,430,880), to 0x4e59b44847b379578588920ca78fbf26c0b4956c (created inside the call)
+
+0x3612e32988Ca4db94B562d6341ce28F1299393f0  'RateLimiterLib'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x4e59b44847b379578588920cA78FbF26c0B4956C  creation_transaction_hash 0x84f75bac9ece7a5e1de643619602489bae8738c9360a3250396a4a3a781b4c45
+  BS  getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0x84f75bac9ece7a5e1de643619602489bae8738c9360a3250396a4a3a781b4c45
+  RPC: tx 0x84f75bac9e… exists (block 448,430,853), to 0x4e59b44847b379578588920ca78fbf26c0b4956c (created inside the call)
+
+0x1539635F803C448B7FBeeBe09dD94e17C33Fae8e  'EIP3009Lib'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x4e59b44847b379578588920cA78FbF26c0B4956C  creation_transaction_hash 0x4c1a68fa2b7420d7abcfb99a3398c85b699d0323365f0b29386b62a7b0922368
+  BS  getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0x4c1a68fa2b7420d7abcfb99a3398c85b699d0323365f0b29386b62a7b0922368
+  RPC: tx 0x4c1a68fa2b… exists (block 448,430,844), to 0x4e59b44847b379578588920ca78fbf26c0b4956c (created inside the call)
+
+0xD39822e8ef895dcE3471a0a80e162cb8548FFD41  'WFRAXTokenOFTUpgradeable'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0x302cf74da848c8d82a1006b3d863380f35b7d426a963dd74535144fa525ce695
+  BS  /api/v2/addresses: creator_address_hash 0x54F9b12743A7DeeC0ea48721683cbebedC6E17bC  creation_transaction_hash 0x302cf74da848c8d82a1006b3d863380f35b7d426a963dd74535144fa525ce695
+  BS  getcontractcreation: OK creator 0x54f9b12743a7deec0ea48721683cbebedc6e17bc tx 0x302cf74da848c8d82a1006b3d863380f35b7d426a963dd74535144fa525ce695
+  RPC: tx 0x302cf74da8… exists (block 448,430,889), receipt.contractAddress = this contract (direct create)
+
+0x046EDe9564A72571df6F5e44d0405360c0f4dCab  'WETH9'  verified True
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: OK creator 0x772d5fea12e2be351a9035847e1c77635531bcc4 tx 0x2e86454f9356735b82fd86af4bf1d294d733b865b376071d550c8951af73b15f
+  BS  /api/v2/addresses: creator_address_hash 0x772d5FeA12e2Be351A9035847e1c77635531Bcc4  creation_transaction_hash 0x2e86454f9356735b82fd86af4bf1d294d733b865b376071d550c8951af73b15f
+  BS  getcontractcreation: OK creator 0x772d5fea12e2be351a9035847e1c77635531bcc4 tx 0x2e86454f9356735b82fd86af4bf1d294d733b865b376071d550c8951af73b15f
+  RPC: tx 0x2e86454f93… exists (block 38,518,130), receipt.contractAddress = this contract (direct create)
+
+0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4  'VestingSchedule8'  verified False
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0xc6E735db5418624d9ccB35f0FEB6fcD619313612  creation_transaction_hash 0x8e9a4bf90443c39eac3334c6fd0f3c08c0f03990503729df5d5753695fa31d9a
+  BS  getcontractcreation: OK creator 0x772d5fea12e2be351a9035847e1c77635531bcc4 tx 0x8e9a4bf90443c39eac3334c6fd0f3c08c0f03990503729df5d5753695fa31d9a
+  RPC: tx 0x8e9a4bf904… exists (block 86,948,700), to 0x761d0bd3a796f67cbe87b8c3911f26c5b3157a76 (created inside the call)
+
+0x5E5205CF39E766118C01636bED000A54D93163E6  None  verified False
+  NEW /api/v2/addresses: creator_address_hash None  creation_transaction_hash None
+  NEW getcontractcreation: 0 'Not available: the explorer cannot answer this request right now'
+  BS  /api/v2/addresses: creator_address_hash 0x320362C7Dc4d3188Df41271DB2f9a966fdE88936  creation_transaction_hash 0x36596e1854e413681992166d5d55552d999f820eafdf6f8fe07afef1e66e8b0a
+  BS  getcontractcreation: OK creator 0x320362c7dc4d3188df41271db2f9a966fde88936 tx 0x36596e1854e413681992166d5d55552d999f820eafdf6f8fe07afef1e66e8b0a
+  RPC: tx 0x36596e1854… exists (block 283,417,317), receipt.contractAddress = this contract (direct create)

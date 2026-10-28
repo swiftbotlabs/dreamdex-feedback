@@ -1,0 +1,28 @@
+BLOCKCHAIN / GLOBAL / ADDRESS
+
+Contract
+
+0x6eB8CcbC42a2A8C5Eb0371f2ff2bc3626d96f35F
+Copy
+
+Transactions
+Token transfers
+Internal calls
+Tokens
+Contract
+Read contract
+Balance
+0 SOMI
+Transactions sent
+1
+Type
+Contract · 8,037 bytes of code
+
+No transactions
+
+Indexed by Somnia data warehouse
+
+// somnia explorer · global · chain 5031
+© 2026 Somnia
+Feedback
+--- end ---

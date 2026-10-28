@@ -1,0 +1,37 @@
+== 2026-10-28T10:43:36Z GET https://new.explorer.somnia.network/api/v2/addresses (3 pages)
+   HTTP 200, x-api-backend: native, 150 rows; #1 152,864,658.58 SOMI, #50 533,088.00 SOMI, #150 30,119.90 SOMI
+   transactions_count of rows 1-50: ['None']
+== 2026-10-28T10:43:42Z GET https://explorer.somnia.network/api/v2/addresses (1 page)
+   HTTP 200, 50 rows
+== 2026-10-28T10:43:46Z RPC eth_getBalance at head 450,298,334 for Blockscout's top 50
+   accounts holding more than the new explorer's #50 (533,088.00 SOMI) but absent from its first 150 rows: 18, together 149,665,898.85 SOMI
+   0x7143d400Fa22f0899755acc11dFC2654c2195025     40,000,000.00 SOMI  EOA      nonce 0  -> would rank #6
+   0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4      9,307,172.66 SOMI  contract nonce 1  -> would rank #16
+   0xeFfEe0db234422820249Cb1Fad3De735A6016Fc7      9,304,578.50 SOMI  contract nonce 1  -> would rank #16
+   0xf6205bB2b18F6F0607E99B9b16605546f85F9EEc      9,303,806.96 SOMI  contract nonce 1  -> would rank #16
+   0x4268BBee503771dDFe1d003218a25246bbA76280      9,301,158.11 SOMI  contract nonce 1  -> would rank #16
+   0xf8a5892064e25e047b46F91165942e09DC8FA899      9,289,166.37 SOMI  contract nonce 1  -> would rank #16
+   0x1B3172EF87262fe07Ad988D4f7913e1af9646d55      6,011,391.45 SOMI  contract nonce 1  -> would rank #19
+   0x4a508Ea9C2C69f5825287346E6E19A96DAE6d664      6,010,986.21 SOMI  contract nonce 1  -> would rank #19
+   0x653101d97Ce7347813cDBf545fB18A950d40B0Fb      6,010,333.09 SOMI  contract nonce 1  -> would rank #19
+   0x38B49DDd828d5D4e9a4f84d2d5Dc0e6537539dD4      6,008,025.14 SOMI  contract nonce 1  -> would rank #19
+   0x72f3FB1b834D21cF4C5C4BdEeb78Ed93F9CeE881      6,006,439.04 SOMI  contract nonce 1  -> would rank #19
+   0x59E8715e150392058E92B4aE51D0C3323e7C0647      5,392,664.67 SOMI  contract nonce 1  -> would rank #19
+   0x3a8b33d7d68a3b41Ef5830D13dF76FCd48D5fF00      5,392,657.31 SOMI  contract nonce 1  -> would rank #19
+   0xbA059a3cc1afE643EC136B46dFAcAa86cb1fb46C      5,300,098.77 SOMI  contract nonce 1  -> would rank #19
+   0x286efaDE92c1EC968af7df5A931672614f9f0065      5,299,192.78 SOMI  contract nonce 1  -> would rank #19
+   0x8099EF15D3a31d158285a028c84d003d9b895025      5,289,166.00 SOMI  contract nonce 1  -> would rank #19
+   0x1067f6A5e6e3a6016086C4B1aE0393bacE862a6B      3,275,357.86 SOMI  contract nonce 1  -> would rank #33
+   0xf6105DCf05b22f36AD51426bf68c4f4670f3F5Ac      3,163,703.95 SOMI  contract nonce 1  -> would rank #33
+== 2026-10-28T10:43:46Z the new explorer's own address page for each missing account
+   0x7143d400Fa22f0899755acc11dFC2654c2195025  coin_balance 40,000,000.00 SOMI  name None  creator None  creation_tx None
+   0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4  coin_balance 9,307,172.66 SOMI  name 'VestingSchedule8'  creator None  creation_tx None
+   0xeFfEe0db234422820249Cb1Fad3De735A6016Fc7  coin_balance 9,304,578.50 SOMI  name 'VestingSchedule12'  creator None  creation_tx None
+== 2026-10-28T10:43:52Z how they were funded (Blockscout; no top-level transaction has them as sender or recipient)
+   0x7143d400Fa22f0899755acc11dFC2654c2195025  top-level transactions: 0; first balance change +1.00 SOMI at block 415,928,474 (2026-09-18T15:39:05Z) in tx 0x754908c1a0235ced2e323e4dfbbf0e1fafd4ce08f4c540846d12a3bec5b070d7, a call from 0xc3e5E30F3F983E33C9860077591A040fc170D15e to 0xBB296E1401d6e4c769Adc865198D1844d8cC5a13 (method execTransaction)
+   0x5ebFC083628aC3f2AB6275BC660d9AE96dB44Cf4  top-level transactions: 0; first balance change +9,289,166.00 SOMI at block 86,948,700 (2025-08-31T15:20:31Z) in tx 0x8e9a4bf90443c39eac3334c6fd0f3c08c0f03990503729df5d5753695fa31d9a, a call from 0x772d5FeA12e2Be351A9035847e1c77635531Bcc4 to 0x761d0bd3a796F67CBE87B8C3911F26C5b3157A76 (method execTransaction)
+   0xeFfEe0db234422820249Cb1Fad3De735A6016Fc7  top-level transactions: 0; first balance change +9,289,166.00 SOMI at block 86,955,204 (2025-08-31T15:31:25Z) in tx 0xfed97df11f7c036c5b519368c24efd41475e3d9ceddbc5b6c88ab4014f9a5645, a call from 0x772d5FeA12e2Be351A9035847e1c77635531Bcc4 to 0x761d0bd3a796F67CBE87B8C3911F26C5b3157A76 (method execTransaction)
+== 2026-10-28T10:44:12Z Etherscan-style native supply
+   https://new.explorer.somnia.network/api?module=stats&action=ethsupply -> 837,505,966.02 SOMI
+   https://explorer.somnia.network/api?module=stats&action=ethsupply -> 1,000,096,754.40 SOMI
+   docs (new.docs.somnia.network/concepts/tokenomics/overview.md): 'with a fixed supply of 1,000,000,000 tokens'
