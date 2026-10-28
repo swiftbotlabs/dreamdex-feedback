@@ -78,7 +78,8 @@ Perps trades tab sent `FillDataset_by_pk`, `PerpPositionChange` and others to `h
 In the bundle (`_next/static/immutable/chunks/27kddaaff2hz-.js`), the Open orders tab
 (`queryKey: ["trader-open-orders", …]`) and the Spot trades tab (`["trader-spot-trades", …]`) both call the single
 default client from `useSomniaMarkets()`: `client.getOpenOrders(address, {limit: 200, offset})` and
-`client.getUserFillsPage(address, …)`. For a logged-out visitor that client is the Global one.
+`client.getUserFillsPage(address, …)`. For a logged-out visitor that client is the Global one. The trader page's URL
+carries no region (unlike `/trade/spot/tokyo/…`), and the page has no region switch, so a visitor cannot ask for Tokyo.
 
 Why it matters. The trader page is the app's public record of a wallet. A visitor, or the trader,
 reads "nothing open on the book" and "has not traded on the order book" about a wallet whose orders rest on chain.
