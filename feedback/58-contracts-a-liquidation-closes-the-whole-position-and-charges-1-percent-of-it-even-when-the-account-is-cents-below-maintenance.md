@@ -14,8 +14,7 @@ Area: contracts | docs
 >   10 USDso notional restores maintenance. The engine closed **16,393.76 USDso, 100%**, and charged **163.94 USDso**: 40% of the
 >   account's equity.
 > - `0x4882…616c`, ETH, **0.05 USDso** under: closed 33,172.80 (100%), fee **331.98**.
-> - `0x12f2…4261`, SOL, 1.45 USDso under: closed 58,293.33 (82.8%; the rest stayed only because the book ran out within the
->   engine's price bound), fee **582.81**.
+> - `0x12f2…4261`, SOL, 1.45 USDso under: closed 58,293.33 (82.8%; 122.13 of 709.7 SOL stayed open), fee **582.81**.
 >
 > Across the 37 most recent single-market liquidations on 18-decimal markets (ETH, WLD, LINK), **36 closed 100%** and one
 > 96.4%. They charged **12,060.09 USDso** in fees, where the smallest close that puts each account back at maintenance
@@ -85,9 +84,9 @@ All eight liquidations in the table went through the same entry point: a keeper 
 configuration (`getLiquidationPenaltyBps` 100, min/max liquidation spread 50/500 bps, `getMaxLiquidationVolumePerBlock`
 100,000 USDso) has no setting that explains closing 100% for a 0.05 USDso shortfall.
 
-Two smaller cases (HYPE, blocks 36,371,7xx–36,372,6xx, in the all-markets output) go the other way: the engine closed
+Smaller cases (HYPE, blocks 36,371,7xx–36,372,6xx, in the all-markets output) go the other way: the engine closed
 0.07–2.6% per call and left the account still below maintenance (status 2 → 2), several times in a row. Those look
-limited by book depth inside the price bound, not sized to the shortfall.
+limited by book depth inside the engine's price bound (our reading; not verified) rather than sized to the shortfall.
 
 ## Evidence
 - `evidence/58/liq_close_size.mjs`: the read-only scan (indexer to find transactions; chain reads for health before/after).
