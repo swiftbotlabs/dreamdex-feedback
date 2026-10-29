@@ -12,9 +12,10 @@ Area: contracts | app | docs
 > The app adds a third wording: the ticket asks **"Will ETH settle above $2,313.46 at 20:30 UTC?"** (strictly above), while
 > the info tooltip on the same ticket says **"Up wins if the closing price is at or above it."** The docs give both rules too.
 >
-> All of this only matters when the close **equals** the strike, and that happens. On Tokyo, 21 windows closed exactly at their strike: **20 paid Up, 1 paid Down**,
-> although all 21 have the same shape (2-decimal close == strike, question line = strike + 0.005). On **Somnia mainnet**,
-> 40 windows closed exactly at their strike: **35 paid Up, 5 paid Down**, and 29 of the Up ones contradict their own question.
+> All of this only matters when the close **equals** the strike, and that happens. On Tokyo, 17 windows closed exactly at a strike
+> whose question line has the extra half cent (2-decimal close == strike, line = strike + 0.005): **16 paid Up, 1 paid Down**.
+> On **Somnia mainnet**, 34 such ties: **29 paid Up, 5 paid Down**. Ties on markets whose question has no extra digits (4 on
+> Tokyo, 6 on mainnet) paid Up, as their question says.
 > One of the mainnet ties had an outside trader: `0x4e3e…3852` bought 9.652 Down for 4.845304 USDso six seconds before expiry. The close was 2496.33, the question asked "at or above 2496.335", and today's app words such a market as "settle
 > above $2,496.33?" (we could not see the app as it was on 2026-10-10). The market paid Up, and the 9.652 Down tokens are still in that wallet, worth nothing.
 >
@@ -77,7 +78,7 @@ Two identical ties (2-decimal close == strike) must never settle on opposite sid
 | App STRIKE tooltip | "Up wins if the closing price is **at or above** it" | Up |
 | Docs, Event Contracts / Settlement & Voids / FAQ | "if the asset closes the window at or above its opening price, Up wins" | Up |
 | Docs, FAQ "settled against me" | "a fixed-strike market resolves Up only if the close is *above* the strike" (the tooltip says the strike is "fixed when the market was created") | Down |
-| Payout vector on chain | Tokyo: 20 of 21 ties `[1e7, 0]`, 1 tie `[0, 1e7]`. Mainnet: 35 of 40 ties `[1e7, 0]`, 5 ties `[0, 1e7]` | both |
+| Payout vector on chain, ties with a + 0.005 (or + 0.0025 / + 0.0075) line | Tokyo: 16 `[1e7, 0]`, 1 `[0, 1e7]`. Mainnet: 29 `[1e7, 0]`, 5 `[0, 1e7]` | both |
 
 **Ties that settled on opposite sides** (Tokyo, both BTC, same day, same question shape; `evidence/57/ec_tie_onchain_2026-10-29T2028Z.txt`):
 
@@ -99,9 +100,10 @@ Two identical ties (2-decimal close == strike) must never settle on opposite sid
   seeding wallet), redeemed **322.152** Up for 322.152 USDso here and 312.5 Down for 0: the extra 9.652 Up is the size of
   the trader's Down purchase.
 
-**How often:** Tokyo: 16,107 answers checked, 16 outcomes contradict their question, 21 ties (20 Up, 1 Down).
-Mainnet: 23,275 answers checked, 29 outcomes contradict their question, 40 ties (35 Up, 5 Down; the 5 Down ties have the
-same x.xx5 question shape as the 29 contradicting Up ones, e.g. "at or above 2508.455", close 2508.45, 2026-10-11 02:00 UTC). All the contradicting
+**How often:** Tokyo: 16,107 answers checked, 16 outcomes contradict their question; 21 ties in all (20 Up, 1 Down), of
+which 17 have the extra-digit line (16 Up, 1 Down). Mainnet: 23,275 answers checked, 29 outcomes contradict their question;
+40 ties in all (35 Up, 5 Down), of which 34 have the extra-digit line (29 Up, 5 Down; e.g. a Down one: "at or above
+2508.455", close 2508.45, 2026-10-11 02:00 UTC). All the contradicting
 markets are listed with their answer tx in the `ec_tie_check_*` outputs. Ties are rare (about 0.1–0.2 % of windows), but
 each one settles real stakes on mainnet, and nothing the trader can read tells them which way it will go.
 
