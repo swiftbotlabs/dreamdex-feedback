@@ -111,8 +111,8 @@ each one settles real stakes on mainnet, and nothing the trader can read tells t
 2-decimal value at the window start) plus 0.005. On mainnet a few hundred 4-decimal lines are open + 0.0025 or + 0.0075
 instead, which a 2-decimal close also can never equal. For example, Tokyo ETH window 2026-10-23 09:45–09:50 opened at 2397.25 (oracle value at 1792748700) and its
 question says 2397.255; the 09:40–09:45 window opened at 2392.51 and says 2392.515. So the question generator writes a
-strictly-above line, while the strike and the payout use at-or-above. The one Down tie shows that at least one code
-path (or one oracle version) did honour the question's line.
+strictly-above line, while the strike and the payout use at-or-above. The Down ties (1 on Tokyo, 5 on mainnet) show that some
+resolutions did honour the question's line.
 
 ## Evidence
 - `evidence/57/ec_tie_check.py`; outputs `ec_tie_check_tokyo_2026-10-29T2026Z.txt`, `ec_tie_check_tokyo_2026-10-29T2032Z.txt`
