@@ -15,8 +15,8 @@ Area: contracts | app | docs
 > All of this only matters when the close **equals** the strike, and that happens. On Tokyo, 21 windows closed exactly at their strike: **20 paid Up, 1 paid Down**,
 > although all 21 have the same shape (2-decimal close == strike, question line = strike + 0.005). On **Somnia mainnet**,
 > 40 windows closed exactly at their strike: **35 paid Up, 5 paid Down**, and 29 of the Up ones contradict their own question.
-> One of the mainnet ties had an outside trader: `0x4e3e…3852` bought 9.652 Down for 4.845304 USDso six seconds before expiry. The close was 2496.33, the question asked "at or above 2496.335", and the app would have asked "settle above
-> $2,496.33?". The market paid Up, and the 9.652 Down tokens are still in that wallet, worth nothing.
+> One of the mainnet ties had an outside trader: `0x4e3e…3852` bought 9.652 Down for 4.845304 USDso six seconds before expiry. The close was 2496.33, the question asked "at or above 2496.335", and today's app words such a market as "settle
+> above $2,496.33?" (we could not see the app as it was on 2026-10-10). The market paid Up, and the 9.652 Down tokens are still in that wallet, worth nothing.
 >
 > **Checked 2026-10-29 between 20:20 and 20:35 UTC.** Every resolved Up/Down market on both networks was read from the indexers,
 > and four markets were re-read on chain (payout vector, the oracle's answer event with its question text, the trader's token
