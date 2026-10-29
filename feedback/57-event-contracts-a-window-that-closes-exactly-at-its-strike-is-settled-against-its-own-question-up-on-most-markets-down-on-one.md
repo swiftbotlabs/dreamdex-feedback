@@ -1,4 +1,4 @@
-# Event Contracts: a window that closes exactly at its strike settles inconsistently, and mostly against the market's own question. The oracle records "at or above <strike + 0.005>" and the app asks "settle above $<strike>?", yet 29 mainnet and 16 Tokyo ties paid Up (one with an outside trader's Down stake), while 5 mainnet and 1 Tokyo identical ties paid Down
+# Event Contracts: a window that closes exactly at its strike settles inconsistently, and mostly against the market's own question. The oracle records "at or above X.XX5" (strike + 0.005) and the app asks "settle above $X.XX?" (the strike), yet 29 mainnet and 16 Tokyo ties paid Up (one with an outside trader's Down stake), while 5 mainnet and 1 Tokyo identical ties paid Down
 Severity: critical
 Area: contracts | app | docs
 
@@ -105,8 +105,9 @@ same x.xx5 question shape as the 29 contradicting Up ones, e.g. "at or above 250
 markets are listed with their answer tx in the `ec_tie_check_*` outputs. Ties are rare (about 0.1–0.2 % of windows), but
 each one settles real stakes on mainnet, and nothing the trader can read tells them which way it will go.
 
-**Where the half cent comes from:** in the windows above the question's line is the previous window's 2-decimal close
-plus 0.005. For example, Tokyo ETH window 2026-10-23 09:45–09:50 opened at 2397.25 (oracle value at 1792748700) and its
+**Where the half cent comes from:** in the windows above, the question's line is the window's opening price (the oracle's
+2-decimal value at the window start) plus 0.005. On mainnet a few hundred 4-decimal lines are open + 0.0025 or + 0.0075
+instead, which a 2-decimal close also can never equal. For example, Tokyo ETH window 2026-10-23 09:45–09:50 opened at 2397.25 (oracle value at 1792748700) and its
 question says 2397.255; the 09:40–09:45 window opened at 2392.51 and says 2392.515. So the question generator writes a
 strictly-above line, while the strike and the payout use at-or-above. The one Down tie shows that at least one code
 path (or one oracle version) did honour the question's line.
@@ -116,6 +117,9 @@ path (or one oracle version) did honour the question's line.
   (second run: the same 16 markets and 21 ties; 4 newer answers) and `ec_tie_check_mainnet_2026-10-29T2028Z.txt`: every
   contradicting market and every tie with its question, close, winner, market id and answer tx.
 - `evidence/57/ec_fill_transfers.mjs`, output `ec_fill_transfers_2026-10-29T2031Z.txt`: the USDso the mainnet trader paid.
+- `evidence/57/ec_strike_vs_open.py`, output `ec_strike_vs_open_mainnet_2026-10-29T2043Z.txt`: on mainnet the strike equals the oracle's price at the window start in
+  all 3,838 markets created since 2026-10-25 03:46 UTC that could be matched. The question's line is that price + 0.0025 on 158 of
+  them and + 0.0075 on 126; the rest are + 0.005 (or + 0 on 2-decimal questions).
 - `evidence/57/ec_tie_onchain.mjs`, output `ec_tie_onchain_2026-10-29T2028Z.txt`: on-chain payout vectors, the oracle answer
   events (outcome, value, recorded question) for mainnet `0x…9de4` and Tokyo `0x…2617`, `0x…26d1`, `0x…47b8`, and the
   trader's token balances.
@@ -130,10 +134,11 @@ path (or one oracle version) did honour the question's line.
 1. Pick the tie rule and make the oracle compare against exactly the number the question states. If ties are Down
    (strictly above, which the question generator and the ticket header already say), store the strike so that a close
    equal to the opening price fails it, e.g. compare `close > open`, or keep 3 decimals. If ties are Up, write the
-   question as "at or above <opening price>" without the 0.005.
-2. Find why `0x…26d1` settled Down while 20 identical Tokyo ties settled Up (rounding of `x.xx5 × 100` when the threshold
-   is derived from the question text would do it: `82945.555 × 100` is `8294555.4999…` in binary floating point,
-   `83018.575 × 100` is `8301857.5`).
+   question as "at or above" + the opening price without the 0.005.
+2. Find why `0x…26d1` settled Down while 20 identical Tokyo ties settled Up. A threshold derived from the question text by
+   floating-point rounding would explain some of it (`82945.555 × 100` is `8294555.4999…` in binary floating point), but
+   not all of it: `2462.865 × 100` is `246286.4999…` too, and that tie (`0x…40e8`) paid Up. The cause is not visible from
+   outside.
 3. Make the ticket header, the Strike tooltip and the docs use the same words as the oracle question.
 4. For the mainnet ties already settled (40 markets, list in the evidence), check whether any other outside positions were
    settled against a rule the trader was shown, as `0x4e3e…3852`'s was. By the indexer only `0x…9de4` had a trade.
