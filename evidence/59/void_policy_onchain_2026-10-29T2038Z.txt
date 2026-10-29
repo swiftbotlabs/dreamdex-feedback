@@ -1,0 +1,7 @@
+# mainnet: the two voided snapshot-policy markets, then three of the newest markets
+chainId 5031 block 451518810n 2026-10-29T20:38:35.810Z
+0xe2a2af7471e474811ca0ad5c182c6f656c966a1e voidPolicy 2 status 5 isVoided true isResolved false payoutNumerators [7460000,2540000] expiry 1790978400
+0x65ddc21e287e53e30f5e8692d39019371e4845a4 voidPolicy 2 status 5 isVoided true isResolved false payoutNumerators [9295000,705000] expiry 1790978400
+0xa93c742af800ccbb4ac516b84100f676510a5065 voidPolicy 2 status 1 isVoided false isResolved false payoutNumerators [] expiry 1793306400
+0x8a4818bc0f2d80fd036c683acb554c57c928f55a voidPolicy 2 status 1 isVoided false isResolved false payoutNumerators [] expiry 1793306400
+0xd1da058a608991313f7d7e402adf3374b6e8e1b2 voidPolicy 2 status 4 isVoided false isResolved true payoutNumerators [0,10000000] expiry 1793306100

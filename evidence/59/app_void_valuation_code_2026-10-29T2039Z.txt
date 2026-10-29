@@ -1,0 +1,9 @@
+# 2026-10-29T2039Z app.dreamdex.io (mainnet app), deployment as served now; chunks loaded by /portfolio and /event-contracts/WETH:USDso/15m
+
+## https://app.dreamdex.io/_next/static/immutable/chunks/1dxc5k_3ay3bf.js (sha256 90b397c707712444)
+let m={outcomeKey:"closed",result:"Closed early",resultTone:"muted"}
+switch(e){case"won":return{pnl:t-r,proceeds:t};case"lost":return{pnl:-r,proceeds:0n};case"voided":{let e=t/2n;return{pnl:e-r,proceeds:e}}
+
+## https://app.dreamdex.io/_next/static/immutable/chunks/1-z__41v4esp7.js (sha256 9dc441c5f16b6a4d)
+let m={outcomeKey:"closed",result:"Closed early",resultTone:"muted"}
+switch(e){case"won":return{pnl:t-r,proceeds:t};case"lost":return{pnl:-r,proceeds:0n};case"voided":{let e=t/2n;return{pnl:e-r,proceeds:e}}

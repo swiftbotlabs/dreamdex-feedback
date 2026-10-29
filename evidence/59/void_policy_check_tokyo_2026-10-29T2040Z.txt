@@ -1,0 +1,14 @@
+# tokyo (https://hideki-dev.smk.somnia.host/v1/graphql) at 2026-10-29T20:40Z
+binary markets by voidPolicy: 0 (UNIFORM) = 23898  2 (CLOB_SNAPSHOT) = 0
+last market created with voidPolicy 0: 2026-10-29 20:40 | first with voidPolicy 2: -
+created in the last 24 h: voidPolicy 0 = 864  voidPolicy 2 = 0
+
+newest markets:
+  2026-10-29 20:40 voidPolicy 0 0x771f344bbd64e17ec188e6196c8ccfc9d1decf5e "Will ETH/USDC's price be at or above 2299.495 at unix time 1793306700?"
+  2026-10-29 20:40 voidPolicy 0 0x687ad4034f3e2bc0d0a8d65b3ca3743c43f74900 "Will BTC/USDC's price be at or above 79802.05 at unix time 1793306700?"
+  2026-10-29 20:40 voidPolicy 0 0x51a0590c08cd34eff18aa6109a050cb1f00a9efa "Will ETH/USDC's price be at or above 2299.495 at unix time 1793307000?"
+  2026-10-29 20:40 voidPolicy 0 0x5e14525b6265074ec11a69be7fd0cee28c174b09 "Will BTC/USDC's price be at or above 79802.05 at unix time 1793307000?"
+  2026-10-29 20:35 voidPolicy 0 0x20daa9030611fd64b85f7befad8ffb3c54bcbb33 "Will ETH/USDC's price be at or above 2295.035 at unix time 1793306400?"
+  2026-10-29 20:35 voidPolicy 0 0x1166dafad1ef14e14573f235f1c72bc2a69986b9 "Will BTC/USDC's price be at or above 79911.525 at unix time 1793306400?"
+
+voided markets: 109; with a payout other than 0.5/0.5:

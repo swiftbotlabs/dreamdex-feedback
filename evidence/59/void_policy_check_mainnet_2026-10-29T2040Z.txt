@@ -1,0 +1,20 @@
+# mainnet (https://prd.smk.somnia.host/v1/graphql) at 2026-10-29T20:40Z
+binary markets by voidPolicy: 0 (UNIFORM) = 21258  2 (CLOB_SNAPSHOT) = 35176
+last market created with voidPolicy 0: 2026-09-16 16:30 | first with voidPolicy 2: 2026-09-16 16:35
+created in the last 24 h: voidPolicy 0 = 0  voidPolicy 2 = 816
+
+newest markets:
+  2026-10-29 20:40 voidPolicy 2 0x023afe783d13afbe44f9cb29ffcfca01088c2175 "Will ETH/USDC's price be at or above 2299.795 at unix time 1793306700?"
+  2026-10-29 20:40 voidPolicy 2 0x26f730e642567a5316b3e1e0d9d8d73dd383947c "Will BTC/USDC's price be at or above 79806.445 at unix time 1793306700?"
+  2026-10-29 20:35 voidPolicy 2 0xa93c742af800ccbb4ac516b84100f676510a5065 "Will BTC/USDC's price be at or above 79899.75 at unix time 1793306400?"
+  2026-10-29 20:35 voidPolicy 2 0x8a4818bc0f2d80fd036c683acb554c57c928f55a "Will ETH/USDC's price be at or above 2294.48 at unix time 1793306400?"
+  2026-10-29 20:30 voidPolicy 2 0xd1da058a608991313f7d7e402adf3374b6e8e1b2 "Will BTC/USDC's price be at or above 80314.045 at unix time 1793306100?"
+  2026-10-29 20:30 voidPolicy 2 0x6cdb8eeb94fdf050a17f1090c9d36a7a6c97ded8 "Will ETH/USDC's price be at or above 2315.085 at unix time 1793306700?"
+
+voided markets: 25; with a payout other than 0.5/0.5:
+  2026-10-02 22:00 voidPolicy 2 payout Up 0.746 / Down 0.254 trades 0 0xe2a2af7471e474811ca0ad5c182c6f656c966a1e "Will BTC/USDC's price be at or above 84510.95 at unix time 1790978400?"
+      redeemed outcome 0: 312.5 -> 233.125 USDso by 0xd25101d624c0ce54a153f0d1dd5577e06274615e tx 0x24033cd2fbf70cbcd833eb9cb5121bc89e0d9cc3a9e169077e3f7aa9fdc89659
+      redeemed outcome 1: 312.5 -> 79.375 USDso by 0xd25101d624c0ce54a153f0d1dd5577e06274615e tx 0xc1f7a4b9cd95dac256686c7e007a87f9ef0649f47e3c59677309ecc53e8c3d5e
+  2026-10-02 22:00 voidPolicy 2 payout Up 0.9295 / Down 0.0705 trades 0 0x65ddc21e287e53e30f5e8692d39019371e4845a4 "Will ETH/USDC's price be at or above 2664.46 at unix time 1790978400?"
+      redeemed outcome 0: 312.5 -> 290.46875 USDso by 0xd25101d624c0ce54a153f0d1dd5577e06274615e tx 0x76b87ac1a5dcbd229ca61b315d5e835ea25db11e1fe8f98f83af0e8bca455fa5
+      redeemed outcome 1: 312.5 -> 22.03125 USDso by 0xd25101d624c0ce54a153f0d1dd5577e06274615e tx 0x4a14a857538d77a219e9909214f97f02cdadc00241043584f960b90b4fb0d969
