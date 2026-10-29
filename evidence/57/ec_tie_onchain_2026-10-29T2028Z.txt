@@ -1,0 +1,38 @@
+## mainnet market 0x...9de4 (ETH 5m, expiry 1791611100 = 2026-10-10 05:45 UTC), the one with an outside trade
+chainId 5031 at 2026-10-29T20:28:51.953Z
+market 0x7b952b91b327c1609e9a32b2a446ddf5edda8395: isResolved true isVoided false expiry 1791611100 payoutNumerators [10000000,0] -> winning outcome index 0
+oracle answer log 10 at 0x9f6231199b7b9922427e7686313a08a1f0a4fb8e (tx 0xbb7fe9c4351bdf0dc145e0fd4ab3aae199edad6511900a64830fede16c457eab, block 434572500, status success):
+  topic0 0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e
+  question id 35436498462159485898222428027678165603911703749273434408126325549687471014529
+  word0 (outcome index) 0  word2 (value, 2 dp) 249633 = 2496.33
+  recorded question: "Will ETH/USDC's price be at or above 2496.335 at unix time 1791611100?"
+fill tx 0x24f4636d72c4816aa5ab3ef748b476a976fb552fa8ae487b370acd0f94a4a62d: status success, block 434572443 (2026-10-10T05:44:54.000Z), from 0x27e72391a26ff817aec3fde1332d01389af2a7f5, logs 9
+  0x4e3e5c8ea20783dc7af53af21dfeb86a7cd13852 NO (Down) balance on 0xB52c5934113Af5c0Bb20eb3C72290C8215f755b9: 9.652
+  0x4e3e5c8ea20783dc7af53af21dfeb86a7cd13852 YES (Up) balance on 0xB52c5934113Af5c0Bb20eb3C72290C8215f755b9: 0
+
+## Tokyo market 0x...2617 (BTC, expiry 1791686400 = 2026-10-11 02:40 UTC): tie, Up won
+chainId 50383 at 2026-10-29T20:29:00.916Z
+market 0xd05452eee05b6f24e3a4f1e45b1b72896f03f6f9: isResolved true isVoided false expiry 1791686400 payoutNumerators [10000000,0] -> winning outcome index 0
+oracle answer log 22 at 0x085d3b51827833ab83feee3d7761e7896a7ed926 (tx 0x076fb4c36679bb0ea8727db05384caafa394d66a48cda445f75e3ef52a6e9893, block 20354136, status success):
+  topic0 0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e
+  question id 36057844165646952027565275991391489960020966204043787697584497318415681951828
+  word0 (outcome index) 0  word2 (value, 2 dp) 8301857 = 83018.57
+  recorded question: "Will BTC/USDC's price be at or above 83018.575 at unix time 1791686400?"
+
+## Tokyo market 0x...26d1 (BTC, expiry 1791705000 = 2026-10-11 07:50 UTC): tie, Down won
+chainId 50383 at 2026-10-29T20:29:03.245Z
+market 0x1c1af67cacaa7b95f09838f704f9a31e428aae61: isResolved true isVoided false expiry 1791705000 payoutNumerators [0,10000000] -> winning outcome index 1
+oracle answer log 51 at 0x085d3b51827833ab83feee3d7761e7896a7ed926 (tx 0x1c301ea5fdd33a4d1b6fc6bce3538ba64b130096fa4ded9bcaf72ac7cce818a9, block 20540042, status success):
+  topic0 0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e
+  question id 6615429806980880100284284292811105156291805006223572918372092812061452535895
+  word0 (outcome index) 1  word2 (value, 2 dp) 8294555 = 82945.55
+  recorded question: "Will BTC/USDC's price be at or above 82945.555 at unix time 1791705000?"
+
+## Tokyo market 0x...47b8 (ETH, expiry 1792749000 = 2026-10-23 09:50 UTC): tie, Up won
+chainId 50383 at 2026-10-29T20:29:05.226Z
+market 0x7d5a97c1cdad95e3bd355e18bf4ae5ce41954c7c: isResolved true isVoided false expiry 1792749000 payoutNumerators [10000000,0] -> winning outcome index 0
+oracle answer log 10 at 0x085d3b51827833ab83feee3d7761e7896a7ed926 (tx 0x0dd594c8ca19dbadee80c346aaa848fc8a4ab6195ac9475e9aa458d7cd7e5d61, block 30969443, status success):
+  topic0 0x6a53252ed9a39cc6eb9c31b1e01c20b9e2b5954b06010ba5961a472296de6d5e
+  question id 101372313755643691151242712836765981160097898695267808419710585447128446356530
+  word0 (outcome index) 0  word2 (value, 2 dp) 239725 = 2397.25
+  recorded question: "Will ETH/USDC's price be at or above 2397.255 at unix time 1792749000?"
