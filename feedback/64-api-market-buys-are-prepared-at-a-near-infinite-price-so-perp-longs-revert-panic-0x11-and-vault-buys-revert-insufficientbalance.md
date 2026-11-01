@@ -51,8 +51,8 @@ The 5 accounts it works for hold a short that the buy reduces, which we read as 
 
 **Spot, mainnet, vault-funded market buy of about 30 USDso:**
 ```
-WBTC:USDso  0xd86a…ed88 vault USDso 101007.41: market buy -> InsufficientBalance(have 101007.41, need 70 digits) | IOC limit +5% -> ok
-WETH:USDso  0xd86a…ed88 vault USDso 108842.24: market buy -> InsufficientBalance(have 108842.24, need 60 digits) | IOC limit +5% -> ok
+WBTC:USDso  0xd86a…ed88 vault USDso 100796.05: market buy -> InsufficientBalance(have 100796.05, need 70 digits) | IOC limit +5% -> ok
+WETH:USDso  0xd86a…ed88 vault USDso 110407.59: market buy -> InsufficientBalance(have 110407.59, need 60 digits) | IOC limit +5% -> ok
 SOMI:USDso  0x43a4…6703 vault USDso   481.74: market buy -> InsufficientBalance(have 481.74, need 60 digits)    | IOC limit +5% -> ok
 ```
 The other accounts in the output revert `SelfMatchCancelTaker` on both orders because their own quotes are at the top of the book.
