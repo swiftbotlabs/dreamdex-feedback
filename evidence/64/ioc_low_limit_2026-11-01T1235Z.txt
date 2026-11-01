@@ -1,0 +1,10 @@
+IOC sell 0.004 ETH at 1 tick REVERT Error("ERC20: insufficient allowance")
+IOC sell 0.004 ETH at 2200    OK 0x00000000000000000000000000000000000000000000000000000000000000010000
+IOC sell 0.01 ETH at 1 tick REVERT Error("ERC20: insufficient allowance")
+IOC sell 0.01 ETH at 2200    OK 0x00000000000000000000000000000000000000000000000000000000000000010000
+IOC sell 0.1 ETH at 1 tick REVERT Error("ERC20: insufficient allowance")
+IOC sell 0.1 ETH at 2200    REVERT Error("ERC20: insufficient allowance")
+IOC sell 1 ETH at 1 tick REVERT Error("ERC20: insufficient allowance")
+IOC sell 1 ETH at 2200    REVERT Error("ERC20: insufficient allowance")
+IOC sell 10 ETH at 1 tick REVERT Error("ERC20: insufficient allowance")
+IOC sell 10 ETH at 2200    REVERT Error("ERC20: insufficient allowance")

@@ -57,6 +57,8 @@ SOMI:USDso  0x43a4…6703 vault USDso   481.74: market buy -> InsufficientBalanc
 ```
 The other accounts in the output revert `SelfMatchCancelTaker` on both orders because their own quotes are at the top of the book.
 
+**Market sells on perps are affected too, less visibly.** The prepared sell has a one-tick limit (see #65), and the pool sizes the margin for that worst case. Our Tokyo account with 3.43 USDso: an IOC sell of 0.004 ETH at one tick reverts (the pool tries to pull the shortfall from the wallet, `ERC20: insufficient allowance`), and the same order at 2,200 passes. So a market short through this route needs about the full notional as margin, not the initial margin (`evidence/64/ioc_low_limit.mjs`, `ioc_low_limit_2026-11-01T1235Z.txt`).
+
 The spec already notes that `slippageBps` is "Ignored for sells and for vault-funded buys". The trouble is the price the server uses instead: the response is a `200` that can never fill, and the error tells a developer nothing. Bots that follow the spec's advice to `eth_call` first see a bare panic.
 
 ## Evidence
