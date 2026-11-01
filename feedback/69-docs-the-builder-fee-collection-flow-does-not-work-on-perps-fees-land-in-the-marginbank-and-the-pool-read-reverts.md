@@ -32,6 +32,8 @@ Docs, HTTP API → Builder Fees: "Each charged fee is credited to the **builder'
 - Indexer: `BuilderFeeRecord` 0 rows and `BuilderApproval` 0 rows, even after the approval above. `PerpFeeRecord` has both fees with `kind: BuilderFee`.
 - The REST host doesn't serve Tokyo, so `GET /v0/markets/{symbol}/builder/approval` is no help there.
 
+The SDK reference (`/docs/typescript/perps`) covers placing a builder order on perps, and its `listPerpFees` reads the fee, but it doesn't say the money lands in the MarginBank or how a builder collects it.
+
 ## Evidence
 `evidence/69/builder_perp.mjs`, `builder_claim.mjs`, and outputs `builder_perp_2026-11-01T1245Z.txt`, `builder_claim_2026-11-01T1246Z.txt`, `open_tx_logs_2026-11-01T1246Z.txt`.
 

@@ -55,9 +55,9 @@ newest price question on the explorer: id 71132, "What is the price of BTC in US
   the sources, the median or the receipts behind them.
 - The settled value now tracks an on-chain price feed. On 1,150 of 1,150 expiries with a feed row from 2026-10-30 to 11-01, the oracle
   value equals the feed's `spot` at expiry, floored to 2 decimals (`price-feed.prd.oracle.somnia.host`, whose `Feed.description` reads
-  "PriceFeedScheduler: spot index + EMA mark"; see `evidence/57/ec_settlement_rule_2026-10-30_to_11-01.txt`). The docs say nothing about that
-  feed. They still describe "a multi-source price reference", a median across sources, and how many sources had to agree, and the ticket
-  still names Prophecy Oracle. We can't tell from outside how many sources feed it now.
+  "PriceFeedScheduler: spot index + EMA mark"; see `evidence/57/ec_settlement_rule_2026-10-30_to_11-01.txt`). The SDK reference describes that feed
+  (`/docs/typescript/prices`, "Methodology": seven venues, a weighted median, three validators), but the trader docs and the FAQ don't mention it, the ticket still
+  names Prophecy Oracle, and the SDK page has no per-market receipt: no source values, no median for that market, no link from a settlement.
 
 The practical result: a trader who follows the FAQ to dispute any market from the last month gets an error page that looks like an outage,
 and support's own procedure ("We will pull the settlement question and walk through the sources with you") has no public page to point at.
@@ -74,8 +74,7 @@ and support's own procedure ("We will pull the settlement question and walk thro
 1. Publish the settlement pipeline for the new questions: index the hash ids on the explorer, or point **Settles against** at a page that shows the
    feed row used, its timestamp and its sources.
 2. Until then, hide the link, or change the label, so the ticket doesn't promise a page that doesn't exist.
-3. Update Market Structure, Settlement & Voids, the FAQ and the tooltip to describe the feed, including how many sources it takes and which instant
-   the settlement reads.
+3. Update Market Structure, Settlement & Voids, the FAQ and the tooltip to point at the feed's methodology and to say which instant the settlement reads.
 
 ## Environment
 - Somnia mainnet (chain 5031), indexer https://prd.smk.somnia.host/v1/graphql, oracle explorer https://prd.oracle.somnia.host
