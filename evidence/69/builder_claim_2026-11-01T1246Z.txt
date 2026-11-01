@@ -1,0 +1,7 @@
+[{"kind":"BuilderFee","amount":"9027080000000000","builder":"<builder>","account":"0x2a11e7388d1d2f9690f2636846d44b478f61bf08","fillNotional":null,"txHash":"0x2a30f8adea9e94fa445136fd58267ad5977108125742ead0982788352b7d0dda"},{"kind":"BuilderFee","amount":"9028840000000000","builder":"<builder>","account":"0x2a11e7388d1d2f9690f2636846d44b478f61bf08","fillNotional":null,"txHash":"0xf6cda3349cc20aba6d98d40dcb508f3db35d0495a129f8df8b
+getWithdrawableCollateral 0.01805592
+withdraw 0.018 simulates ok
+withdraw 0.01806 revert 0x3a23d825 The contract function "withdraw" reverted with the following signature:
+0x3a23d825
+withdraw 1 revert 0x3a23d825 The contract function "withdraw" reverted with the following signature:
+0x3a23d825

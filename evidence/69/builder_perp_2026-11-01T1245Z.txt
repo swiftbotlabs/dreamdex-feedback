@@ -1,0 +1,26 @@
+cap 10000 approval 0
+before {
+  poolVaultBuilder: 'ERR The contract function "getWithdrawableBalance" reverted.',
+  builderWallet: '0',
+  mbUSD: '804032735.852312348255206167',
+  poolUSD: '0'
+}
+approveBuilder 0xad35a14b2917c0dea3d489271e7c92f2e14c41535abf8fb332eb4720575ca5f4 success gas 267282
+approval now 10000
+open with builder 0xf6cda3349cc20aba6d98d40dcb508f3db35d0495a129f8df8b54b98a1b6b3736 success gas 2100529
+  logs 9
+after open {
+  poolVaultBuilder: 'ERR The contract function "getWithdrawableBalance" reverted.',
+  builderWallet: '0',
+  mbUSD: '804032735.852312348255206167',
+  poolUSD: '0'
+}
+close with builder 0x2a30f8adea9e94fa445136fd58267ad5977108125742ead0982788352b7d0dda success gas 1577778
+  logs 6
+after close {
+  poolVaultBuilder: 'ERR The contract function "getWithdrawableBalance" reverted.',
+  builderWallet: '0',
+  mbUSD: '804032735.852312348255206167',
+  poolUSD: '0'
+}
+simulate builder withdraw of ERR The contract function "getWithdrawableBalance" reverted.
