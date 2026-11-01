@@ -1,0 +1,17 @@
+checked 2026-11-01T12:09:55.209Z
+
+SOMI:USDso amount 161.30: market buy price word has 57 digits; IOC limit 0.1953 (prepare ok)
+  0x59c53ec71c94362a271d807518be6877b0ab6e33 vault USDso 2464.806678: market buy -> SelfMatchCancelTaker | IOC limit +5% -> SelfMatchCancelTaker
+  0xd86a1425f51ea1e41767025626137f35d399ed88 vault USDso 38774.253953813666720955: market buy -> InsufficientBalance(have 38774.253953813666720955, need 60 digits) | IOC limit +5% -> ok
+  0x43a4d37b5960a7f95b763ce2dc177dd1375d6703 vault USDso 481.736132865443796401: market buy -> InsufficientBalance(have 481.736132865443796401, need 60 digits) | IOC limit +5% -> ok
+
+USDC.e:USDso amount 30.00: market buy price word has 70 digits; IOC limit 1.0503 (prepare ok)
+  0xaebec3a3cc88d1876f437cb9c8c11e29554b1d2d vault USDso 53005.356853: market buy -> SelfMatchCancelTaker | IOC limit +5% -> SelfMatchCancelTaker
+
+WBTC:USDso amount 0.00039: market buy price word has 73 digits; IOC limit 81820.8 (prepare ok)
+  0xd86a1425f51ea1e41767025626137f35d399ed88 vault USDso 100796.05241534151795473: market buy -> InsufficientBalance(have 100796.05241534151795473, need 70 digits) | IOC limit +5% -> ok
+  0x04455790af653f878aa5dd15f41ecfa962d09043 vault USDso 23355.871011: market buy -> SelfMatchCancelTaker | IOC limit +5% -> SelfMatchCancelTaker
+
+WETH:USDso amount 0.0133: market buy price word has 61 digits; IOC limit 2379.34 (prepare ok)
+  0xd86a1425f51ea1e41767025626137f35d399ed88 vault USDso 110407.587430161504485989: market buy -> InsufficientBalance(have 110407.587430161504485989, need 60 digits) | IOC limit +5% -> ok
+  0xc758b40a827c039ef7428b9de29cec017d572b92 vault USDso 16311.456829992199088235: market buy -> SelfMatchCancelTaker | IOC limit +5% -> SelfMatchCancelTaker

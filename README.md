@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-61-7c5cff?style=flat-square" alt="reports: 61">
+  <img src="https://img.shields.io/badge/reports-63-7c5cff?style=flat-square" alt="reports: 63">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Sixty-one issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Sixty-three issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-plus Event Contracts on Somnia mainnet and the new DreamFly kit: 11 major and 50 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+plus Event Contracts on Somnia mainnet and the new DreamFly kit: 12 major and 51 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -494,6 +494,18 @@ The executor answers `sent: true` for an IOC that fills nothing, and the mirror 
 
 [Report](feedback/63-dreamfly-the-daily-loss-stop-decides-on-the-equity-from-before-the-episode-that-just-lost.md) · [Evidence](evidence/61/) · Checked 2026-11-01 11:50 UTC
 
+## REST API order preparation (added 2026-11-01)
+
+### #64 · major · Market buys are prepared at a near-infinite price: perp longs revert Panic(0x11), vault-funded spot buys revert InsufficientBalance
+`POST /v0/markets/{symbol}/orders` answers 200 with a transaction priced at `(2^256-1)/quantity`. 82 of 90 perp accounts simulated panic; only buys that reduce a short worked. On mainnet a vault-funded market buy fails for accounts holding 100,000 USDso. One real reverted transaction on Tokyo is in the report.
+
+[Report](feedback/64-api-market-buys-are-prepared-at-a-near-infinite-price-so-perp-longs-revert-panic-0x11-and-vault-buys-revert-insufficientbalance.md) · [Evidence](evidence/64/) · Checked 2026-11-01 11:57–12:12 UTC
+
+### #65 · normal · A market sell is prepared with a limit of one tick and silently ignores `slippageBps` and `price`
+The docs say an API client sets the limit. The server always writes the smallest tick, so the order has no price protection.
+
+[Report](feedback/65-api-a-market-sell-is-prepared-with-a-limit-of-one-tick-and-silently-ignores-slippagebps-and-price.md) · [Evidence](evidence/65/) · Checked 2026-11-01 12:10 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -822,6 +834,8 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 61 | major | SDK | [DreamFly: the KILL file leaves a paying carry position open and unmanaged, though the docs say it closes any position](feedback/61-dreamfly-the-kill-file-leaves-a-paying-carry-position-open-and-unmanaged-though-the-docs-say-it-closes-any-position.md) | 2026-11-01 |
 | 62 | normal | SDK | [DreamFly: a perp guard flatten that misses or part-fills is marked done and not sent again until the episode ends](feedback/62-dreamfly-a-perp-guard-flatten-that-misses-or-part-fills-is-marked-done-and-is-not-sent-again-until-the-episode-ends.md) | 2026-11-01 |
 | 63 | normal | SDK | [DreamFly: the daily loss stop decides on the equity from before the episode that just lost](feedback/63-dreamfly-the-daily-loss-stop-decides-on-the-equity-from-before-the-episode-that-just-lost.md) | 2026-11-01 |
+| 64 | major | API | [REST market buys are prepared at a near-infinite price: perp longs revert Panic(0x11), vault-funded spot buys revert InsufficientBalance](feedback/64-api-market-buys-are-prepared-at-a-near-infinite-price-so-perp-longs-revert-panic-0x11-and-vault-buys-revert-insufficientbalance.md) | 2026-11-01 |
+| 65 | normal | API | [A market sell is prepared with a limit of one tick and silently ignores `slippageBps` and `price`](feedback/65-api-a-market-sell-is-prepared-with-a-limit-of-one-tick-and-silently-ignores-slippagebps-and-price.md) | 2026-11-01 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between

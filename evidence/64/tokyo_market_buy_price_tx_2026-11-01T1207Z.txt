@@ -1,0 +1,6 @@
+# node tokyo_market_buy_price_tx.mjs <ETH-PERP pool> 4000000000000000 10000000000000000 [--dry|--go] [comparator price], 2026-11-01 about 12:07 UTC
+# comparator: the same order at 2290
+price 28948022309329048855892746252171976963317496160000000000000000 qty 4000000000000000
+eth_call revert 0x4e487b710000000000000000000000000000000000000000000000000000000000000011 Execution reverted for an unknown reason.
+tx 0x3f660c19e38be98c023ba1b2cd4929beeebc67a343fdae7ba32d6809581bda27 status reverted gasUsed 155588 block 38814525
+comparator eth_call ok, price 2290000000000000000000 (returns success=1)

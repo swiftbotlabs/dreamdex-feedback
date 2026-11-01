@@ -1,0 +1,8 @@
+USDC.e:USDso {"type":"market","side":"sell","amount":"1"} 200  price word 0.0001 orderType 2
+USDC.e:USDso {"type":"market","side":"sell","amount":"1","price":"0.99"} 200  price word 0.0001 orderType 2
+USDC.e:USDso {"type":"market","side":"sell","amount":"1","slippageBps":10} 200  price word 0.0001 orderType 2
+WETH:USDso {"type":"market","side":"sell","amount":"0.01","slippageBps":10} 200  price word 0.01 orderType 2
+WETH:USDso {"type":"market","side":"sell","amount":"0.01","fundingSource":"vault"} 200  price word 0.01 orderType 2
+WETH:USDso {"type":"market","side":"buy","amount":"0.01","slippageBps":10} 200  price word 2270.12 orderType 2
+WETH:USDso {"type":"market","side":"buy","amount":"0.01","price":"2300"} 200  price word 2381.25 orderType 2
+WETH best bid { price: '2266.96', quantity: '0.0317' } best ask { price: '2267.85', quantity: '4.8615' }

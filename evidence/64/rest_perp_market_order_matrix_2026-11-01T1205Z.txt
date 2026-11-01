@@ -1,0 +1,18 @@
+checked 2026-11-01T12:05:26.038Z account used for the API only: 0xdD04E833163A4123B8F31E823350265Fe9BE1bc9
+
+WETH:USDso amount 0.0045: market buy http 200 data 0x4e978373, market sell http 200, limit(+5%) http 200
+
+SOL:USDso amount 0.11: market buy http 200 data 0x4e978373, market sell http 200, limit(+5%) http 200
+
+ADA:USDso amount 52: market buy http 200 data 0x4e978373, market sell http 200, limit(+5%) http 200
+
+count | position | market buy | market sell | limit +5% (same size, same account)
+  66 flat  market buy Panic(0x11)  market sell ok           limit+5% ok
+   7 long  market buy Panic(0x11)  market sell ok           limit+5% ok
+   5 short market buy ok           market sell ok           limit+5% ok
+   5 flat  market buy Panic(0x11)  market sell 0xfb8f41b2   limit+5% 0xfb8f41b2
+   3 short market buy 0x6ffc9258   market sell 0x6ffc9258   limit+5% 0x6ffc9258
+   1 flat  market buy Panic(0x11)  market sell 0x3a23d825   limit+5% 0x3a23d825
+   1 short market buy Panic(0x11)  market sell ok           limit+5% ok
+   1 flat  market buy Panic(0x11)  market sell 0xe450d38c   limit+5% ok
+   1 flat  market buy Panic(0x11)  market sell 0x7ea61260   limit+5% ok
