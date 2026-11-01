@@ -1,0 +1,5 @@
+# mainnet answers resolved 2026-10-30 to 2026-11-01: 2026, distinct (asset, expiry) 1152
+   620  answer == floor(spot) at T and at T-1 (same price)
+   530  answer == floor(spot) at T only
+  1629  markets
+     2  no feed row at T

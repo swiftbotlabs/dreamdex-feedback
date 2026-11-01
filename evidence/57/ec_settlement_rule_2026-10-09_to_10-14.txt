@@ -1,0 +1,8 @@
+# mainnet answers resolved 2026-10-09 to 2026-10-14: 4846, distinct (asset, expiry) 2880
+  1195  answer == floor(spot) at T and at T-1 (same price)
+   198  answer == floor(spot) at T only
+  1129  answer == floor(spot) at T-1 only
+   114  answer matches neither row
+  3741  markets
+    41  markets whose outcome differs from spot(T) >= line
+   244  no feed row at T

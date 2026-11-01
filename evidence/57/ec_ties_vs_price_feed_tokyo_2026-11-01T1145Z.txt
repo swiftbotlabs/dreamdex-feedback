@@ -1,0 +1,23 @@
+time | asset | line | 2-dp close | spot(T-1) | spot(T) | spot(T+1) | winner | verdict
+2026-10-10 03:35 | BTC | 82527.005 | 82527 | 82527.005 | 82527.005 | 82527.005 | Up | matches spot(T) vs line
+2026-10-10 03:45 | BTC | 82501.05 | 82501.05 | 82501.055 | 82501.055 | 82501.055 | Up | matches spot(T) vs line
+2026-10-10 04:20 | ETH | 2492.65 | 2492.65 | 2492.65 | 2492.665 | 2492.665 | Up | matches spot(T) vs line
+2026-10-11 02:40 | BTC | 83018.575 | 83018.57 | 83018.575 | 83018.575 | 83019.35 | Up | matches spot(T) vs line
+2026-10-11 07:50 | BTC | 82945.555 | 82945.55 | 82945.55 | 82945.55 | 82945.745 | Down | matches spot(T) vs line
+2026-10-11 08:50 | ETH | 2498.755 | 2498.75 | 2498.885 | 2498.68 | 2498.6 | Up | matches spot(T-1) vs line (row published before expiry)
+2026-10-11 16:55 | ETH | 2550.245 | 2550.24 | 2550.245 | 2550.575 | 2550.595 | Up | matches spot(T) vs line
+2026-10-11 19:45 | ETH | 2534.545 | 2534.54 | 2534.545 | 2534.545 | 2534.545 | Up | matches spot(T) vs line
+2026-10-12 03:45 | ETH | 2542.185 | 2542.18 | 2542.185 | 2542.195 | 2542.355 | Up | matches spot(T) vs line
+2026-10-12 18:45 | ETH | 2510.675 | 2510.67 | 2510.675 | 2510.525 | 2510.525 | Up | matches spot(T-1) vs line (row published before expiry)
+2026-10-19 04:25 | ETH | 2419.195 | 2419.19 | 2419.485 | 2419.095 | 2419.095 | Up | matches spot(T-1) vs line (row published before expiry)
+2026-10-19 21:45 | BTC | 81963.25 | 81963.25 | 81972.75 | 81963.25 | 81963.25 | Up | matches spot(T) vs line
+2026-10-21 09:30 | ETH | 2462.865 | 2462.86 | 2462.865 | 2462.865 | 2462.865 | Up | matches spot(T) vs line
+2026-10-23 09:50 | ETH | 2397.255 | 2397.25 | 2397.255 | 2397.155 | 2397.215 | Up | matches spot(T-1) vs line (row published before expiry)
+2026-10-23 15:30 | ETH | 2402.295 | 2402.29 | 2402.295 | 2402.295 | 2402.0525 | Up | matches spot(T) vs line
+2026-10-24 05:15 | ETH | 2378.185 | 2378.18 | 2378.185 | 2378.185 | 2378.185 | Up | matches spot(T) vs line
+2026-10-25 03:15 | ETH | 2364.275 | 2364.27 | 2364.275 | 2364.275 | 2364.275 | Up | matches spot(T) vs line
+2026-10-26 09:25 | BTC | 80399.85 | 80399.85 | 80399.85 | 80399.85 | 80399.85 | Up | matches spot(T) vs line
+2026-10-27 11:25 | ETH | 2311.585 | 2311.58 | 2311.585 | 2311.585 | 2311.585 | Up | matches spot(T) vs line
+2026-10-27 17:10 | ETH | 2348.525 | 2348.52 | 2348.525 | 2348.525 | 2348.665 | Up | matches spot(T) vs line
+2026-10-28 10:35 | ETH | 2367.855 | 2367.85 | 2367.855 | 2367.855 | 2367.855 | Up | matches spot(T) vs line
+ties 21: spot(T) 17, spot(T-1) only 4, neither 0, no feed row 0

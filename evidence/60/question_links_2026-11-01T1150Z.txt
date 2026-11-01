@@ -1,0 +1,10 @@
+checked 2026-11-01T11:51Z
+mainnet Up/Down markets: 58582
+last numeric id:  market 008170 expiry 2026-10-01 07:00 UTC oracleQuestionId 71133 question: ETH closes at or above its opening price
+first hash id:    market 008175 expiry 2026-10-01 07:05 UTC oracleQuestionId 71050682978155766953779396879128067703977103535364307021930629104245623523007 question: Will BTC/USDC's price be at or above 84075.45 at unix time 1790838300?
+markets with hash ids: 25446
+200 numeric ids before the switch: 141 distinct, found on the explorer: 141
+200 hash ids just after the switch: 200 distinct, found on the explorer: 0
+200 newest hash ids: 200 distinct, found on the explorer: 0
+explorer totals: 77300 questions
+newest price question on the explorer: {'id': '71132', 'questionText': 'What is the price of BTC in USDC at unix time 1790838000 UTC?', 'resolutionTime': '1790838000'}

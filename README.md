@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-57-7c5cff?style=flat-square" alt="reports: 57">
+  <img src="https://img.shields.io/badge/reports-58-7c5cff?style=flat-square" alt="reports: 58">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Fifty-seven issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Fifty-eight issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-plus Event Contracts on Somnia mainnet: 1 critical, 9 major and 47 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+plus Event Contracts on Somnia mainnet: 10 major and 48 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -73,8 +73,8 @@ Open orders, Spot trades and Event trades tabs read only the Global (Shannon) in
 show (#56). Scripts and outputs are in [`evidence/56/`](evidence/56/).
 
 **Reports 57–59 were added on 2026-10-29, 20:34–20:40 UTC** ([57](https://github.com/swiftbotlab/dreamdex-feedback/commit/b5c3d4c), [58](https://github.com/swiftbotlab/dreamdex-feedback/commit/5304fc4), [59](https://github.com/swiftbotlab/dreamdex-feedback/commit/5857885)): two on **Event Contracts**,
-checked on Somnia mainnet (chain 5031) as well as Tokyo, and one on **perp liquidations**. A window that closes exactly at its
-strike settles against the market's own oracle question, and identical ties settle on opposite sides (#57). A stage-3
+checked on Somnia mainnet (chain 5031) as well as Tokyo, and one on **perp liquidations**. Event Contract strikes and closes are shown floored to 2 decimals while settlement compares full precision (#57, filed as critical and
+corrected to normal on 2026-11-01: the "ties" were a rounding artefact of our check, see the report). A stage-3
 liquidation closes the whole position and charges 1% of it even for a shortfall of cents (#58). Every mainnet market since
 2026-09-16 voids by the closing-price split, while the docs and the app's trade history say a void pays 0.50 per contract
 (#59). All three were checked read-only, from the indexers and on chain. See [the section below](#event-contracts-and-liquidations-added-2026-10-29).
@@ -449,10 +449,10 @@ fresh 6 gwei transaction `0x024923cb…1ce9`; 0.6 gwei still rejected; docs figu
 
 ## Event Contracts and liquidations (added 2026-10-29)
 
-### #57 · critical · An Event Contract window that closes exactly at its strike settles against the market's own question, and identical ties settle on opposite sides
-The oracle records "at or above X.XX5" (strike + 0.005) and the app asks "settle above $X.XX?" (the strike), but 29 mainnet and 16 Tokyo
-ties paid Up, one of them against an outside trader's Down stake. 5 mainnet ties and 1 Tokyo tie with the same shape paid
-Down. The app's Strike tooltip and the docs say "at or above".
+### #57 · normal · Strike and close are floored to 2 decimals while settlement compares full precision; ticket, tooltip and FAQ state different rules
+**Corrected 2026-11-01.** Filed on 2026-10-29 as critical, with the claim that ties settle against the market's own question. That was wrong: our
+check compared 2-decimal values. Against the full-precision price feed every listed window is explained and none contradicts its question. What
+remains is display and wording: a close can read equal to the strike and pay either side, and the ticket says "above" while the tooltip says "at or above".
 
 [Report](feedback/57-event-contracts-a-window-that-closes-exactly-at-its-strike-is-settled-against-its-own-question-up-on-most-markets-down-on-one.md) · [Evidence](evidence/57/) · First reported [2026-10-29 20:34 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/b5c3d4c) · Checked 2026-10-29 20:20–20:35 UTC (indexers of both networks, 4 markets on chain, app screenshots)
 
@@ -468,6 +468,12 @@ margin". One SOL account got the documented partial close with no fee, one block
 dreamDEX market pays 0.50, and the mainnet app's trade history computes `proceeds = t / 2n` for every voided position.
 
 [Report](feedback/59-event-contracts-every-new-mainnet-market-voids-by-the-closing-price-split-but-docs-and-the-app-say-a-void-pays-0-50-per-contract.md) · [Evidence](evidence/59/) · First reported [2026-10-29 20:40 UTC](https://github.com/swiftbotlab/dreamdex-feedback/commit/5857885) · Checked 2026-10-29 20:38–20:41 UTC
+
+### #60 · major · The "Settles against" link and the documented oracle audit open "question not found" for every market since 2026-10-01 07:05 UTC
+Market question ids became 77-digit hashes on 2026-10-01, and the oracle explorer has none of them (0 of 400 sampled, 141 of 141 for older numeric ids).
+The docs and FAQ call that page "the receipt", and the ticket links to it, for 25,446 mainnet markets where it shows an error.
+
+[Report](feedback/60-event-contracts-the-settles-against-link-opens-question-not-found-for-every-market-since-2026-10-01.md) · [Evidence](evidence/60/) · Checked 2026-11-01 11:20–11:51 UTC (app logged out, explorer GraphQL, positive control)
 
 ## Explorer
 
@@ -790,9 +796,10 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 54 | normal | explorer | [Etherscan `txlist` is "Not available" for accounts with more than ~2.5M transactions, even for 5 rows](feedback/54-explorer-api-etherscan-txlist-is-not-available-for-the-busiest-accounts-even-for-five-rows.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
 | 55 | normal | explorer | [Contract creator and creation transaction are never shown; `getcontractcreation` fails for CREATE2 and factory deployments](feedback/55-explorer-contract-creator-and-creation-transaction-are-missing-and-getcontractcreation-fails-for-create2-deployments.md) | [2026-10-28 10:51](https://github.com/swiftbotlab/dreamdex-feedback/commit/8818b47) |
 | 56 | normal | app | [Trader page: Open orders, Spot trades and Event trades read only the Global (Shannon) indexer, so Tokyo orders and trades never show](feedback/56-app-trader-page-open-orders-spot-and-event-trades-tabs-read-only-the-global-region-so-tokyo-orders-and-trades-never-show.md) | [2026-10-28 23:46](https://github.com/swiftbotlab/dreamdex-feedback/commit/b4065c4) |
-| 57 | critical | contracts | [Event Contracts: a window that closes exactly at its strike settles against the market's own question; identical ties settle on opposite sides (mainnet and Tokyo)](feedback/57-event-contracts-a-window-that-closes-exactly-at-its-strike-is-settled-against-its-own-question-up-on-most-markets-down-on-one.md) | [2026-10-29 20:34](https://github.com/swiftbotlab/dreamdex-feedback/commit/b5c3d4c) |
+| 57 | normal | app | [Event Contracts: strike and close are floored to 2 decimals while settlement compares full precision; ticket, tooltip and FAQ differ (corrected 2026-11-01, was critical)](feedback/57-event-contracts-a-window-that-closes-exactly-at-its-strike-is-settled-against-its-own-question-up-on-most-markets-down-on-one.md) | [2026-10-29 20:34](https://github.com/swiftbotlab/dreamdex-feedback/commit/b5c3d4c) |
 | 58 | major | contracts | [A stage-3 liquidation closes the whole position and charges 1% of it even when the account is cents below maintenance](feedback/58-contracts-a-liquidation-closes-the-whole-position-and-charges-1-percent-of-it-even-when-the-account-is-cents-below-maintenance.md) | [2026-10-29 20:39](https://github.com/swiftbotlab/dreamdex-feedback/commit/5304fc4) |
 | 59 | major | contracts | [Every mainnet Event Contract since 2026-09-16 voids by the closing-price split; docs and the app say a void pays 0.50](feedback/59-event-contracts-every-new-mainnet-market-voids-by-the-closing-price-split-but-docs-and-the-app-say-a-void-pays-0-50-per-contract.md) | [2026-10-29 20:40](https://github.com/swiftbotlab/dreamdex-feedback/commit/5857885) |
+| 60 | major | app | [Event Contracts: the "Settles against" link and the documented oracle audit open "question not found" for every market since 2026-10-01 07:05 UTC](feedback/60-event-contracts-the-settles-against-link-opens-question-not-found-for-every-market-since-2026-10-01.md) | 2026-11-01 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
