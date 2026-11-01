@@ -1,0 +1,6 @@
+closes sent over 60 rows: 1 position still open: 0.39997485474616923 last_target: 0.0
+.carry held -0.39997485474616923 after 60 rows -0.2999811410596269 closes 1
+.KILL requested. episode: None open_pos (paper): -20.02419233967078 account position: -0.4004838467934156 calls: [('place', 'short', 99.98, 0.400483847, 'market')]
+.episode ended; day P&L the decision saw: 0.0 | day P&L one call later: -60.0 | guard_flat: False | next arm: flat
+.
+4 passed in 3.93s

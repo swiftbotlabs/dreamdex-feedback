@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-58-7c5cff?style=flat-square" alt="reports: 58">
+  <img src="https://img.shields.io/badge/reports-61-7c5cff?style=flat-square" alt="reports: 61">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Fifty-eight issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Sixty-one issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-plus Event Contracts on Somnia mainnet: 10 major and 48 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+plus Event Contracts on Somnia mainnet and the new DreamFly kit: 11 major and 50 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -475,6 +475,25 @@ The docs and FAQ call that page "the receipt", and the ticket links to it, for 2
 
 [Report](feedback/60-event-contracts-the-settles-against-link-opens-question-not-found-for-every-market-since-2026-10-01.md) · [Evidence](evidence/60/) · Checked 2026-11-01 11:20–11:51 UTC (app logged out, explorer GraphQL, positive control)
 
+## DreamFly (added 2026-11-01)
+
+`somnia-chain/dreamdex-dreamfly` v1.0.0 was published on 2026-10-30, with perp and Event Contract executors. These reports read its order mirror and run it offline with the project's own classes; the sidecar was also run for real on Tokyo.
+
+### #61 · major · The emergency KILL file leaves a paying carry position open and unmanaged
+The docs say KILL "closes any position". A `p_carry` episode with funding still paying keeps its position through the normal finish path, and with no episode running the mirror is never called again.
+
+[Report](feedback/61-dreamfly-the-kill-file-leaves-a-paying-carry-position-open-and-unmanaged-though-the-docs-say-it-closes-any-position.md) · [Evidence](evidence/61/) · Checked 2026-11-01 11:30–11:54 UTC
+
+### #62 · normal · A perp guard flatten that misses or part-fills is marked done and not sent again until the episode ends
+The executor answers `sent: true` for an IOC that fills nothing, and the mirror treats that as done: 1 close in 60 rows while the account still holds the position.
+
+[Report](feedback/62-dreamfly-a-perp-guard-flatten-that-misses-or-part-fills-is-marked-done-and-is-not-sent-again-until-the-episode-ends.md) · [Evidence](evidence/61/) · Checked 2026-11-01 11:30–11:54 UTC
+
+### #63 · normal · The daily loss stop decides on the equity from before the episode that just lost
+`decide()` runs inside `on_row`, and the ledger is read after `on_row` returns, so the first loss past the limit is seen one episode late.
+
+[Report](feedback/63-dreamfly-the-daily-loss-stop-decides-on-the-equity-from-before-the-episode-that-just-lost.md) · [Evidence](evidence/61/) · Checked 2026-11-01 11:50 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -800,6 +819,9 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 58 | major | contracts | [A stage-3 liquidation closes the whole position and charges 1% of it even when the account is cents below maintenance](feedback/58-contracts-a-liquidation-closes-the-whole-position-and-charges-1-percent-of-it-even-when-the-account-is-cents-below-maintenance.md) | [2026-10-29 20:39](https://github.com/swiftbotlab/dreamdex-feedback/commit/5304fc4) |
 | 59 | major | contracts | [Every mainnet Event Contract since 2026-09-16 voids by the closing-price split; docs and the app say a void pays 0.50](feedback/59-event-contracts-every-new-mainnet-market-voids-by-the-closing-price-split-but-docs-and-the-app-say-a-void-pays-0-50-per-contract.md) | [2026-10-29 20:40](https://github.com/swiftbotlab/dreamdex-feedback/commit/5857885) |
 | 60 | major | app | [Event Contracts: the "Settles against" link and the documented oracle audit open "question not found" for every market since 2026-10-01 07:05 UTC](feedback/60-event-contracts-the-settles-against-link-opens-question-not-found-for-every-market-since-2026-10-01.md) | 2026-11-01 |
+| 61 | major | SDK | [DreamFly: the KILL file leaves a paying carry position open and unmanaged, though the docs say it closes any position](feedback/61-dreamfly-the-kill-file-leaves-a-paying-carry-position-open-and-unmanaged-though-the-docs-say-it-closes-any-position.md) | 2026-11-01 |
+| 62 | normal | SDK | [DreamFly: a perp guard flatten that misses or part-fills is marked done and not sent again until the episode ends](feedback/62-dreamfly-a-perp-guard-flatten-that-misses-or-part-fills-is-marked-done-and-is-not-sent-again-until-the-episode-ends.md) | 2026-11-01 |
+| 63 | normal | SDK | [DreamFly: the daily loss stop decides on the equity from before the episode that just lost](feedback/63-dreamfly-the-daily-loss-stop-decides-on-the-equity-from-before-the-episode-that-just-lost.md) | 2026-11-01 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between

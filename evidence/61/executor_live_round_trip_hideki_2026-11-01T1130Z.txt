@@ -1,0 +1,9 @@
+{"id":1,"ok":true,"address":"0x2A11e7388D1D2F9690f2636846d44b478f61bF08","signer":"0x2A11e7388D1D2F9690f2636846d44b478f61bF08","trading_key":false,"markets":[{"symbol":"ZRO/USDso:USDso","display":"ZRO-PERP","base_decimals":18,"quote_decimals":18,"tick":"100000
+{"id":2,"ok":true,"bid":2266.73,"ask":2266.88}
+{"id":3,"ok":true,"sent":true,"order_id":"10514644122014455911588","filled":0.004,"qty":0.004,"price":2304.6,"tx":"0x605c670b09d1493727a628f2a6ef47c6f2f04bd040d3ccf481e676d4f14cfce7","limited_by":"collateral"}
+{"id":4,"ok":true,"position":{"side":"long","contracts":0.004,"entry":2266.88,"mark":2265.6858520999567}}
+{"id":5,"ok":true,"sent":true,"order_id":"36893488147430593721","filled":0.004,"qty":0.004,"price":2262.2,"tx":"0xce60552bb13d828593a73bc42530d27271b34086fc9ef683f12fa0a9b29e747e","limited_by":"reduce","left":0}
+{"id":6,"ok":true,"position":null}
+{"id":7,"ok":true,"equity":3.4274448820466255,"unlocked":3.4274448820466255}
+{"id":8,"ok":true,"sent":true,"filled":0,"no_fill":true,"reason":"nothing crossed"}
+{"id":9,"ok":true,"bye":true}
