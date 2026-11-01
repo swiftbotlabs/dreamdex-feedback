@@ -1,0 +1,19 @@
+# dreamdex CLI built from somnia-chain/somnia-dex-cli 65cce8c (go 1.27.3), fresh throwaway key, 2026-11-01T12:23Z
+$ dreamdex markets
+Symbol        Contract                                    Ba
+SOMI:USDso    0x035De7403eac6872787779CCA7CCF1b4CDb61379  0x
+USDC.e:USDso  0x47fD2f18426f67106DBaC82F6d21D446c5F2120b  0x
+WBTC:USDso    0x25bfF6B7B5E2243424F38E75de7ab03C0522a5EA  0x
+WETH:USDso    0xa936da11B57b50A344e1293AAaE5232885ea2bDE  0x
+$ dreamdex login   (default API https://api.dreamdex.io, mainnet)
+Importing key into keystore...
+Key stored in ~/.config/dreamdex/keystore/api.dreamdex.io
+Error: login: chain_id_mismatch: chain ID in message does not match this network
+$ dreamdex mytrades
+Error: authentication failed: login: chain_id_mismatch: chain ID in message does not match this network
+$ dreamdex order list WETH:USDso --status open
+Error: authentication failed: login: chain_id_mismatch: chain ID in message does not match this network
+$ dreamdex --testnet login
+Authenticated as 0x<throwaway>
+$ dreamdex --testnet order list WETH:USDso --status open
+Symbol  ID  Status  Created  Side  Price  Exec  Amount  Filled  Remaining  

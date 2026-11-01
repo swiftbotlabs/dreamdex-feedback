@@ -3,17 +3,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-65-7c5cff?style=flat-square" alt="reports: 65">
+  <img src="https://img.shields.io/badge/reports-66-7c5cff?style=flat-square" alt="reports: 66">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Sixty-five issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Sixty-six issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-plus Event Contracts on Somnia mainnet and the new DreamFly kit: 13 major and 52 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+plus Event Contracts on Somnia mainnet and the new DreamFly kit: 14 major and 52 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -516,6 +516,11 @@ The fee table stops at "up to 1%, only if you are liquidated". SWBTCC's 24 posit
 
 [Report](feedback/67-docs-perp-delisting-is-undocumented-positions-are-force-closed-at-a-five-minute-twap-and-charged-2-percent-of-notional.md) · [Evidence](evidence/66/) · Checked 2026-11-01 12:12–12:18 UTC
 
+### #68 · major · The official dreamdex CLI cannot sign in on mainnet: it signs Chain ID 50312 for every network
+`buildSIWE` hardcodes the testnet id, so every authenticated command on the CLI's default network fails with `chain_id_mismatch`. The same commands work with `--testnet`.
+
+[Report](feedback/68-cli-the-official-dreamdex-cli-cannot-sign-in-on-mainnet-it-signs-chain-id-50312-for-every-network.md) · [Evidence](evidence/68/) · Checked 2026-11-01 12:22 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -848,6 +853,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 65 | normal | API | [A market sell is prepared with a limit of one tick and silently ignores `slippageBps` and `price`](feedback/65-api-a-market-sell-is-prepared-with-a-limit-of-one-tick-and-silently-ignores-slippagebps-and-price.md) | 2026-11-01 |
 | 66 | normal | API | [A delisted perp market stays in `/v0/markets` with no status, and `POST orders` answers 200 for a transaction that reverts `MarketSettled()`](feedback/66-api-a-delisted-perp-market-stays-listed-with-no-status-and-order-prepare-answers-200-for-a-transaction-that-reverts-marketsettled.md) | 2026-11-01 |
 | 67 | major | docs | [Perp delisting is undocumented, yet it force-closes every position at a TWAP and charges 2% of notional](feedback/67-docs-perp-delisting-is-undocumented-positions-are-force-closed-at-a-five-minute-twap-and-charged-2-percent-of-notional.md) | 2026-11-01 |
+| 68 | major | SDK | [The official dreamdex CLI cannot sign in on mainnet: it signs Chain ID 50312 for every network](feedback/68-cli-the-official-dreamdex-cli-cannot-sign-in-on-mainnet-it-signs-chain-id-50312-for-every-network.md) | 2026-11-01 |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
