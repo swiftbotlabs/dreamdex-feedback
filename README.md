@@ -1,3 +1,5 @@
+> **Moved 2 Nov 2026.** This repo was at github.com/swiftbotlab/dreamdex-feedback until GitHub suspended that account on 1 Nov. Every commit keeps its original date, so report times read as before. Hashes changed in the move: [MOVED.md](MOVED.md) maps old to new.
+
 <p align="center">
   <img src="assets/banner.png" width="100%" alt="dreamDEX feedback: 53 reproducible reports on Somnia Tokyo testnet and the new Somnia explorer, by Swift Bot Labs">
 </p>
