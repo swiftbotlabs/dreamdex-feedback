@@ -5,17 +5,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-68-7c5cff?style=flat-square" alt="reports: 68">
+  <img src="https://img.shields.io/badge/reports-69-7c5cff?style=flat-square" alt="reports: 69">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Sixty-eight issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Sixty-nine issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
-plus Event Contracts on Somnia mainnet and the new DreamFly kit: 14 major and 54 normal. Each one is a single Markdown file in [`feedback/`](feedback)
+plus Event Contracts on Somnia mainnet, the new DreamFly kit and Perps Arena: 15 major and 54 normal. Each one is a single Markdown file in [`feedback/`](feedback)
 that follows the bounty template (Severity, Area, Steps to reproduce, Expected, Actual, Evidence, Environment) and opens
 with a two-line summary. Each also has a one-command reproduction or exact manual steps, plus saved output in
 [`evidence/`](evidence).
@@ -534,6 +534,11 @@ On perps the fee lands in the builder's MarginBank account: the pool read revert
 
 [Report](feedback/70-docs-event-contracts-are-documented-as-15-minute-and-1-hour-windows-but-5-minute-windows-trade-on-mainnet.md) · Checked 2026-11-01 12:48 UTC
 
+### #71 · major · Perps Arena stopped counting trades at 17:46 UTC on Nov 2: quest progress (raffle tickets) and the week 4 leaderboard are frozen
+The activity feed behind quests and the board has not moved since `activityThrough` 2026-11-02 17:46:59 UTC. A full close on our own Arena account, indexed by 08:46, was still not credited after three quest scorings. The week 4 table shows #1 at +20.07%, while its own hourly chart and the chain both say +65.95%. The API reports `activityPending 0`.
+
+[Report](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) · [Evidence](evidence/71/) · Checked 2026-11-03 07:57–09:04 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -869,6 +874,7 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 68 | major | SDK | [The official dreamdex CLI cannot sign in on mainnet: it signs Chain ID 50312 for every network](feedback/68-cli-the-official-dreamdex-cli-cannot-sign-in-on-mainnet-it-signs-chain-id-50312-for-every-network.md) | [2026-11-01 12:24](https://github.com/swiftbotlabs/dreamdex-feedback/commit/be6e8ad) |
 | 69 | normal | docs | [The documented builder-fee flow does not apply to perps: fees land in the MarginBank and the pool read reverts](feedback/69-docs-the-builder-fee-collection-flow-does-not-work-on-perps-fees-land-in-the-marginbank-and-the-pool-read-reverts.md) | [2026-11-01 12:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/d911bb3) |
 | 70 | normal | docs | [Event Contracts are documented as 15-minute and 1-hour windows; 5-minute windows have traded since 2026-09-01](feedback/70-docs-event-contracts-are-documented-as-15-minute-and-1-hour-windows-but-5-minute-windows-trade-on-mainnet.md) | [2026-11-01 12:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/d911bb3) |
+| 71 | major | app | [Perps Arena stopped counting trades at 17:46 UTC on Nov 2: quest progress and the week 4 leaderboard are frozen while the equity chart keeps updating](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) | [2026-11-03 09:05](https://github.com/swiftbotlab/dreamdex-feedback/commit/c8acc11) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
