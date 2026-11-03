@@ -1,0 +1,11 @@
+block 437566459 2026-10-13T16:56:56.000Z: distributor nonce 3312, USDso 331.14906; Safe 0xDDc4 USDso 0
+block 437566460 2026-10-13T16:56:56.000Z: distributor nonce 3313, USDso 0; Safe 0xDDc4 USDso 331.14906
+block 455512039 2026-11-03T11:34:33.000Z: distributor nonce 3313, USDso 468.8341930748; Safe 0xDDc4 USDso 6637.3879742373
+maker 0xd86a1425f51ea1e41767025626137f35d399ed88: maker fills in the last ~5.5 h, e.g.
+  block 455315641 2026-11-03T06:07:15.000Z market 0xa936da11b57b50a344e1293aaae5232885ea2bde tx 0x931c9004acd1bbdaec35c343f6a13c0c8274ddbdb015479387ccdaa4eadad040
+  block 455315641 2026-11-03T06:07:15.000Z market 0xa936da11b57b50a344e1293aaae5232885ea2bde tx 0x12ff602e5085ccda8738b7d853817291afd6d7b3f6c4ba44164abdef196b6782
+  block 455316544 2026-11-03T06:08:46.000Z market 0xa936da11b57b50a344e1293aaae5232885ea2bde tx 0x8b1991d05f680f0a3a8e4bc3bfdfa838fdff0d92f30be7b179c92d254e6b0275
+book SOMI:USDso: 15 bid levels (best 0.1602), 21 ask levels (best 0.1603)
+book WETH:USDso: 16 bid levels (best 2264.8), 16 ask levels (best 2266.08)
+book WBTC:USDso: 16 bid levels (best 77054.3), 17 ask levels (best 77065)
+book USDC.e:USDso: 4 bid levels (best 0.9998), 5 ask levels (best 1.0002)

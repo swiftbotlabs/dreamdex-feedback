@@ -1,0 +1,3 @@
+fetched 2026-11-03T11:09Z (signed in, our account; in-page fetch, token not printed)
+week-4 table: equityThrough 2026-11-02 17:00:00 | activityThrough 2026-11-02 17:46:59 | activitySettling False | activityPending 0
+quests/me: scoredAt 2026-11-03 11:03:38 | progress rows 9, none for 2026-W45 | all-time volume counter {'usd': 33851.412936} (unchanged since 08:32)

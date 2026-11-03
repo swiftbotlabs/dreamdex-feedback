@@ -1,0 +1,5 @@
+https://app.dreamdex.io/explore, HTML fetched with curl on 2026-11-03 at about 11:22 UTC, logged out (deployment dpl_822sE9mQ3NfGnHbKcFyMvMvnWPGc).
+Card section 'ELSEWHERE', link as served:
+  href /lend
+  label: 'lend'
+  text:  'lend collateral to the venue and earn the borrow rate.'

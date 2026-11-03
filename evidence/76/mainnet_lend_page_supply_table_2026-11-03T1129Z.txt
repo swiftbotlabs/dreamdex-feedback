@@ -1,0 +1,39 @@
+https://app.dreamdex.io/lend rendered in Chrome, logged out, 2026-11-03 ~11:29 UTC. 'Supply assets' table as shown (page text):
+Supply assets
+Earn yield
+Asset	Wallet	APY	
+Max LTV
+	Action
+SOMI
+Native
+Somnia
+0.00 SOMI
+$0.00
+	0.00%	60%	
+Supply
+USDC.e
+USD Coin
+0.00 USDC.e
+$0.00
+	3.50%	75%	
+Supply
+WETH
+Wrapped Ether
+0.00 WETH
+$0.00
+	0.21%	70%	
+Supply
+USDso
+Native
+Somnia USD
+0.00 USDso
+$0.00
+	0.83%	75%	
+Supply
+WBTC
+Wrapped Bitcoin
+0.00 WBTC
+$0.00
+	0.00%	65%	
+Supply
+Borrow assets

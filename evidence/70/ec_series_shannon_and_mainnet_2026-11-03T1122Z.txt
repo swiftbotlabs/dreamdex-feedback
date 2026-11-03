@@ -1,0 +1,22 @@
+== dev.smk.somnia.host (2026-11-03T11:22Z)
+markets 17695
+('BTC', 60) n 10081 first 10-27 11:23 last 11-03 11:23 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 120) n 1281 first 10-27 11:24 last 10-29 06:04 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 300) n 2017 first 10-27 11:25 last 11-03 11:25 gaps 0 missing windows 0 dupExpiry 513
+('BTC', 900) n 673 first 10-27 11:30 last 11-03 11:30 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 3600) n 169 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 14400) n 43 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 86400) n 8 first 10-28 00:00 last 11-04 00:00 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 300) n 2017 first 10-27 11:25 last 11-03 11:25 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 900) n 673 first 10-27 11:30 last 11-03 11:30 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 3600) n 169 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 14400) n 43 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 86400) n 8 first 10-28 00:00 last 11-04 00:00 gaps 0 missing windows 0 dupExpiry 0
+== prd.smk.somnia.host (2026-11-03T11:22Z)
+markets 5718
+('BTC', 300) n 2017 first 10-27 11:25 last 11-03 11:25 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 900) n 673 first 10-27 11:30 last 11-03 11:30 gaps 0 missing windows 0 dupExpiry 0
+('BTC', 3600) n 169 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 300) n 2017 first 10-27 11:25 last 11-03 11:25 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 900) n 673 first 10-27 11:30 last 11-03 11:30 gaps 0 missing windows 0 dupExpiry 0
+('ETH', 3600) n 169 first 10-27 12:00 last 11-03 12:00 gaps 0 missing windows 0 dupExpiry 0

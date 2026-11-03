@@ -1,0 +1,11 @@
+Fetched 2026-11-03T11:15Z with curl (logged out).
+== mainnet https://app.dreamdex.io/trade/spot/SOMI:USDso: campaignBanners in the server-rendered HTML (2 banners)
+  bannerId 908d9db0-6368-4e96-bbe0-8dacbc640dbb createdAt 2026-10-06 17:05 UTC startsAt None endsAt None enabled True scope all audience everyone
+    message: Perps Arena kicks off October 12. $15,000 in prizes. No deposit required. Terms apply.
+    cta: Join Perps Arena. -> https://app.testnet.dreamdex.io/competition?utm_source=mainnet&utm_medium=owned&utm_campaign=perps_arena&utm_content=perps_arena_banner
+  bannerId a40af630-4c5b-4f92-a3bd-0b5f8f0e082f createdAt 2026-09-22 14:06 UTC startsAt 1790078400000 endsAt None enabled True scope all audience everyone
+    message: Get early access to Perps on dreamDEX.
+    cta: Join the mainnet waitlist. -> https://app.dreamdex.io/preregister?utm_source=testnet&utm_medium=owned&utm_campaign=perps_waitlist&utm_content=testnet_perps_arena_banner
+
+== testnet https://app.testnet.dreamdex.io/trade/spot/SOMI:USDso, rendered banner text:
+  Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply.

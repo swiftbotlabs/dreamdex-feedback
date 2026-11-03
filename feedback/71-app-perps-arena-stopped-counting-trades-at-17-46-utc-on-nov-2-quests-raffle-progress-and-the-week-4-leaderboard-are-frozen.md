@@ -69,6 +69,7 @@ The chain ROI is `(getAccountEquity + lockedCollateral − funded) / funded`, us
 - `evidence/71/board_week-4_2026-11-03T0757Z.json`, `chart_week-4_2026-11-03T0757Z.json`, `arena_board_vs_chain.mjs` and its output. X handles and avatar URLs are blanked in the saved bodies.
 - `evidence/71/activity_rows.sh` and its output; `evidence/71/board_week-3_final_2026-11-03T0750Z.json`, `week3_reconcile.mjs` and its output.
 - `evidence/71/recheck_2026-11-03T0903Z.txt`, `recheck_2026-11-03T0930Z.txt`: the same endpoints fetched again. At 09:30 the table and the season board are still at 17:00 / 17:46:59. The quest scorer ran again at 09:25:34 and still shows 0 week 4 progress. The chart has moved on to 08:00. The screenshot named above.
+- `evidence/71/recheck_2026-11-03T1109Z.txt`: re-checked at 11:09 UTC. The week 4 table is still at 17:00 / 17:46:59, 17.4 hours after the last counted activity. The quest scorer ran again at 11:03:38, still with no 2026-W45 progress rows, and the all-time volume counter is unchanged at 33,851.41.
 
 ## Suggested fix
 Restart or unblock the activity ingest that feeds the quest scorer and the board, then backfill from 17:46:59 UTC on Nov 2 so that daily and weekly quests are credited to the day and week the trades happened. Drive `activitySettling` / `activityPending` from the real gap between `activityThrough` and the chain head, and show it on the page. Refresh the table and the qualification counters from the same hourly equity snapshot as the chart.

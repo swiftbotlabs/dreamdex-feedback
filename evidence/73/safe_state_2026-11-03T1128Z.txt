@@ -1,0 +1,4 @@
+Safe 0xddc4f8a5664f91cda4abc13c80bbb8e4f2f6a280: version 1.3.0, threshold 2 of 4 owners
+block 437566460 2026-10-13T16:56:56.000Z: nonce 12
+block 450000000 2026-10-28T02:26:23.000Z: nonce 12
+block 455508443 2026-11-03T11:28:34.000Z: nonce 12

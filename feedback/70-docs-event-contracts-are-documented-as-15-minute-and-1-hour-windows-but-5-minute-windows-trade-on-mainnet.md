@@ -22,6 +22,9 @@ Six live series on mainnet: BTC and ETH at 300, 900 and 3600 seconds.
 ## Evidence
 The screenshot named above, plus the query. Docs: `https://app.dreamdex.io/llms-full.txt`, Event Contracts, "Rolling Windows".
 
+## Update 2026-11-03: Shannon testnet has six window lengths
+On Shannon (chain 50312), the testnet indexer lists continuous series for BTC at **60 s, 5 m, 15 m, 1 h, 4 h and 1 day**, and for ETH at 5 m, 15 m, 1 h, 4 h and 1 day, over the last 7 days. A BTC 120-second series ran until 2026-10-29 06:04 UTC. The testnet app's Simple Swap card exposes them as Events durations "1m 5m 15m 1h 4h Daily" (BTC) and "5m … Daily" (ETH) (`evidence/74/testnet_simple_events_venue_2026-11-03T1057Z.png`). Mainnet still has 5 m, 15 m and 1 h only. The docs line names none of the testnet lengths. Evidence: `evidence/70/ec_series.py`, output `ec_series_shannon_and_mainnet_2026-11-03T1122Z.txt` (both indexers, same minute).
+
 ## Suggested fix
 Add 5-minute windows, and say Tokyo's differ.
 

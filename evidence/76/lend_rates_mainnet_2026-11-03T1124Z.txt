@@ -1,0 +1,7 @@
+Somnia mainnet block 455505841 (2026-11-03T11:24:14.000Z)
+reserve   supply APY   borrow APY   supply/borrow
+WSOMI       0.0013%     0.1514%   0.9%
+USDC.e      3.5020%     6.5095%   53.8%
+WETH        0.2123%     2.6377%   8.1%
+USDso       0.8284%     2.0389%   40.6%
+WBTC        0.0000%     0.0000%   0.0%

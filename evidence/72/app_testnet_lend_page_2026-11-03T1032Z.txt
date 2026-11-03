@@ -1,0 +1,149 @@
+app.testnet.dreamdex.io/lend rendered 2026-11-03 10:32 UTC (desktop 1400x1000, signed in as our test account). Page text follows (data from the page):
+/lend
+Testnet
+Trade
+Portfolio
+Perps Arena
+Lend
+Referrals
+dreamBot
+Support
+Deposit
+0x0e7E…3817
+
+Perps Arena is live. $15,000 in rewards. No deposit required. Terms apply. Join Perps Arena.
+
+Lend
+Browse all markets on SomniaLend
+
+Supply assets to SomniaLend markets to earn interest, or borrow against them.
+
+Net in lending
+$0.00
+0.00% net APY
+All-time earnings
+$0.00
+
+Interest earned to date
+
+Supplied
+$0.00
+
+0 assets
+
+0.00% APY
+Borrowed
+$0.00
+
+0% of borrow power
+
+Health factor
+∞
+
+Read more
+
+Supply assets
+Earn yield
+Asset	Wallet	APY	
+Max LTV
+	Action
+
+STT
+Native
+Somnia
+	
+0.65 STT
+$0.10
+	0.00%	—	
+Supply
+
+
+WETH
+Wrapped Ether
+	
+0.00 WETH
+$0.00
+	0.00%	80%	
+Supply
+
+
+USDso
+Native
+Somnia USD
+	
+0.00 USDso
+$0.00
+	1.19%	80%	
+Supply
+
+
+WBTC
+Wrapped Bitcoin
+	
+0.00 WBTC
+$0.00
+	0.00%	80%	
+Supply
+Borrow assets
+Against collateral
+Asset	Available	APY	
+Pool liquidity
+	Action
+
+STT
+Native
+Somnia
+	
+0.00 STT
+$0.00
+	0.01%	
+1,544.62 STT
+$246.49
+	
+Borrow
+
+
+WETH
+Wrapped Ether
+	
+0.00 WETH
+$0.00
+	0.02%	
+2.00 WETH
+$3,727.38
+	
+Borrow
+
+
+USDso
+Native
+Somnia USD
+	
+0.00 USDso
+$0.00
+	2.45%	
+479.31 USDso
+$479.23
+	
+Borrow
+
+
+WBTC
+Wrapped Bitcoin
+	
+0.00 WBTC
+$0.00
+	0.00%	
+0.00 WBTC
+$0.00
+	
+Borrow
+
+Lending markets accessible from this page are provided by SomniaLend and are subject to its separate terms of service. For more information, visit SomniaLend. Displayed rates are variable, may change at any time, and may fall to zero.
+
+© 2026 - DreamDEX, S.A.
+Terms
+Privacy policy
+Support
+Links on the page (phone render, same minute):
+[["Browse all markets on SomniaLend","https://app.somnialend.finance/markets/"],["Read more","https://docs.somnialend.finance/faq#liquidations"],["SomniaLend","https://somnialend.finance/"]]

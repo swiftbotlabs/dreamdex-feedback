@@ -1,0 +1,64 @@
+== 1. Indexer YieldPayout: 3290 rows, first 2026-05-20, last 2026-10-13 (block 437566460, tx 0xfd85133d3a7aa44707e05506f9fea399f897503fc8b16911eaebb86e31ab86e8)
+   day          rows  payees   USDso
+   2026-09-25     10      10   284.5069
+   2026-09-26     12      12   289.4377
+   2026-09-27     15      15   285.3892
+   2026-09-28     15      15   284.2101
+   2026-09-29     16      16   271.7566
+   2026-09-30     18      18   292.3727
+   2026-10-01     22      22   276.3751
+   2026-10-02     20      20   284.2945
+   2026-10-03     21      21   301.0302
+   2026-10-04     18      18   293.7847
+   2026-10-05     19      19   293.6940
+   2026-10-06     20      20   313.8052
+   2026-10-07     18      18   271.8178
+   2026-10-08     19      19   321.2686
+   2026-10-09     24      24   321.6267
+   2026-10-10     24      24   326.5426
+   2026-10-11     22      22   325.3145
+   2026-10-12      9       9   327.0011
+   2026-10-13      1       1   331.1491
+   last row: 331.14906 USDso to 0xddc4f8a5664f91cda4abc13c80bbb8e4f2f6a280 (= Safe 0xDDc4)
+
+== 2. Funder 0x44d650a2ce847098c26e6e874a308f280817d4ac USDso flows per day since 2026-10-01 (96 transfers, all USDso: True)
+   2026-10-01  minted in 307.0835; to 0x76bfea70 30.7083; to distributor 0xf1da 276.3752
+   2026-10-02  minted in 315.8828; to 0x76bfea70 31.5883; to distributor 0xf1da 284.2945
+   2026-10-03  minted in 334.4780; to 0x76bfea70 33.4478; to distributor 0xf1da 301.0302
+   2026-10-04  minted in 326.4274; to 0x76bfea70 32.6427; to distributor 0xf1da 293.7847
+   2026-10-05  minted in 326.3267; to 0x76bfea70 32.6327; to distributor 0xf1da 293.6940
+   2026-10-06  minted in 348.6725; to 0x76bfea70 34.8672; to distributor 0xf1da 313.8053
+   2026-10-07  minted in 302.0198; to 0x76bfea70 30.2020; to distributor 0xf1da 271.8178
+   2026-10-08  minted in 356.9651; to 0x76bfea70 35.6965; to distributor 0xf1da 321.2686
+   2026-10-09  minted in 357.3630; to 0x76bfea70 35.7363; to distributor 0xf1da 321.6267
+   2026-10-10  minted in 362.8251; to 0x76bfea70 36.2825; to distributor 0xf1da 326.5426
+   2026-10-11  minted in 361.4605; to 0x76bfea70 36.1461; to distributor 0xf1da 325.3145
+   2026-10-12  minted in 363.3345; to 0x76bfea70 36.3334; to distributor 0xf1da 327.0011
+   2026-10-13  minted in 367.9434; to 0x76bfea70 36.7943; to distributor 0xf1da 331.1491
+   2026-10-14  minted in 339.0444
+   2026-10-15  minted in 342.3010
+   2026-10-16  minted in 335.3827; to Safe 0xDDc4 1016.7281
+   2026-10-17  minted in 356.1347; to Safe 0xDDc4 356.1347
+   2026-10-18  minted in 346.0682; to Safe 0xDDc4 346.0682
+   2026-10-19  minted in 346.0774; to Safe 0xDDc4 346.0774
+   2026-10-20  minted in 338.8425; to Safe 0xDDc4 338.8425
+   2026-10-21  minted in 335.1513; to Safe 0xDDc4 335.1513
+   2026-10-22  minted in 331.9811; to Safe 0xDDc4 331.9811
+   2026-10-23  minted in 335.3043; to Safe 0xDDc4 335.3043
+   2026-10-24  minted in 325.8350; to Safe 0xDDc4 325.8350
+   2026-10-25  minted in 330.4060; to Safe 0xDDc4 330.4060
+   2026-10-26  minted in 327.2383; to Safe 0xDDc4 327.2383
+   2026-10-27  minted in 310.9632; to Safe 0xDDc4 310.9632
+   2026-10-28  minted in 326.0118; to 0xa98902ef 15.7799; to 0xf4f10525 0.0000; to Safe 0xDDc4 241.3097; to distributor 0xf1da 68.9222
+   2026-10-29  minted in 306.4451; to 0xa98902ef 15.0743; to 0xf4f10525 0.0000; to Safe 0xDDc4 228.9568; to distributor 0xf1da 62.4140
+   2026-10-30  minted in 287.1757; to 0xa98902ef 13.8470; to 0xf4f10525 0.0000; to Safe 0xDDc4 216.0242; to distributor 0xf1da 57.3045
+   2026-10-31  minted in 330.0822; to 0xa98902ef 14.0414; to 0xf4f10525 0.0000; to Safe 0xDDc4 245.1646; to distributor 0xf1da 70.8762
+   2026-11-01  minted in 317.6952; to 0xa98902ef 12.9956; to 0xf4f10525 0.0000; to Safe 0xDDc4 231.3399; to distributor 0xf1da 73.3596
+   2026-11-02  minted in 320.3721; to 0xa98902ef 15.0344; to 0xf4f10525 0.0000; to Safe 0xDDc4 233.8108; to distributor 0xf1da 71.5269
+   2026-11-03  minted in 285.8750
+   totals 2026-10-14 .. now: minted in 6874.3872; to 0xa98902ef 86.7728; to 0xf4f10525 0.0000; to Safe 0xDDc4 6097.3360; to distributor 0xf1da 404.4034
+
+== 3. Outgoing token transfers from distributor 0xf1da since 2026-10-13: 1
+   2026-10-13T16:56:56.000000Z -> 0xDDc4F8a5664f91CDa4AbC13C80Bbb8E4F2f6a280 331.14906 USDso tx 0xfd85133d3a7aa44707e05506f9fea399f897503fc8b16911eaebb86e31ab86e8
+
+== 3. Outgoing token transfers from Safe 0xDDc4 since 2026-10-13: 0

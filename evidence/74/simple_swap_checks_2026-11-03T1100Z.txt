@@ -1,0 +1,27 @@
+HTTP status, 2026-11-03T11:00Z (curl, logged out; Next.js answers 200 for a client-rendered not-found page, so the rendered page is what counts):
+  https://app.dreamdex.io/simple -> HTTP 200
+  https://app.dreamdex.io/simple/debug -> HTTP 200
+  https://app.testnet.dreamdex.io/simple -> HTTP 200
+  https://app.testnet.dreamdex.io/simple/debug -> HTTP 404
+
+Rendered (Chrome, own tab): mainnet /simple logged out -> 'Page not found' (screenshot); testnet /simple signed in -> the Simple Swap card (screenshots).
+
+Feature flags returned by mainnet app.dreamdex.io (logged out) /telemetry/flags/?v=2 (23 flags, name=enabled):
+  aa-entrypoint-09=False, aa-use-candide=True, algo-arena=True, algo-arena-promo-banner=True, bridge-enabled=True, dev-list=False, dexter=False, discord-linking-enabled=True, dynamic-banners=True, earn-enabled=True, event-contracts-access=True, external-perps=False, first-run-launch=True, geo-bypass=False, invite-code-admin=False, invite-code-admin-eoa=False, leaderboard-enabled=False, notifications=False, order-route-warming=False, portfolio-drawdown=True, safe-migration=True, unified-order-toast=False, wallet-screening-enabled=True
+  simple-mode present: False
+
+Feature flags returned by testnet app.testnet.dreamdex.io (signed in) /telemetry/flags/?v=2 (43 flags, name=enabled):
+  aa-entrypoint-09=False, aa-use-candide=True, account-owners=True, algo-arena=True, algo-arena-promo-banner=True, bridge-enabled=True, command-bar=True, competition-enabled=True, dev-list=False, dexter=False, discord-linking-enabled=True, dreambot-perps=True, dynamic-banners=True, earn-enabled=True, event-contracts-access=True, event-faucet=True, external-perps=True, geo-bypass=False, home-region-tokyo=False, invite-code-admin=False, invite-code-admin-eoa=False, multi-accounts=True, notifications=False, order-route-warming=False, perp-markets-listed=True, perps-default-landing=True, perps-enabled=True, perps-lend-margin=True, portfolio-drawdown=True, quests-enabled=True, referrals-enabled=True, regions-enabled=True, safe-migration=True, session-accounts=True, share-card-gifs=True, simple-mode=True, tabbed-selector-enabled=True, theme-picker=True, tradescript-cli=True, trading-key=True, unified-order-toast=True, wallet-screening-enabled=True, welcome-tour=True
+  simple-mode present: True
+
+App route list (chunk 14szkvtw8mpv9.js, same file in both builds): ["/","/admin","/admin/badges","/admin/banners","/admin/campaigns","/admin/campaigns/[seriesKey]","/admin/campaigns/[seriesKey]/grants","/admin/campaigns/[seriesKey]/quests","/admin/campaigns/[seriesKey]/quests/[questId]","/admin/campaigns/[seriesKey]/quests/new","/admin/campaigns/[seriesKey]/raffle","/admin/campaigns/[seriesKey]/status","/admin/campaigns/[seriesKey]/traders/[wallet]","/admin/campaigns/[seriesKey]/winners","/admin/deployment","/admin/preregistration","/admin/traders","/admin/traders/[address]","/admin/traders/full","/admin/traders/spot","/admin/vaults","/competition","/competition-hub","/dev/account-modal","/dev/deposit-balances","/dev/deposit-discovery","/dev/deposit-loader","/dev/deposit-preflight","/dev/leaderboard","/dev/share-card","/dev/toasts","/dev/wallet-widget","/dev/web-vitals-proof","/docs/[[...slug]]","/dreambot-builder","/enroll","/event-contracts/[[...market]]","/explore","/leaderboard","/leaderboard/campaigns","/leaderboard/events","/leaderboard/perps","/leaderboard/spot","/lend","/perps/[[...market]]","/portfolio","/portfolio/badges/[badge]","/preregister","/referrals","/simple","/simple-b","/staking","/stats/[[...tab]
+  contains /simple/debug: False
+
+Flag definition (chunk 1x0jctq09f-vg.js): "simple-mode":{identity:"global",networks:n.o,fallback:"dev-only"},"st
+Surface gate (chunk 1fgeffi9aafvw.js): "simple-mode":{grantedBy:[i.q.SimpleMode]},staki
+
+Simple card footer (testnet chunk 0_ir3gaze__70.js): sName:"simple-trade-note",role:"status","data-problem":j&&es>0&&null!==eo,children:j&&es>0&&eo?eo:E?eU.i[eU.w].description:`${(0,eL.N)(eQ)} slippage tolerance`}
+  eQ: let eQ=eL.V;
+  module 476236 export V: e.s(["V",0,.005,"z",0,
+
+Limit tab copy (chunk 1n_hcqnpkc3pm.js): bel:"Fill or kill"},[n.O.PostOnly]:{code:"ALO",description:"Only rests as a maker. Rejected if any of it would fill immediately.",label:"Add

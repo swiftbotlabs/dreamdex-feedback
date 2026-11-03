@@ -1,0 +1,21 @@
+== dreamDEX testnet app (https://app.testnet.dreamdex.io, deployment dpl_6kazR8bUm5vCrftsg7B6q1mEuRT1), chunk /_next/static/immutable/chunks/3vmw5t3leotm9.js. [i.A]=5031 uses o.o (= SOMNIA_MAINNET_LEND); [i.o]=50312 overrides lend with:
+let l={[i.A]:o.o,[i.o]:{pool:"0x5A44488FBC0BC2296359b3decE3049Ab96aB2D09",poolAddressesProvider:"0xA052fbA0528755A6FB631fCDFaaa647a4200F251",uiPoolDataProvider:"0xfAb035cAFe664497a9476d3b11904e284Df758c6",wrappedTokenGateway:"0x259051032172885d7D9a9C27cbAa10476D52677A"}}[a.T]??{};e.s(["f",0,l],966759),e.s(["f",0,function(){let e
+
+== same chunk: the override replaces config.addresses.lend:
+e.s(["f",0,function(){let e={...(0,i.t)(a.T),...Object.keys(l).length>0?{lend:l}:{}};return{addresses:Object.keys(e).length>0?e:void 0,chain
+
+== SomniaLend's own app (https://app.somnialend.finance, chunk /_next/static/chunks/pages/_app-8a4fac61ed1d9afd.js), every LENDING_POOL in its 20 build-manifest chunks plus _app:
+LENDING_POOL_ADDRESS_PROVIDER:"0x1C13Fea2A9a3Ae9962f12B6afAC1AFcd8205f752",LENDING_POOL:"0xEC6758e6324c167DB39B6908036240460a2b0168"
+LENDING_POOL_ADDRESS_PROVIDER:"0xEbf503eD254014C152965C52006A34f7Ab3d28f1",LENDING_POOL:"0x7Cb9df1bc191B16BeFF9fdEC2cd1ef91Cac18176"
+
+== its testnet market entry:
+subgraphUrl:"https://proxy.somnia.chain.love/subgraphs/name/somnia-testnet/arenas",addresses:{WALLET_BALANCE_PROVIDER:"0xE24100f1a377388564B7bED93D408c46b19fBa14",UI_POOL_DATA_PROVIDER:"0xfAb035cAFe664497a9476d3b11904e284Df758c6",WETH_GATEWAY:"0x29edCCDB3aE8CDF0ea6077cd3E682BfA6dD53f19",UI_INCENTIVE_DATA_PROVIDER:"0x1ac8F7C63EAA7230Ea425Cc0CbfFc8cb124a2e60",LENDING_POOL_ADDRESS_PROVIDER:"0xEbf503eD254014C152965C52006A34f7Ab3d28f1",LENDING_POOL:"0x7Cb9df1bc191B16BeFF9fdEC2cd1ef91Cac18176",FA
+
+== SDK @somnia-chain/markets-sdk 0.32.1, dist/lend/client.js:
+export const SOMNIA_TESTNET_LEND = {
+    pool: "0x7Cb9df1bc191B16BeFF9fdEC2cd1ef91Cac18176",
+    poolAddressesProvider: "0xEbf503eD254014C152965C52006A34f7Ab3d28f1",
+    uiPoolDataProvider: "0xfAb035cAFe664497a9476d3b11904e284Df758c6",
+    wrappedTokenGateway: "0x29edCCDB3aE8CDF0ea6077cd3E682BfA6dD53f19",
+};
+
