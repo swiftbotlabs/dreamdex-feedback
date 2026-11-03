@@ -1,6 +1,6 @@
 # Repository move, 2 November 2026
 
-This repository was at `github.com/swiftbotlab/dreamdex-feedback` until GitHub suspended that account on 1 November 2026. It was restored here from our own complete copy on 2 November.
+This repository was on the `swiftbotlab` GitHub account until GitHub suspended that account on 1 November 2026. It was restored here from our own complete copy on 2 November.
 
 Every report and commit carried over. Each commit keeps its original author date and commit date, so the first-report times read as they did before. Commit hashes changed in the move. The only new commits are the link update and this note.
 
