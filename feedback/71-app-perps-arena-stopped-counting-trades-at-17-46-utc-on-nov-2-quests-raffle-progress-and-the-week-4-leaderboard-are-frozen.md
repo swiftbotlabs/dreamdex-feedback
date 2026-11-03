@@ -3,7 +3,7 @@ Severity: major
 Area: app
 
 > **Summary.** Perps Arena's activity feed has not moved since **2026-11-02 17:46:59 UTC**, about 3 hours and 47 minutes into week 4, the last week of the competition. Three things are stuck, and all three fit that cut-off:
-> - **Quests.** We opened and fully closed a position on our own Arena account at 08:34–08:36 UTC on Nov 3. The hosted indexer had both trades by 08:46. The quest scorer has run at least four times since then (`scoredAt` 08:50:14, 08:56:17, 09:02:10 and up to 09:25:34), and it still shows no week 4 progress at all. "Close a position today" is not credited, and the all-time volume counter has not moved. Quest points are what buy raffle tickets.
+> - **Quests.** We opened and fully closed a position on our own Arena account at 08:34–08:36 UTC on Nov 3. The hosted indexer had both trades by 08:46. The quest scorer has run at least four times since then (`scoredAt` 08:50:14, 08:56:17, 09:02:10 and, at our last read, 09:25:34), and it still shows no week 4 progress at all. "Close a position today" is not credited, and the all-time volume counter has not moved. Quest points are what buy raffle tickets.
 > - **The week 4 leaderboard.** The table still says "Updated November 2, 17:00 UTC", and its trade and day counts stop at 17:46:59. The #1 trader shows 27 trades on 1 day; the indexer has 41 on 2 days.
 > - **The qualification counters**, which are built from those counts ("This week: 0 of 10 closes, 0 of 3 days").
 >
