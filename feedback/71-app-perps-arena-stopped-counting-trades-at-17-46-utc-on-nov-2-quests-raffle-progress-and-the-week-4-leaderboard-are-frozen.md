@@ -59,6 +59,8 @@ The chain ROI is `(getAccountEquity + lockedCollateral − funded) / funded`, us
 
 **The activity columns stop exactly at `activityThrough`.** For `0x05e5…83cf`, the indexer has 41 position changes since week 4 opened, on 11-02 and 11-03. The table's `trades: 27, activeDays: 1` are exactly the 27 rows before 17:46:59 (`evidence/71/activity_rows_0x05e5_2026-11-03T0835Z.txt`).
 
+**Week 3's final board has not settled either.** It closed at 14:00 UTC on Nov 2 and still says "Updated November 2, 14:00 UTC · 1 recent trader still being added" (`activityPending: 1`), at 07:50 and again at 09:31 UTC on Nov 3. That board decides the week 3 prizes (`evidence/71/week3_pending_2026-11-03T0931Z.txt`).
+
 **The board's equity method is otherwise sound.** On week 3's final board (`equityThrough 2026-11-02 14:00:00`), 39 of the top 40 rows equal `getAccountEquity + lockedCollateral` at block 39,746,863 (14:00:00 UTC) to the cent. The 40th is a multi-wallet account (`evidence/71/week3_reconcile_2026-11-03T0840Z.txt`). So the fault is the stalled feed, not the formula.
 
 ## Evidence

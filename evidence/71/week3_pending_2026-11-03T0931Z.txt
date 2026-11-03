@@ -1,0 +1,3 @@
+fetched 2026-11-03T0931Z, GET /api/leaderboard/campaigns/perps-arena?period=week-3 (signed in)
+equityThrough 2026-11-02 14:00:00 | activityThrough 2026-11-02 14:00:00 | activitySettling False | activityPending 1 | entrants 143106
+the page shows: "Updated November 2, 14:00 UTC · 1 recent trader still being added"
