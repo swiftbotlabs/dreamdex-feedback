@@ -1,0 +1,13 @@
+ETH-226659-03NOV26-1220/USDso      acted rows  8 | v1.0.0 plans 0 | with strike: plans  8, first with a seller None | resolved up
+BTC-7708475-03NOV26-1220/USDso     acted rows  8 | v1.0.0 plans 0 | with strike: plans  8, first with a seller None | resolved up
+ETH-226927-03NOV26-1225/USDso      acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved up
+BTC-7713963-03NOV26-1225/USDso     acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved up
+ETH-226659-03NOV26-1230/USDso      acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved up
+ETH-227957-03NOV26-1230/USDso      acted rows  7 | v1.0.0 plans 0 | with strike: plans  0, first with a seller None | resolved up
+BTC-7708475-03NOV26-1230/USDso     acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved up
+BTC-7732685-03NOV26-1230/USDso     acted rows  7 | v1.0.0 plans 0 | with strike: plans  3, first with a seller None | resolved down
+BTC-7729425-03NOV26-1235/USDso     acted rows  7 | v1.0.0 plans 0 | with strike: plans  3, first with a seller None | resolved up
+ETH-228026-03NOV26-1235/USDso      acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved down
+ETH-227903-03NOV26-1240/USDso      acted rows  7 | v1.0.0 plans 0 | with strike: plans  7, first with a seller None | resolved up
+BTC-7735154-03NOV26-1240/USDso     acted rows  7 | v1.0.0 plans 0 | with strike: plans  0, first with a seller None | resolved up
+{'windows': 12, 'v1_plans': 0, 'cf_windows_with_plan': 10, 'cf_windows_with_seller': 0}

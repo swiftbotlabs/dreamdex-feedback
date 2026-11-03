@@ -1,0 +1,10 @@
+2026-11-03T13:08:53.967Z api.dreamdex.io
+32 order subscribes:                             {"order_subscribes_sent":32,"subscribed_order":32,"subscribed_other":0,"errors":0,"firstErrorAt":null,"errorMsg":null}
+33 order subscribes:                             {"order_subscribes_sent":33,"subscribed_order":32,"subscribed_other":0,"errors":1,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}
+40 order subscribes:                             {"order_subscribes_sent":40,"subscribed_order":32,"subscribed_other":0,"errors":8,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}
+3 market-data subscribes, then 40 order:         {"order_subscribes_sent":40,"subscribed_order":29,"subscribed_other":3,"errors":11,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}
+2026-11-03T13:09:18.443Z stg.api.dreamdex.io
+32 order subscribes:                             {"order_subscribes_sent":32,"subscribed_order":32,"subscribed_other":0,"errors":0,"firstErrorAt":null,"errorMsg":null}
+33 order subscribes:                             {"order_subscribes_sent":33,"subscribed_order":32,"subscribed_other":0,"errors":1,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}
+40 order subscribes:                             {"order_subscribes_sent":40,"subscribed_order":32,"subscribed_other":0,"errors":8,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}
+3 market-data subscribes, then 40 order:         {"order_subscribes_sent":40,"subscribed_order":29,"subscribed_other":3,"errors":11,"firstErrorAt":33,"errorMsg":"subscription_failed: subscription failed to channel: order"}

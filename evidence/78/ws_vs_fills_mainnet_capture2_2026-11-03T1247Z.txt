@@ -1,0 +1,96 @@
+12:10:59 WBTC:USDso    77009.5    0.00124      sell one fill      block 455533895 log   9 tx 0x01a5528cfd1b76cbdb5114b4f361a15ef38aaaeecb61feb72f57e2b86659de86  feed id 1793707859544-6
+12:12:03 WBTC:USDso    77009.5    0.00123      sell one fill      block 455534536 log  81 tx 0x67eca07c4d22075ce4edd95310c45104c917ace9c532a6aec99ddc8c861e45d5  feed id 1793707923603-6
+12:13:11 SOMI:USDso    0.1597     57.57        buy  one fill      block 455535216 log   5 tx 0x90df1534d8c81f0bba3a394221e267872d6c4ae62871d6f6293c3f73e31daaab  feed id 1793707991585-0
+12:13:53 WBTC:USDso    77073.5    0.00123      sell one fill      block 455535638 log   7 tx 0xa3bf7ff49c92fb323256b368fcdce2618e8e1665e71e29e369b01b829077da99  feed id 1793708033741-6
+12:16:06 SOMI:USDso    0.16       1687.85      buy  one fill      block 455536965 log 109 tx 0x4d7a194d647375390fb1631fc88735964b2457e284a2b335ec3b1d0b5a0cd418  feed id 1793708166528-1
+12:16:06 SOMI:USDso    0.16       1687.85      buy  one fill      block 455536965 log 164 tx 0x84092ba5d7e0446f3dd62cfd428d180e5415b6b5db5cc1f30149434f3a729e0e  feed id 1793708166528-32
+12:16:06 SOMI:USDso    0.16       1687.85      buy  one fill      block 455536965 log 195 tx 0x6d85d2b983d330ca2cb74763ba47a7e70572067c1ce5c3e734b95832ff143a04  feed id 1793708166529-22
+12:16:06 SOMI:USDso    0.1602     1687.85      buy  one fill      block 455536970 log  77 tx 0xf52d4a54e6c8974363d42bfb7458428db4b855578498c5d4fabc5f7e0a7bfc13  feed id 1793708167037-30
+12:16:06 SOMI:USDso    0.1602     1687.85      buy  one fill      block 455536970 log 108 tx 0x7071e5729db3522835647fd2b20d06df067ebfacb287a8fcfc0667e092e6d858  feed id 1793708167037-56
+12:16:07 SOMI:USDso    0.1604     364.67       sell two pools     block 455536982 log   5 tx 0xa14040032203eaf165bf20ca8f9f39a628d32aaf08e61872daedde5ad9e01250  feed id 1793708168155-0
+12:16:07 USDC.e:USDso  1.0002     58.48        buy  two pools     block 455536982 log  11 tx 0xa14040032203eaf165bf20ca8f9f39a628d32aaf08e61872daedde5ad9e01250  feed id 1793708168155-0
+12:16:09 SOMI:USDso    0.1604     59.49        sell two pools     block 455536996 log   6 tx 0xcc48203327a87d517e22602edf4b9de364464ac752e66a865ad37ed462d9f0b8  feed id 1793708169575-0
+12:16:09 USDC.e:USDso  1.0002     9.54         buy  two pools     block 455536996 log  12 tx 0xcc48203327a87d517e22602edf4b9de364464ac752e66a865ad37ed462d9f0b8  feed id 1793708169576-0
+12:16:10 WBTC:USDso    77214.3    0.00123      sell one fill      block 455537005 log   9 tx 0x4cc5ebb118fcea7b26bc8cff8fcc94779c84c74dfb68fccd3b43350e79bc2ec1  feed id 1793708170483-6
+12:16:10 WETH:USDso    2271.04    0.0412       sell one fill      block 455537006 log   7 tx 0x03c93b8006585a5a569505500e646b00105e186b2c5286314ec4ed809b9b49d1  feed id 1793708170594-4
+12:16:12 WBTC:USDso    77188.7    0.00123      sell one fill      block 455537029 log   6 tx 0x275686259735c32c81e4d51ed96df9bc75c00beb3b0d0304f3b3ee27b8d9e4d2  feed id 1793708172846-4
+12:16:15 WETH:USDso    2270.4     0.0411       sell one fill      block 455537062 log  90 tx 0x79e0f30f5ad347fe55efc557fc957d35e23f5e4237fe239f2d3bf984d1b4fff5  feed id 1793708176209-12
+12:16:23 WBTC:USDso    77137.5    0.00123      sell one fill      block 455537137 log  26 tx 0x8a5db75fc59c89ea423bbc2580b4fce92a8d49e02510dd411cc90d8ef9792276  feed id 1793708183660-1
+12:16:43 WBTC:USDso    77086.3    0.00122      sell one fill      block 455537340 log   9 tx 0x3ebc36cee1256814702212dd02aed56afb6a510e9a6edb82de66cc6da1dac308  feed id 1793708203971-8
+12:17:12 SOMI:USDso    0.1607     619.54       sell two pools     block 455537627 log   5 tx 0x4757fc050f77494387e409de9f7a88ca934d5d06ada467aa4d86110b48ae428f  feed id 1793708232663-0
+12:17:12 USDC.e:USDso  1.0002     99.54        buy  two pools     block 455537627 log  11 tx 0x4757fc050f77494387e409de9f7a88ca934d5d06ada467aa4d86110b48ae428f  feed id 1793708232664-0
+12:17:13 SOMI:USDso    0.1607     29.76        sell two pools     block 455537640 log   6 tx 0x4823126183e2af88782e930db1493b409e43b53cb6b2d9d7f9c359018543feeb  feed id 1793708233946-0
+12:17:13 USDC.e:USDso  1.0002     4.78         buy  two pools     block 455537640 log  12 tx 0x4823126183e2af88782e930db1493b409e43b53cb6b2d9d7f9c359018543feeb  feed id 1793708233947-0
+12:18:36 SOMI:USDso    0.1608     206.2        sell two pools     block 455538470 log  10 tx 0x0441f246f8322ee5d830cf10ce2c9ed83deca8587c4c1d82fd6bc98e3b1f1bc0  feed id 1793708316930-0
+12:18:36 USDC.e:USDso  1.0002     33.15        buy  two pools     block 455538470 log  16 tx 0x0441f246f8322ee5d830cf10ce2c9ed83deca8587c4c1d82fd6bc98e3b1f1bc0  feed id 1793708316930-0
+12:19:22 SOMI:USDso    0.1611     379.85       sell two pools     block 455538930 log 243 tx 0x84aa326f4bd18d3c1edcd410651f789312b3d44e2d6f08fb6714e50d99f85aba  NOT SENT ON THE FEED
+12:19:22 USDC.e:USDso  1.0002     61.18        buy  two pools     block 455538930 log 249 tx 0x84aa326f4bd18d3c1edcd410651f789312b3d44e2d6f08fb6714e50d99f85aba  feed id 1793708363008-0
+12:19:23 SOMI:USDso    0.1611     19.69        sell two pools     block 455538937 log   5 tx 0xca53b06b3e4516bf7b42c499266ad92c5ec95f0307ae8a846496e82fff7746f1  feed id 1793708363610-0
+12:19:23 USDC.e:USDso  1.0002     3.17         buy  two pools     block 455538937 log  11 tx 0xca53b06b3e4516bf7b42c499266ad92c5ec95f0307ae8a846496e82fff7746f1  feed id 1793708363610-0
+12:19:48 SOMI:USDso    0.1615     19.64        sell two pools     block 455539183 log  14 tx 0x09f192156fc6840db29b71d834641fe112c842794bf6be88f09b0c00cd532974  feed id 1793708388259-0
+12:19:48 USDC.e:USDso  1.0002     3.17         buy  two pools     block 455539183 log  20 tx 0x09f192156fc6840db29b71d834641fe112c842794bf6be88f09b0c00cd532974  feed id 1793708388259-0
+12:24:18 WETH:USDso    2277.44    0.048        buy  one fill      block 455541884 log  56 tx 0xc2b7dd8dd22353fa13f0b2d13d864940bf5c2347d5f85297b21d26d64f0a23ba  feed id 1793708658300-9
+12:25:55 SOMI:USDso    0.1619     217.03       sell two pools     block 455542859 log  21 tx 0x3a649a41cc539effe43d1a01a86d1ba72d9f16eed43be3712518247d26a699ff  feed id 1793708755829-1
+12:25:55 USDC.e:USDso  1.0002     35.13        buy  two pools     block 455542859 log  27 tx 0x3a649a41cc539effe43d1a01a86d1ba72d9f16eed43be3712518247d26a699ff  feed id 1793708755829-0
+12:25:57 SOMI:USDso    0.1619     19.59        sell two pools     block 455542876 log   7 tx 0x80eb6e3b5a2ffd5a6aa9013dc59319b370d561bc4e42cb8d8c095d0cb26e5daa  feed id 1793708757534-0
+12:25:57 USDC.e:USDso  1.0002     3.17         buy  two pools     block 455542876 log  13 tx 0x80eb6e3b5a2ffd5a6aa9013dc59319b370d561bc4e42cb8d8c095d0cb26e5daa  feed id 1793708757534-0
+12:26:04 SOMI:USDso    0.162      128.82       sell two pools     block 455542953 log   5 tx 0x8198381aee30a67a3ff4f04339a5c42112c49b186d3eb62ab685d5fe1232f6f7  feed id 1793708765220-0
+12:26:04 USDC.e:USDso  1.0002     20.86        buy  two pools     block 455542953 log   9 tx 0x8198381aee30a67a3ff4f04339a5c42112c49b186d3eb62ab685d5fe1232f6f7  feed id 1793708765220-0
+12:26:11 WBTC:USDso    77293.6    0.00131      sell several fills block 455543017 log   6 tx 0xfac2dd747701ebb9c714058fbe95c3423e72ef828bc4842dc26cda82f0f455bc  feed id 1793708771568-0
+12:26:11 WBTC:USDso    77262.4    0.00069      sell several fills block 455543017 log   8 tx 0xfac2dd747701ebb9c714058fbe95c3423e72ef828bc4842dc26cda82f0f455bc  feed id 1793708771568-1
+12:27:00 WBTC:USDso    77281.4    0.0013       sell several fills block 455543512 log   3 tx 0x13b7a521620996cb14894cd4bb58f32ca16b04512eab701283cb2a88e9190251  feed id 1793708821117-0
+12:27:00 WBTC:USDso    77242.7    0.0007       sell several fills block 455543512 log   5 tx 0x13b7a521620996cb14894cd4bb58f32ca16b04512eab701283cb2a88e9190251  feed id 1793708821117-1
+12:27:48 WBTC:USDso    77297      0.0013       sell several fills block 455543985 log  23 tx 0xf1e4f3e2019d7e1632dc543229fcac7fc93da7fa234340fcb9b68f3518ec07f6  NOT SENT ON THE FEED
+12:27:48 WBTC:USDso    77253.5    0.0007       sell several fills block 455543985 log  25 tx 0xf1e4f3e2019d7e1632dc543229fcac7fc93da7fa234340fcb9b68f3518ec07f6  feed id 1793708868430-10
+12:28:33 WBTC:USDso    77305.1    0.0004       sell one fill      block 455544437 log  14 tx 0x279656792ba10393d93c83f12887dfddadd8ff7c59b8df063bb8044811d2fbf4  feed id 1793708913552-6
+12:32:50 SOMI:USDso    0.1622     367.28       sell two pools     block 455547006 log 149 tx 0xa9b2a87fce6369718d1c762990687a57ddecaa6aa07315e2086879d3c56d4a03  NOT SENT ON THE FEED
+12:32:50 USDC.e:USDso  1.0002     59.56        buy  two pools     block 455547006 log 155 tx 0xa9b2a87fce6369718d1c762990687a57ddecaa6aa07315e2086879d3c56d4a03  NOT SENT ON THE FEED
+12:32:50 SOMI:USDso    0.1623     203.37       sell two pools     block 455547011 log  47 tx 0x6463e44e2c9685fd2bbf30badf4c7613680c9a5482a5319a8f0788b7acafec44  NOT SENT ON THE FEED
+12:32:50 USDC.e:USDso  1.0002     33           buy  two pools     block 455547011 log  53 tx 0x6463e44e2c9685fd2bbf30badf4c7613680c9a5482a5319a8f0788b7acafec44  feed id 1793709170928-0
+12:32:50 SOMI:USDso    0.1623     19.54        sell two pools     block 455547012 log   5 tx 0x43f2b37cc7f41e361e2802be43acaedcbebed286aaed1458d7e4d93bb64ec8e0  feed id 1793709171028-0
+12:32:50 USDC.e:USDso  1.0002     3.17         buy  two pools     block 455547012 log  11 tx 0x43f2b37cc7f41e361e2802be43acaedcbebed286aaed1458d7e4d93bb64ec8e0  feed id 1793709171028-0
+12:33:01 SOMI:USDso    0.1624     128.81       sell two pools     block 455547119 log   6 tx 0x43f375a01131fc8247db60d421a52a071959c78cecbd7a5afce58b9191d31967  feed id 1793709181708-0
+12:33:01 USDC.e:USDso  1.0002     20.91        buy  two pools     block 455547119 log  10 tx 0x43f375a01131fc8247db60d421a52a071959c78cecbd7a5afce58b9191d31967  feed id 1793709181708-0
+12:33:02 SOMI:USDso    0.1624     34.95        sell two pools     block 455547131 log   4 tx 0x31cd8c16c2486c7eae9bd0584636e3563d948a548a77d078059db878cf27b305  feed id 1793709182933-0
+12:33:02 USDC.e:USDso  1.0002     5.67         buy  two pools     block 455547131 log   8 tx 0x31cd8c16c2486c7eae9bd0584636e3563d948a548a77d078059db878cf27b305  feed id 1793709182933-0
+12:46:37 SOMI:USDso    0.1625     281.6        sell two pools     block 455555283 log   5 tx 0x0b6e89f4118c09a22abf1980ce7c6f1f9471bdfceb98db4d5f48852359385f0f  feed id 1793709998072-0
+12:46:37 USDC.e:USDso  1.0002     45.75        buy  two pools     block 455555283 log  11 tx 0x0b6e89f4118c09a22abf1980ce7c6f1f9471bdfceb98db4d5f48852359385f0f  feed id 1793709998072-0
+12:46:39 SOMI:USDso    0.1625     87.96        sell two pools     block 455555297 log  45 tx 0x5c87e0508a7f2a77af22adbd54553a6bff274fed9739b385ef674f9b306d2727  feed id 1793709999458-0
+12:46:39 USDC.e:USDso  1.0002     14.29        buy  two pools     block 455555297 log  51 tx 0x5c87e0508a7f2a77af22adbd54553a6bff274fed9739b385ef674f9b306d2727  feed id 1793709999458-0
+
+window 12:07:33-12:47:02 UTC: 59 fills in 38 txs; feed trades in the window with no matching fill: 0
+   ('one fill', 'delivered') 17
+   ('several fills', 'NOT SENT') 1
+   ('several fills', 'delivered') 5
+   ('two pools', 'NOT SENT') 4
+   ('two pools', 'delivered') 32
+
+1m candles with a fill, last ohlcv:update from the feed vs GET /v0/markets/{symbol}/candles:
+  SOMI:USDso    12:13  feed vol 57.57 o 0.1597 h 0.1597 l 0.1597 c 0.1597 REST vol 57.57 o 0.1597 h 0.1597 l 0.1597 c 0.1597
+  SOMI:USDso    12:16  feed vol 8863.41 o 0.16 h 0.1604 l 0.16 c 0.1604   REST vol 8863.41 o 0.16 h 0.1604 l 0.16 c 0.1604
+  SOMI:USDso    12:17  feed vol 649.3 o 0.1607 h 0.1607 l 0.1607 c 0.1607 REST vol 649.3 o 0.1607 h 0.1607 l 0.1607 c 0.1607
+  SOMI:USDso    12:18  feed vol 206.2 o 0.1608 h 0.1608 l 0.1608 c 0.1608 REST vol 206.2 o 0.1608 h 0.1608 l 0.1608 c 0.1608
+  SOMI:USDso    12:19  feed vol 39.33 o 0.1611 h 0.1615 l 0.1611 c 0.1615 REST vol 419.18 o 0.1611 h 0.1615 l 0.1611 c 0.1615   <-- differs
+  SOMI:USDso    12:25  feed vol 236.62 o 0.1619 h 0.1619 l 0.1619 c 0.1619 REST vol 236.62 o 0.1619 h 0.1619 l 0.1619 c 0.1619
+  SOMI:USDso    12:26  feed vol 128.82 o 0.162 h 0.162 l 0.162 c 0.162    REST vol 128.82 o 0.162 h 0.162 l 0.162 c 0.162
+  SOMI:USDso    12:32  feed vol 19.54 o 0.1623 h 0.1623 l 0.1623 c 0.1623 REST vol 590.19 o 0.1622 h 0.1623 l 0.1622 c 0.1623   <-- differs
+  SOMI:USDso    12:33  feed vol 163.76 o 0.1624 h 0.1624 l 0.1624 c 0.1624 REST vol 163.76 o 0.1624 h 0.1624 l 0.1624 c 0.1624
+  SOMI:USDso    12:46  feed vol 369.56 o 0.1625 h 0.1625 l 0.1625 c 0.1625 REST vol 369.56 o 0.1625 h 0.1625 l 0.1625 c 0.1625
+  USDC.e:USDso  12:16  feed vol 68.02 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 68.02 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:17  feed vol 104.32 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 104.32 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:18  feed vol 33.15 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 33.15 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:19  feed vol 67.52 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 67.52 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:25  feed vol 38.3 o 1.0002 h 1.0002 l 1.0002 c 1.0002  REST vol 38.3 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:26  feed vol 20.86 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 20.86 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:32  feed vol 36.17 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 95.73 o 1.0002 h 1.0002 l 1.0002 c 1.0002   <-- differs
+  USDC.e:USDso  12:33  feed vol 26.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 26.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:46  feed vol 60.04 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 60.04 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  WBTC:USDso    12:10  feed vol 0.00124 o 77009.5 h 77009.5 l 77009.5 c 77009.5 REST vol 0.00124 o 77009.5 h 77009.5 l 77009.5 c 77009.5
+  WBTC:USDso    12:12  feed vol 0.00123 o 77009.5 h 77009.5 l 77009.5 c 77009.5 REST vol 0.00123 o 77009.5 h 77009.5 l 77009.5 c 77009.5
+  WBTC:USDso    12:13  feed vol 0.00123 o 77073.5 h 77073.5 l 77073.5 c 77073.5 REST vol 0.00123 o 77073.5 h 77073.5 l 77073.5 c 77073.5
+  WBTC:USDso    12:16  feed vol 0.00491 o 77214.3 h 77214.3 l 77086.3 c 77086.3 REST vol 0.00491 o 77214.3 h 77214.3 l 77086.3 c 77086.3
+  WBTC:USDso    12:26  feed vol 0.002 o 77293.6 h 77293.6 l 77262.4 c 77262.4 REST vol 0.002 o 77293.6 h 77293.6 l 77262.4 c 77262.4
+  WBTC:USDso    12:27  feed vol 0.0027 o 77281.4 h 77281.4 l 77242.7 c 77253.5 REST vol 0.004 o 77281.4 h 77297 l 77242.7 c 77253.5   <-- differs
+  WBTC:USDso    12:28  feed vol 0.0004 o 77305.1 h 77305.1 l 77305.1 c 77305.1 REST vol 0.0004 o 77305.1 h 77305.1 l 77305.1 c 77305.1
+  WETH:USDso    12:16  feed vol 0.0823 o 2271.04 h 2271.04 l 2270.4 c 2270.4 REST vol 0.0823 o 2271.04 h 2271.04 l 2270.4 c 2270.4
+  WETH:USDso    12:24  feed vol 0.048 o 2277.44 h 2277.44 l 2277.44 c 2277.44 REST vol 0.048 o 2277.44 h 2277.44 l 2277.44 c 2277.44

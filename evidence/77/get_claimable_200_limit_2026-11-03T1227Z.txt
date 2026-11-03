@@ -1,0 +1,7 @@
+0x9d1338add368b9e2d458e0fad762b67ab4e148d1 getClaimable THROWS IncompletePortfolioError @somnia-chain/markets-sdk: getClaimable cannot return a complete portfolio for 0x9d1338add368b9e2d458e0fad762b67ab4e148d1 within 200 positions; use getClaimablePage
+   getClaimablePage(limit 200) -> 53 claims, nextOffset 200
+0x6c666543ac14ad46063b869ec8154c8152f301ee getClaimable THROWS IncompletePortfolioError @somnia-chain/markets-sdk: getClaimable cannot return a complete portfolio for 0x6c666543ac14ad46063b869ec8154c8152f301ee within 200 positions; use getClaimablePage
+   getClaimablePage(limit 200) -> 0 claims, nextOffset 200
+0x9d1338add368b9e2d458e0fad762b67ab4e148d1 357 nonzero positions: {'settled, losing side (pays 0, never claimable)': 244, 'settled, winning side (claimable)': 113}
+   oldest unclaimed winning window expired 2026-07-22 14:45 UTC
+0x6c666543ac14ad46063b869ec8154c8152f301ee 566 nonzero positions: {'settled, losing side (pays 0, never claimable)': 566}

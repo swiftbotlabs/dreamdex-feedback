@@ -1,0 +1,10 @@
+dreamfly_ec_recorder_tape_mainnet_25min_2026-11-03T1218Z.jsonl
+  rows by type: {'ec_oracle': 50, 'ec_open': 18, 'ec_book': 288, 'ec_resolution': 12, 'error': 2}
+  windows opened: [('BTC-7700787-03NOV26-1300/USDso', '1h'), ('BTC-7708475-03NOV26-1220/USDso', '5m'), ('BTC-7708475-03NOV26-1230/USDso', '15m'), ('BTC-7713963-03NOV26-1225/USDso', '5m'), ('BTC-7729425-03NOV26-1235/USDso', '5m'), ('BTC-7729425-03NOV26-1245/USDso', '15m'), ('BTC-7732685-03NOV26-1230/USDso', '5m'), ('BTC-7735154-03NOV26-1240/USDso', '5m'), ('BTC-7736965-03NOV26-1245/USDso', '5m'), ('ETH-226420-03NOV26-1300/USDso', '1h'), ('ETH-226659-03NOV26-1220/USDso', '5m'), ('ETH-226659-03NOV26-1230/USDso', '15m'), ('ETH-226927-03NOV26-1225/USDso', '5m'), ('ETH-227903-03NOV26-1240/USDso', '5m'), ('ETH-227957-03NOV26-1230/USDso', '5m'), ('ETH-228026-03NOV26-1235/USDso', '5m'), ('ETH-228026-03NOV26-1245/USDso', '15m'), ('ETH-228109-03NOV26-1245/USDso', '5m')]
+  book samples with oracle  : 288 of 288
+  book samples with open    : 0 of 288
+  book samples with lead_bps: 0 of 288
+  book samples with z       : 0 of 288
+  book samples with prob_up : 0 of 288
+  ec_openprice rows (open learned): 0
+  resolutions: [('ETH-226659-03NOV26-1220/USDso', 'up', None, 226927), ('BTC-7708475-03NOV26-1220/USDso', 'up', None, 7713963), ('BTC-7713963-03NOV26-1225/USDso', 'up', None, 7732685), ('ETH-226927-03NOV26-1225/USDso', 'up', None, 227957), ('ETH-226659-03NOV26-1230/USDso', 'up', None, 228026), ('BTC-7708475-03NOV26-1230/USDso', 'up', None, 7729425), ('ETH-227957-03NOV26-1230/USDso', 'up', None, 228026), ('BTC-7732685-03NOV26-1230/USDso', 'down', None, 7729425), ('BTC-7729425-03NOV26-1235/USDso', 'up', None, 7735154), ('ETH-228026-03NOV26-1235/USDso', 'down', None, 227903), ('BTC-7735154-03NOV26-1240/USDso', 'up', None, 7736965), ('ETH-227903-03NOV26-1240/USDso', 'up', None, 228109)]

@@ -1,0 +1,27 @@
+mainnet: 6 live windows at 2026-11-03T12:17:02.936Z
+  ETH 300s expiry 1793708400 strike 226659 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2266.595 at unix time 1793708400?
+  BTC 300s expiry 1793708400 strike 7708475 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77084.75 at unix time 1793708400?
+  ETH 900s expiry 1793709000 strike 226659 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2266.595 at unix time 1793709000?
+  BTC 900s expiry 1793709000 strike 7708475 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77084.75 at unix time 1793709000?
+  BTC 3600s expiry 1793710800 strike 7700787 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77007.875 at unix time 1793710800?
+  ETH 3600s expiry 1793710800 strike 226420 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2264.205 at unix time 1793710800?
+openingAnswer null on 6 of 6
+testnet: 11 live windows at 2026-11-03T12:17:18.662Z
+  BTC 60s expiry 1793708280 strike 7710483 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77104.835 at unix time 1793708280?
+  BTC 300s expiry 1793708400 strike 7708475 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77084.75 at unix time 1793708400?
+  ETH 300s expiry 1793708400 strike 226659 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2266.595 at unix time 1793708400?
+  BTC 900s expiry 1793709000 strike 7708475 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77084.75 at unix time 1793709000?
+  ETH 900s expiry 1793709000 strike 226659 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2266.595 at unix time 1793709000?
+  BTC 3600s expiry 1793710800 strike 7700935 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77009.35 at unix time 1793710800?
+  ETH 3600s expiry 1793710800 strike 226420 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2264.205 at unix time 1793710800?
+  ETH 14400s expiry 1793721600 strike 226420 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2264.205 at unix time 1793721600?
+  BTC 14400s expiry 1793721600 strike 7700935 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77009.35 at unix time 1793721600?
+  BTC 86400s expiry 1793750400 strike 7671044 | openingAnswer null reference null | Will BTC/USDC's price be at or above 76710.445 at unix time 1793750400?
+  ETH 86400s expiry 1793750400 strike 225055 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2250.55 at unix time 1793750400?
+openingAnswer null on 11 of 11
+hideki: 4 live windows at 2026-11-03T12:17:43.651Z
+  BTC 600s expiry 1793708400 strike 7696954 | openingAnswer null reference null | Will BTC/USDC's price be at or above 76969.545 at unix time 1793708400?
+  ETH 600s expiry 1793708400 strike 226397 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2263.975 at unix time 1793708400?
+  BTC 300s expiry 1793708400 strike 7708475 | openingAnswer null reference null | Will BTC/USDC's price be at or above 77084.75 at unix time 1793708400?
+  ETH 300s expiry 1793708400 strike 226659 | openingAnswer null reference null | Will ETH/USDC's price be at or above 2266.595 at unix time 1793708400?
+openingAnswer null on 4 of 4

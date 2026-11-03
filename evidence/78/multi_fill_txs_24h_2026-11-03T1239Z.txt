@@ -1,0 +1,5 @@
+2026-11-02 12:40 UTC to 12:40 UTC : 4827 fills in 4211 transactions
+  one fill                  3639
+  two pools                 429
+  several fills, one pool   143
+  two-pool pairs: [(('SOMI:USDso', 'USDC.e:USDso'), 429)]

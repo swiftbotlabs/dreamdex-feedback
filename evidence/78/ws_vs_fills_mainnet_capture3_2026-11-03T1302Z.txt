@@ -1,0 +1,38 @@
+12:32:50 SOMI:USDso    0.1622     367.28       sell two pools     block 455547006 log 149 tx 0xa9b2a87fce6369718d1c762990687a57ddecaa6aa07315e2086879d3c56d4a03  NOT SENT ON THE FEED
+12:32:50 USDC.e:USDso  1.0002     59.56        buy  two pools     block 455547006 log 155 tx 0xa9b2a87fce6369718d1c762990687a57ddecaa6aa07315e2086879d3c56d4a03  NOT SENT ON THE FEED
+12:32:50 SOMI:USDso    0.1623     203.37       sell two pools     block 455547011 log  47 tx 0x6463e44e2c9685fd2bbf30badf4c7613680c9a5482a5319a8f0788b7acafec44  NOT SENT ON THE FEED
+12:32:50 USDC.e:USDso  1.0002     33           buy  two pools     block 455547011 log  53 tx 0x6463e44e2c9685fd2bbf30badf4c7613680c9a5482a5319a8f0788b7acafec44  feed id 1793709170928-0
+12:32:50 SOMI:USDso    0.1623     19.54        sell two pools     block 455547012 log   5 tx 0x43f2b37cc7f41e361e2802be43acaedcbebed286aaed1458d7e4d93bb64ec8e0  feed id 1793709171028-0
+12:32:50 USDC.e:USDso  1.0002     3.17         buy  two pools     block 455547012 log  11 tx 0x43f2b37cc7f41e361e2802be43acaedcbebed286aaed1458d7e4d93bb64ec8e0  feed id 1793709171028-0
+12:33:01 SOMI:USDso    0.1624     128.81       sell two pools     block 455547119 log   6 tx 0x43f375a01131fc8247db60d421a52a071959c78cecbd7a5afce58b9191d31967  feed id 1793709181708-0
+12:33:01 USDC.e:USDso  1.0002     20.91        buy  two pools     block 455547119 log  10 tx 0x43f375a01131fc8247db60d421a52a071959c78cecbd7a5afce58b9191d31967  feed id 1793709181708-0
+12:33:02 SOMI:USDso    0.1624     34.95        sell two pools     block 455547131 log   4 tx 0x31cd8c16c2486c7eae9bd0584636e3563d948a548a77d078059db878cf27b305  feed id 1793709182933-0
+12:33:02 USDC.e:USDso  1.0002     5.67         buy  two pools     block 455547131 log   8 tx 0x31cd8c16c2486c7eae9bd0584636e3563d948a548a77d078059db878cf27b305  feed id 1793709182933-0
+12:46:37 SOMI:USDso    0.1625     281.6        sell two pools     block 455555283 log   5 tx 0x0b6e89f4118c09a22abf1980ce7c6f1f9471bdfceb98db4d5f48852359385f0f  feed id 1793709998072-0
+12:46:37 USDC.e:USDso  1.0002     45.75        buy  two pools     block 455555283 log  11 tx 0x0b6e89f4118c09a22abf1980ce7c6f1f9471bdfceb98db4d5f48852359385f0f  feed id 1793709998072-0
+12:46:39 SOMI:USDso    0.1625     87.96        sell two pools     block 455555297 log  45 tx 0x5c87e0508a7f2a77af22adbd54553a6bff274fed9739b385ef674f9b306d2727  feed id 1793709999458-0
+12:46:39 USDC.e:USDso  1.0002     14.29        buy  two pools     block 455555297 log  51 tx 0x5c87e0508a7f2a77af22adbd54553a6bff274fed9739b385ef674f9b306d2727  feed id 1793709999458-0
+12:47:42 SOMI:USDso    0.1626     128.77       sell two pools     block 455555926 log   6 tx 0xfa412225d4c0938a60c6a02fe12aa250c219c8c68ea77a8a2e0eda27b09f46b7  feed id 1793710062384-0
+12:47:42 USDC.e:USDso  1.0002     20.93        buy  two pools     block 455555926 log  10 tx 0xfa412225d4c0938a60c6a02fe12aa250c219c8c68ea77a8a2e0eda27b09f46b7  feed id 1793710062384-0
+12:47:43 SOMI:USDso    0.1626     14.52        sell two pools     block 455555940 log   6 tx 0x5bcbbff81237a09106603b1198469c2557daa46577d1f4ac58d53b20f4a76b94  feed id 1793710063759-0
+12:47:43 USDC.e:USDso  1.0002     2.36         buy  two pools     block 455555940 log  12 tx 0x5bcbbff81237a09106603b1198469c2557daa46577d1f4ac58d53b20f4a76b94  feed id 1793710063760-0
+12:50:44 SOMI:USDso    0.1627     276.7        sell two pools     block 455557751 log   5 tx 0x0f7f66d37296794ece8faaa926f6dbf92fd47380b5870bc7ae4cf57c5126adb0  feed id 1793710244820-0
+12:50:44 USDC.e:USDso  1.0002     45.01        buy  two pools     block 455557751 log  11 tx 0x0f7f66d37296794ece8faaa926f6dbf92fd47380b5870bc7ae4cf57c5126adb0  feed id 1793710244820-0
+12:50:45 SOMI:USDso    0.1627     95.77        sell two pools     block 455557763 log   5 tx 0x0c1abd20ed17638a41378e00ba7c720704cd3dfa98d7960e37700c9cd7d3b281  feed id 1793710246022-0
+12:50:45 USDC.e:USDso  1.0002     15.57        buy  two pools     block 455557763 log   9 tx 0x0c1abd20ed17638a41378e00ba7c720704cd3dfa98d7960e37700c9cd7d3b281  feed id 1793710246023-0
+
+window 12:29:14-13:00:44 UTC: 22 fills in 11 txs; feed trades in the window with no matching fill: 0
+   ('two pools', 'NOT SENT') 3
+   ('two pools', 'delivered') 19
+
+1m candles with a fill, last ohlcv:update from the feed vs GET /v0/markets/{symbol}/candles:
+  SOMI:USDso    12:32  feed vol 19.54 o 0.1623 h 0.1623 l 0.1623 c 0.1623 REST vol 590.19 o 0.1622 h 0.1623 l 0.1622 c 0.1623   <-- differs
+  SOMI:USDso    12:33  feed vol 163.76 o 0.1624 h 0.1624 l 0.1624 c 0.1624 REST vol 163.76 o 0.1624 h 0.1624 l 0.1624 c 0.1624
+  SOMI:USDso    12:46  feed vol 369.56 o 0.1625 h 0.1625 l 0.1625 c 0.1625 REST vol 369.56 o 0.1625 h 0.1625 l 0.1625 c 0.1625
+  SOMI:USDso    12:47  feed vol 143.29 o 0.1626 h 0.1626 l 0.1626 c 0.1626 REST vol 143.29 o 0.1626 h 0.1626 l 0.1626 c 0.1626
+  SOMI:USDso    12:50  feed vol 372.47 o 0.1627 h 0.1627 l 0.1627 c 0.1627 REST vol 372.47 o 0.1627 h 0.1627 l 0.1627 c 0.1627
+  USDC.e:USDso  12:32  feed vol 36.17 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 95.73 o 1.0002 h 1.0002 l 1.0002 c 1.0002   <-- differs
+  USDC.e:USDso  12:33  feed vol 26.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 26.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:46  feed vol 60.04 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 60.04 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:47  feed vol 23.29 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 23.29 o 1.0002 h 1.0002 l 1.0002 c 1.0002
+  USDC.e:USDso  12:50  feed vol 60.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002 REST vol 60.58 o 1.0002 h 1.0002 l 1.0002 c 1.0002

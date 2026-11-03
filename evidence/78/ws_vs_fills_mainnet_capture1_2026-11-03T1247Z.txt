@@ -1,0 +1,18 @@
+11:56:38 WBTC:USDso    77015.9    0.00124      sell one fill      block 455525282 log   6 tx 0x912c4e8cabdd590f884003d0a7f966f342f80a2b32e38786666e70db5d45698e  feed id 1793706998273-4
+11:56:41 WBTC:USDso    77015.9    0.00124      sell one fill      block 455525319 log   4 tx 0x485c450bfdd953c2d30b96b4050405ce4cba7d96e2ee8a8fc9139720d53c04a0  feed id 1793707001920-2
+12:00:00 WBTC:USDso    77015.9    0.00124      sell one fill      block 455527308 log  20 tx 0xf2ec73da6c673b2866718c4c3e56783338ec4402ceb067a2133b9bb588a5aed1  feed id 1793707200818-6
+12:02:41 USDC.e:USDso  0.9998     29.73        sell two pools     block 455528918 log  68 tx 0x28611c6accaa3ef2679a70b813b53a5343c639bfba55cec869ed99a06795844d  feed id 1793707361843-0
+12:02:41 SOMI:USDso    0.1592     186.7        buy  two pools     block 455528918 log  74 tx 0x28611c6accaa3ef2679a70b813b53a5343c639bfba55cec869ed99a06795844d  NOT SENT ON THE FEED
+12:06:14 WETH:USDso    2263.04    0.0412       sell one fill      block 455531042 log  61 tx 0x4fa254c69292f37742be1ba6b660eb39b2c1a3ab707a687a4b35df10e47ca6ca  feed id 1793707574302-14
+
+window 11:55:27-12:06:57 UTC: 6 fills in 5 txs; feed trades in the window with no matching fill: 0
+   ('one fill', 'delivered') 4
+   ('two pools', 'NOT SENT') 1
+   ('two pools', 'delivered') 1
+
+1m candles with a fill, last ohlcv:update from the feed vs GET /v0/markets/{symbol}/candles:
+  SOMI:USDso    12:02  feed no update                                     REST vol 186.7 o 0.1592 h 0.1592 l 0.1592 c 0.1592   <-- differs
+  USDC.e:USDso  12:02  feed vol 29.73 o 0.9998 h 0.9998 l 0.9998 c 0.9998 REST vol 29.73 o 0.9998 h 0.9998 l 0.9998 c 0.9998
+  WBTC:USDso    11:56  feed vol 0.00248 o 77015.9 h 77015.9 l 77015.9 c 77015.9 REST vol 0.00248 o 77015.9 h 77015.9 l 77015.9 c 77015.9
+  WBTC:USDso    12:00  feed vol 0.00124 o 77015.9 h 77015.9 l 77015.9 c 77015.9 REST vol 0.00124 o 77015.9 h 77015.9 l 77015.9 c 77015.9
+  WETH:USDso    12:06  feed vol 0.0412 o 2263.04 h 2263.04 l 2263.04 c 2263.04 REST vol 0.0412 o 2263.04 h 2263.04 l 2263.04 c 2263.04

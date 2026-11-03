@@ -1,0 +1,20 @@
+dreamfly_ec_recorder_tape_hideki_2026-11-03T1212Z.jsonl
+  rows by type: {'ec_open': 6, 'ec_book': 48, 'ec_resolution': 2}
+  windows opened: [('BTC-7696954-03NOV26-1215/tUSDC', '5m'), ('BTC-7696954-03NOV26-1220/tUSDC', '10m'), ('BTC-7708475-03NOV26-1220/tUSDC', '5m'), ('ETH-226397-03NOV26-1215/tUSDC', '5m'), ('ETH-226397-03NOV26-1220/tUSDC', '10m'), ('ETH-226659-03NOV26-1220/tUSDC', '5m')]
+  book samples with oracle  : 0 of 48
+  book samples with open    : 0 of 48
+  book samples with lead_bps: 0 of 48
+  book samples with z       : 0 of 48
+  book samples with prob_up : 0 of 48
+  ec_openprice rows (open learned): 0
+  resolutions: [('BTC-7696954-03NOV26-1215/tUSDC', 'up', None, 7708475), ('ETH-226397-03NOV26-1215/tUSDC', 'up', None, 226659)]
+dreamfly_ec_recorder_tape_mainnet_2026-11-03T1212Z.jsonl
+  rows by type: {'ec_oracle': 12, 'ec_open': 10, 'ec_book': 96, 'ec_resolution': 4}
+  windows opened: [('BTC-7696954-03NOV26-1215/USDso', '5m'), ('BTC-7700787-03NOV26-1215/USDso', '15m'), ('BTC-7700787-03NOV26-1300/USDso', '1h'), ('BTC-7708475-03NOV26-1220/USDso', '5m'), ('BTC-7708475-03NOV26-1230/USDso', '15m'), ('ETH-226397-03NOV26-1215/USDso', '5m'), ('ETH-226420-03NOV26-1215/USDso', '15m'), ('ETH-226420-03NOV26-1300/USDso', '1h'), ('ETH-226659-03NOV26-1220/USDso', '5m'), ('ETH-226659-03NOV26-1230/USDso', '15m')]
+  book samples with oracle  : 96 of 96
+  book samples with open    : 0 of 96
+  book samples with lead_bps: 0 of 96
+  book samples with z       : 0 of 96
+  book samples with prob_up : 0 of 96
+  ec_openprice rows (open learned): 0
+  resolutions: [('BTC-7696954-03NOV26-1215/USDso', 'up', None, 7708475), ('BTC-7700787-03NOV26-1215/USDso', 'up', None, 7708475), ('ETH-226420-03NOV26-1215/USDso', 'up', None, 226659), ('ETH-226397-03NOV26-1215/USDso', 'up', None, 226659)]

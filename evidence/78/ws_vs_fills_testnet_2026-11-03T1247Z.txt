@@ -1,0 +1,208 @@
+11:55:36 WETH:USDso    2263.05    0.0017       sell one fill      block 531325673 log  51 tx 0x8c3c751587f2cf31bbbd768b168f6113a85db4e1de56af7a8dcf4311b7297cff  feed id 1793706936983-0
+11:55:37 WBTC:USDso    76978.8    0.00019      sell one fill      block 531325684 log   3 tx 0xc155f1bb0948c02d17c963369ee68d53a7fd100be14267a278303353533a3d7b  feed id 1793706938058-0
+11:55:38 SOMI:USDso    0.1601     25           sell one fill      block 531325694 log   2 tx 0x4af36384a59413647d047f42a7e6c5f1158acd10ddd19ed8b1775385aae27869  feed id 1793706939100-0
+11:55:47 WBTC:USDso    77019.2    0.00011      buy  one fill      block 531325784 log  96 tx 0x8f95eb61fae999f384f95a7d0b4467da1618101f52e1d0462161e05f35724249  feed id 1793706948068-0
+11:55:48 SOMI:USDso    0.1601     25           sell one fill      block 531325794 log  89 tx 0x13a0ed679b140247ba4a11649e39a730a6491104a65287c69a71d7bea1100a21  feed id 1793706949103-0
+11:55:56 WETH:USDso    2264.95    0.0018       buy  one fill      block 531325873 log   3 tx 0x47550630d93eee8d2cfd9eaf7b14d8c5cfdedbe3d4695a4f170fba8e65bd8c36  feed id 1793706957012-0
+11:55:57 WBTC:USDso    77025.2    0.00018      buy  one fill      block 531325884 log   3 tx 0x55c2228f4dcd82a4fc688a36367b350e499fea462a038913727376319210bb59  feed id 1793706958111-0
+11:55:58 SOMI:USDso    0.1601     25           sell one fill      block 531325894 log   2 tx 0x5bd834f77c0699d9f32684767cb9aaea5939bc87e89f693a166531096dfad191  feed id 1793706959064-0
+11:56:06 WETH:USDso    2264.37    0.0015       sell one fill      block 531325973 log   3 tx 0x576d467af14aa5d1ac3fca0d12fa0d6a3f167e4fc51ceb399eed21d09fbfeb55  feed id 1793706967007-0
+11:56:07 WBTC:USDso    76989.2    0.00014      sell one fill      block 531325983 log   3 tx 0x54b4e0e0ea23300cb2e211a9f79c567f43ce2a89e24500717c260dd4b5cb8f1f  feed id 1793706968007-0
+11:56:08 SOMI:USDso    0.1601     25           sell one fill      block 531325994 log   2 tx 0x67108cf3b9caf92e2621af2770ce1a74fcd8581facd21a708721b71dc7bf444e  feed id 1793706969059-0
+11:56:16 WETH:USDso    2264.76    0.0015       buy  one fill      block 531326073 log   3 tx 0xb6d4dc39e025c7eb5124ca78bcd78e0165569c5445bcaa57fceaa39f8b1fbe4a  feed id 1793706976974-0
+11:56:17 WBTC:USDso    76989.2    0.00014      sell one fill      block 531326084 log   3 tx 0xc290b1c0ea8b49a55ab2f1fcfad782407cf5102fcea32bb1a20e4c5eaf0418e2  feed id 1793706978078-0
+11:56:18 SOMI:USDso    0.1601     25           sell one fill      block 531326094 log   3 tx 0x283c5bb6600ac86d667aa3564cbf57ed4db5c94190b04b575caeb0fd0d3b9e5b  feed id 1793706979072-0
+11:56:26 WETH:USDso    2264.28    0.0012       sell one fill      block 531326173 log   2 tx 0x12a3306eb5e99729dafa591bfbd5b5ce9bacb89f6119e0022ff01438e1dc3ca1  feed id 1793706987002-0
+11:56:27 WBTC:USDso    77014.4    0.00018      buy  one fill      block 531326184 log   3 tx 0xd29d1f26e4b38d163d40c68f06d1486f66940c9c12be803ceaeef7253dec8e56  feed id 1793706988049-0
+11:56:28 SOMI:USDso    0.1601     25           sell one fill      block 531326194 log   3 tx 0x3ef8e7c2b8eb85be308f77ee142ebc6eda4e5a6a3c6c96365d3bd9c4f04b9b89  feed id 1793706989113-0
+11:56:36 WETH:USDso    2264.74    0.001        buy  one fill      block 531326273 log   3 tx 0x6c5b3914a31e65a530dd7f0b42c719bb83df154b2a996ffd1f153d4d7e229848  feed id 1793706997077-0
+11:56:38 SOMI:USDso    0.1602     25           sell one fill      block 531326294 log   3 tx 0x85f820db067a7716fcd52f5435b6cba97bd228287bc066c76b676326b481abf8  feed id 1793706999097-0
+11:56:46 WETH:USDso    2264.74    0.0018       buy  one fill      block 531326373 log   3 tx 0x24de1724447c82e17533c8427963510f35fc47980497c14829077e251854d25b  feed id 1793707006992-0
+11:56:47 WBTC:USDso    76992.2    0.00018      sell one fill      block 531326384 log   3 tx 0x59d7acfec5cd74b39aaafb3bdc84cf02edfd8ea1f251f22fce2638ced1b56375  feed id 1793707008103-0
+11:56:48 SOMI:USDso    0.1602     25           sell one fill      block 531326394 log   3 tx 0xdbdbcc7b00a81abb70e6a0911fb8abe14bbb8712c2b8e07603f016b9626eec48  feed id 1793707009069-0
+11:56:56 WETH:USDso    2264.27    0.0014       sell one fill      block 531326473 log   3 tx 0x5ff4dec20521061a2ffedf1e803c6dc312ec2d14b85150879fb6c0cadf7605a5  feed id 1793707016946-0
+11:56:57 WBTC:USDso    77009.3    0.00017      buy  one fill      block 531326484 log  38 tx 0xcfc4a89c2b8b89e92760ec0ff7dfa667dadda6cdc83bb7e4d1afcbf212c90abc  feed id 1793707018053-0
+11:56:58 SOMI:USDso    0.1602     25           sell one fill      block 531326494 log   2 tx 0xaa0ecd4747622cf00c66714247a49a63721ea7e8a6640319b6f879232c06f254  feed id 1793707019111-0
+11:57:06 WETH:USDso    2263.42    0.0018       sell one fill      block 531326573 log   3 tx 0x3e6e6715f25eae6eaf82e3b6fbcb8ab81cc35307c43cb9eb81d5411c6425595c  feed id 1793707027008-0
+11:57:08 SOMI:USDso    0.1602     25           sell one fill      block 531326594 log   3 tx 0x19cd298611c7eba7d4f135664c7dd162ff7c21822190f9d97a8a60aace8c892d  feed id 1793707029083-0
+11:57:16 WETH:USDso    2263.75    0.001        buy  one fill      block 531326673 log   3 tx 0xfebbed659829012726cd7863c2e7f63b019933bb0facb9b1436dc7f30bd42539  feed id 1793707036988-0
+11:57:17 WBTC:USDso    76982      0.0002       sell one fill      block 531326684 log  16 tx 0x0c22c4fed9f4ea487e1262ef626ad289a540acb8a33fade2ed8505b44b6481f0  feed id 1793707038119-0
+11:57:18 SOMI:USDso    0.1602     25           sell one fill      block 531326694 log   3 tx 0x976f45e01c8731f8e972fdbd1ae14411d0e441f7775c35601134eb017349d4e8  feed id 1793707039050-0
+11:57:26 WETH:USDso    2263.93    0.0015       buy  one fill      block 531326773 log   3 tx 0x43b30017b32d3e6efb36af85c8691fc054d51597d61da0368d8e459887ab2ea1  feed id 1793707046981-0
+11:57:27 WBTC:USDso    76999.1    0.0001       buy  one fill      block 531326784 log   3 tx 0x82596368895a42d0f9e7873508a14c6796d48fa48dca0b4d03f2f5a3f234fcb2  feed id 1793707048086-0
+11:57:28 SOMI:USDso    0.1602     25           sell one fill      block 531326794 log   3 tx 0x3c6564a0a6d6caa13c0cc3ead5ff88c033029149b1499cb1cae5779994008b13  feed id 1793707049073-0
+11:57:36 WETH:USDso    2263.57    0.0016       sell one fill      block 531326873 log   3 tx 0x54a33f59094d511b7cf617e90cea31e4c766177962f1da834c54f4a5858aecac  feed id 1793707056989-0
+11:57:37 WBTC:USDso    76988.3    0.00013      sell one fill      block 531326884 log   3 tx 0xe43a9220880fd5c8b7b7b531896a06da25fe7e2de4b749c1ef28738d3e0abbe0  feed id 1793707058090-0
+11:57:38 SOMI:USDso    0.1602     25           sell one fill      block 531326894 log   3 tx 0xad164792fea139eaf4600b85a00cee24ed59d8562cb27698f0643871ba79b488  feed id 1793707059088-0
+11:57:46 WETH:USDso    2264.01    0.0014       buy  one fill      block 531326973 log   2 tx 0x5c340c574decf6150d11f2239a432894dd5b83deb5b0aeb687cc12bf14e2c547  feed id 1793707066991-0
+11:57:47 WBTC:USDso    77005.4    0.00014      buy  one fill      block 531326983 log   3 tx 0x451b84c63ef9742429632fa799e1461f276a9e4d02962757090f3dc8501296e7  feed id 1793707067952-0
+11:57:48 SOMI:USDso    0.1602     25           sell one fill      block 531326994 log   3 tx 0x0632cc015fb95c1076f16ef09ea4eab3c1d8fdbe9b5b471aa494acce07ca5373  feed id 1793707069082-0
+11:59:38 WBTC:USDso    77003.2    0.00011      sell one fill      block 531327108 log   3 tx 0x88d8604cb4ef8d65def4e46cad1b111d6671da28bc16d54d76f1b997ab284345  feed id 1793707179523-0
+11:59:39 SOMI:USDso    0.1596     25           sell one fill      block 531327119 log   3 tx 0xadafe0c05e95ceb155f1a7ef6fef8bc4189234ec665680c614cf9c3b10b46c16  feed id 1793707179584-0
+11:59:47 WETH:USDso    2264.04    0.0013       sell one fill      block 531327198 log   3 tx 0x280c977019bbb12ef8aa321cb43f4ad7371e94ccd77ef7b70bdeb8d7eff41fc9  feed id 1793707187458-0
+11:59:48 WBTC:USDso    77018.7    0.00011      buy  one fill      block 531327208 log   3 tx 0xf1c85eb0d328499b9771af495fcaf9eeb5d7ebf3bbcbef649f288d56d057b396  feed id 1793707188455-0
+11:59:49 SOMI:USDso    0.1596     25           sell one fill      block 531327219 log   3 tx 0x84c6ffa4225ac8ea98aaeff6c7a5cdd0af1811feb5229548b633de3531115d1d  feed id 1793707189525-0
+11:59:57 WETH:USDso    2264.53    0.0015       buy  one fill      block 531327298 log   3 tx 0xa7e67a6442d02d5c2f068a9880bbf03fbcf5389c121bcad3a0e6274ae9c4ef97  feed id 1793707197407-0
+11:59:58 WBTC:USDso    77018.7    0.00017      buy  one fill      block 531327309 log   3 tx 0x07b08e0b4ece8284903a446d90a67c0d9c762a7fa0d05db9422c54738b2c95ff  feed id 1793707198523-0
+11:59:59 SOMI:USDso    0.1596     25           sell one fill      block 531327319 log   3 tx 0xd12bd0172a99259f30c8489818927f5e7ced11c2cb2a5f7a62220914b00301a1  feed id 1793707199524-0
+12:00:07 WETH:USDso    2262.59    0.0014       sell one fill      block 531327398 log   3 tx 0xf5a51a47ddc0e0560adf3537a7a4f685f9c89e866492b1182931178dd480fe89  feed id 1793707207451-0
+12:00:08 WBTC:USDso    76965      0.0002       sell one fill      block 531327408 log   3 tx 0x4e7604852419c526ca4fcac83898ad120c96cc08678ad74d0b60eb7a13493d47  feed id 1793707208408-0
+12:00:09 SOMI:USDso    0.1595     25           sell one fill      block 531327419 log   3 tx 0xf83b1645fdff082d602ee13c71fae5ed050a6f477a8dc6067965f5b602a563e8  feed id 1793707209507-0
+12:00:10 SOMI:USDso    0.1597     10.02        buy  one fill      block 531327432 log   3 tx 0x7ab441d31f924fb6e55367ecdfaefd5283102a778a56ba7aa3f16eae10011cb1  feed id 1793707210841-0
+12:00:17 WETH:USDso    2261.55    0.001        sell one fill      block 531327498 log   3 tx 0x2216457015ae91e44971e65a0697f77b54468fde4dee95b27e911fd9e7eca000  feed id 1793707217402-0
+12:00:18 WBTC:USDso    76953      0.00019      buy  one fill      block 531327509 log   3 tx 0x1c04eb0bb8a1e506f0c3db5a9220803098208e57362e50420de69228ed3cc9e8  feed id 1793707218535-0
+12:00:19 SOMI:USDso    0.1595     25           sell one fill      block 531327519 log   3 tx 0xb359f413329a8bfca4d4017f2685ca0152c773ff8544720d4d86a1040e5ad98f  feed id 1793707219517-0
+12:00:27 WETH:USDso    2262.33    0.0014       buy  one fill      block 531327598 log   3 tx 0xc335a6a289effb247f3e137f5851a08c76184734192fa07d8a27a9ece5624404  feed id 1793707227446-0
+12:00:28 WBTC:USDso    76944.6    0.00015      sell one fill      block 531327609 log   3 tx 0xa23eb987a46f52c33f594cf8d90bc73eeedd6ef7f0292ba6c4f85cfc618c6467  feed id 1793707228504-0
+12:00:29 SOMI:USDso    0.1595     25           sell one fill      block 531327620 log   3 tx 0xf6edf15ce7757bd74211859605937d47d0874174f7ae3587732a077746f770b7  feed id 1793707229655-0
+12:00:37 WETH:USDso    2262.05    0.0011       sell one fill      block 531327698 log   3 tx 0x149cbc6384341c9dfdbe62341cb038097835626b31c7f7eafa23087130fd63d2  feed id 1793707237444-0
+12:00:39 SOMI:USDso    0.1595     25           sell one fill      block 531327719 log   3 tx 0x61105e0621ca0585199969c668bc80b3c7fa115d463c03e25b0dbaac49dd4fbb  feed id 1793707239516-0
+12:00:47 WETH:USDso    2261.54    0.0014       buy  one fill      block 531327798 log   3 tx 0x7219f599eae84c2f7d2e9fac75101c6dce89f7959167e0cacd026b6a8d6f4d2e  feed id 1793707247429-0
+12:00:49 SOMI:USDso    0.1595     25           sell one fill      block 531327819 log   3 tx 0xbbfafeb5a559a0aa868370115b1437728f335f55909510c8f18dd80da145b12f  feed id 1793707249496-0
+12:00:57 WETH:USDso    2261.01    0.0016       sell one fill      block 531327898 log   3 tx 0x9cf49fd3ecc1ed74371a96640d31c636b05fd42969f8fa27868bc1d170bc4a5e  feed id 1793707257456-0
+12:00:58 WBTC:USDso    76905.9    0.00012      sell one fill      block 531327908 log   3 tx 0x2001b2956166cb14383540a2e0437a5e9deee46c4c81b84736f7e0a79f85f09b  feed id 1793707258459-0
+12:00:59 SOMI:USDso    0.1595     25           sell one fill      block 531327919 log   3 tx 0x1aff1ee002b64c3ea73f04ad722caf0ca6c8a4cde71afad53daf0f62128f0d14  feed id 1793707259498-0
+12:01:08 WBTC:USDso    76931.3    0.00012      buy  one fill      block 531328009 log   3 tx 0x32caf461d263a9a0afd2bee775d072636dc03aea8880cefe724dfa310744dc1a  feed id 1793707268533-0
+12:01:09 SOMI:USDso    0.1595     25           sell one fill      block 531328020 log   3 tx 0x2685ffc7477850c4071071743c3cefddca6766bcf224fe724cd8ea537b9940ac  feed id 1793707269609-0
+12:01:17 WETH:USDso    2262.67    0.002        buy  one fill      block 531328098 log   3 tx 0xc70ed1ed54d6404e486bff18f19f4291f6bc05c91cae856cd5a9a689ca596271  feed id 1793707277419-0
+12:01:18 WBTC:USDso    76926.9    0.0001       sell one fill      block 531328108 log   3 tx 0x3f9b88fb12272463bb207381f5abf78c6905b02f2eb791b7013cf4e15a413b5a  feed id 1793707278443-0
+12:01:19 SOMI:USDso    0.1595     25           sell one fill      block 531328119 log   3 tx 0xc41aa5c13d10beb6b04e5b2bd9928314be1a1ca3da339506c6a89a9cc80d5e51  feed id 1793707279554-0
+12:01:27 WETH:USDso    2261.42    0.0011       sell one fill      block 531328198 log   3 tx 0xbe218a8ed01af44e079035867bb3772788e8b5e0de7d5c9bf649a380e59cbd19  feed id 1793707287408-0
+12:01:28 WBTC:USDso    76927.2    0.00012      buy  one fill      block 531328209 log   3 tx 0xdf67ff0f2984706119b91d1628a0950c6d851069d89406c84a0f030bab1bb6d3  feed id 1793707288517-0
+12:01:29 SOMI:USDso    0.1595     25           sell one fill      block 531328219 log   3 tx 0xd2d80d15850d7a89809d67b1914c4c04e54abc129eb9eb5b51a3472df437d161  feed id 1793707289556-0
+12:01:37 WETH:USDso    2261.93    0.0017       buy  one fill      block 531328298 log   3 tx 0x325c1c479a9f3151ef87749fab666d4c745222197e8a2e0608cb7aeb6f0807a2  feed id 1793707297429-0
+12:01:38 WBTC:USDso    76911.7    0.00014      sell one fill      block 531328308 log   3 tx 0xa780bc468871e830f46d73d11542c96d5865cd711396be9f6519b1b0778c28ea  feed id 1793707298450-0
+12:01:39 SOMI:USDso    0.1596     25           sell one fill      block 531328319 log   3 tx 0xcad70a6fe72f965e445f298749b5d426d1238737b25f1c7e9c25a0ee91898865  feed id 1793707299515-0
+12:01:47 WETH:USDso    2261.47    0.0014       sell one fill      block 531328398 log   3 tx 0xaadd637764f203d7f88d17afc19f6e12cb9f26446e2dac8eedc7a5c910f8e018  feed id 1793707307398-0
+12:01:48 WBTC:USDso    76925.5    0.00014      buy  one fill      block 531328408 log   3 tx 0xf1c70b628e20274c57de6cb63fda2bec1db6ee8bdc56545c2ae60b3720b1ebd9  feed id 1793707308421-0
+12:01:49 SOMI:USDso    0.1595     25           sell one fill      block 531328419 log   3 tx 0xda7423835448c88f957871ce8303579cadfbe929d7b89ea579e06cca87ff1d71  feed id 1793707309530-0
+12:01:57 WETH:USDso    2261.38    0.0015       sell one fill      block 531328498 log   3 tx 0x7d701094fd4f713c3bd395bb90b8836697d5a760d204184c242a36fa105c1e3d  feed id 1793707317413-0
+12:01:58 WBTC:USDso    76910      0.00012      sell one fill      block 531328509 log   3 tx 0x0bab01689c9c8373b0af6b30cb2062324c870209362e6d43ea956b23fe7cf37e  feed id 1793707318516-0
+12:01:59 SOMI:USDso    0.1594     25           sell one fill      block 531328519 log   3 tx 0x60e52d33a2061bde4fff2df05b9f2551251d6f871d7804a158aa582505c63ee2  feed id 1793707319500-0
+12:02:07 WETH:USDso    2261.83    0.0016       buy  one fill      block 531328598 log   3 tx 0x1c292051fb9156c26f1fdfa6c5345b3435ab5a86bccd013444f227c3ec6a71dc  feed id 1793707327440-0
+12:02:08 WBTC:USDso    76924.4    0.00018      buy  one fill      block 531328609 log   3 tx 0x4e72800dc0feefc8d3c7f62f05369d385a865f331fdc2f1e053d7da365572438  feed id 1793707328507-0
+12:02:09 SOMI:USDso    0.1594     25           sell one fill      block 531328619 log   3 tx 0x33cc158e36cb3e2c19e9ae4a1c07ba00f626ffef50999fafe217f1a1a651dc0e  feed id 1793707329561-0
+12:02:17 WETH:USDso    2261.14    0.0016       sell one fill      block 531328698 log   3 tx 0x1f14d29905aaac194a20c6085fef020395f9a99a4a9a14e44de9d58a2ed2e546  feed id 1793707337433-0
+12:02:18 WBTC:USDso    76897.7    0.00015      sell one fill      block 531328708 log   5 tx 0xa71b566f609af1757b8bd197aa273d7d4406d43af722004600a6d29655e59811  feed id 1793707338428-0
+12:02:19 SOMI:USDso    0.1593     25           sell one fill      block 531328719 log   3 tx 0x714428615a32852fd212e2ff925568f1d3f942ae9b01beb131d9177516277afc  feed id 1793707339541-0
+12:02:27 WETH:USDso    2261.65    0.002        buy  one fill      block 531328798 log   3 tx 0x279b025da8fa0a542619c79974e1ff32af1261ef6e9db59200dd1684530ffbca  feed id 1793707347408-0
+12:02:28 WBTC:USDso    76914.7    0.0001       buy  one fill      block 531328809 log   5 tx 0xeea006b4014a9cba3a8188b465ce2ae7634868834c0e5e4d901727838ff8d701  feed id 1793707348533-0
+12:02:29 SOMI:USDso    0.1592     25           sell one fill      block 531328819 log   3 tx 0x0686613ec4095fe420aeff30fd69fd90398a0d42404701e029676ec6b4461e1a  feed id 1793707349526-0
+12:02:37 WETH:USDso    2261.16    0.0013       sell one fill      block 531328898 log   3 tx 0xd9daf738cef36e090b362307238f07441f4c91e36d23081a05a4b3c2faf7e10d  feed id 1793707357459-0
+12:02:38 WBTC:USDso    76897.4    0.00013      sell one fill      block 531328908 log   3 tx 0x69b356e1c5b5b3ae795f3ad3da5c63d0cbe2082e2a0dbfccf29642f56631045d  feed id 1793707358404-0
+12:02:39 SOMI:USDso    0.1591     25           sell one fill      block 531328919 log   3 tx 0x258128db7aaf2ab37d274221e9075f0f3ed2a577b0019da7d909602f85a61f20  feed id 1793707359502-0
+12:02:47 WETH:USDso    2261.64    0.0019       buy  one fill      block 531328998 log   3 tx 0x71538d01c5e22dad535cfe879e55613708379f7fbbd6ca08f8581a4944529773  feed id 1793707367435-0
+12:02:48 WBTC:USDso    76912.8    0.0002       buy  one fill      block 531329008 log   3 tx 0x898ea25459f0b041c10a952f84176036e922a3e83384c4f666832d47ac80469f  feed id 1793707368436-0
+12:02:49 SOMI:USDso    0.159      25           sell one fill      block 531329019 log   2 tx 0xb4d6a8529bbbbd3307cb312f7d2870afa28da68965d917012ffbe0ec1e6062e8  feed id 1793707369533-0
+12:02:57 WETH:USDso    2261.64    0.0011       sell one fill      block 531329098 log   3 tx 0x15c5e4ff6256b67b1caff97700e3a2e23aaac2e31dd12c62d217fcb476752e9c  feed id 1793707377440-0
+12:02:58 WBTC:USDso    76915.4    0.00013      sell one fill      block 531329109 log   2 tx 0x255a6a6e6092c3fbd71d9c9af0fda94a109b0014dada934d2a3e49323ede9d57  feed id 1793707378524-0
+12:02:59 SOMI:USDso    0.1591     25           sell one fill      block 531329119 log   5 tx 0x69acaeeb20deda3a144aebde22ab27eb8d5c207ff3f17e94434eef3c3edcddd6  feed id 1793707379522-0
+12:03:07 WETH:USDso    2262.07    0.0013       sell one fill      block 531329198 log   3 tx 0xca00b4f39e9c78c0eb0bff3fec731cf889d67bc45c4f9f8ddf62162095372850  feed id 1793707387415-0
+12:03:08 WBTC:USDso    76928      0.0001       sell one fill      block 531329209 log   3 tx 0x2d605e4f77d3d4ce77cfbdd5148cdc7f8fab33eb048d989dd844e2f95538d198  feed id 1793707388528-0
+12:03:09 SOMI:USDso    0.1592     25           sell one fill      block 531329219 log   3 tx 0xa4e0d9fe93871bae67a8bdc1bafe0d9cf78daff6b96c2a64ead8930ae9291473  feed id 1793707389508-0
+12:03:17 WETH:USDso    2263.11    0.0016       buy  one fill      block 531329298 log   3 tx 0x839c1bb2e063f9818bb0454aebb658e2e69f408fa1acb80b60f8747b6b16d834  feed id 1793707397457-0
+12:03:18 WBTC:USDso    76952.1    0.00016      buy  one fill      block 531329308 log   3 tx 0x5fae0038772e9634079c446a64e77192583a69c17a8aec3c7674cc7402fcf1fc  feed id 1793707398399-0
+12:03:19 SOMI:USDso    0.1592     25           sell one fill      block 531329319 log   2 tx 0xb4008daf413206f1f03a5b99f559a6fa06d12cf8c07b2c0933debf619ff27bcc  feed id 1793707399526-0
+12:03:27 WETH:USDso    2262.8     0.0014       sell one fill      block 531329398 log   3 tx 0x1e5cc707e945632f6c32ce6bb93318cbc03ac9f049d2bf0675ff9eb221ee785c  feed id 1793707407451-0
+12:03:28 WBTC:USDso    76947.6    0.00012      sell one fill      block 531329409 log   3 tx 0x220e0d424e145c0c87a9d0e1a89cc523b1b97ec87532bf94c645793bf57cd1cc  feed id 1793707408537-0
+12:03:29 SOMI:USDso    0.1591     25           sell one fill      block 531329419 log   3 tx 0x86abf4c9be62e21344ae048e44594d1b92dc018c69a08b5ac426182b2faa8b5e  feed id 1793707409548-0
+12:03:37 WETH:USDso    2263.5     0.0018       buy  one fill      block 531329498 log   3 tx 0x950b6a0a26ccd8bf9c3a9fb0b0f100ab02d0e582695bdb2a74740847545dea28  feed id 1793707417414-0
+12:03:38 WBTC:USDso    76968.5    0.00016      buy  one fill      block 531329509 log   3 tx 0x781ce00f13f2ea7f84245400c05c34f04a67f913c2e479d344f5a75e98bda89f  feed id 1793707418500-0
+12:03:39 SOMI:USDso    0.1591     25           sell one fill      block 531329519 log   3 tx 0x6215327ae1d07b7e3ea3b42e3bb6501f0142dcda9d18082c532e83f4eaa5c052  feed id 1793707419541-0
+12:03:47 WETH:USDso    2262.74    0.0017       sell one fill      block 531329598 log   3 tx 0xa90a56eafc2dff73e3904cab059df4cfddd5cd3afae7b8348cbc7889034fbe26  feed id 1793707427422-0
+12:03:48 WBTC:USDso    76944.1    0.0001       sell one fill      block 531329608 log   3 tx 0xb2f8d1af68cfbf3bf65c5bae43a02c8b13295e5e7d689f206eb857c1d6b53ac5  feed id 1793707428426-0
+12:03:49 SOMI:USDso    0.1591     25           sell one fill      block 531329619 log   3 tx 0xd7b33960a42b81610d3f4225b745f67d1cc53ec6ea2063a2ec7d6ab48b3ab62c  feed id 1793707429498-0
+12:03:57 WETH:USDso    2263.32    0.0014       buy  one fill      block 531329699 log   3 tx 0x00c1294a79a9efd8e8f43cb58e01189f2271ebbb85162a5ab79dc62bb58efe37  feed id 1793707437523-0
+12:03:59 SOMI:USDso    0.1592     25           sell one fill      block 531329719 log   3 tx 0x12afa06be1a4161efc8ab46653600e9ada1a80af269f4473e77e4bef0319818e  feed id 1793707439508-0
+12:04:07 WETH:USDso    2262.18    0.0016       sell one fill      block 531329798 log   3 tx 0x5cd254ae72fcb40cad27966577c768ccb63dba80ed770d5590f5bd65fd04f0db  feed id 1793707447435-0
+12:04:08 WBTC:USDso    76953.8    0.00015      buy  one fill      block 531329809 log   3 tx 0x8394687ea8cf65918930e7bed54652f4739df4a1fe734a6ce68a67aaa94d29d4  feed id 1793707448546-0
+12:04:09 SOMI:USDso    0.1592     25           sell one fill      block 531329819 log   2 tx 0x0406ff50f0e77130a3d5561d5df9fb5e5160b6663ff5e39a11fda5cb9a182d8d  feed id 1793707449548-0
+12:04:17 WETH:USDso    2262.64    0.001        buy  one fill      block 531329898 log   3 tx 0x0475201489c6d0253cf12e437daf0810a6e3b8e4538cd8741cec9582c99d58b0  feed id 1793707457431-0
+12:04:19 SOMI:USDso    0.1594     25           sell one fill      block 531329919 log   3 tx 0xdd8c12993f84eafbe7270d0390203222fdd6e9cd751c6f397ec4b901f679cb98  feed id 1793707459553-0
+12:04:28 WBTC:USDso    76945.8    0.00012      sell one fill      block 531330004 log   3 tx 0x2bef43e85106a6288ad177db3d939a99aaadac190e3db4163c923e2ea8e90cff  feed id 1793707468370-0
+12:04:29 SOMI:USDso    0.1594     25           sell one fill      block 531330014 log   5 tx 0xbcacda4a721f3752bd99227be152d5e642e2adbe504513d7ebad6753fd91543d  feed id 1793707469367-0
+12:04:36 WETH:USDso    2262.66    0.0012       sell one fill      block 531330092 log   2 tx 0x6335bf29bd181491a8da53944ef549cfde17520581649bc4885e0255cc549886  feed id 1793707477102-0
+12:04:37 WBTC:USDso    76945.8    0.00013      sell one fill      block 531330103 log   3 tx 0x9e3bfb7701298792193acf8944fd9c6554e3f1f2aed3c761e9a18f10ed600bda  feed id 1793707478211-0
+12:04:39 SOMI:USDso    0.1594     25           sell one fill      block 531330114 log   3 tx 0xe5eb539fe37915016b0251994814850acbad2a688a35f81e388774a1dce3e959  feed id 1793707479359-0
+12:04:46 WETH:USDso    2263.27    0.0014       buy  one fill      block 531330193 log  38 tx 0x98d6e435cfe7262e3e340b2866ec7e60221fb04e20b5fac882e1b5aeaaa9d4af  feed id 1793707487217-0
+12:04:49 SOMI:USDso    0.1593     25           sell one fill      block 531330214 log  14 tx 0x50809dde4fc6cab850616fd77764ad006c6859aee9a06416669f250dac1c1d75  feed id 1793707489348-0
+12:04:56 WETH:USDso    2262.85    0.0014       sell one fill      block 531330293 log   7 tx 0x55a485101c14f94d321e037520a25bb042638b851ba991b034860ef7b0d89dec  feed id 1793707497229-0
+12:04:58 WBTC:USDso    76974.6    0.00011      buy  one fill      block 531330304 log   3 tx 0x3bee81e26f30662a26f9dd324cebb5e1ca5cf0c91d263858bc95dd59030e737a  feed id 1793707498300-0
+12:04:59 SOMI:USDso    0.1594     25           sell one fill      block 531330314 log   3 tx 0x2742c0e493b7cf629ba976fb928f0979d121da80c1496e5bc61fef7ab1f99777  feed id 1793707499313-0
+12:05:06 WETH:USDso    2263.89    0.0013       buy  one fill      block 531330393 log   3 tx 0xbbcf62b318d6d8c232226db6f67872e4aba4b08ddd3a63d4c71977b9c5ec9c69  feed id 1793707507204-0
+12:05:08 WBTC:USDso    76987.9    0.00015      buy  one fill      block 531330404 log   5 tx 0x75b7df35273d885a4cad7cc621ddec7c778f95a0c26b9b14a3ee8db58d8f1d87  feed id 1793707508365-0
+12:05:09 SOMI:USDso    0.1594     25           sell one fill      block 531330414 log   3 tx 0x7b2abe0ed902717a6b0d4e5c1bd271228da6c900df6ef8edbee0a2334f8261d5  feed id 1793707509356-0
+12:05:16 WETH:USDso    2263.43    0.0011       sell one fill      block 531330493 log   3 tx 0x5f036462175b58f763828de4eca73f72b82eff381310f97c2fa17c24cc65d605  feed id 1793707517242-0
+12:05:18 WBTC:USDso    76972.4    0.00018      sell one fill      block 531330504 log   3 tx 0xd1c18b9cd5e90fc95e180e233eef4a82338c907698968f8d99e693f0492c13a4  feed id 1793707518362-0
+12:05:19 SOMI:USDso    0.1595     25           sell one fill      block 531330514 log   3 tx 0xbff433ceadec72182935d368e8a0e00cfc6523c2a06f42e4778548d2d757f11c  feed id 1793707519304-0
+12:05:26 WETH:USDso    2263.49    0.002        buy  one fill      block 531330593 log   3 tx 0x064c6bc23051fe512d76fcb94a6373719f684079e100617d88fff347cf4e3c85  feed id 1793707527230-0
+12:05:28 WBTC:USDso    76973.7    0.00015      buy  one fill      block 531330604 log   3 tx 0xaf70ce46f0eaae6ddd9d1a4aa1c8aa52b8786c216a11d6327c6a99d013073dd6  feed id 1793707528326-0
+12:05:29 SOMI:USDso    0.1595     25           sell one fill      block 531330614 log   3 tx 0xde37ff77e4f4b81cbdb4b434240029d859aa20b5b943b8a30e4e43a70d589ad4  feed id 1793707529323-0
+12:05:36 WETH:USDso    2263.18    0.0019       sell one fill      block 531330693 log   7 tx 0xbf42c384bd9a43efffb05deeeeda8bd306a0181209dbf6d50df5a3ab8eb37c13  feed id 1793707537263-0
+12:05:38 WBTC:USDso    76959.7    0.0001       sell one fill      block 531330704 log   3 tx 0x3e822c20d338674a0ebdb7427071517c721bcb4d7a9488076322b5cf740166da  feed id 1793707538338-0
+12:05:39 SOMI:USDso    0.1595     25           sell one fill      block 531330714 log   4 tx 0x8cf7406a7a1d4043469df59af6e1eaa9c9012dbae63d26f8cc95357794048d7d  feed id 1793707539323-0
+12:05:48 WBTC:USDso    76966.8    0.00013      sell one fill      block 531330805 log   3 tx 0x75a7d2b667541e8122e175925cb50beddcd8c43cb02d5c74d5e94df9324d16d9  feed id 1793707548459-0
+12:05:49 SOMI:USDso    0.1595     25           sell one fill      block 531330816 log   3 tx 0x77b1d6002a2d55ee84f615cf30f3ed71ee570a852d5d1466c6743a4e32c0c896  feed id 1793707549555-0
+12:05:56 WETH:USDso    2263.68    0.0017       buy  one fill      block 531330893 log   6 tx 0x132dfc6ae5852f56e9412d1dd11332e041a85af642a4f847babdac724ec88817  feed id 1793707557241-0
+12:05:58 WBTC:USDso    76984.7    0.00011      buy  one fill      block 531330904 log   3 tx 0x1dbdd4dbb4fe09ce7a7a4a5225770e343ea7da60d15aed8a073ba08ab5a6708a  feed id 1793707558310-0
+12:05:59 SOMI:USDso    0.1595     25           sell one fill      block 531330914 log  41 tx 0x83641a7db92d59316d4455f4465c60ea2c1af09fec60b97416a76c27bc82326c  feed id 1793707559315-0
+12:06:06 WETH:USDso    2263.15    0.0018       sell one fill      block 531330993 log   3 tx 0x5500a3f13f60c765281b6022f183a4f27de71edddced9641adbd00b85ac1b7f0  feed id 1793707567261-0
+12:06:08 WBTC:USDso    76967.5    0.00013      sell one fill      block 531331004 log   3 tx 0x4fbb4c4ce0e6d565f77d3bc3098b19eceb9c918562f5bfdd98d18dbc99008950  feed id 1793707568325-0
+12:06:09 SOMI:USDso    0.1595     25           sell one fill      block 531331015 log  39 tx 0x5e08edceb836fe9d8ac548e5a0939e84d24ffba22d604f23ec943f70d3d39efa  feed id 1793707569453-0
+12:06:17 WETH:USDso    2262.71    0.0013       buy  one fill      block 531331094 log   3 tx 0x5184343e2e60fad27aa9056a9843f4f6b9275eb0ca179eb9203ada7724e9c986  feed id 1793707577328-0
+12:06:18 WBTC:USDso    76955.6    0.00013      buy  one fill      block 531331104 log   3 tx 0x821e7d94ae91e10b584aa59622edf1c3cec7e47aa8422b99244245fc08f925f4  feed id 1793707578355-0
+12:06:19 SOMI:USDso    0.1593     25           sell one fill      block 531331115 log   3 tx 0x4c8ee9d1023f23b947839609fe8fc777a81a2b93f8e76bb1eef658a3ee6d9ed0  feed id 1793707579422-0
+12:06:26 WETH:USDso    2262.75    0.0016       sell one fill      block 531331193 log   2 tx 0x1b931d5e15d67cf48d54da068a1dc83e7a5430fa47878aefa43d19f95d7a0506  feed id 1793707587256-0
+12:06:28 WBTC:USDso    76945.8    0.00011      sell one fill      block 531331204 log   3 tx 0xbbe0aed379a9e57c799dea1197103fa920a4f476437df3256c91b2e23bc8405d  feed id 1793707588332-0
+12:06:29 SOMI:USDso    0.1593     25           sell one fill      block 531331215 log   3 tx 0x19e686389e63829b976b1ad186d3d1b551ee89ee62d10849b5a8a92307552106  feed id 1793707589447-0
+12:06:36 WETH:USDso    2263.35    0.0019       buy  one fill      block 531331293 log   7 tx 0x767e912488c47716e5d539fe253588549a10d1f6d10e2393f3c3d908c009c538  feed id 1793707597226-0
+12:06:38 WBTC:USDso    76966      0.0001       buy  one fill      block 531331304 log   3 tx 0x79abc19f06e696c7e950fc6680d16cfa801276be19c616e70c9d5ef79acd6393  feed id 1793707598337-0
+12:06:39 SOMI:USDso    0.1592     25           sell one fill      block 531331314 log  41 tx 0xcc3c94feb60778ae1504289ca8a0dd1baeae60d4ad251693745f820260741518  feed id 1793707599338-0
+12:06:46 WETH:USDso    2262.92    0.0017       sell one fill      block 531331393 log   9 tx 0x342c6202f85fc22de97d68143d55501f144a95f94d5572ebcb38a0e8ebab23f1  feed id 1793707607242-0
+12:06:48 WBTC:USDso    76964.3    0.00017      buy  one fill      block 531331404 log   3 tx 0x3b73229ecc5be892c49b6ea2e06e1642c8ae7dd99d0b796c9ea3c7180af401ab  feed id 1793707608321-0
+12:06:49 SOMI:USDso    0.1592     25           sell one fill      block 531331414 log   3 tx 0x9a93781da0a6c37c4469c7f37b0c0013aab14da80c02512c4e8f1b06c499c0b8  feed id 1793707609321-0
+12:06:56 WETH:USDso    2263.38    0.0015       buy  one fill      block 531331493 log  21 tx 0xb04fdcd9cad6e446d271ca93713391f87a799907c19b987e89d9ed4514d93cfd  feed id 1793707617255-0
+12:06:58 WBTC:USDso    76947.3    0.00019      sell one fill      block 531331504 log   3 tx 0x0d7b952a59ba5dd5ba23ed4674b4cc82870b47c49f635a0409c557f15143684c  feed id 1793707618334-0
+12:06:59 SOMI:USDso    0.1592     25           sell one fill      block 531331514 log   3 tx 0xb118668b974c881c517452170be15c7b4bc6ab87524820c1acec76193061edf6  feed id 1793707619364-0
+12:07:06 WETH:USDso    2262.97    0.0013       sell one fill      block 531331593 log   3 tx 0xc9d8fb572ec82e40fee1d38dbe7bbded098385ccb2c1b0aa8d1b7a2b56ad6ee6  feed id 1793707627206-0
+12:07:09 SOMI:USDso    0.1592     25           sell one fill      block 531331614 log   3 tx 0xa1303209709b370145bc585bd82831a64a4e70c8a188cde1c71b8b2151b02a9c  feed id 1793707629314-0
+
+window 11:55:29-12:07:14 UTC: 168 fills in 168 txs; feed trades in the window with no matching fill: 0
+   ('one fill', 'delivered') 168
+
+1m candles with a fill, last ohlcv:update from the feed vs GET /v0/markets/{symbol}/candles:
+  SOMI:USDso    11:55  feed vol 150 o 0.1602 h 0.1602 l 0.1601 c 0.1601   REST vol 150 o 0.1602 h 0.1602 l 0.1601 c 0.1601
+  SOMI:USDso    11:56  feed vol 150 o 0.1601 h 0.1602 l 0.1601 c 0.1602   REST vol 150 o 0.1601 h 0.1602 l 0.1601 c 0.1602
+  SOMI:USDso    11:57  feed vol 125 o 0.1602 h 0.1602 l 0.1602 c 0.1602   REST vol 125 o 0.1602 h 0.1602 l 0.1602 c 0.1602
+  SOMI:USDso    11:59  feed vol 75 o 0.1596 h 0.1596 l 0.1596 c 0.1596    REST vol 75 o 0.1596 h 0.1596 l 0.1596 c 0.1596
+  SOMI:USDso    12:00  feed vol 160.02 o 0.1595 h 0.1597 l 0.1595 c 0.1595 REST vol 160.02 o 0.1595 h 0.1597 l 0.1595 c 0.1595
+  SOMI:USDso    12:01  feed vol 150 o 0.1595 h 0.1596 l 0.1594 c 0.1594   REST vol 150 o 0.1595 h 0.1596 l 0.1594 c 0.1594
+  SOMI:USDso    12:02  feed vol 150 o 0.1594 h 0.1594 l 0.159 c 0.1591    REST vol 150 o 0.1594 h 0.1594 l 0.159 c 0.1591
+  SOMI:USDso    12:03  feed vol 150 o 0.1592 h 0.1592 l 0.1591 c 0.1592   REST vol 150 o 0.1592 h 0.1592 l 0.1591 c 0.1592
+  SOMI:USDso    12:04  feed vol 150 o 0.1592 h 0.1594 l 0.1592 c 0.1594   REST vol 150 o 0.1592 h 0.1594 l 0.1592 c 0.1594
+  SOMI:USDso    12:05  feed vol 150 o 0.1594 h 0.1595 l 0.1594 c 0.1595   REST vol 150 o 0.1594 h 0.1595 l 0.1594 c 0.1595
+  SOMI:USDso    12:06  feed vol 150 o 0.1595 h 0.1595 l 0.1592 c 0.1592   REST vol 150 o 0.1595 h 0.1595 l 0.1592 c 0.1592
+  SOMI:USDso    12:07  feed vol 50 o 0.1592 h 0.1593 l 0.1592 c 0.1593    REST vol 150 o 0.1592 h 0.1593 l 0.1592 c 0.1592   <-- differs
+  WBTC:USDso    11:55  feed vol 0.00084 o 76971.4 h 77025.2 l 76971.4 c 77025.2 REST vol 0.00084 o 76971.4 h 77025.2 l 76971.4 c 77025.2
+  WBTC:USDso    11:56  feed vol 0.00081 o 76989.2 h 77014.4 l 76989.2 c 77009.3 REST vol 0.00081 o 76989.2 h 77014.4 l 76989.2 c 77009.3
+  WBTC:USDso    11:57  feed vol 0.00057 o 76982 h 77005.4 l 76982 c 77005.4 REST vol 0.00057 o 76982 h 77005.4 l 76982 c 77005.4
+  WBTC:USDso    11:59  feed vol 0.00039 o 77003.2 h 77018.7 l 77003.2 c 77018.7 REST vol 0.00039 o 77003.2 h 77018.7 l 77003.2 c 77018.7
+  WBTC:USDso    12:00  feed vol 0.00066 o 76965 h 76965 l 76905.9 c 76905.9 REST vol 0.00066 o 76965 h 76965 l 76905.9 c 76905.9
+  WBTC:USDso    12:01  feed vol 0.00074 o 76931.3 h 76931.3 l 76910 c 76910 REST vol 0.00074 o 76931.3 h 76931.3 l 76910 c 76910
+  WBTC:USDso    12:02  feed vol 0.00089 o 76924.4 h 76924.4 l 76897.4 c 76915.4 REST vol 0.00089 o 76924.4 h 76924.4 l 76897.4 c 76915.4
+  WBTC:USDso    12:03  feed vol 0.00064 o 76928 h 76968.5 l 76928 c 76944.1 REST vol 0.00064 o 76928 h 76968.5 l 76928 c 76944.1
+  WBTC:USDso    12:04  feed vol 0.00051 o 76953.8 h 76974.6 l 76945.8 c 76974.6 REST vol 0.00051 o 76953.8 h 76974.6 l 76945.8 c 76974.6
+  WBTC:USDso    12:05  feed vol 0.00082 o 76987.9 h 76987.9 l 76959.7 c 76984.7 REST vol 0.00082 o 76987.9 h 76987.9 l 76959.7 c 76984.7
+  WBTC:USDso    12:06  feed vol 0.00083 o 76967.5 h 76967.5 l 76945.8 c 76947.3 REST vol 0.00083 o 76967.5 h 76967.5 l 76945.8 c 76947.3
+  WETH:USDso    11:55  feed vol 0.007 o 2263.17 h 2264.95 l 2262.71 c 2264.95 REST vol 0.007 o 2263.17 h 2264.95 l 2262.71 c 2264.95
+  WETH:USDso    11:56  feed vol 0.0084 o 2264.37 h 2264.76 l 2264.27 c 2264.27 REST vol 0.0084 o 2264.37 h 2264.76 l 2264.27 c 2264.27
+  WETH:USDso    11:57  feed vol 0.0073 o 2263.42 h 2264.01 l 2263.42 c 2264.01 REST vol 0.0073 o 2263.42 h 2264.01 l 2263.42 c 2264.01
+  WETH:USDso    11:59  feed vol 0.0028 o 2264.04 h 2264.53 l 2264.04 c 2264.53 REST vol 0.0028 o 2264.04 h 2264.53 l 2264.04 c 2264.53
+  WETH:USDso    12:00  feed vol 0.0079 o 2262.59 h 2262.59 l 2261.01 c 2261.01 REST vol 0.0079 o 2262.59 h 2262.59 l 2261.01 c 2261.01
+  WETH:USDso    12:01  feed vol 0.0077 o 2262.67 h 2262.67 l 2261.38 c 2261.38 REST vol 0.0077 o 2262.67 h 2262.67 l 2261.38 c 2261.38
+  WETH:USDso    12:02  feed vol 0.0095 o 2261.83 h 2261.83 l 2261.14 c 2261.64 REST vol 0.0095 o 2261.83 h 2261.83 l 2261.14 c 2261.64
+  WETH:USDso    12:03  feed vol 0.0092 o 2262.07 h 2263.5 l 2262.07 c 2263.32 REST vol 0.0092 o 2262.07 h 2263.5 l 2262.07 c 2263.32
+  WETH:USDso    12:04  feed vol 0.0066 o 2262.18 h 2263.27 l 2262.18 c 2262.85 REST vol 0.0066 o 2262.18 h 2263.27 l 2262.18 c 2262.85
+  WETH:USDso    12:05  feed vol 0.008 o 2263.89 h 2263.89 l 2263.18 c 2263.68 REST vol 0.008 o 2263.89 h 2263.89 l 2263.18 c 2263.68
+  WETH:USDso    12:06  feed vol 0.0098 o 2263.15 h 2263.38 l 2262.71 c 2263.38 REST vol 0.0098 o 2263.15 h 2263.38 l 2262.71 c 2263.38
+  WETH:USDso    12:07  feed vol 0.0028 o 2262.97 h 2264.1 l 2262.97 c 2264.1 REST vol 0.0087 o 2262.97 h 2264.1 l 2262.97 c 2263.84   <-- differs

@@ -1,0 +1,12 @@
+mainnet: live markets 6, fixed-strike 6, reference-mode 0
+   e.g. Will ETH/USDC's price be at or above 2266.595 at unix time 1793708400?  (strike field 226659)
+   last reference-mode market created: 2026-10-01T06:55:00+00:00 'ETH closes at or above its opening price'
+   first fixed-strike market created:  2026-10-01T07:00:00+00:00 "Will BTC/USDC's price be at or above 84080.8475 at unix time 1790838900?"
+shannon: live markets 11, fixed-strike 11, reference-mode 0
+   e.g. Will BTC/USDC's price be at or above 77143.55 at unix time 1793708220?  (strike field 7714355)
+   last reference-mode market created: 2026-09-30T18:16:00+00:00 'BTC closes at or above its opening price'
+   first fixed-strike market created:  2026-08-04T07:26:22+00:00 'BTC at or above 6349990 at expiry'
+hideki: live markets 4, fixed-strike 4, reference-mode 0
+   e.g. Will BTC/USDC's price be at or above 76969.545 at unix time 1793708400?  (strike field 7696954)
+   last reference-mode market created: none ever
+   first fixed-strike market created:  2026-09-23T10:24:27+00:00 "Will BTC's price be at or above 85757.55 at unix time 1790159100?"
