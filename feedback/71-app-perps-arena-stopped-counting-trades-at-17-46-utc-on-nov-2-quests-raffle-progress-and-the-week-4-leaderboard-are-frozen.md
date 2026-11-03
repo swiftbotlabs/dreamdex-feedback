@@ -53,9 +53,9 @@ The 08:36 close was in the indexer from 08:46:09 and has not been credited, and 
 | 2 | `0x21a2…dd44` | +16.38% | +53.95% | +53.95% |
 | 3 | `0xd94a…17c3` | +14.46% | +46.93% | +46.93% |
 | 4 | `0x43a3…476f` | +13.45% | −7.57% | multi-wallet account, not comparable |
-| 5 | `0x0694…ce3e` | +13.34% | +17.39% | multi-wallet account, not comparable |
+| 5 | `0x0694…ce3e` | +13.34% | +17.39% | +17.39%, once the 1,000 USDso airdrop credited at 17:16:42 is added to `funded` |
 
-The chain ROI is `(getAccountEquity + lockedCollateral − funded) / funded`, using the board's own `funded`. The rules rank accounts "across all its wallets", so ranks 4 and 5 can't be checked from one wallet. The table's #4 is below zero on its own chart, yet it still ranks above traders who are up.
+The chain ROI is `(getAccountEquity + lockedCollateral − funded) / funded`, using the board's own `funded`. For #5 the script prints +60.16%, because it uses the table's `funded`. That figure is frozen too: it misses the week 4 airdrop credited at 17:16:42 UTC (MarginEvent `Credited`, 1,000). With it added, (4,396.73 − 3,745.29) / 3,745.29 = +17.39%, which is the chart's figure. The rules rank accounts "across all its wallets", so #4 can't be checked from one wallet. The table's #4 is below zero on its own chart, yet it still ranks above traders who are up.
 
 **The activity columns stop exactly at `activityThrough`.** For `0x05e5…83cf`, the indexer has 41 position changes since week 4 opened, on 11-02 and 11-03. The table's `trades: 27, activeDays: 1` are exactly the 27 rows before 17:46:59 (`evidence/71/activity_rows_0x05e5_2026-11-03T0835Z.txt`).
 
