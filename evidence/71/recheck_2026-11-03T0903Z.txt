@@ -1,0 +1,8 @@
+fetched 2026-11-03T0903Z (signed in, our account)
+week-4 table: equityThrough 2026-11-02 17:00:00 | activityThrough 2026-11-02 17:46:59 | activitySettling False | activityPending 0 | #1 0x05e56d14dd82c695844d40e15ea4122f0b7683cf roi 20.07% trades 27 activeDays 1
+season table: equityThrough 2026-11-02 17:00:00 | activityThrough 2026-11-02 17:46:59 | activitySettling False | activityPending 0 | #1 0x1cf35c559bd4e1d45b738b83041855c8634e5a56 roi 3273.99% trades 1031 activeDays 22
+week-4 chart: 5 lines, everyHours 1, last point 2026-11-03 08:00:00
+   0x05e56d14dd82c695844d40e15ea4122f0b7683cf last roi 50.00% at 2026-11-03 08:00:00
+   0x21a27bb4e052dcbb74700a00e4be654a8a49dd44 last roi 48.96% at 2026-11-03 08:00:00
+   0xd94aaa72c90db7423b64f26a3f3eb30d1bab17c3 last roi 42.61% at 2026-11-03 08:00:00
+quests/me: scoredAt 2026-11-03 09:02:10 | week-4 progress rows 0 | completions this week 0 | all-time volume counter {'usd': 33851.412936}

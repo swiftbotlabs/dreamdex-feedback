@@ -1,0 +1,10 @@
+board: equityThrough 2026-11-02T17:00:00Z  activityThrough 2026-11-02T17:46:59Z  rows 100  entrants 143106
+chart: 5 lines, one point every 1 h, last point 2026-11-03T07:00:00Z
+chain: block 40356743 = last block at or before 2026-11-03T07:00:00Z
+
+board rank | address | funded (board) | table ROI | chart ROI at last point | chain equity | chain ROI = (equity - funded) / funded
+#1 | 0x05e56d14dd82c695844d40e15ea4122f0b7683cf | 1454.44 | 20.07% | 65.95% @ 2026-11-03T07:00:00Z | 2413.66 | 65.95%
+#2 | 0x21a27bb4e052dcbb74700a00e4be654a8a49dd44 | 6700.50 | 16.38% | 53.95% @ 2026-11-03T07:00:00Z | 10315.47 | 53.95%
+#3 | 0xd94aaa72c90db7423b64f26a3f3eb30d1bab17c3 | 8742.22 | 14.46% | 46.93% @ 2026-11-03T07:00:00Z | 12844.73 | 46.93%
+#4 | 0x43a3b02f64297536628adbf50a0fabfe9b03476f | 5855.86 | 13.45% | -7.57% @ 2026-11-03T07:00:00Z | 1844.59 | -68.50%
+#5 | 0x06949e3db476d06a43fe964ee5a529eae329ce3e | 2745.29 | 13.34% | 17.39% @ 2026-11-03T07:00:00Z | 4396.73 | 60.16%
