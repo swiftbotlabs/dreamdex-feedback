@@ -3,13 +3,13 @@ Severity: major
 Area: app
 
 > **Summary.** Perps Arena's activity feed has not moved since **2026-11-02 17:46:59 UTC**, about 3 hours and 47 minutes into week 4, the last week of the competition. Three things are stuck, and all three fit that cut-off:
-> - **Quests.** We opened and fully closed a position on our own Arena account at 08:34–08:36 UTC on Nov 3. The hosted indexer had both trades by 08:46. The quest scorer has run three times since then (`scoredAt` 08:50:14, 08:56:17 and 09:02:10), and it still shows no week 4 progress at all. "Close a position today" is not credited, and the all-time volume counter has not moved. Quest points are what buy raffle tickets.
+> - **Quests.** We opened and fully closed a position on our own Arena account at 08:34–08:36 UTC on Nov 3. The hosted indexer had both trades by 08:46. The quest scorer has run at least four times since then (`scoredAt` 08:50:14, 08:56:17, 09:02:10 and up to 09:25:34), and it still shows no week 4 progress at all. "Close a position today" is not credited, and the all-time volume counter has not moved. Quest points are what buy raffle tickets.
 > - **The week 4 leaderboard.** The table still says "Updated November 2, 17:00 UTC", and its trade and day counts stop at 17:46:59. The #1 trader shows 27 trades on 1 day; the indexer has 41 on 2 days.
 > - **The qualification counters**, which are built from those counts ("This week: 0 of 10 closes, 0 of 3 days").
 >
 > The equity chart drawn above the same table still plots hourly ROI, and for the top three traders it matches the chain to the cent. The chart has #1 at +65.95% while the table shows +20.07%. The API also reports `activitySettling: false, activityPending: 0`, so neither the API nor the page warns that anything is missing. Week 4 carries $2,000 of weekly ROI prizes and a $1,250 raffle, and it closes the $2,000 season board. All of these pay real USDso.
 >
-> **Checked 2026-11-03, 07:57–09:04 UTC.** API responses were saved from the signed-in app. Our test trades were on our own Arena account through its linked bot key, with paper USDso only. Chain reads were on Tokyo (chain 50383). Evidence: `evidence/71/`.
+> **Checked 2026-11-03, 07:57–09:30 UTC.** API responses were saved from the signed-in app. Our test trades were on our own Arena account through its linked bot key, with paper USDso only. Chain reads were on Tokyo (chain 50383). Evidence: `evidence/71/`.
 
 ## Steps to reproduce
 1. Sign in at https://app.testnet.dreamdex.io/competition-hub with the default "Week 4 · Nov 2 → Nov 9" board. Next to the trader count the table says **Updated November 2, 17:00 UTC**, and the chart's x-axis runs to the current hour (`evidence/71/competition_hub_week4_2026-11-03T0904Z.png`).
@@ -66,7 +66,7 @@ The chain ROI is `(getAccountEquity + lockedCollateral − funded) / funded`, us
 - `evidence/71/test_orders.mjs`, output `test_orders_2026-11-03.txt`: the five test transactions, decoded from their receipts (fills per order). The 08:35:44 attempt `0xf0f99aa2…58bd` ran out of gas at a 3,000,000 limit and is not counted.
 - `evidence/71/board_week-4_2026-11-03T0757Z.json`, `chart_week-4_2026-11-03T0757Z.json`, `arena_board_vs_chain.mjs` and its output. X handles and avatar URLs are blanked in the saved bodies.
 - `evidence/71/activity_rows.sh` and its output; `evidence/71/board_week-3_final_2026-11-03T0750Z.json`, `week3_reconcile.mjs` and its output.
-- `evidence/71/recheck_2026-11-03T0903Z.txt`: the same endpoints fetched again later, still frozen. The screenshot named above.
+- `evidence/71/recheck_2026-11-03T0903Z.txt`, `recheck_2026-11-03T0930Z.txt`: the same endpoints fetched again. At 09:30 the table and the season board are still at 17:00 / 17:46:59. The quest scorer ran again at 09:25:34 and still shows 0 week 4 progress. The chart has moved on to 08:00. The screenshot named above.
 
 ## Suggested fix
 Restart or unblock the activity ingest that feeds the quest scorer and the board, then backfill from 17:46:59 UTC on Nov 2 so that daily and weekly quests are credited to the day and week the trades happened. Drive `activitySettling` / `activityPending` from the real gap between `activityThrough` and the chain head, and show it on the page. Refresh the table and the qualification counters from the same hourly equity snapshot as the chart.

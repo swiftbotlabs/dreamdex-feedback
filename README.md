@@ -537,7 +537,7 @@ On perps the fee lands in the builder's MarginBank account: the pool read revert
 ### #71 · major · Perps Arena stopped counting trades at 17:46 UTC on Nov 2: quest progress (raffle tickets) and the week 4 leaderboard are frozen
 The activity feed behind quests and the board has not moved since `activityThrough` 2026-11-02 17:46:59 UTC. A full close on our own Arena account, indexed by 08:46, was still not credited after three quest scorings. The week 4 table shows #1 at +20.07%, while its own hourly chart and the chain both say +65.95%. The API reports `activityPending 0`.
 
-[Report](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) · [Evidence](evidence/71/) · Checked 2026-11-03 07:57–09:04 UTC
+[Report](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) · [Evidence](evidence/71/) · Checked 2026-11-03 07:57–09:30 UTC
 
 ## Explorer
 
