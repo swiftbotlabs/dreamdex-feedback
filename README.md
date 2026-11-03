@@ -5,14 +5,14 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-69-7c5cff?style=flat-square" alt="reports: 69">
+  <img src="https://img.shields.io/badge/reports-74-7c5cff?style=flat-square" alt="reports: 74">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Sixty-nine issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Seventy-four issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
 plus Event Contracts on Somnia mainnet, the new DreamFly kit and Perps Arena: 15 major and 54 normal. Each one is a single Markdown file in [`feedback/`](feedback)
@@ -539,6 +539,33 @@ The activity feed behind quests and the board has not moved since `activityThrou
 
 [Report](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) · [Evidence](evidence/71/) · Checked 2026-11-03 07:57–09:30 UTC
 
+## Mainnet yield, Lend, Simple Swap and site copy (added 2026-11-03)
+
+### #73 · major · No maker on mainnet has been paid yield since Oct 13: the daily USDso yield now goes to a Safe, and the payout wallet sits on unpaid USDso
+The docs say USDso's backing yield "is paid to active market makers, not held by the protocol", each period. The mainnet indexer's `YieldPayout` table shows daily maker payouts up to 2026-10-13 and nothing for 21 days since. On chain the daily yield kept arriving, but since Oct 14 it goes to a 2-of-4 Safe with no outgoing transaction, and the payout wallet's nonce has not moved.
+
+[Report](feedback/73-yield-maker-yield-has-not-been-paid-on-mainnet-since-oct-13-the-daily-usdso-yield-now-goes-to-a-safe-and-the-distributor-sits-on-404-usdso.md) · [Evidence](evidence/73/) · Checked 2026-11-03 10:40–11:34 UTC
+
+### #72 · normal · On testnet the Lend page uses a different SomniaLend pool from SomniaLend's own app and the SDK
+The Lend page says a position opened here "is visible in SomniaLend's own app, and vice versa". On Shannon testnet the app uses pool `0x5A44…2D09`, while SomniaLend's own app, the SDK's `SOMNIA_TESTNET_LEND` and the testnet indexer use `0x7Cb9…`, so positions don't carry over and USDso can't be supplied through the SDK.
+
+[Report](feedback/72-lend-on-testnet-the-lend-page-uses-a-different-somnialend-pool-than-somnialends-own-app-and-the-sdk.md) · [Evidence](evidence/72/) · Checked 2026-11-03 10:28–10:38 UTC
+
+### #74 · normal · Simple Swap is documented as live on mainnet, but mainnet shows "Page not found"
+`app.dreamdex.io/simple` renders Page not found (the `simple-mode` flag is not in the mainnet flag set). On testnet the page exists but no longer matches its docs card: the Limit tab works, slippage is a fixed 0.5% with no settings sheet, the `/simple/debug` faucet is 404, and the Events venue is undocumented.
+
+[Report](feedback/74-docs-simple-swap-is-documented-as-live-on-mainnet-but-mainnet-shows-page-not-found-and-the-testnet-card-no-longer-matches-the-page.md) · [Evidence](evidence/74/) · Checked 2026-11-03 10:54–11:01 UTC
+
+### #75 · normal · The mainnet banner still says "Perps Arena kicks off October 12", in the campaign's last week
+Every mainnet page a logged-out visitor opens shows the launch banner. It comes from a banner config created on 2026-10-06 with no start or end date.
+
+[Report](feedback/75-app-the-mainnet-site-banner-still-says-perps-arena-kicks-off-october-12-three-weeks-into-the-four-week-campaign.md) · [Evidence](evidence/75/) · Checked 2026-11-03 11:14–11:29 UTC
+
+### #76 · normal · The Markets page says Lend "earn[s] the borrow rate"; suppliers earn the supply rate, 1% to 54% of it
+The `/explore` "Elsewhere" card says "lend collateral to the venue and earn the borrow rate". Lend supplies wallet assets to SomniaLend, not collateral to dreamDEX, and on mainnet the supply rate is between about 1% and 54% of the borrow rate depending on the reserve.
+
+[Report](feedback/76-app-the-markets-page-says-lend-lends-collateral-to-the-venue-and-earns-the-borrow-rate-suppliers-earn-the-lower-supply-rate-from-somnialend.md) · [Evidence](evidence/76/) · Checked 2026-11-03 11:22–11:29 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -875,6 +902,11 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 69 | normal | docs | [The documented builder-fee flow does not apply to perps: fees land in the MarginBank and the pool read reverts](feedback/69-docs-the-builder-fee-collection-flow-does-not-work-on-perps-fees-land-in-the-marginbank-and-the-pool-read-reverts.md) | [2026-11-01 12:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/d911bb3) |
 | 70 | normal | docs | [Event Contracts are documented as 15-minute and 1-hour windows; 5-minute windows have traded since 2026-09-01](feedback/70-docs-event-contracts-are-documented-as-15-minute-and-1-hour-windows-but-5-minute-windows-trade-on-mainnet.md) | [2026-11-01 12:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/d911bb3) |
 | 71 | major | app | [Perps Arena stopped counting trades at 17:46 UTC on Nov 2: quest progress and the week 4 leaderboard are frozen while the equity chart keeps updating](feedback/71-app-perps-arena-stopped-counting-trades-at-17-46-utc-on-nov-2-quests-raffle-progress-and-the-week-4-leaderboard-are-frozen.md) | [2026-11-03 09:05](https://github.com/swiftbotlabs/dreamdex-feedback/commit/24e6ba6) |
+| 72 | normal | Lend | [On testnet the Lend page uses a different SomniaLend pool from SomniaLend's own app and the SDK](feedback/72-lend-on-testnet-the-lend-page-uses-a-different-somnialend-pool-than-somnialends-own-app-and-the-sdk.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
+| 73 | major | yield | [No maker on mainnet has been paid yield since Oct 13; the daily USDso yield goes to a Safe](feedback/73-yield-maker-yield-has-not-been-paid-on-mainnet-since-oct-13-the-daily-usdso-yield-now-goes-to-a-safe-and-the-distributor-sits-on-404-usdso.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
+| 74 | normal | docs | [Simple Swap is documented as live on mainnet, but mainnet shows Page not found](feedback/74-docs-simple-swap-is-documented-as-live-on-mainnet-but-mainnet-shows-page-not-found-and-the-testnet-card-no-longer-matches-the-page.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
+| 75 | normal | app | [The mainnet banner still says Perps Arena kicks off October 12](feedback/75-app-the-mainnet-site-banner-still-says-perps-arena-kicks-off-october-12-three-weeks-into-the-four-week-campaign.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
+| 76 | normal | app | [The Markets page says Lend earns the borrow rate; suppliers earn the supply rate](feedback/76-app-the-markets-page-says-lend-lends-collateral-to-the-venue-and-earns-the-borrow-rate-suppliers-earn-the-lower-supply-rate-from-somnialend.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
