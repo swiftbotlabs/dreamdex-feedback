@@ -5,14 +5,14 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/reports-74-7c5cff?style=flat-square" alt="reports: 74">
+  <img src="https://img.shields.io/badge/reports-76-7c5cff?style=flat-square" alt="reports: 76">
   <img src="https://img.shields.io/badge/archived-2-6e7781?style=flat-square" alt="archived: 2">
   <img src="https://img.shields.io/badge/chain-50383%20(Tokyo)-30363d?style=flat-square" alt="chain: 50383 (Tokyo)">
   <img src="https://img.shields.io/badge/markets--sdk-0.32.1-30363d?style=flat-square" alt="markets-sdk: 0.32.1">
   <img src="https://img.shields.io/badge/re--checked-2026--10--26-1f883d?style=flat-square" alt="re-checked: 2026-10-26">
 </p>
 
-Seventy-four issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
+Seventy-six issue reports for the **dreamDEX Perps Builder Bounty (Feedback track)**, found on **Somnia Tokyo testnet** (chain id
 50383; the docs and the SDK call it "Hideki"), plus the testnet app, SDK docs, REST API and WebSocket feeds, on the
 **new Somnia explorer** (new.explorer.somnia.network) and on its **Tokyo testnet view** (explorer.testnet.somnia.network/tokyo):
 plus Event Contracts on Somnia mainnet, the new DreamFly kit and Perps Arena: 15 major and 54 normal. Each one is a single Markdown file in [`feedback/`](feedback)
@@ -566,6 +566,18 @@ The `/explore` "Elsewhere" card says "lend collateral to the venue and earn the 
 
 [Report](feedback/76-app-the-markets-page-says-lend-lends-collateral-to-the-venue-and-earns-the-borrow-rate-suppliers-earn-the-lower-supply-rate-from-somnialend.md) · [Evidence](evidence/76/) · Checked 2026-11-03 11:22–11:29 UTC
 
+## DreamFly event contracts and the WebSocket feed (added 2026-11-03)
+
+### #77 · major · DreamFly's event-contract recorder never learns a fixed-strike window's open, so its `ec_late` arm can never bet
+The recorder reads a window's open only from `openingAnswer`, which is null for fixed-strike markets, and every Event Contract on mainnet, Shannon and Hideki has been fixed-strike since Oct 1. `lead_bps`, `z` and `prob_up` are null in every book sample, so `ec_late` never places a bet and the fly sees `|z| = 0` on every decision. Run unchanged on mainnet: 0 of 288 book samples had the open. Sub-items: split voids scored at 0.50; the restart claim sweep fails past 200 positions.
+
+[Report](feedback/77-dreamfly-the-event-contract-fly-never-learns-a-windows-open-so-its-ec-late-arm-can-never-bet-every-market-has-been-fixed-strike-since-oct-1.md) · [Evidence](evidence/77/) · Checked 2026-11-03
+
+### #78 · major · The mainnet WebSocket `trades` channel sometimes drops fills from multi-fill transactions, and live candles leave them out
+Over 65 minutes of recording (two connections in parallel for 18), 6 fills from 5 of the 26 multi-fill transactions were never sent, on both connections, while every single-fill transaction arrived. Live `ohlcv` candles miss the lost fills that REST and a later snapshot include. Sub-item: one connection takes at most 32 subscriptions; the 33rd fails with the bad-parameters error.
+
+[Report](feedback/78-websocket-feed-fills-from-multi-fill-transactions-are-sometimes-never-sent-and-live-candles-leave-them-out.md) · [Evidence](evidence/78/) · Checked 2026-11-03 11:55–13:01 UTC
+
 ## Explorer
 
 Reports 40–47 and 52–55 are about the **new Somnia explorer**, https://new.explorer.somnia.network (Somnia mainnet, chain 5031), on which
@@ -907,6 +919,8 @@ One line per issue (area, where, expected behaviour), ready to paste into a trac
 | 74 | normal | docs | [Simple Swap is documented as live on mainnet, but mainnet shows Page not found](feedback/74-docs-simple-swap-is-documented-as-live-on-mainnet-but-mainnet-shows-page-not-found-and-the-testnet-card-no-longer-matches-the-page.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
 | 75 | normal | app | [The mainnet banner still says Perps Arena kicks off October 12](feedback/75-app-the-mainnet-site-banner-still-says-perps-arena-kicks-off-october-12-three-weeks-into-the-four-week-campaign.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
 | 76 | normal | app | [The Markets page says Lend earns the borrow rate; suppliers earn the supply rate](feedback/76-app-the-markets-page-says-lend-lends-collateral-to-the-venue-and-earns-the-borrow-rate-suppliers-earn-the-lower-supply-rate-from-somnialend.md) | [2026-11-03 11:37](https://github.com/swiftbotlabs/dreamdex-feedback/commit/5bc6e17) |
+| 77 | major | bot kit | [DreamFly's event-contract recorder never learns a fixed-strike window's open, so `ec_late` can never bet](feedback/77-dreamfly-the-event-contract-fly-never-learns-a-windows-open-so-its-ec-late-arm-can-never-bet-every-market-has-been-fixed-strike-since-oct-1.md) | [2026-11-03 13:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/be96b9b) |
+| 78 | major | API | [The mainnet WebSocket trades channel drops fills from multi-fill transactions; live candles leave them out](feedback/78-websocket-feed-fills-from-multi-fill-transactions-are-sometimes-never-sent-and-live-candles-leave-them-out.md) | [2026-11-03 13:33](https://github.com/swiftbotlabs/dreamdex-feedback/commit/be96b9b) |
 
 "First reported" is the author time of the commit that added the report file (`git log --diff-filter=A --format=%aI -- feedback/<file>`).
 Reports 01–12 were re-verified on 2026-10-25 between 22:37 and 23:04 UTC; reports 13–27 were checked on 2026-10-26 between
