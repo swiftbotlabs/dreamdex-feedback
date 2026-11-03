@@ -2,7 +2,7 @@
 Severity: major
 Area: app
 
-> **Summary.** Perps Arena's activity feed has not moved since **2026-11-02 17:46:59 UTC**, about 3 hours and 47 minutes into week 4, the last week of the competition. Three things are stuck because of it:
+> **Summary.** Perps Arena's activity feed has not moved since **2026-11-02 17:46:59 UTC**, about 3 hours and 47 minutes into week 4, the last week of the competition. Three things are stuck, and all three fit that cut-off:
 > - **Quests.** We opened and fully closed a position on our own Arena account at 08:34–08:36 UTC on Nov 3. The hosted indexer had both trades by 08:46. The quest scorer has run three times since then (`scoredAt` 08:50:14, 08:56:17 and 09:02:10), and it still shows no week 4 progress at all. "Close a position today" is not credited, and the all-time volume counter has not moved. Quest points are what buy raffle tickets.
 > - **The week 4 leaderboard.** The table still says "Updated November 2, 17:00 UTC", and its trade and day counts stop at 17:46:59. The #1 trader shows 27 trades on 1 day; the indexer has 41 on 2 days.
 > - **The qualification counters**, which are built from those counts ("This week: 0 of 10 closes, 0 of 3 days").
@@ -43,7 +43,7 @@ Area: app
 | 08:52:31 | full close, 2 fills | `0x0701b6a2…caa2` |
 | 08:50:14, 08:56:17, 09:02:10 | quest scoring runs: still **0** week 4 progress rows, **0** completions, volume counter **33,851.41** (unchanged) | — |
 
-The 08:36 close was in the indexer from 08:46:09 and has not been credited, and neither has any of the 23,831 USDso of volume from the four filled orders. Today's daily quest is "Fully close at least one perps position today (UTC)". The Portfolio page of the same account does pick up the new trades from the indexer: its "Fees saved" figure went from $19.80 at 08:55 to $24.30 at 09:04 as the indexer took in our trades, while the quest counter above stayed at 33,851.41.
+The 08:36 close was in the indexer from 08:46:09 and has not been credited, and neither has any of the 23,831 USDso of volume from the four filled orders. Today's daily quest is "Fully close at least one perps position today (UTC)". The Portfolio page of the same account does pick up the new trades from the indexer: its "Fees saved" figure went from $19.80 at 08:55 to $24.30 at 09:04 as the indexer took in our trades, while the quest counter above stayed at 33,851.41. We can only read our own quest state. What links it to everyone else's is the board's global `activityThrough`. Our enrolment shows `review: "pending"`, as it has since 2026-10-19, and it was scored normally in week 2, so the review status does not explain the gap.
 
 **Leaderboard table vs the chart and the chain at 07:00 UTC** (`evidence/71/board_vs_chain_2026-11-03T0757Z.txt`):
 
